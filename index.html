@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Hoteles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #111827;
+            color: #f3f4f6;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background-color: #1f2937;
+            border-right: 1px solid #374151;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid #374151;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sidebar-header h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .sidebar-nav {
+            padding: 16px;
+            overflow-y: auto;
+        }
+
+        .hotel-item {
+            margin-bottom: 8px;
+        }
+
+        .hotel-button {
+            width: 100%;
+            padding: 12px 16px;
+            background: transparent;
+            border: none;
+            color: #f3f4f6;
+            cursor: pointer;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .hotel-button:hover {
+            background-color: #374151;
+        }
+
+        .hotel-button.active {
+            background-color: #374151;
+        }
+
+        .subsection-button {
+            width: 100%;
+            padding: 8px 16px;
+            margin-left: 24px;
+            background: transparent;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .subsection-button:hover {
+            background-color: #374151;
+            color: #f3f4f6;
+        }
+
+        .subsection-button.active {
+            background-color: #374151;
+            color: #f3f4f6;
+        }
+
+        .arrow {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.2s;
+        }
+
+        .arrow.expanded {
+            transform: rotate(90deg);
+        }
+
+        .hotel-subsections {
+            display: none;
+            margin-top: 4px;
+        }
+
+        .hotel-subsections.show {
+            display: block;
+        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 32px;
+        }
+
+        .empty-state {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            flex-direction: column;
+            color: #6b7280;
+        }
+
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .content-header {
+            margin-bottom: 32px;
+        }
+
+        .content-header h2 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .content-header h3 {
+            font-size: 20px;
+            color: #9ca3af;
+            margin-top: 8px;
+        }
+
+        /* Table */
+        .table-container {
+            overflow-x: auto;
+            background-color: #1f2937;
+            border-radius: 8px;
+            border: 1px solid #374151;
+            margin-bottom: 24px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: #d1d5db;
+            background-color: #111827;
+            border-bottom: 1px solid #374151;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px 16px;
+            color: #d1d5db;
+            border-bottom: 1px solid #374151;
+            line-height: 1.6;
+        }
+
+        tr:hover {
+            background-color: rgba(55, 65, 81, 0.5);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #3b82f6;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+                    <path d="M3 21h18"></path>
+                    <path d="M9 8h10"></path>
+                    <path d="M9 12h10"></path>
+                    <path d="M9 16h10"></path>
+                    <path d="M4.5 19.5L4.5 9l3-3h9l3 3v10.5"></path>
+                    <path d="M4 21l1-7h14l1 7"></path>
+                </svg>
+                <h1>Propiedades</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="hotel-item">
+                    <button class="hotel-button" onclick="toggleHotel('baires')">
+                        <span class="arrow" id="arrow-baires">▶</span>
+                        <span>Baires by iPPA</span>
+                    </button>
+                    <div class="hotel-subsections" id="subsections-baires">
+                        <button class="subsection-button" onclick="showSubsection('baires', 'links')">
+                            <span>→</span>
+                            <span>Links y contraseñas</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('baires', 'bedding')">
+                            <span>→</span>
+                            <span>Categoría y Bedding</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hotel-item">
+                    <button class="hotel-button" onclick="toggleHotel('filiberto')">
+                        <span class="arrow" id="arrow-filiberto">▶</span>
+                        <span>Filiberto by iPPA</span>
+                    </button>
+                    <div class="hotel-subsections" id="subsections-filiberto">
+                        <button class="subsection-button" onclick="showSubsection('filiberto', 'links')">
+                            <span>→</span>
+                            <span>Links y contraseñas</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('filiberto', 'bedding')">
+                            <span>→</span>
+                            <span>Categoría y Bedding</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('filiberto', 'bankData')">
+                            <span>→</span>
+                            <span>Datos Bancarios</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('filiberto', 'quickresponses')">
+                            <span>→</span>
+                            <span>Respuestas Rápidas</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('filiberto', 'billing')">
+                            <span>→</span>
+                            <span>Facturación</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hotel-item">
+                    <button class="hotel-button" onclick="toggleHotel('milenia')">
+                        <span class="arrow" id="arrow-milenia">▶</span>
+                        <span>Milenia by iPPA</span>
+                    </button>
+                    <div class="hotel-subsections" id="subsections-milenia">
+                        <button class="subsection-button" onclick="showSubsection('milenia', 'links')">
+                            <span>→</span>
+                            <span>Links y contraseñas</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('milenia', 'bedding')">
+                            <span>→</span>
+                            <span>Categoría y Bedding</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="main-content">
+            <div id="empty-state" class="empty-state">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 21h18"></path>
+                    <path d="M9 8h10"></path>
+                    <path d="M9 12h10"></path>
+                    <path d="M9 16h10"></path>
+                    <path d="M4.5 19.5L4.5 9l3-3h9l3 3v10.5"></path>
+                    <path d="M4 21l1-7h14l1 7"></path>
+                </svg>
+                <p style="font-size: 18px;">Selecciona un hotel del menú lateral</p>
+            </div>
+            <div id="content" class="hidden">
+                <div class="content-header">
+                    <h2 id="hotel-title"></h2>
+                    <h3 id="subsection-title"></h3>
+                </div>
+                <div id="table-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hotelsData = {
+            baires: {
+                name: 'Baires by iPPA',
+                subsections: {
+                    links: {
+                        title: 'Links y contraseñas',
+                        sections: [
+                            {
+                                name: 'Información General',
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['HOST BAIRES', '-', 'hostbaires@gmail.com', 'Buenos Aires 1357'],
+                                    ['Lugar', '-', 'Buenos Aires 1357, CABA', '-']
+                                ]
+                            },
+                            {
+                                name: 'Tecnología',
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Usuario Principal', '-', 'hostbaires@gmail.com', 'Buenos Aires 1357']
+                                ]
+                            },
+                            {
+                                name: "OTA's",
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Booking.com', '-', 'hostbaires@gmail.com', 'Buenos Aires 1357'],
+                                    ['Despegar', '-', 'hostbaires@gmail.com', 'Mayte2025']
+                                ]
+                            }
+                        ]
+                    },
+                    bedding: {
+                        title: 'Categoría y Bedding',
+                        sections: [
+                            {
+                                name: 'Configuración de Habitaciones',
+                                data: [
+                                    ['Hab con Terminación', 'Tipo de Habitación', 'Configuración', 'Notas'],
+                                    ['02', 'Twin', 'Todas las habitaciones terminadas en 02', 'Dos camas individuales'],
+                                    ['03', 'Matrimonial (MAT)', 'No se pueden hacer Twin', 'Incluye: 104, 105, 504'],
+                                    ['06', 'Triple', 'Todas las habitaciones terminadas en 06', 'Tres camas'],
+                                    ['01', 'Cuádruple', 'Todas menos la 501', 'Se pueden hacer cuádruple twin']
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            filiberto: {
+                name: 'Filiberto by iPPA',
+                subsections: {
+                    links: {
+                        title: 'Links y contraseñas',
+                        sections: [
+                            {
+                                name: 'Información General',
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718562712', 'Filiberto2025!!'],
+                                    ['Celular', '-', '-', '1564'],
+                                    ['Mail','-', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024@'],
+                                    ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
+                                    ['TESA', '-', 'nahuelz', 'nahuelz1']
+                                ]
+                            },
+                            {
+                                name: 'Tecnología',
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'iPPAJunio2025!'],
+                                    ['GETNET', '-', '30718528018', 'Insoho1562'],
+                                    ['We Travel', '-', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024_!?']
+                                ]
+                            },
+                            {
+                                name: "OTA's",
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024'],
+                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
+                                    ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'hostfiliberto', 'IPHoteles2024'],
+                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host.insoho@ippa-hoteles.com', 'IPHoteles2024'],
+                                    ['BookiP (pública)', '<a href="https://book.ip-hoteles.com/wbeIPHSNG?hotel_code=IPH236" target="_blank">Sitio público</a>', '-', '-'],
+                                    ['Hyperguest', '-', 'reservas@ippa-hoteles.com', '*IPHoteles2024*'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Host.iPPA', 'IPHoteles2024#']
+                                ]
+                            }
+                        ]
+                    },
+                    bedding: {
+                        title: 'Categoría y Bedding',
+                        sections: [
+                            {
+                                name: 'Configuración de Habitaciones',
+                                data: [
+                                    ['Hab con Terminación', 'Tipo de Habitación', 'Configuración', 'Notas'],
+                                    ['02', 'Twin', 'Todas las habitaciones terminadas en 02', 'Dos camas individuales'],
+                                    ['03', 'Matrimonial (MAT)', 'No se pueden separar', 'Incluye: 104, 105, 504'],
+                                    ['06', 'Categoría Superior', 'Todas las habitaciones terminadas en 06', 'Mat + Cama/Tres camas'],
+                                    ['01', 'Categoría Familiar', '', 'Todas menos la 501 Se pueden hacer cuádruple twin']
+                                ]
+                            }
+                        ]
+                    },
+                    bankData: {
+                        title: 'Datos Bancarios',
+                        sections: [
+                            {
+                                name: 'Información de Cuenta',
+                                data: [
+                                    ['Concepto', 'Detalle'],
+                                    ['Razón Social', 'NUEVA JUSTA SRL'],
+                                    ['Cuit', '30718562712'],
+                                    ['Número de cuenta', 'CC ARS 001-5760549-2'],
+                                    ['CBU', '0270001410057605490023'],
+                                    ['Alias', 'GRANA.GAFAS.DESPERTO']
+                                ]
+                            }
+                        ]
+                    },
+                    quickresponses: {
+                        title: 'Respuestas Rápidas',
+                        sections: [
+                            {
+                                name: 'Respuestas en Español',
+                                data: [
+                                    ['Categoría', 'Respuesta'],
+                                    ['DE NADA', '¡De nada! Cualquier requerimiento o consulta que pueda surgirle, quedamos a disposición.'],
+                                    ['DIRECCIÓN', '💙💛 Filiberto by Ippa 💙💛<br>📍 Juan de Dios Filiberto 992, C1162AAB Cdad. Autónoma de Buenos Aires<br>https://maps.app.goo.gl/cYoWMFAbjABEg7VZ7'],
+                                    ['ADAPTADORES', 'Lamentablemente no contamos con adaptadores. Pero los puede conseguir en cualquier ferretería o en farmacias como farmacity'],
+                                    ['POST PAGO / WCI', 'Recibido ¡Muchas gracias! El procedimiento de ingreso lo recibirá cuando su apartamento esté listo para ingresar. ¡Estamos ansiosos por recibirle! Un saludo'],
+                                    ['FIN ESTADÍA', '¡Muchas gracias por el aviso! 😀 Esperamos que haya vivido una hermosa experiencia en Filiberto Apart by iPPA ✨, para nosotros ha sido un placer recibirlos ☺. Para su próxima visita, le sugerimos realizar su reserva a través de nuestra Central de Reservas iPPA y obtendrá la mejor tarifa disponible 💵 y un trato preferencial 👑:<br>📲 ‪+54 9 11 49454772‬<br>📧 reservas@ippa-hoteles.com<br>¡Los esperamos en su próxima visita a Buenos Aires! ¡Hasta entonces! ☺'],
+                                    ['AÚN NO LIMPIO', 'Disculpe las molestias. El apartamento aún no se encuentra disponible para el ingreso. En cuanto esté disponible, le avisaremos de inmediato por este medio las instrucciones para retirar la llave que le permitirán entrar al apartamento. Ante cualquier consulta o necesidad que tenga, quedamos a su entera disposición.'],
+                                    ['HORA CHECK IN', 'Hola, buen día. El check in es las 15 hs, aunque si el departamento estuviera listo antes no habría problema con ingresar un poco más temprano, pero no lo podemos asegurar ya que está el edificio completamente reservado. En el momento que el apartamento esté listo para ingresar, inmediatamente le avisaremos de inmediato por este medio las instrucciones para retirar la llave que le permitirán entrar al apartamento'],
+                                    ['LATE CHECK-OUT', 'Hola ¡Buen día! Lamentablemente para el día de hoy no contamos con disponibilidad para ofrecerle un Late Check-Out, ya que el edificio se consigue completamente reservado, le pedimos disculpas.'],
+                                    ['WIFI', 'Wi Fi 🛜<br>📌 Red: Filiberto by iPPA + (su número de apartamento)<br>📌 Contraseña: conectate'],
+                                    ['ESTACIONAMIENTO', 'El edificio Filiberto no cuenta con estacionamiento, sin embargo le enviamos la dirección del estacionamiento más cercano, que queda a una cuadra del edificio: https://maps.app.goo.gl/Jn4RtYzm1By8M4B27?g_st=awb'],
+                                    ['DEBITO EXT', 'Hola ¡Buen día! El débito se realizará a su tarjeta proveída en Booking, 48 hrs previo al día de su reserva. Asimismo nos comunicaremos a través del Whatsapp proveído en su rva comentándole el estado del débito y finiquitando los últimos detalles de su Check-In. Cualquier requerimiento o consulta que pueda surgirle, quedamos a disposición.'],
+                                    ['WCI RECHAZADO', 'Hemos recibido el Web Check in correctamente pero hemos notado que ha adjuntado una foto de usted mismo cuando necesitamos uno de sus pasaportes, sería muy amable de su parte si pudiese enviárnosla a través de este chat'],
+                                    ['NUMERO TLF', 'También queríamos comentarle que el número de teléfono facilitado en tu reserva no nos permite enviarte WhatsApp, parece incorrecto. Por favor, ¿podría proporcionarnos un número de teléfono funcional, ya que será necesario cerca de la fecha, para su proceso de check-in y para proporcionarle las instrucciones para poder ingresar al apartamento? ¡Gracias! Saludos.']
+                                ]
+                            },
+                            {
+                                name: 'Respuestas en Inglés',
+                                data: [
+                                    ['Category', 'Response'],
+                                    ['You are welcome','You are very welcome! Should any requirement or query arise during your stay, please do not hesitate to contact us. We remain at your disposal.'],
+                                    ['Adapters','We sincerely apologize, but unfortunately, we do not currently have adapters in stock. However, you can conveniently find them at any nearby hardware store or at pharmacies such as Farmacity'],
+                                    ['ADDRESS', '💙💛 Filiberto by Ippa 💙💛<br>📍 Juan de Dios Filiberto 992, C1162AAB Cdad. Autónoma de Buenos Aires<br>https://maps.app.goo.gl/cYoWMFAbjABEg7VZ7'],
+                                    ['POST PAYMENT / WCI', "Received! Thank you very much! You will receive the move-in procedure when your apartment is ready for you. We look forward to welcoming you! Best regards"],
+                                    ['NOT READY YET', "We sincerely apologize, but the apartment is not quite ready for your move-in yet. We are working diligently to finalize the preparations. As soon as it becomes available, we will immediately send you the instructions to obtain the key, which will allow you to access the apartment. Should you have any questions or needs in the meantime, please know we remain at your complete disposal"],
+                                    ['CHECK IN TIME', "Check in is at 3:00 p.m. but if the apartment was ready earlier there would be no problem with entering early, but we cannot guarantee this since the building is fully booked. As soon as the apartment is ready to enter, we will immediately send you the instructions to obtain the key, with which you will be able to access the apartment."],
+                                    ['LATE CHECK-OUT', "Hello, good morning! Unfortunately, we don't have any availability for offering you a late check-out today. As the building is fully booked, we are unable to offer you the apartment after the agreed-upon check-out time."],
+                                    ['WIFI', 'Wi-Fi 🛜<br>📌 Network: Filiberto by iPPA + (your apartment number)<br>📌 Password: connect'],
+                                    ['WCI REJECTED', 'We have received the Web Check-in correctly, but we noticed that you have attached a photo of yourself when we need one of your passports. It would be very kind of you if you could send it to us through this chat.'],
+                                    ['PHONE NUMBER', 'We also wanted to let you know that the phone number provided in your reservation does not allow us to send you WhatsApp, it seems to be incorrect. Please could you provide us with a functional phone number, as it will be necessary close to the date, for your check-in process and to provide you with the digital keys to the building. Thank you! Greetings']
+                                ]
+                            }
+                        ]
+                    },
+                    billing: {
+                        title: 'Facturación',
+                        sections: [
+                            {
+                                name: 'Tipos de Facturación por Origen',
+                                data: [
+                                    ['Origen', 'Tipo de Pago', 'Tipo de Factura'],
+                                    ['Booking.com', 'Visa, Mastercard,Amex,etc', 'Factura A/B'],
+                                    ['Despegar', 'Cuenta corriente', 'Factura A'],
+                                    ['Airbnb', 'Cuenta corriente', 'Factura A'],
+                                    ['Expedia', 'Visa, Mastercard,Amex,etc', 'Factura T/Electrónica T'],
+                                    ['Efectivo', 'Factura T', 'Recibo T'],
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            milenia: {
+                name: 'Milenia by iPPA',
+                subsections: {
+                    links: {
+                        title: 'Links y contraseñas',
+                        sections: [
+                            {
+                                name: 'Información General',
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['HOST IN SOHO', '-', 'hostinsoho@gmail.com', 'InSoho2025'],
+                                    ['Lugar', '-', 'Nicaragua 5565, CABA', '-']
+                                ]
+                            },
+                            {
+                                name: 'Tecnología',
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Usuario Principal', '-', 'hostinsoho@gmail.com', 'InSoho2025']
+                                ]
+                            },
+                            {
+                                name: "OTA's",
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Booking.com', '-', 'hostinsoho@gmail.com', 'InSoho2025'],
+                                    ['Despegar', '-', 'hostinsoho@gmail.com', 'Mayte2025']
+                                ]
+                            }
+                        ]
+                    },
+                    bedding: {
+                        title: 'Categoría y Bedding',
+                        sections: [
+                            {
+                                name: 'Configuración de Habitaciones',
+                                data: [
+                                    ['Hab con Terminación', 'Tipo de Habitación', 'Configuración', 'Notas'],
+                                    ['02', 'Twin', 'Todas las habitaciones terminadas en 02', 'Dos camas individuales'],
+                                    ['03', 'Matrimonial (MAT)', 'No se pueden separar', 'Incluye: 104, 105, 504'],
+                                    ['06', 'Triple', 'Todas las habitaciones terminadas en 06', 'Tres camas'],
+                                    ['01', 'Cuádruple', 'Todas menos la 501', 'Se pueden hacer cuádruple twin']
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+
+        let currentHotel = null;
+        let currentSubsection = null;
+
+        function toggleHotel(hotelId) {
+            const arrow = document.getElementById(`arrow-${hotelId}`);
+            const subsections = document.getElementById(`subsections-${hotelId}`);
+            const button = arrow.parentElement;
+            
+            if (currentHotel === hotelId) {
+                arrow.classList.remove('expanded');
+                subsections.classList.remove('show');
+                button.classList.remove('active');
+                currentHotel = null;
+                currentSubsection = null;
+                showEmptyState();
+            } else {
+                if (currentHotel) {
+                    document.getElementById(`arrow-${currentHotel}`).classList.remove('expanded');
+                    document.getElementById(`subsections-${currentHotel}`).classList.remove('show');
+                    document.querySelectorAll('.hotel-button').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.subsection-button').forEach(b => b.classList.remove('active'));
+                }
+                
+                arrow.classList.add('expanded');
+                subsections.classList.add('show');
+                currentHotel = hotelId;
+            }
+        }
+
+        function showSubsection(hotelId, subsectionId) {
+            currentHotel = hotelId;
+            currentSubsection = subsectionId;
+            
+            document.querySelectorAll('.subsection-button').forEach(b => b.classList.remove('active'));
+            event.target.closest('.subsection-button').classList.add('active');
+            
+            const hotel = hotelsData[hotelId];
+            const subsection = hotel.subsections[subsectionId];
+            
+            document.getElementById('hotel-title').textContent = hotel.name;
+            document.getElementById('subsection-title').textContent = subsection.title;
+            document.getElementById('empty-state').classList.add('hidden');
+            document.getElementById('content').classList.remove('hidden');
+            
+            renderSections(subsection.sections);
+        }
+
+        function showEmptyState() {
+            document.getElementById('empty-state').classList.remove('hidden');
+            document.getElementById('content').classList.add('hidden');
+        }
+
+        function renderSections(sections) {
+            const container = document.getElementById('table-container');
+            let html = '';
+            
+            sections.forEach(section => {
+                html += `<div class="section-title">${section.name}</div>`;
+                html += '<div class="table-container"><table><thead><tr>';
+                
+                const headers = section.data[0];
+                headers.forEach(header => {
+                    html += `<th>${header}</th>`;
+                });
+                html += '</tr></thead><tbody>';
+                
+                const rows = section.data.slice(1);
+                rows.forEach(row => {
+                    html += '<tr>';
+                    row.forEach(cell => {
+                        html += `<td>${cell}</td>`;
+                    });
+                    html += '</tr>';
+                });
+                
+                html += '</tbody></table></div>';
+            });
+            
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
