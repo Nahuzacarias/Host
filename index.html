@@ -1,231 +1,275 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iPPA Hoteles</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" href="/Media/ippa.ico">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPPA Hoteles</title>
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="styles.css">
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #111827;
-            color: #f3f4f6;
-            height: 100vh;
-            overflow: hidden;
-        }
+  <!-- CSS interno -->
+  <style>
+    /* Estilos para el footer del sidebar */
+    .sidebar-footer {
+      padding: 16px;
+      border-top: 1px solid #374151;
+      margin-top: auto; /* Esto asegura que se pegue al fondo */
+    }
 
-        .container {
-            display: flex;
-            height: 100vh;
-        }
+    .download-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 12px;
+      background-color: #000000; /* Fondo negro solicitado */
+      color: #f3f4f6;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      gap: 10px;
+    }
 
-        /* Sidebar */
-        .sidebar {
-            width: 280px;
-            background-color: #1f2937;
-            border-right: 1px solid #374151;
-            display: flex;
-            flex-direction: column;
-        }
+    .download-btn:hover {
+      background-color: #111827; /* Un poco más claro al pasar el mouse */
+      border-color: #3b82f6; /* Borde azul iPPA al hover */
+      color: #ffffff;
+      text-decoration: none;
+    }
 
-        .sidebar-header {
-            padding: 24px;
-            border-bottom: 1px solid #374151;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+    /* Icono de descarga */
+    .download-icon {
+      width: 18px;
+      height: 18px;
+      stroke: #3b82f6; /* Color azul de la marca */
+    }
 
-        .sidebar-header h1 {
-            font-size: 24px;
-            font-weight: bold;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .sidebar-nav {
-            padding: 24px;
-            overflow-y: auto;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #111827;
+      color: #f3f4f6;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-        .hotel-item {
-            margin-bottom: 8px;
-        }
+    .container {
+      display: flex;
+      height: 100vh;
+    }
 
-        .hotel-button {
-            width: 100%;
-            padding: 12px 16px;
-            background: transparent;
-            border: none;
-            color: #f3f4f6;
-            cursor: pointer;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 16px;
-            font-weight: 500;
-            transition: background-color 0.2s;
-        }
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      background-color: #1f2937;
+      border-right: 1px solid #374151;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .hotel-button:hover {
-            background-color: #374151;
-        }
+    .sidebar-header {
+      padding: 24px;
+      border-bottom: 1px solid #374151;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-        .hotel-button.active {
-            background-color: #374151;
-        }
+    .sidebar-header h1 {
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-        .subsection-button {
-            width: 100%;
-            padding: 8px 16px;
-            margin-left: 24px;
-            background: transparent;
-            border: none;
-            color: #9ca3af;
-            cursor: pointer;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            transition: background-color 0.2s;
-        }
+    .sidebar-nav {
+      padding: 24px;
+      overflow-y: auto;
+    }
 
-        .subsection-button:hover {
-            background-color: #374151;
-            color: #f3f4f6;
-        }
+    .hotel-item {
+      margin-bottom: 8px;
+    }
 
-        .subsection-button.active {
-            background-color: #374151;
-            color: #f3f4f6;
-        }
+    .hotel-button {
+      width: 100%;
+      padding: 12px 16px;
+      background: transparent;
+      border: none;
+      color: #f3f4f6;
+      cursor: pointer;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
 
-        .arrow {
-            width: 16px;
-            height: 16px;
-            transition: transform 0.2s;
-        }
+    .hotel-button:hover {
+      background-color: #374151;
+    }
 
-        .arrow.expanded {
-            transform: rotate(90deg);
-        }
+    .hotel-button.active {
+      background-color: #374151;
+    }
 
-        .hotel-subsections {
-            display: none;
-            margin-top: 4px;
-        }
+    .subsection-button {
+      width: 100%;
+      padding: 8px 16px;
+      margin-left: 24px;
+      background: transparent;
+      border: none;
+      color: #9ca3af;
+      cursor: pointer;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      transition: background-color 0.2s;
+    }
 
-        .hotel-subsections.show {
-            display: block;
-        }
+    .subsection-button:hover {
+      background-color: #374151;
+      color: #f3f4f6;
+    }
 
-        /* Main content */
-        .main-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 32px;
-        }
+    .subsection-button.active {
+      background-color: #374151;
+      color: #f3f4f6;
+    }
 
-        .empty-state {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            flex-direction: column;
-            color: #6b7280;
-        }
+    .arrow {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s;
+    }
 
-        .empty-state svg {
-            width: 64px;
-            height: 64px;
-            margin-bottom: 16px;
-            opacity: 0.5;
-        }
+    .arrow.expanded {
+      transform: rotate(90deg);
+    }
 
-        .content-header {
-            margin-bottom: 32px;
-        }
+    .hotel-subsections {
+      display: none;
+      margin-top: 4px;
+    }
 
-        .content-header h2 {
-            font-size: 32px;
-            font-weight: bold;
-        }
+    .hotel-subsections.show {
+      display: block;
+    }
 
-        .content-header h3 {
-            font-size: 20px;
-            color: #9ca3af;
-            margin-top: 8px;
-        }
+    /* Main content */
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 32px;
+    }
 
-        /* Table */
-        .table-container {
-            overflow-x: auto;
-            background-color: #1f2937;
-            border-radius: 8px;
-            border: 1px solid #374151;
-            margin-bottom: 24px;
-        }
+    .empty-state {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      flex-direction: column;
+      color: #6b7280;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
+    .empty-state svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
 
-        th {
-            padding: 12px 16px;
-            text-align: left;
-            font-weight: 600;
-            color: #d1d5db;
-            background-color: #111827;
-            border-bottom: 1px solid #374151;
-            white-space: nowrap;
-        }
+    .content-header {
+      margin-bottom: 32px;
+    }
 
-        td {
-            padding: 12px 16px;
-            color: #d1d5db;
-            border-bottom: 1px solid #374151;
-            line-height: 1.6;
-        }
+    .content-header h2 {
+      font-size: 32px;
+      font-weight: bold;
+    }
 
-        tr:hover {
-            background-color: rgba(55, 65, 81, 0.5);
-        }
+    .content-header h3 {
+      font-size: 20px;
+      color: #9ca3af;
+      margin-top: 8px;
+    }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
+    /* Table */
+    .table-container {
+      overflow-x: auto;
+      background-color: #1f2937;
+      border-radius: 8px;
+      border: 1px solid #374151;
+      margin-bottom: 24px;
+    }
 
-        .section-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: #3b82f6;
-        }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
 
-        .hidden {
-            display: none;
-        }
+    th {
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      color: #d1d5db;
+      background-color: #111827;
+      border-bottom: 1px solid #374151;
+      white-space: nowrap;
+    }
 
-        a {
-            color: #3b82f6;
-            text-decoration: none;
-        }
+    td {
+      padding: 12px 16px;
+      color: #d1d5db;
+      border-bottom: 1px solid #374151;
+      line-height: 1.6;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    tr:hover {
+      background-color: rgba(55, 65, 81, 0.5);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #3b82f6;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
+<body>
+  <!-- Aquí iría tu contenido -->
+</body>
+</html>
 <body>
     <div class="container">
         <div class="sidebar">
@@ -241,6 +285,7 @@
                 <h1>Propiedades</h1>
             </div>
             <nav class="sidebar-nav">
+                
                 <div class="hotel-item">
                     <button class="hotel-button" onclick="toggleHotel('milenia')">
                         <span class="arrow" id="arrow-milenia">▶</span>
@@ -263,6 +308,7 @@
                             <span>→</span>
                             <span>Facturación</span>
                         </button>
+                        
                     </div>
                 </div>
                 <div class="hotel-item">
@@ -293,7 +339,7 @@
                 <div class="hotel-item">
                     <button class="hotel-button" onclick="toggleHotel('bah')">
                         <span class="arrow" id="arrow-bah">▶</span>
-                        <span>BAH Congreso by iPPA</span>
+                        <span>BAH Congreso By iPPA</span>
                     </button>
                     <div class="hotel-subsections" id="subsections-bah">
                         <button class="subsection-button" onclick="showSubsection('bah', 'links')">
@@ -327,10 +373,22 @@
                         <button class="subsection-button" onclick="showSubsection('baires', 'bedding')">
                             <span>→</span>
                             <span>Categoría y Bedding</span>
+                            
                         </button>
+                        
                     </div>
                 </div>
             </nav>
+            <div class="sidebar-footer">
+                <a href="/Media/Host.xlsx" class="download-btn" download>
+                    <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Descargá la info en Excel
+                </a>
+            </div>
         </div>
 
         <div class="main-content">
@@ -343,7 +401,7 @@
                     <path d="M4.5 19.5L4.5 9l3-3h9l3 3v10.5"></path>
                     <path d="M4 21l1-7h14l1 7"></path>
                 </svg>
-                <p style="font-size: 18px;">Seleccioná una propiedad del menú lateral</p>
+                <p style="font-size: 18px;">Selecciona un hotel del menú lateral</p>
             </div>
             <div id="content" class="hidden">
                 <div class="content-header">
@@ -583,7 +641,7 @@
                                     }
                                 },
                                      bah: {
-                            name: 'BAH Congreso by iPPA',
+                            name: 'BAH Congreso By iPPA',
                             subsections: {
                                 links: {
                                     title: 'Links y contraseñas',
@@ -698,5 +756,6 @@
                                 document.getElementById('content').classList.remove('hidden');
                             }
                         </script>
+                        
                     </body>
                     </html>
