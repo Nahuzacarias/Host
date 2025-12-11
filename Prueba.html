@@ -4,50 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iPPA Hoteles</title>
-  <!-- CSS externo -->
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- CSS interno -->
   <style>
-    /* Estilos para el footer del sidebar */
-    .sidebar-footer {
-      padding: 16px;
-      border-top: 1px solid #374151;
-      margin-top: auto; /* Esto asegura que se pegue al fondo */
-    }
-
-    .download-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      padding: 12px;
-      background-color: #000000; /* Fondo negro solicitado */
-      color: #f3f4f6;
-      border: 1px solid #374151;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      gap: 10px;
-    }
-
-    .download-btn:hover {
-      background-color: #111827; /* Un poco más claro al pasar el mouse */
-      border-color: #3b82f6; /* Borde azul iPPA al hover */
-      color: #ffffff;
-      text-decoration: none;
-    }
-
-    /* Icono de descarga */
-    .download-icon {
-      width: 18px;
-      height: 18px;
-      stroke: #3b82f6; /* Color azul de la marca */
-    }
-
+    /* --- ESTILOS GENERALES --- */
     * {
       margin: 0;
       padding: 0;
@@ -59,21 +17,26 @@
       background-color: #111827;
       color: #f3f4f6;
       height: 100vh;
-      overflow: hidden;
+      overflow: hidden; /* Mantiene el scroll interno */
     }
 
     .container {
       display: flex;
       height: 100vh;
+      position: relative; /* Necesario para el posicionamiento absoluto en móvil */
     }
 
-    /* Sidebar */
+    /* --- SIDEBAR --- */
     .sidebar {
       width: 280px;
       background-color: #1f2937;
       border-right: 1px solid #374151;
       display: flex;
       flex-direction: column;
+      height: 100%;
+      /* Transición suave para el menú móvil */
+      transition: transform 0.3s ease-in-out;
+      z-index: 50;
     }
 
     .sidebar-header {
@@ -82,6 +45,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      justify-content: space-between; /* Para acomodar el botón de cerrar en móvil */
     }
 
     .sidebar-header h1 {
@@ -92,11 +56,18 @@
     .sidebar-nav {
       padding: 24px;
       overflow-y: auto;
+      flex: 1; /* Ocupa el espacio disponible */
     }
 
-    .hotel-item {
-      margin-bottom: 8px;
+    .sidebar-footer {
+      padding: 16px;
+      border-top: 1px solid #374151;
+      margin-top: auto;
+      background-color: #1f2937; /* Asegura fondo sólido */
     }
+
+    /* Botones y Navegación */
+    .hotel-item { margin-bottom: 8px; }
 
     .hotel-button {
       width: 100%;
@@ -114,11 +85,7 @@
       transition: background-color 0.2s;
     }
 
-    .hotel-button:hover {
-      background-color: #374151;
-    }
-
-    .hotel-button.active {
+    .hotel-button:hover, .hotel-button.active {
       background-color: #374151;
     }
 
@@ -136,14 +103,10 @@
       gap: 8px;
       font-size: 14px;
       transition: background-color 0.2s;
+      width: calc(100% - 24px); /* Ajuste para que no se salga */
     }
 
-    .subsection-button:hover {
-      background-color: #374151;
-      color: #f3f4f6;
-    }
-
-    .subsection-button.active {
+    .subsection-button:hover, .subsection-button.active {
       background-color: #374151;
       color: #f3f4f6;
     }
@@ -152,28 +115,76 @@
       width: 16px;
       height: 16px;
       transition: transform 0.2s;
+      display: inline-block; /* Asegura que rote bien */
     }
-
-    .arrow.expanded {
-      transform: rotate(90deg);
-    }
+    .arrow.expanded { transform: rotate(90deg); }
 
     .hotel-subsections {
       display: none;
       margin-top: 4px;
     }
+    .hotel-subsections.show { display: block; }
 
-    .hotel-subsections.show {
-      display: block;
+    /* Botón descarga */
+    .download-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 12px;
+      background-color: #000000;
+      color: #f3f4f6;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      gap: 10px;
     }
+    .download-btn:hover {
+      background-color: #111827;
+      border-color: #3b82f6;
+      color: #ffffff;
+    }
+    .download-icon { width: 18px; height: 18px; stroke: #3b82f6; }
 
-    /* Main content */
+    /* --- CONTENIDO PRINCIPAL --- */
     .main-content {
       flex: 1;
       overflow-y: auto;
       padding: 32px;
+      width: 100%;
+      position: relative;
     }
 
+    /* NUEVO: Botón de menú móvil (Hamburguesa) */
+    .mobile-menu-btn {
+      display: none; /* Oculto en escritorio */
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 40;
+      background: #1f2937;
+      border: 1px solid #374151;
+      color: white;
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* NUEVO: Overlay oscuro para cuando abre el menú */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 45;
+      backdrop-filter: blur(2px);
+    }
+
+    /* Estados vacíos y headers */
     .empty-state {
       display: flex;
       align-items: center;
@@ -181,206 +192,190 @@
       height: 100%;
       flex-direction: column;
       color: #6b7280;
+      text-align: center;
+      padding: 20px;
+    }
+    .empty-state svg { width: 64px; height: 64px; margin-bottom: 16px; opacity: 0.5; }
+
+    .content-header { margin-bottom: 32px; margin-top: 40px; /* Margen extra para el botón móvil */ }
+    @media (min-width: 769px) {
+        .content-header { margin-top: 0; }
     }
 
-    .empty-state svg {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 16px;
-      opacity: 0.5;
-    }
+    .content-header h2 { font-size: 32px; font-weight: bold; }
+    .content-header h3 { font-size: 20px; color: #9ca3af; margin-top: 8px; }
 
-    .content-header {
-      margin-bottom: 32px;
-    }
-
-    .content-header h2 {
-      font-size: 32px;
-      font-weight: bold;
-    }
-
-    .content-header h3 {
-      font-size: 20px;
-      color: #9ca3af;
-      margin-top: 8px;
-    }
-
-    /* Table */
+    /* Tablas */
     .table-container {
       overflow-x: auto;
       background-color: #1f2937;
       border-radius: 8px;
       border: 1px solid #374151;
       margin-bottom: 24px;
+      /* Scrollbar estilo fino */
+      scrollbar-width: thin;
+      scrollbar-color: #4b5563 #1f2937;
     }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
-
-    th {
+    
+    table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 600px; /* Fuerza scroll en móvil si es muy angosta */ }
+    th, td {
       padding: 12px 16px;
       text-align: left;
-      font-weight: 600;
-      color: #d1d5db;
-      background-color: #111827;
       border-bottom: 1px solid #374151;
-      white-space: nowrap;
+      white-space: normal; /* Permite saltos de línea */
     }
+    th { font-weight: 600; color: #d1d5db; background-color: #111827; white-space: nowrap; }
+    td { color: #d1d5db; line-height: 1.6; }
+    tr:hover { background-color: rgba(55, 65, 81, 0.5); }
+    tr:last-child td { border-bottom: none; }
 
-    td {
-      padding: 12px 16px;
-      color: #d1d5db;
-      border-bottom: 1px solid #374151;
-      line-height: 1.6;
-    }
+    .section-title { font-size: 20px; font-weight: 600; margin-bottom: 16px; color: #3b82f6; }
+    .hidden { display: none; }
+    a { color: #3b82f6; text-decoration: none; word-break: break-all; /* Rompe links largos en móvil */ }
+    a:hover { text-decoration: underline; }
 
-    tr:hover {
-      background-color: rgba(55, 65, 81, 0.5);
-    }
+    /* --- RESPONSIVE MEDIA QUERIES --- */
+    @media (max-width: 768px) {
+      /* Ajuste del sidebar para móvil */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transform: translateX(-100%); /* Oculto por defecto */
+        width: 85%; /* No ocupa toda la pantalla para que se vea el fondo */
+        max-width: 300px;
+        box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+      }
 
-    tr:last-child td {
-      border-bottom: none;
-    }
+      .sidebar.active {
+        transform: translateX(0); /* Visible */
+      }
 
-    .section-title {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: #3b82f6;
-    }
+      /* Mostrar botón de menú */
+      .mobile-menu-btn {
+        display: block;
+      }
 
-    .hidden {
-      display: none;
-    }
+      /* Ajustes de contenido */
+      .main-content {
+        padding: 20px;
+      }
 
-    a {
-      color: #3b82f6;
-      text-decoration: none;
-    }
+      .content-header h2 { font-size: 24px; }
+      .content-header h3 { font-size: 16px; }
 
-    a:hover {
-      text-decoration: underline;
+      /* Tablas en móvil */
+      th, td {
+        padding: 10px 12px;
+        font-size: 13px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Aquí iría tu contenido -->
-</body>
-</html>
-<body>
+
+    <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
     <div class="container">
-        <div class="sidebar">
+        
+        <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
-                    <path d="M3 21h18"></path>
-                    <path d="M9 8h10"></path>
-                    <path d="M9 12h10"></path>
-                    <path d="M9 16h10"></path>
-                    <path d="M4.5 19.5L4.5 9l3-3h9l3 3v10.5"></path>
-                    <path d="M4 21l1-7h14l1 7"></path>
-                </svg>
-                <h1>Propiedades</h1>
-            </div>
+                <div style="display:flex; align-items:center; gap:12px">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+                        <path d="M3 21h18"></path>
+                        <path d="M9 8h10"></path>
+                        <path d="M9 12h10"></path>
+                        <path d="M9 16h10"></path>
+                        <path d="M4.5 19.5L4.5 9l3-3h9l3 3v10.5"></path>
+                        <path d="M4 21l1-7h14l1 7"></path>
+                    </svg>
+                    <h1>Propiedades</h1>
+                </div>
+                </div>
+            
             <nav class="sidebar-nav">
-                
                 <div class="hotel-item">
                     <button class="hotel-button" onclick="toggleHotel('milenia')">
                         <span class="arrow" id="arrow-milenia">▶</span>
                         <span>Milenia by iPPA</span>
                     </button>
                     <div class="hotel-subsections" id="subsections-milenia">
-                        <button class="subsection-button" onclick="showSubsection('milenia', 'links')">
-                            <span>→</span>
-                            <span>Links y contraseñas</span>
+                        <button class="subsection-button" onclick="showSubsection('milenia', 'links'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Links y contraseñas</span>
                         </button>
-                        <button class="subsection-button" onclick="showSubsection('milenia', 'bedding')">
-                            <span>→</span>
-                            <span>Categoría y Bedding</span>
+                        <button class="subsection-button" onclick="showSubsection('milenia', 'bedding'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Categoría y Bedding</span>
                         </button>
-                        <button class="subsection-button" onclick="showSubsection('milenia', 'bankData')">
-                            <span>→</span>
-                            <span>Datos Bancarios</span>
+                        <button class="subsection-button" onclick="showSubsection('milenia', 'bankData'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Datos Bancarios</span>
                         </button>
-                        <button class="subsection-button" onclick="showSubsection('milenia', 'billing')">
-                            <span>→</span>
-                            <span>Facturación</span>
+                        <button class="subsection-button" onclick="showSubsection('milenia', 'billing'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Facturación</span>
                         </button>
-                        
                     </div>
                 </div>
+
                 <div class="hotel-item">
                     <button class="hotel-button" onclick="toggleHotel('filiberto')">
                         <span class="arrow" id="arrow-filiberto">▶</span>
                         <span>Filiberto by iPPA</span>
                     </button>
                     <div class="hotel-subsections" id="subsections-filiberto">
-                        <button class="subsection-button" onclick="showSubsection('filiberto', 'links')">
-                            <span>→</span>
-                            <span>Links y contraseñas</span>
+                        <button class="subsection-button" onclick="showSubsection('filiberto', 'links'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Links y contraseñas</span>
                         </button>
-                        <button class="subsection-button" onclick="showSubsection('filiberto', 'bedding')">
-                            <span>→</span>
-                            <span>Categoría y Bedding</span>
+                        <button class="subsection-button" onclick="showSubsection('filiberto', 'bedding'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Categoría y Bedding</span>
                         </button>
-                        <button class="subsection-button" onclick="showSubsection('filiberto', 'bankData')">
-                            <span>→</span>
-                            <span>Datos Bancarios</span>
+                        <button class="subsection-button" onclick="showSubsection('filiberto', 'bankData'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Datos Bancarios</span>
                         </button>
-                        
-                        <button class="subsection-button" onclick="showSubsection('filiberto', 'billing')">
-                            <span>→</span>
-                            <span>Facturación</span>
+                        <button class="subsection-button" onclick="showSubsection('filiberto', 'billing'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Facturación</span>
                         </button>
                     </div>
                 </div>
+
                 <div class="hotel-item">
                     <button class="hotel-button" onclick="toggleHotel('bah')">
                         <span class="arrow" id="arrow-bah">▶</span>
                         <span>BAH Congreso By iPPA</span>
                     </button>
                     <div class="hotel-subsections" id="subsections-bah">
-                        <button class="subsection-button" onclick="showSubsection('bah', 'links')">
-                            <span>→</span>
-                            <span>Links y contraseñas</span>
+                        <button class="subsection-button" onclick="showSubsection('bah', 'links'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Links y contraseñas</span>
                         </button>
-                        <button class="subsection-button" onclick="showSubsection('bah', 'bedding')">
-                            <span>→</span>
-                            <span>Categoría y Bedding</span>
+                        <button class="subsection-button" onclick="showSubsection('bah', 'bedding'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Categoría y Bedding</span>
                         </button>
-                        <button class="subsection-button" onclick="showSubsection('bah', 'bankData')">
-                            <span>→</span>
-                            <span>Datos Bancarios</span>
+                        <button class="subsection-button" onclick="showSubsection('bah', 'bankData'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Datos Bancarios</span>
                         </button>
-                        <button class="subsection-button" onclick="showSubsection('bah', 'billing')">
-                            <span>→</span>
-                            <span>Facturación</span>
+                        <button class="subsection-button" onclick="showSubsection('bah', 'billing'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Facturación</span>
                         </button>
                     </div>
                 </div>
+
                 <div class="hotel-item">
                     <button class="hotel-button" onclick="toggleHotel('baires')">
                         <span class="arrow" id="arrow-baires">▶</span>
                         <span>Baires by iPPA</span>
                     </button>
                     <div class="hotel-subsections" id="subsections-baires">
-                        <button class="subsection-button" onclick="showSubsection('baires', 'links')">
-                            <span>→</span>
-                            <span>Links y contraseñas</span>
+                        <button class="subsection-button" onclick="showSubsection('baires', 'links'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Links y contraseñas</span>
                         </button>
-                        <button class="subsection-button" onclick="showSubsection('baires', 'bedding')">
-                            <span>→</span>
-                            <span>Categoría y Bedding</span>
-                            
+                        <button class="subsection-button" onclick="showSubsection('baires', 'bedding'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Categoría y Bedding</span>
                         </button>
-                        
                     </div>
                 </div>
             </nav>
+
             <div class="sidebar-footer">
-                <a href="informacion_ippa.xlsx" class="download-btn" download>
+                <a href="/Media/Host.xlsx" class="download-btn" download>
                     <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                         <polyline points="7 10 12 15 17 10"></polyline>
@@ -392,6 +387,14 @@
         </div>
 
         <div class="main-content">
+            <button class="mobile-menu-btn" onclick="toggleSidebar()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
             <div id="empty-state" class="empty-state">
                 <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M3 21h18"></path>
@@ -401,8 +404,9 @@
                     <path d="M4.5 19.5L4.5 9l3-3h9l3 3v10.5"></path>
                     <path d="M4 21l1-7h14l1 7"></path>
                 </svg>
-                <p style="font-size: 18px;">Selecciona un hotel del menú lateral</p>
+                <p style="font-size: 18px;">Selecciona un hotel del menú</p>
             </div>
+            
             <div id="content" class="hidden">
                 <div class="content-header">
                     <h2 id="hotel-title"></h2>
@@ -414,6 +418,27 @@
     </div>
 
     <script>
+        // --- LÓGICA RESPONSIVE NUEVA ---
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            sidebar.classList.toggle('active');
+            
+            if (sidebar.classList.contains('active')) {
+                overlay.style.display = 'block';
+            } else {
+                overlay.style.display = 'none';
+            }
+        }
+
+        function closeSidebarOnMobile() {
+            // Solo cerrar si estamos en pantalla pequeña
+            if (window.innerWidth <= 768) {
+                toggleSidebar();
+            }
+        }
+
+        // --- TU CÓDIGO ORIGINAL (Sin cambios en los datos) ---
         const hotelsData = {
            baires: {
                 name: 'Baires by iPPA',
