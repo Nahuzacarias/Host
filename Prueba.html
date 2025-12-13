@@ -4,274 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iPPA Hoteles</title>
-  <style>
-    /* --- ESTILOS GENERALES --- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background-color: #111827;
-      color: #f3f4f6;
-      height: 100vh;
-      overflow: hidden; /* Mantiene el scroll interno */
-    }
-
-    .container {
-      display: flex;
-      height: 100vh;
-      position: relative; /* Necesario para el posicionamiento absoluto en móvil */
-    }
-
-    /* --- SIDEBAR --- */
-    .sidebar {
-      width: 280px;
-      background-color: #1f2937;
-      border-right: 1px solid #374151;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      /* Transición suave para el menú móvil */
-      transition: transform 0.3s ease-in-out;
-      z-index: 50;
-    }
-
-    .sidebar-header {
-      padding: 24px;
-      border-bottom: 1px solid #374151;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      justify-content: space-between; /* Para acomodar el botón de cerrar en móvil */
-    }
-
-    .sidebar-header h1 {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .sidebar-nav {
-      padding: 24px;
-      overflow-y: auto;
-      flex: 1; /* Ocupa el espacio disponible */
-    }
-
-    .sidebar-footer {
-      padding: 16px;
-      border-top: 1px solid #374151;
-      margin-top: auto;
-      background-color: #1f2937; /* Asegura fondo sólido */
-    }
-
-    /* Botones y Navegación */
-    .hotel-item { margin-bottom: 8px; }
-
-    .hotel-button {
-      width: 100%;
-      padding: 12px 16px;
-      background: transparent;
-      border: none;
-      color: #f3f4f6;
-      cursor: pointer;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 16px;
-      font-weight: 500;
-      transition: background-color 0.2s;
-    }
-
-    .hotel-button:hover, .hotel-button.active {
-      background-color: #374151;
-    }
-
-    .subsection-button {
-      width: 100%;
-      padding: 8px 16px;
-      margin-left: 24px;
-      background: transparent;
-      border: none;
-      color: #9ca3af;
-      cursor: pointer;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      transition: background-color 0.2s;
-      width: calc(100% - 24px); /* Ajuste para que no se salga */
-    }
-
-    .subsection-button:hover, .subsection-button.active {
-      background-color: #374151;
-      color: #f3f4f6;
-    }
-
-    .arrow {
-      width: 16px;
-      height: 16px;
-      transition: transform 0.2s;
-      display: inline-block; /* Asegura que rote bien */
-    }
-    .arrow.expanded { transform: rotate(90deg); }
-
-    .hotel-subsections {
-      display: none;
-      margin-top: 4px;
-    }
-    .hotel-subsections.show { display: block; }
-
-    /* Botón descarga */
-    .download-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      padding: 12px;
-      background-color: #000000;
-      color: #f3f4f6;
-      border: 1px solid #374151;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      gap: 10px;
-    }
-    .download-btn:hover {
-      background-color: #111827;
-      border-color: #3b82f6;
-      color: #ffffff;
-    }
-    .download-icon { width: 18px; height: 18px; stroke: #3b82f6; }
-
-    /* --- CONTENIDO PRINCIPAL --- */
-    .main-content {
-      flex: 1;
-      overflow-y: auto;
-      padding: 32px;
-      width: 100%;
-      position: relative;
-    }
-
-    /* NUEVO: Botón de menú móvil (Hamburguesa) */
-    .mobile-menu-btn {
-      display: none; /* Oculto en escritorio */
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 40;
-      background: #1f2937;
-      border: 1px solid #374151;
-      color: white;
-      padding: 8px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    /* NUEVO: Overlay oscuro para cuando abre el menú */
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 45;
-      backdrop-filter: blur(2px);
-    }
-
-    /* Estados vacíos y headers */
-    .empty-state {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      flex-direction: column;
-      color: #6b7280;
-      text-align: center;
-      padding: 20px;
-    }
-    .empty-state svg { width: 64px; height: 64px; margin-bottom: 16px; opacity: 0.5; }
-
-    .content-header { margin-bottom: 32px; margin-top: 40px; /* Margen extra para el botón móvil */ }
-    @media (min-width: 769px) {
-        .content-header { margin-top: 0; }
-    }
-
-    .content-header h2 { font-size: 32px; font-weight: bold; }
-    .content-header h3 { font-size: 20px; color: #9ca3af; margin-top: 8px; }
-
-    /* Tablas */
-    .table-container {
-      overflow-x: auto;
-      background-color: #1f2937;
-      border-radius: 8px;
-      border: 1px solid #374151;
-      margin-bottom: 24px;
-      /* Scrollbar estilo fino */
-      scrollbar-width: thin;
-      scrollbar-color: #4b5563 #1f2937;
-    }
-    
-    table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 600px; /* Fuerza scroll en móvil si es muy angosta */ }
-    th, td {
-      padding: 12px 16px;
-      text-align: left;
-      border-bottom: 1px solid #374151;
-      white-space: normal; /* Permite saltos de línea */
-    }
-    th { font-weight: 600; color: #d1d5db; background-color: #111827; white-space: nowrap; }
-    td { color: #d1d5db; line-height: 1.6; }
-    tr:hover { background-color: rgba(55, 65, 81, 0.5); }
-    tr:last-child td { border-bottom: none; }
-
-    .section-title { font-size: 20px; font-weight: 600; margin-bottom: 16px; color: #3b82f6; }
-    .hidden { display: none; }
-    a { color: #3b82f6; text-decoration: none; word-break: break-all; /* Rompe links largos en móvil */ }
-    a:hover { text-decoration: underline; }
-
-    /* --- RESPONSIVE MEDIA QUERIES --- */
-    @media (max-width: 768px) {
-      /* Ajuste del sidebar para móvil */
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        transform: translateX(-100%); /* Oculto por defecto */
-        width: 85%; /* No ocupa toda la pantalla para que se vea el fondo */
-        max-width: 300px;
-        box-shadow: 4px 0 15px rgba(0,0,0,0.5);
-      }
-
-      .sidebar.active {
-        transform: translateX(0); /* Visible */
-      }
-
-      /* Mostrar botón de menú */
-      .mobile-menu-btn {
-        display: block;
-      }
-
-      /* Ajustes de contenido */
-      .main-content {
-        padding: 20px;
-      }
-
-      .content-header h2 { font-size: 24px; }
-      .content-header h3 { font-size: 16px; }
-
-      /* Tablas en móvil */
-      th, td {
-        padding: 10px 12px;
-        font-size: 13px;
-      }
-    }
-  </style>
+  <link rel="icon" href="/Media/ippa.ico">
+  <link rel="stylesheet" href="styles.css">
+  
 </head>
 <body>
 
@@ -313,6 +48,7 @@
                         <button class="subsection-button" onclick="showSubsection('milenia', 'billing'); closeSidebarOnMobile()">
                             <span>→</span> <span>Facturación</span>
                         </button>
+                        
                     </div>
                 </div>
 
@@ -355,6 +91,9 @@
                         <button class="subsection-button" onclick="showSubsection('bah', 'billing'); closeSidebarOnMobile()">
                             <span>→</span> <span>Facturación</span>
                         </button>
+                        <button class="subsection-button" onclick="showSubsection('bah', 'accesos'); closeSidebarOnMobile()">
+    <span>→</span> <span>Accesos</span>
+</button>
                     </div>
                 </div>
 
@@ -553,11 +292,14 @@
                                     ['Concepto', 'Detalle'],
                                     ['Razón Social', 'NUEVA JUSTA SRL'],
                                     ['Cuit', '30718562712'],
-                                    ['Número de cuenta', 'CC ARS 001-5760549-2'],
-                                    ['CBU', '0270001410057605490023'],
-                                    ['Alias', 'GRANA.GAFAS.DESPERTO']
+                                    ['CBU', '0270001410057605490030'],
+                                    ['Alias', 'GRANO.GAFAS.DESPERTO']
+                                    
+
                                 ]
+                                
                             }
+                            
                         ]
                     },
                     
@@ -580,91 +322,107 @@
                 }
             },
             milenia: {
-                name: 'Milenia by iPPA',
-                subsections: {
-                    links: {
-                        title: 'Links y contraseñas',
-                        sections: [
+                name: 'Milenia by iPPA',
+                subsections: {
+                    links: {
+                        title: 'Links y contraseñas',
+                        sections: [
+                            {
+                                name: 'Información General',
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718528018', 'InSoho2025'],
+                                    ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
+                                    ['Celular', '-', '-', '1564'],
+                                    ['TTlock', '-', 'manager.insoho@ippa-hoteles.com', 'Insoho2024'],
+                                    ['Hipcam', '-', 'host.insoho@ippa-hoteles.com', 'ippahoteles2025'],
+                                    ['Mail','-', 'host.mileniasoho@ippa-hoteles.com', 'IPHoteles2024'],
+                                    ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'iPPAJunio2025!'],
+                                   
+                                    ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.insoho@ippa-hoteles.com', 'InSoho2025']
+                                ]
+                            },
+                            {
+                                name: "OTA's",
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024'],
+                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
+                                    ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'hostippa', 'IPHoteles2025'],
+                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host.insoho@ippa-hoteles.com', 'IPHoteles2024'],
+                                    ['BookiP (pública)', '<a href="https://book.ip-hoteles.com/wbeIPHSNG?hotel_code=IPH236" target="_blank">Sitio público</a>', '-', '-'],
+                                    ['Hyperguest', '-', 'reservas@ippa-hoteles.com', '*IPHoteles2024*'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Host.iPPA', 'IPHoteles2024#']
+                                ]
+                            }
+                        ]
+                    },
+                    bedding: {
+                        title: 'Categoría y Bedding',
+                        sections: [
+                            {
+                                name: 'Configuración de Habitaciones',
+                                data: [
+                                    ['Bedding y Equipamiento','Número'],
+                                    ['HABITACIONES HACIA EL FRENTE:','TODAS LAS 01 Y 02'],
+                                    ['HABITACIONES HACIA EL CONTRAFRENTE:','TODAS LAS 03 Y 04'],
+                                    ['HABITACIONES QUE NO SE HACEN TWIN:','604, 704, 901, 403'],
+                                    ['NO TIENE SOFA CAMA:', '801, 802, 604, 704, 901, 902, 402'],
+                                    ['TIENEN MICROONDAS:','704 Y 604'],
+                                    ['HABITACIONES CON 2 BAÑOS:','TODAS MENOS 901 Y 801']
+                                ]
+                            }
+                        ]
+                    },
+                    bankData: {
+                        title: 'Datos Bancarios',
+                        sections: [
+                            {
+                                name: 'Información de Cuenta (ARS)',
+                                data: [
+                                    ['Concepto', 'Detalle'],
+                                    ['Razón Social', 'FIDEICOMISO STAY HOME FIDEICOM '],
+                                    ['Cuit', '30718528018'],
+                                    ['Tipo y número de cuenta corriente en pesos ', '429-019952/2'],
+                                    ['CBU', '0720429020000001995222'],
+                                    ['Alias', 'milenia.by.ippa'],
+                                ]
+                            },
                             {
-                                name: 'Información General',
-                                data: [
-                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718528018', 'InSoho2025'],
-                                    ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
-                                    ['Celular', '-', '-', '1564'],
-                                    ['Mail','-', 'host.mileniasoho@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'iPPAJunio2025!'],
-                                   
-                                    ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.insoho@ippa-hoteles.com', 'InSoho2025']
-                                ]
-                            },
-                            {
-                                name: "OTA's",
-                                data: [
-                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
-                                    ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'hostippa', 'IPHoteles2025'],
-                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host.insoho@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['BookiP (pública)', '<a href="https://book.ip-hoteles.com/wbeIPHSNG?hotel_code=IPH236" target="_blank">Sitio público</a>', '-', '-'],
-                                    ['Hyperguest', '-', 'reservas@ippa-hoteles.com', '*IPHoteles2024*'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Host.iPPA', 'IPHoteles2024#']
-                                ]
-                            }
-                        ]
-                    },
-                    bedding: {
-                        title: 'Categoría y Bedding',
-                        sections: [
-                            {
-                                name: 'Configuración de Habitaciones',
-                                data: [
-                                    ['Bedding y Equipamiento','Número'],
-                                    ['HABITACIONES HACIA EL FRENTE:','TODAS LAS 01 Y 02'],
-                                    ['HABITACIONES HACIA EL CONTRAFRENTE:','TODAS LAS 03 Y 04'],
-                                    ['HABITACIONES QUE NO SE HACEN TWIN:','604, 704, 901, 403'],
-                                    ['NO TIENE SOFA CAMA:', '801, 802, 604, 704, 901, 902, 402'],
-                                    ['TIENEN MICROONDAS:','704 Y 604'],
-                                                        ['HABITACIONES CON 2 BAÑOS:','TODAS MENOS 901 Y 801']
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        bankData: {
-                                            title: 'Datos Bancarios',
-                                            sections: [
-                                                {
-                                                    name: 'Información de Cuenta',
-                                                    data: [
-                                                        ['Concepto', 'Detalle'],
-                                                        ['Razón Social', 'INSOHO SRL'],
-                                                        ['Cuit', '30718528018'],
-                                                        ['Número de cuenta', 'CC ARS 001-5760549-2'],
-                                                        ['CBU', '0270001410057605490023'],
-                                                        ['Alias', 'GRANA.GAFAS.DESPERTO'],
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        billing: {
-                                            title: 'Facturación',
-                                            sections: [
-                                                {
-                                                    name: 'Tipos de Facturación por Origen',
-                                                    data: [
-                                                        ['Origen', 'Tipo de Pago', 'Tipo de Factura'],
-                                                        ['Booking.com', 'Visa, Mastercard,Amex,etc', 'Factura A/B'],
-                                                        ['Despegar', 'Cuenta corriente', 'Factura A'],
-                                                        ['Airbnb', 'Cuenta corriente', 'Factura A'],
-                                                        ['Expedia', 'Visa, Mastercard,Amex,etc', 'Factura T/Recibo T'],
-                                                        ['Efectivo', 'No aplica']
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    }
-                                },
+                                name: 'Información de Cuenta (USD)',
+                                data: [
+                                    ['Concepto', 'Detalle'],
+                                    ['Beneficiary', 'Nassimoff Jonathan Javier'],
+                                    ['Beneficiary Adress', '18800 NE 29th AVE #514 33180 Aventura'],
+                                    ['Account Numer ', '6389525129'], 
+                                    ['ABA/Routing', '121000248'], 
+                                    ['Bank Adress', '420 montgomery St. San Francisco , CA 94104'] ,
+['Bank Name', 'Wells Fargo Bank'] ,
+
+                                ]
+                            }
+                        ]
+                    },
+                    
+                    billing: {
+                        title: 'Facturación',
+                        sections: [
+                            {
+                                name: 'Tipos de Facturación por Origen',
+                                data: [
+                                    ['Origen', 'Tipo de Pago', 'Tipo de Factura'],
+                                    ['Booking.com', 'Visa, Mastercard,Amex,etc', 'Factura A/B'],
+                                    ['Despegar', 'Cuenta corriente', 'Factura A'],
+                                    ['Airbnb', 'Cuenta corriente', 'Factura A'],
+                                    ['Expedia', 'Visa, Mastercard,Amex,etc', 'Factura T/Recibo T'],
+                                    ['Efectivo', 'No aplica']
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
                                      bah: {
                             name: 'BAH Congreso By iPPA',
                             subsections: {
@@ -675,7 +433,6 @@
                                             name: 'Información General',
                                             data: [
                                                 ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                                ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '', ''],
                                                 ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-']
                                             ]
                                         }
@@ -712,20 +469,40 @@
                                     ]
                                 },
                                 billing: {
-                                    title: 'Facturación',
+                                    title: 'Facturación',
+                                    sections: [
+                                        {
+                                            name: 'Tipos de Facturación',
+                                            data:  [                              
+                                                ['Origen', 'Tipo de Factura'],
+                                                ['Sin información', 'Sin información'],
+                                            ]
+                                        }
+                                    ]
+                                },
+                                accesos: { // Nuevo bloque accesos
+                                    title: 'Accesos',
                                     sections: [
                                         {
-                                            name: 'Tipos de Facturación',
-                                            data:  [                              
-                                                ['Origen', 'Tipo de Factura'],
-                                                ['Sin información', 'Sin información'],
+                                            name: 'Códigos y Permisos',
+                                            data: [
+                                                ['Piso', 'Depto', 'Clave Cerradura', 'Software', 'Caja', 'Clave Caja', 'Tipo de Cerradura'],
+                ['1', 'A', '112233#', 'Chino', '9', '1989', 'Negra'],
+                ['1', 'M', '223344#', 'Chino', '15', '1995', 'Negra'],
+                ['1', 'G', '334455#', 'Chino', '7', '1987', 'Negra'],
+                ['2', 'M', '445566#', 'Chino', '17', '1997', 'Negra'],
+                ['3', 'H', '1989#', 'TTLOCK', '1', '1981', 'Gris'],
+                ['5', 'G', '6431#', 'TTLOCK', '12', '1992', 'Gris'],
+                ['7', 'B', '2689#', 'TTLOCK', '4', '1984', 'Gris'],
+                ['9', 'B', '-', 'TTLOCK', '14', '1994', 'Analogica'],
+                ['9', 'D', '262689#', 'TTLOCK', '10', '1990', 'Gris']
                                             ]
                                         }
                                     ]
                                 }
-                            }
-                        }
-                    };
+                            }
+                        }
+                    };
                     
                             function toggleHotel(hotelId) {
                                 const subsections = document.getElementById(`subsections-${hotelId}`);
