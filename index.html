@@ -48,6 +48,7 @@
                         <button class="subsection-button" onclick="showSubsection('milenia', 'billing'); closeSidebarOnMobile()">
                             <span>→</span> <span>Facturación</span>
                         </button>
+                        
                     </div>
                 </div>
 
@@ -90,6 +91,9 @@
                         <button class="subsection-button" onclick="showSubsection('bah', 'billing'); closeSidebarOnMobile()">
                             <span>→</span> <span>Facturación</span>
                         </button>
+                        <button class="subsection-button" onclick="showSubsection('bah', 'accesos'); closeSidebarOnMobile()">
+    <span>→</span> <span>Accesos</span>
+</button>
                     </div>
                 </div>
 
@@ -465,20 +469,40 @@
                                     ]
                                 },
                                 billing: {
-                                    title: 'Facturación',
+                                    title: 'Facturación',
+                                    sections: [
+                                        {
+                                            name: 'Tipos de Facturación',
+                                            data:  [                              
+                                                ['Origen', 'Tipo de Factura'],
+                                                ['Sin información', 'Sin información'],
+                                            ]
+                                        }
+                                    ]
+                                },
+                                accesos: { // Nuevo bloque accesos
+                                    title: 'Accesos',
                                     sections: [
                                         {
-                                            name: 'Tipos de Facturación',
-                                            data:  [                              
-                                                ['Origen', 'Tipo de Factura'],
-                                                ['Sin información', 'Sin información'],
+                                            name: 'Códigos y Permisos',
+                                            data: [
+                                                ['Piso', 'Depto', 'Clave Cerradura', 'Software', 'Caja', 'Clave Caja', 'Tipo de Cerradura'],
+                ['1', 'A', '112233#', 'Chino', '9', '1989', 'Negra'],
+                ['1', 'M', '223344#', 'Chino', '15', '1995', 'Negra'],
+                ['1', 'G', '334455#', 'Chino', '7', '1987', 'Negra'],
+                ['2', 'M', '445566#', 'Chino', '17', '1997', 'Negra'],
+                ['3', 'H', '1989#', 'TTLOCK', '1', '1981', 'Gris'],
+                ['5', 'G', '6431#', 'TTLOCK', '12', '1992', 'Gris'],
+                ['7', 'B', '2689#', 'TTLOCK', '4', '1984', 'Gris'],
+                ['9', 'B', '-', 'TTLOCK', '14', '1994', 'Analogica'],
+                ['9', 'D', '262689#', 'TTLOCK', '10', '1990', 'Gris']
                                             ]
                                         }
                                     ]
                                 }
-                            }
-                        }
-                    };
+                            }
+                        }
+                    };
                     
                             function toggleHotel(hotelId) {
                                 const subsections = document.getElementById(`subsections-${hotelId}`);
