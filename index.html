@@ -109,6 +109,9 @@
                         <button class="subsection-button" onclick="showSubsection('baires', 'bedding'); closeSidebarOnMobile()">
                             <span>→</span> <span>Categoría y Bedding</span>
                         </button>
+                        <button class="subsection-button" onclick="showSubsection('baires', 'bankData'); closeSidebarOnMobile()">
+            <span>→</span> <span>Datos Bancarios</span>
+        </button>
                     </div>
                 </div>
             </nav>
@@ -223,7 +226,22 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    bankData: {
+            title: 'Datos Bancarios',
+            sections: [
+                {
+                                            name: 'Información de Cuenta',
+                                            data: [
+                                                ['Concepto', 'Detalle'],
+                                                ['Razón Social', 'RUDI SA'],
+                                                ['Cuit', '30-71448142-4'],
+                                                ['CBU', '0070677920000001636839'],
+                                                ['Banco', 'Galicia']
+                                            ]
+                                        }
+            ]
+        }
                 }
             },
             filiberto: {

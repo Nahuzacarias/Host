@@ -109,6 +109,9 @@
                         <button class="subsection-button" onclick="showSubsection('baires', 'bedding'); closeSidebarOnMobile()">
                             <span>→</span> <span>Categoría y Bedding</span>
                         </button>
+                        <button class="subsection-button" onclick="showSubsection('baires', 'bankData'); closeSidebarOnMobile()">
+            <span>→</span> <span>Datos Bancarios</span>
+        </button>
                     </div>
                 </div>
             </nav>
@@ -223,7 +226,22 @@
                                 ]
                             }
                         ]
-                    }
+                    },
+                    bankData: {
+            title: 'Datos Bancarios',
+            sections: [
+                {
+                    name: 'Información de Cuenta',
+                    data: [
+                        ['Concepto', 'Detalle'],
+                        ['Razón Social', 'BAH HOTELS S.A.'], // Razón Social de ejemplo
+                        ['Cuit', 'XX-XXXXXXXX-X'], // Cuit de ejemplo
+                        ['CBU', 'XXXXXXXXXXXXXXXXXXXXXX'], // CBU de ejemplo
+                        ['Alias', 'BAH.IPPA.BANK'], // Alias de ejemplo
+                    ]
+                }
+            ]
+        }
                 }
             },
             filiberto: {
