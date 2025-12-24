@@ -114,6 +114,45 @@
         </button>
                     </div>
                 </div>
+                <div class="sidebar-header" style="border-top: 1px solid #eee; margin-top: 20px;">
+    <div style="display:flex; align-items:center; gap:12px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+        </svg>
+        <h1>Procedimientos</h1>
+    </div>
+</div>
+
+<nav class="sidebar-nav">
+    <div class="hotel-item">
+        <button class="hotel-button" onclick="toggleHotel('procedimientos')">
+            <span class="arrow" id="arrow-procedimientos">▶</span>
+            <span>Clover</span>
+        </button>
+        <div class="hotel-subsections" id="subsections-procedimientos">
+            <button class="subsection-button" onclick="showSubsection('procedimientos', 'cobroClover'); closeSidebarOnMobile()">
+                <span>→</span> <span>Cobro con Clover</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+
+
+<nav class="sidebar-nav">
+    <div class="hotel-item">
+        
+        <div class="hotel-subsections" id="subsections-procedimientos">
+            <button class="subsection-button" onclick="showSubsection('procedimientos', 'cobroClover'); closeSidebarOnMobile()">
+                <span>→</span> <span>Cobro con Clover</span>
+            </button>
+            <button class="subsection-button" onclick="showSubsection('procedimientos', 'billingDespegar'); closeSidebarOnMobile()">
+        <span>→</span> <span>Facturación con Despegar</span>
+    </button>
+        </div>
+    </div>
+</nav>
+
             </nav>
 
             <div class="sidebar-footer">
@@ -193,8 +232,10 @@
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
+                                    ['Mail Baires ','-', 'host.baires@ippa-hoteles.com', 'IPHoteles2025!'],
+                                    ['Mail Host ','-', 'host@ippa-hoteles.com', 'IPHoteles2025!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'iPPAJunio2025!'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'Host2025!'],
                                 ]
                             },
                             
@@ -240,10 +281,60 @@
                                                 ['Banco', 'Galicia']
                                             ]
                                         }
-            ]
+            ],
+            
         }
+        
+        
                 }
-            },
+            },procedimientos: {
+    name: 'Procedimientos Administrativos',
+    subsections: {
+        cobroClover: {
+            title: 'Instrucciones: Cobro con Clover',
+            sections: [
+                {
+                    name: 'Modificación en el Procedimiento de Facturación',
+                    data: [
+                        ['Detalle del Procedimiento'],
+                        ['Por razones administrativas vinculadas al control y seguimiento de los pagos realizados a través del Link de Clover y su posterior acreditación, hemos implementado una modificación en el procedimiento de facturación y aplicación de estos cobros en el sistema.'],
+                        ['<div style="text-align:center; padding: 20px;"><img src="/Media/clover.jpg" alt="Instructivo Clover" style="max-width:100%; border-radius:8px; border: 1px solid #ddd;"></div>'],
+                        ['<strong>1. Imputación de Tarjetas:</strong> Los pagos efectuados mediante el Link de Clover deberán imputarse utilizando la misma tarjeta de crédito/débito que haya utilizado el huésped (Ej: Si abonó con Visa, la factura se emite como Visa).'],
+                        ['<strong>2. Origen de Información:</strong> La información se obtiene de los mails automáticos que llegan a la casilla de cada hotel cuando el huésped utiliza el link.'],
+                        ['<strong>3. Contacto al Huésped:</strong> Una vez aplicado el pago, contactar al huésped con la plantilla "Contacto – Pago aprobado", adjuntando la factura.'],
+                        ['<strong>4. Responsabilidad por Turno:</strong> Cada turno es responsable de imputar los cobros recibidos durante su horario. Nadie debe retirarse sin haber aplicado todos los pagos.']
+                    ]
+                }
+            ]
+            
+        }
+        
+    }
+    
+}, billingDespegar: {
+            title: 'Facturación con Despegar',
+            sections: [
+                {
+                    name: 'Accesos a Carpetas (Drive)',
+                    data: [
+                        ['Hotel', 'Acceso Directo', 'Ruta'],
+                        ['InSoho', '<a href="https://drive.google.com/drive/folders/1UCuVYL3Y5VmGQZd30otIu-a6gN75lk0y?usp=drive_link" target="_blank">Abrir Drive</a>', 'Drive > Insoho > Administracion > Ingresos > FC Despegar'],
+                        ['Filiberto', '<a href="https://drive.google.com/drive/folders/1jrL52C6D9whk4lYQJk-fAQbp3CZTVAvC?usp=drive_link" target="_blank">Abrir Drive</a>', 'Drive > Filiberto > Administracion > Ingresos > FC Despegar']
+                    ]
+                },
+                {
+                    name: 'Instrucciones de Facturación',
+                    data: [
+                        ['Punto', 'Detalle'],
+                        ['Tipo de Factura', 'Emitir <strong>FACTURA A</strong> a Despegar.'],
+                        ['Forma de Pago', 'Cuenta Corriente.'],
+                        ['Notas', 'Colocar <strong>PNR</strong> y el número (Ej: PNR 12345).'],
+                        ['Nombre del Archivo', 'Apellido del huésped, In y Out y PNR.'],
+                        ['Importante', '<span style="color:red">Facturar solo ALOJAMIENTO (DDU no).</span>']
+                    ]
+                }
+            ]
+        },
             filiberto: {
                 name: 'Filiberto by iPPA',
                 subsections: {
@@ -258,6 +349,7 @@
                                     ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
                                     ['Celular', '-', '-', '1564'],
                                     ['Mail','-', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024@'],
+                                    ['Mail Host ','-', 'host@ippa-hoteles.com', 'IPHoteles2025!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
                                     ['TESA', '-', 'nahuelz', 'nahuelz1']
                                 ]
@@ -266,7 +358,7 @@
                                 name: 'Tecnología',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'iPPAJunio2025!'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'Host2025!'],
                                     ['GETNET', '-', '30718528018', 'Insoho1562'],
                                     ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024_!?']
                                 ]
@@ -355,8 +447,9 @@
                                     ['TTlock', '-', 'manager.insoho@ippa-hoteles.com', 'Insoho2024'],
                                     ['Hipcam', '-', 'host.insoho@ippa-hoteles.com', 'ippahoteles2025'],
                                     ['Mail','-', 'host.mileniasoho@ippa-hoteles.com', 'IPHoteles2024'],
+['Mail Host ','-', 'host@ippa-hoteles.com', 'IPHoteles2025!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'iPPAJunio2025!'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'Host2025!'],
                                    
                                     ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.insoho@ippa-hoteles.com', 'InSoho2025']
                                 ]
