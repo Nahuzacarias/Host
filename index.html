@@ -114,41 +114,28 @@
         </button>
                     </div>
                 </div>
-                <div class="sidebar-header" style="border-top: 1px solid #eee; margin-top: 20px;">
-    <div style="display:flex; align-items:center; gap:12px">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
-            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
-        </svg>
-        <h1>Procedimientos</h1>
-    </div>
+ <div class="sidebar-header" style="border-top: 1px solid #eee; margin-top: 20px;">
+    <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0;">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+    </svg>
+    <h1 style="margin: 0; font-size: 1.25rem;">Procedimientos</h1>
+</div>
 </div>
 
 <nav class="sidebar-nav">
     <div class="hotel-item">
         <button class="hotel-button" onclick="toggleHotel('procedimientos')">
             <span class="arrow" id="arrow-procedimientos">▶</span>
-            <span>Clover</span>
+            <span>Procedimientos</span>
         </button>
         <div class="hotel-subsections" id="subsections-procedimientos">
             <button class="subsection-button" onclick="showSubsection('procedimientos', 'cobroClover'); closeSidebarOnMobile()">
                 <span>→</span> <span>Cobro con Clover</span>
             </button>
-        </div>
-    </div>
-</nav>
-
-
-
-<nav class="sidebar-nav">
-    <div class="hotel-item">
-        
-        <div class="hotel-subsections" id="subsections-procedimientos">
-            <button class="subsection-button" onclick="showSubsection('procedimientos', 'cobroClover'); closeSidebarOnMobile()">
-                <span>→</span> <span>Cobro con Clover</span>
-            </button>
             <button class="subsection-button" onclick="showSubsection('procedimientos', 'billingDespegar'); closeSidebarOnMobile()">
-        <span>→</span> <span>Facturación con Despegar</span>
-    </button>
+                <span>→</span> <span>Facturación Despegar</span>
+            </button>
         </div>
     </div>
 </nav>
@@ -245,7 +232,7 @@
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
-                                    ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'hostippa', 'IPHoteles2025'],
+                                    ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
                                     ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host.insoho@ippa-hoteles.com', 'IPHoteles2024'],
                                     ['BookiP (pública)', '<a href="https://book.ip-hoteles.com/wbeIPHSNG?hotel_code=IPH236" target="_blank">Sitio público</a>', '-', '-'],
                                     ['Hyperguest', '-', 'reservas@ippa-hoteles.com', '*IPHoteles2024*'],
@@ -306,35 +293,45 @@
                     ]
                 }
             ]
-            
-        }
-        
-    }
-    
-}, billingDespegar: {
-            title: 'Facturación con Despegar',
+        },
+       billingDespegar: {
+            title: 'Facturación Despegar',
             sections: [
                 {
                     name: 'Accesos a Carpetas (Drive)',
                     data: [
-                        ['Hotel', 'Acceso Directo', 'Ruta'],
-                        ['InSoho', '<a href="https://drive.google.com/drive/folders/1UCuVYL3Y5VmGQZd30otIu-a6gN75lk0y?usp=drive_link" target="_blank">Abrir Drive</a>', 'Drive > Insoho > Administracion > Ingresos > FC Despegar'],
-                        ['Filiberto', '<a href="https://drive.google.com/drive/folders/1jrL52C6D9whk4lYQJk-fAQbp3CZTVAvC?usp=drive_link" target="_blank">Abrir Drive</a>', 'Drive > Filiberto > Administracion > Ingresos > FC Despegar']
+                        ['Hotel', 'Acceso Directo', 'Ruta en Drive'],
+                        ['InSoho', '<a href="https://drive.google.com/drive/folders/1UCuVYL3Y5VmGQZd30otIu-a6gN75lk0y?usp=drive_link" target="_blank">Abrir Carpeta</a>', 'Ippa Hoteles > Clientes > Insoho > Administracion > Ingresos > FC Despegar'],
+                        ['Filiberto', '<a href="https://drive.google.com/drive/folders/1jrL52C6D9whk4lYQJk-fAQbp3CZTVAvC?usp=drive_link" target="_blank">Abrir Carpeta</a>', 'Ippa Hoteles > Clientes > Filiberto > Administracion > Ingresos > FC Despegar']
                     ]
                 },
                 {
-                    name: 'Instrucciones de Facturación',
+                    name: 'Instrucciones y Procedimiento',
                     data: [
-                        ['Punto', 'Detalle'],
-                        ['Tipo de Factura', 'Emitir <strong>FACTURA A</strong> a Despegar.'],
-                        ['Forma de Pago', 'Cuenta Corriente.'],
-                        ['Notas', 'Colocar <strong>PNR</strong> y el número (Ej: PNR 12345).'],
-                        ['Nombre del Archivo', 'Apellido del huésped, In y Out y PNR.'],
-                        ['Importante', '<span style="color:red">Facturar solo ALOJAMIENTO (DDU no).</span>']
+                        ['Detalle del Proceso'],
+                        [`<div style="line-height: 1.6; ">
+                            <p>Las facturas emitidas a Despegar se deben guardar <strong>POR MES</strong> (el criterio es la fecha de Check-In) en las carpetas mencionadas arriba. Esto permite que Administración las cargue en la extranet para gestionar el pago. <strong>A partir de ahora, esta tarea debe ser realizada por el auditor.</strong></p>
+                            
+                            <p><strong>¿Cómo debemos facturar?</strong><br>
+                            Se debe emitir <strong>FACTURA A</strong> a Despegar según el perfil cargado en el sistema. La forma de pago será <strong>Cuenta Corriente</strong>. Al emitir la factura, es fundamental que en el campo <strong>NOTAS</strong> se coloque la palabra "PNR" seguida del número (Ej: PNR 106777167), nunca el número solo.</p>
+                            
+                            <p><strong>Guardado de archivos:</strong><br>
+                            El archivo PDF debe nombrarse con el siguiente formato: <strong>Apellido del huésped + In y Out + PNR</strong>. A continuación se muestra cómo deben visualizarse los archivos correctamente guardados:</p>
+                            
+                            <div style="margin: 15px 0; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; max-width: 500px;">
+                                <img src="/Media/despegar.png" alt="Ejemplo de nomenclatura" style="width: 100%; display: block;">
+                            </div>
+                            
+                            <p style="background-color: #fff3f3; padding: 10px; border-left: 4px solid #f44336; color: black;">
+                                <strong>Aclaración importante:</strong> A Despegar solo debe facturarse <strong>ALOJAMIENTO</strong>. No se debe facturar el DDU, el cual debe ser abonado por los huéspedes.
+                            </p>
+                        </div>`]
                     ]
                 }
             ]
-        },
+        }
+    }
+},
             filiberto: {
                 name: 'Filiberto by iPPA',
                 subsections: {
@@ -369,7 +366,7 @@
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
-                                    ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'hostippa', 'IPHoteles2025'],
+                                    ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
                                     ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host.insoho@ippa-hoteles.com', 'IPHoteles2024'],
                                     ['BookiP (pública)', '<a href="https://book.ip-hoteles.com/wbeIPHSNG?hotel_code=IPH236" target="_blank">Sitio público</a>', '-', '-'],
                                     ['Hyperguest', '-', 'reservas@ippa-hoteles.com', '*IPHoteles2024*'],
@@ -441,7 +438,7 @@
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718528018', 'InSoho2025'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718528018', 'Mileniasoho2025!?'],
                                     ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
                                     ['Celular', '-', '-', '1564'],
                                     ['TTlock', '-', 'manager.insoho@ippa-hoteles.com', 'Insoho2024'],
@@ -460,7 +457,7 @@
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
-                                    ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'hostippa', 'IPHoteles2025'],
+                                    ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
                                     ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host.insoho@ippa-hoteles.com', 'IPHoteles2024'],
                                     ['BookiP (pública)', '<a href="https://book.ip-hoteles.com/wbeIPHSNG?hotel_code=IPH236" target="_blank">Sitio público</a>', '-', '-'],
                                     ['Hyperguest', '-', 'reservas@ippa-hoteles.com', '*IPHoteles2024*'],
