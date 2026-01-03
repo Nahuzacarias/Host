@@ -139,6 +139,35 @@
         </div>
     </div>
 </nav>
+<div class="sidebar-header" style="border-top: 1px solid #eee; margin-top: 20px;">
+    <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+        </svg>
+        <h1 style="margin: 0; font-size: 1.25rem;">CheckLists</h1>
+    </div>
+</div>
+
+<nav class="sidebar-nav">
+    <div class="hotel-item">
+        <button class="hotel-button" onclick="toggleHotel('checklist')">
+            <span class="arrow" id="arrow-checklist">▶</span>
+            <span>Checklists</span>
+        </button>
+        <div class="hotel-subsections" id="subsections-checklist">
+            <button class="subsection-button" onclick="showSubsection('checklist', 'tm'); closeSidebarOnMobile()">
+                <span>→</span> <span>Checklist TM</span>
+            </button>
+            <button class="subsection-button" onclick="showSubsection('checklist', 'tt'); closeSidebarOnMobile()">
+                <span>→</span> <span>Checklist TT</span>
+            </button>
+            <button class="subsection-button" onclick="showSubsection('checklist', 'tn'); closeSidebarOnMobile()">
+                <span>→</span> <span>Checklist TN</span>
+            </button>
+        </div>
+    </div>
+</nav>
 
             </nav>
 
@@ -172,7 +201,7 @@
                     <path d="M4.5 19.5L4.5 9l3-3h9l3 3v10.5"></path>
                     <path d="M4 21l1-7h14l1 7"></path>
                 </svg>
-                <p style="font-size: 18px;">Selecciona un hotel del menú</p>
+                <p style="font-size: 18px;">Selecciona una propiedad del menú</p>
             </div>
             
             <div id="content" class="hidden">
@@ -230,13 +259,12 @@
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
+                                    ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
+                                    
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
-                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host.insoho@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['BookiP (pública)', '<a href="https://book.ip-hoteles.com/wbeIPHSNG?hotel_code=IPH236" target="_blank">Sitio público</a>', '-', '-'],
-                                    ['Hyperguest', '-', 'reservas@ippa-hoteles.com', '*IPHoteles2024*'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Host.iPPA', 'IPHoteles2024#']
+                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
+                              
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2025!!'],
                                 ]
                             }
                         ]
@@ -331,6 +359,99 @@
             ]
         }
     }
+},checklist: {
+    name: 'CheckLists',
+    subsections: {
+        tm: {
+    title: 'CheckList Turno Mañana',
+    sections: [{
+        name: 'Instrucciones Detalladas',
+        data: [
+            ['Acciones a realizar:'],
+            ['• Repasar y actualizar Trello junto con TN.'],
+            ['• Abrir Caja en Venice.'],
+            ['• Revisar llegadas del día y repasar asignación según requerimientos especiales.'],
+            ['• <strong>InSoho / Filiberto / Baires:</strong> Preparar Report de habitaciones para Hskp.'],
+            ['• <strong>Contactar ingresos del día con la plantilla correspondiente:</strong><br>' +
+             '&nbsp;&nbsp;- "Mensaje Bienvenida" (Ingresos completos)<br>' +
+             '&nbsp;&nbsp;- "Bienvenida WCI pendiente" (Pagado, sin WCI)<br>' +
+             '&nbsp;&nbsp;- "Bienvenida Pago Pendiente" (WCI hecho, sin pago)<br>' +
+             '&nbsp;&nbsp;- "Bienvenida WCI y Pago Pendiente" (Nada completado)'],
+            ['• <strong>Check Outs:</strong> Contactar con la plantilla "Dia de Check Out".'],
+            ['• <strong>Seguimiento:</strong> Contactar con "Contacto 1er Noche" a quienes ingresaron ayer y se quedan más de 1 día.'],
+            ['• <strong>Limpieza:</strong> Contactar huéspedes LongStay con plantilla "Contacto InHouse - LongStay".'],
+            ['• <strong>Filiberto:</strong> Informar a JDD desayunos del día.'],
+            ['• Informar en grupos de Operaciones salidas o pedidos especiales para HSKP o Manager.'],
+            ['• <strong>InSoho:</strong> Preparar códigos de acceso en TTLOCK una vez firme la asignación.'],
+            ['• Cerca de las 11 AM verificar tipo de cambio BNA y actualizar.'],
+            ['• Realizar seguimiento de Check Outs pendientes después de las 11 Hrs y verificar cierre en sistema.'],
+            ['• A medida que las habs. estén limpias, enviar plantilla "Envío de Accesos" y realizar Check In en sistema.'],
+            ['• <strong>Cierre:</strong> Verificar bandeja de mails vacía, Trello actualizado y cierre de caja en Venice.']
+        ]
+    }],
+    footer: `
+        <a href="LINK_AL_ARCHIVO_TM.docx" class="download-btn" download>
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Descargalo en Word
+        </a>
+    `
+},
+        tt: {
+    title: 'CheckList Turno Tarde',
+    sections: [{
+        name: 'Instrucciones Detalladas',
+        data: [
+            ['Acciones a realizar:'],
+            ['• Repasar y actualizar Trello junto con Host TM.'],
+            ['• Abrir Caja en Venice.'],
+            ['• Verificar disponibilidad del día: ingresos por llegar y Late Check Out pendientes.'],
+            ['• <strong>Limpieza:</strong> Chequear con Hskp dptos con ingreso pendiente que aún figuren sucios.'],
+            ['• <strong>Contactar ingresos del día pendientes según corresponda:</strong><br>' +
+             '&nbsp;&nbsp;- "Dpto Listo - WCI y Pago Pendiente"<br>' +
+             '&nbsp;&nbsp;- "Dpto Listo - WCI Pendiente"<br>' +
+             '&nbsp;&nbsp;- "Dpto Listo - Pago Pendiente" '],
+            ['• <strong>Contactar Ingresos (48 horas):</strong> Iniciar proceso de Check In según situación (Contacto 48 Hrs, WCI o Pago Pendiente).'],
+            ['• <strong>Contactar Ingresos (24 horas):</strong> Contactar ingresos del día siguiente con procesos pendientes.'],
+            ['• <strong>Nuevas Reservas:</strong> Verificar reservas generadas en las últimas 24 hrs y enviar plantilla "Agradecimiento".'],
+            ['• <strong>Sin contacto:</strong> Contactar por extranet o mail a quienes no tengan teléfono para que escriban al WUP.'],
+            ['• <strong>Pre Check Out:</strong> Enviar plantilla "Positiva" o "Negativa" a las salidas de mañana (Preferentemente entre 19 y 21 hrs)].'],
+            ['• <strong>Cierre:</strong> Verificar bandeja de entrada vacía, Trello actualizado y cierre de caja en Venice.']
+        ]
+    }],
+    footer: '<div style="margin-top:20px; text-align:center;"><a href="/Media/CheckTT.docx" class="download-btn" download style="background-color: #2b579a;">📄 Descargar Checklist Turno Tarde</a></div>'
+},
+        tn: {
+    title: 'CheckList Turno Noche - Auditoría',
+    sections: [{
+        name: 'Tareas Iniciales y Auditoría',
+        data: [
+            ['Acciones iniciales:'],
+            ['• Revisar Trello con novedades junto con el compañero saliente.'],
+            ['• Revisar junto con TT los arribos pendientes y reconfirmar requerimientos especiales.'],
+            ['<strong>AUDITORÍA (Todas las propiedades):</strong>'],
+            ['• Verificar que todas las reservas In House tengan el Web Check In realizado.'],
+            ['• Verificar carga y cobro del Cleaning Fee en las reservas correspondientes.'],
+            ['• Confirmar el pago total de la estadía para todas las reservas In House.'],
+            ['• Completar informe de auditoría "Cuentas con Saldo".'],
+            ['• Controlar carga correcta de Mercado, Origen, Agencia, Empresa y Tipo de Reserva.'],
+            ['• Verificar emisión de facturas (cobros banco) y recibos (WeTravel).'],
+            ['• Completar informe de auditoría "Descuentos Realizados".'],
+            ['• <strong>Rodar auditoría</strong> en todas las propiedades.'],
+            ['<strong>LUEGO DE RODAR AUDITORÍA:</strong>'],
+            ['• Controlar carga automática (Channel VS Venice) para el día que comienza y 3 días vista.'],
+            ['• <strong>Cobros NRF:</strong> Cobrar todas las reservas NRF generadas en el día cerrado.'],
+            ['• <strong>Cobros Flexibles:</strong> Cobrar reservas con ingreso en 48 horas.'],
+            ['• <strong>CTA CTE / Transferencia:</strong> Cobrar a clientes que hacen Check Out ese día.'],
+            ['• Verificar que no queden Check Outs con saldo pendiente (si hay, informar al TM).'],
+            ['• Ajustar a $0 los saldos por diferencias de tipo de cambio.'],
+            ['• <strong>Milenia:</strong> Generar QR de acceso en HIPCAM y enviarlos al WhatsApp de Host.'],
+            ['• Enviar recibos/facturas con plantilla "Contacto Pago Aprobado" o informar "Pago Denegado".'],
+            ['• <strong>Cierre final:</strong> Verificar mails respondidos, Trello actualizado y cierre de caja en Venice.']
+        ]
+    }],
+    footer: '<div style="margin-top:20px; text-align:center;"><a href="/Media/CheckTN.docx" class="download-btn" download style="background-color: #2b579a;">📄 Descargar Checklist Turno Noche</a></div>'
+}
+    },
 },
             filiberto: {
                 name: 'Filiberto by iPPA',
@@ -355,8 +476,7 @@
                                 name: 'Tecnología',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'Host2025!'],
-                                    ['GETNET', '-', '30718528018', 'Insoho1562'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'Hostippa2025!'],
                                     ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024_!?']
                                 ]
                             },
@@ -364,13 +484,14 @@
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024'],
+                                    ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
-                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host.insoho@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['BookiP (pública)', '<a href="https://book.ip-hoteles.com/wbeIPHSNG?hotel_code=IPH236" target="_blank">Sitio público</a>', '-', '-'],
-                                    ['Hyperguest', '-', 'reservas@ippa-hoteles.com', '*IPHoteles2024*'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Host.iPPA', 'IPHoteles2024#']
+                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
+                                    ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2025!!'],
+                                    ['Almundo', '<a href="https://jintranet.trendoperadora.com.br/extranet/login.aspx?ReturnUrl=%2fextranet%2falojamiento%2fdefault.aspx%3falojamiento%3d4157&alojamiento=4157" target="_blank">Login Almundo</a>', 'FilibertobyiPPA2', 'IPHoteles2025!!'],
+                                    ['Hotelbeds', '<a href="https://maxiroom.hotelbeds.com/#/login" target="_blank">Login Hotelbeds</a>', 'Sin información al momento', 'Sin información al momento'],
                                 ]
                             }
                         ]
@@ -446,7 +567,7 @@
                                     ['Mail','-', 'host.mileniasoho@ippa-hoteles.com', 'IPHoteles2024'],
 ['Mail Host ','-', 'host@ippa-hoteles.com', 'IPHoteles2025!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'Host2025!'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'Hostippa2025!'],
                                    
                                     ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.insoho@ippa-hoteles.com', 'InSoho2025']
                                 ]
@@ -455,13 +576,12 @@
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024'],
+                                    ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
-                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host.insoho@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['BookiP (pública)', '<a href="https://book.ip-hoteles.com/wbeIPHSNG?hotel_code=IPH236" target="_blank">Sitio público</a>', '-', '-'],
-                                    ['Hyperguest', '-', 'reservas@ippa-hoteles.com', '*IPHoteles2024*'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Host.iPPA', 'IPHoteles2024#']
+                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
+                                    ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2025!!'],
                                 ]
                             }
                         ]
@@ -541,7 +661,13 @@
                                             name: 'Información General',
                                             data: [
                                                 ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                                ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-']
+                                                ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
+                                                ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
+                                    
+                                    ['Booking', 'Sin perfil activo al momento', '-', '-'],
+                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
+                              
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2025!!'],
                                             ]
                                         }
                                     ]
@@ -614,59 +740,71 @@
                         }
                     };
                     
-                            function toggleHotel(hotelId) {
-                                const subsections = document.getElementById(`subsections-${hotelId}`);
-                                const arrow = document.getElementById(`arrow-${hotelId}`);
-                                subsections.classList.toggle('show');
-                                arrow.classList.toggle('expanded');
-                            }
-                    
-                            function showSubsection(hotelId, subsectionId) {
-                                const hotel = hotelsData[hotelId];
-                                const subsection = hotel.subsections[subsectionId];
-                    
-                                document.getElementById('hotel-title').textContent = hotel.name;
-                                document.getElementById('subsection-title').textContent = subsection.title;
-                    
-                                const tableContainer = document.getElementById('table-container');
-                                tableContainer.innerHTML = '';
-                    
-                                subsection.sections.forEach(section => {
-                                    const sectionTitle = document.createElement('div');
-                                    sectionTitle.className = 'section-title';
-                                    sectionTitle.textContent = section.name;
-                                    tableContainer.appendChild(sectionTitle);
-                    
-                                    const table = document.createElement('table');
-                                    const thead = document.createElement('thead');
-                                    const tbody = document.createElement('tbody');
-                    
-                                    section.data.forEach((row, index) => {
-                                        const tr = document.createElement('tr');
-                                        row.forEach(cell => {
-                                            const element = index === 0 ? document.createElement('th') : document.createElement('td');
-                                            element.innerHTML = cell;
-                                            tr.appendChild(element);
-                                        });
-                                        if (index === 0) {
-                                            thead.appendChild(tr);
-                                        } else {
-                                            tbody.appendChild(tr);
-                                        }
-                                    });
-                    
-                                    table.appendChild(thead);
-                                    table.appendChild(tbody);
-                    
-                                    const wrapper = document.createElement('div');
-                                    wrapper.className = 'table-container';
-                                    wrapper.appendChild(table);
-                                    tableContainer.appendChild(wrapper);
-                                });
-                    
-                                document.getElementById('empty-state').classList.add('hidden');
-                                document.getElementById('content').classList.remove('hidden');
-                            }
+                    function toggleHotel(hotelId) {
+    const subsections = document.getElementById(`subsections-${hotelId}`);
+    const arrow = document.getElementById(`arrow-${hotelId}`);
+    subsections.classList.toggle('show');
+    arrow.classList.toggle('expanded');
+}
+
+function showSubsection(hotelId, subsectionId) {
+    const hotel = hotelsData[hotelId];
+    const subsection = hotel.subsections[subsectionId];
+
+    document.getElementById('hotel-title').textContent = hotel.name;
+    document.getElementById('subsection-title').textContent = subsection.title;
+
+    const tableContainer = document.getElementById('table-container');
+    tableContainer.innerHTML = '';
+
+    // Dibujar las tablas
+    subsection.sections.forEach(section => {
+        const sectionTitle = document.createElement('div');
+        sectionTitle.className = 'section-title';
+        sectionTitle.textContent = section.name;
+        tableContainer.appendChild(sectionTitle);
+
+        const table = document.createElement('table');
+        const thead = document.createElement('thead');
+        const tbody = document.createElement('tbody');
+
+        section.data.forEach((row, index) => {
+            const tr = document.createElement('tr');
+            row.forEach(cell => {
+                const element = index === 0 ? document.createElement('th') : document.createElement('td');
+                element.innerHTML = cell;
+                tr.appendChild(element);
+            });
+            if (index === 0) {
+                thead.appendChild(tr);
+            } else {
+                tbody.appendChild(tr);
+            }
+        });
+
+        table.appendChild(thead);
+        table.appendChild(tbody);
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-container';
+        wrapper.appendChild(table);
+        tableContainer.appendChild(wrapper);
+    });
+
+    // --- AQUÍ SE COLOCA EL FOOTER (Botón de descarga) ---
+    if (subsection.footer) {
+        const footerDiv = document.createElement('div');
+        footerDiv.style.marginTop = "20px";
+        footerDiv.style.textAlign = "center";
+        footerDiv.innerHTML = subsection.footer;
+        tableContainer.appendChild(footerDiv);
+    }
+
+    // Mostrar el contenido
+    document.getElementById('empty-state').classList.add('hidden');
+    document.getElementById('content').classList.remove('hidden');
+} // <-- Esta llave cierra showSubsection correctamente
+
                         </script>
                         
                     </body>
