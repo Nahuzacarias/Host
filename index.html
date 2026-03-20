@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   
 </head>
+
 <body>
 
     <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
@@ -232,6 +233,35 @@
                     </svg>
                     Descargá la info en Excel
                 </a>
+                <!-- Menú desplegable Drive -->
+<div class="drive-menu-container" style="position:relative; width:100%; margin-bottom:8px;">
+    <button class="download-btn" onclick="toggleDriveMenu()" style="width:100%; justify-content:space-between;">
+       <span style="display:flex; align-items:center; gap:8px; flex:1; justify-content:center;">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M3 9h18M9 21V9"/>
+            </svg>
+            Google Drive iPPA
+        </span>
+        <svg id="drive-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.2s;">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </button>
+    <div id="driveDropdown" style="display:none; flex-direction:column; background:white; border:1px solid #e2e8f0; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10); margin-top:4px; overflow:hidden;">
+        <a href="https://drive.google.com/drive/u/0/folders/0AOwXJUVbBiZiUk9PVA" target="_blank" class="download-btn" style="border-radius:0; margin:0; border-bottom:1px solid #f0f0f0;">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            Drive iPPA
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/1QCDz5184W8TaFTITb0bCv-aSSa357PQv/edit?gid=882631380#gid=882631380" target="_blank" class="download-btn" style="border-radius:0; margin:0; border-bottom:1px solid #f0f0f0;">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            Horarios iPPA
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/1HB_7KmgWWBmSPKmMmv0g3Lg8DozVid63/edit?gid=1833510799#gid=1833510799" target="_blank" class="download-btn" style="border-radius:0; margin:0;">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            Mantenimiento iPPA
+        </a>
+    </div>
+</div>
             </div>
         </div>
 
@@ -243,6 +273,40 @@
                     <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
             </button>
+            <div class="quick-links">
+    <a href="https://s1.venicepms.com/ipa547/admin/login" target="_blank" class="quick-link-btn">
+        <div class="quick-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+                <path d="M7 8h4M7 11h6"/>
+            </svg>
+        </div>
+        <div class="quick-link-text">
+            <span class="quick-link-label">Venice PMS</span>
+            <span class="quick-link-sub">Sistema de gestión</span>
+        </div>
+        <svg class="quick-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+    </a>
+
+    <a href="https://app.wespeak.pro/chats" target="_blank" class="quick-link-btn">
+        <div class="quick-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <path d="M8 10h8M8 14h5"/>
+            </svg>
+        </div>
+        <div class="quick-link-text">
+            <span class="quick-link-label">We Speak</span>
+            <span class="quick-link-sub">Centro de mensajes</span>
+        </div>
+        <svg class="quick-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+    </a>
+</div>
 
             <div id="empty-state" class="empty-state">
                 <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -303,7 +367,7 @@
                                     ['Mail Baires ','-', 'host.baires@ippa-hoteles.com', 'IPHoteles2025!'],
                                     ['Mail Host ','-', 'host@ippa-hoteles.com', 'IPHoteles2025!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'Host2025!'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'IPHoteles2026!'],
                                 ]
                             },
                             
@@ -650,7 +714,7 @@ checklist: {
                                 name: 'Tecnología',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'Hostippa2025!'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2026!'],
                                     ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024_!?']
                                 ]
                             },
@@ -733,7 +797,7 @@ checklist: {
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718528018', 'Mileniasoho2026!?'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718528018', 'Milenia2026!'],
                                     ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
                                     ['Celular', '-', '-', '1564'],
                                     ['TTlock', '<a href="https://lock2.ttlock.com/" target="_blank">TTlock Web</a>', 'asistente.operaciones@ippa-hoteles.com', 'Insoho2024'],
@@ -742,7 +806,7 @@ checklist: {
 ['Mail Host ','-', 'host@ippa-hoteles.com', 'IPHoteles2025!'],
 ['Tecnolav', '<a href="https://clientes.tecnolav.com.ar" target="_blank">Login Tecnolav</a>', 'host.milenia@ippa-hoteles.com', 'Milenia2025'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'Hostippa2025!'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2026!'],
                                    
                                     ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.insoho@ippa-hoteles.com', 'InSoho2025'],
 
@@ -1000,8 +1064,17 @@ function showSubsection(hotelId, subsectionId) {
     document.getElementById('empty-state').classList.add('hidden');
     document.getElementById('content').classList.remove('hidden');
 } // <-- Esta llave cierra showSubsection correctamente
+function toggleDriveMenu() {
+    const dropdown = document.getElementById('driveDropdown');
+    const arrow = document.getElementById('drive-arrow');
+    const isOpen = dropdown.style.display === 'flex';
+    dropdown.style.display = isOpen ? 'none' : 'flex';
+    arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+}
 
                         </script>
                         
                     </body>
                     </html>
+
+                    

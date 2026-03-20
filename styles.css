@@ -1,266 +1,520 @@
- /* --- ESTILOS GENERALES --- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+/* --- ESTILOS GENERALES --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #0e1117;
+  color: #f3f4f6;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  position: relative;
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+  width: 280px;
+  background-color: #13181f;
+  border-right: 1px solid #1e2738;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+  z-index: 50;
+  position: relative;
+}
+
+/* Línea de acento izquierda del sidebar */
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 15%; left: 0;
+  width: 2px;
+  height: 70%;
+  background: linear-gradient(180deg, transparent, #2a4fff55, #2a4fff, #2a4fff55, transparent);
+  border-radius: 2px;
+}
+
+.sidebar-header {
+  padding: 22px 24px;
+  border-bottom: 1px solid #1e2738;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Línea inferior del header con degradé */
+.sidebar-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 16px; right: 16px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #2a4fff66, transparent);
+}
+
+.sidebar-header h1 {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.sidebar-nav {
+  padding: 16px;
+  overflow-y: auto;
+  flex: 1;
+  scrollbar-width: thin;
+  scrollbar-color: #1e2738 transparent;
+}
+
+.sidebar-footer {
+  padding: 16px;
+  border-top: 1px solid #1e2738;
+  margin-top: auto;
+  background-color: #13181f;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+/* Línea superior del footer con degradé */
+.sidebar-footer::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 16px; right: 16px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #2a4fff44, transparent);
+}
+
+/* --- NAV BOTONES --- */
+.hotel-item { margin-bottom: 4px; }
+
+.hotel-button {
+  width: 100%;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  color: #c9d1e0;
+  cursor: pointer;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.hotel-button:hover, .hotel-button.active {
+  background-color: #1a2235;
+  color: #ffffff;
+  box-shadow: inset 2px 0 0 #2a4fff;
+}
+
+.subsection-button {
+  width: calc(100% - 22px);
+  padding: 7px 12px;
+  margin-left: 22px;
+  background: transparent;
+  border: none;
+  color: #8896ae;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-family: inherit;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.subsection-button:hover, .subsection-button.active {
+  background-color: rgba(42, 79, 255, 0.08);
+  color: #ffffff;
+}
+
+.arrow {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s;
+  display: inline-block;
+  font-size: 11px;
+  color: #4a5a78;
+}
+.arrow.expanded { transform: rotate(90deg); }
+
+.hotel-subsections { display: none; margin-top: 2px; }
+.hotel-subsections.show { display: block; }
+
+/* --- BOTÓN DESCARGA / DRIVE --- */
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 14px;
+  background-color: #0e1117;
+  color: #c9d1e0;
+  border: 1px solid #1e2738;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  gap: 8px;
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Esquinas decorativas del botón */
+.download-btn::before,
+.download-btn::after {
+  content: '';
+  position: absolute;
+  width: 6px; height: 6px;
+  border-color: #2a4fff;
+  border-style: solid;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.download-btn::before {
+  top: 3px; left: 3px;
+  border-width: 1px 0 0 1px;
+}
+.download-btn::after {
+  bottom: 3px; right: 3px;
+  border-width: 0 1px 1px 0;
+}
+
+.download-btn:hover {
+  background-color: #1a2235;
+  border-color: #2a4fff66;
+  color: #ffffff;
+}
+.download-btn:hover::before,
+.download-btn:hover::after { opacity: 1; }
+
+.download-icon {
+  width: 15px;
+  height: 15px;
+  stroke: #2a4fff;
+  flex-shrink: 0;
+}
+
+/* --- DRIVE MENÚ --- */
+.drive-menu-container {
+  position: relative;
+  width: 100%;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 36px;
+  width: 100%;
+  position: relative;
+  background-color: #0e1117;
+  scrollbar-width: thin;
+  scrollbar-color: #1e2738 transparent;
+}
+
+.mobile-menu-btn {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 40;
+  background: #13181f;
+  border: 1px solid #1e2738;
+  color: white;
+  padding: 8px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 45;
+  backdrop-filter: blur(3px);
+}
+
+/* --- ESTADO VACÍO --- */
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+  color: #3a4a62;
+  text-align: center;
+  padding: 20px;
+  gap: 14px;
+}
+.empty-state svg { width: 56px; height: 56px; opacity: 0.2; }
+.empty-state p { font-size: 14px; color: #3a4a62; letter-spacing: 0.04em; }
+
+/* --- HEADER DE CONTENIDO --- */
+.content-header {
+  margin-bottom: 32px;
+  margin-top: 40px;
+  padding-bottom: 18px;
+  position: relative;
+}
+
+/* Línea inferior del header con punto de acento */
+.content-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #2a4fff, #2a4fff44 30%, transparent 70%);
+}
+
+@media (min-width: 769px) { .content-header { margin-top: 0; } }
+
+.content-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.content-header h3 {
+  font-size: 13px;
+  color: #4a5a78;
+  margin-top: 6px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* --- TABLAS --- */
+.table-container {
+  overflow-x: auto;
+  background-color: #13181f;
+  border-radius: 8px;
+  border: 1px solid #1e2738;
+  margin-bottom: 24px;
+  scrollbar-width: thin;
+  scrollbar-color: #1e2738 transparent;
+  position: relative;
+}
+
+/* Esquina decorativa de la tabla */
+.table-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 40px; height: 2px;
+  background: linear-gradient(90deg, #2a4fff, transparent);
+  border-radius: 2px 0 0 0;
+  z-index: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 600px;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #1a2030;
+  white-space: normal;
+}
+
+th {
+  font-weight: 600;
+  color: #8896ae;
+  background-color: #0e1117;
+  white-space: nowrap;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+td { color: #d1d9e8; line-height: 1.6; }
+
+tr:hover { background-color: rgba(42, 79, 255, 0.04); }
+tr:last-child td { border-bottom: none; }
+
+.section-title {
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #2a4fff;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.hidden { display: none; }
+
+a { color: #5577ff; text-decoration: none; word-break: break-all; }
+a:hover { color: #ffffff; text-decoration: underline; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    width: 85%;
+    max-width: 300px;
+    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.6);
+  }
+  .sidebar.active { transform: translateX(0); }
+  .mobile-menu-btn { display: block; }
+  .main-content { padding: 20px; }
+  .content-header h2 { font-size: 22px; }
+  .content-header h3 { font-size: 11px; }
+  th, td { padding: 10px 12px; font-size: 13px; }
+}
+/* --- QUICK LINKS --- */
+.quick-links {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+}
+
+.quick-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 20px;
+    background-color: #13181f;
+    border: 1px solid #1e2738;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #c9d1e0;
+    min-width: 210px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s cubic-bezier(.22,.68,0,1.2),
+                border-color 0.2s,
+                background-color 0.2s,
+                box-shadow 0.2s;
+    animation: slideDown 0.4s cubic-bezier(.22,.68,0,1.2) both;
+}
+
+.quick-link-btn:nth-child(1) { animation-delay: 0.05s; }
+.quick-link-btn:nth-child(2) { animation-delay: 0.12s; }
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
     }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background-color: #111827;
-      color: #f3f4f6;
-      height: 100vh;
-      overflow: hidden; /* Mantiene el scroll interno */
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    .container {
-      display: flex;
-      height: 100vh;
-      position: relative; /* Necesario para el posicionamiento absoluto en móvil */
+/* Brillo izquierdo al hover */
+.quick-link-btn::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: #2a4fff;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.quick-link-btn:hover {
+    border-color: #2a4fff66;
+    background-color: #1a2235;
+    box-shadow: 0 4px 20px rgba(42, 79, 255, 0.12);
+    transform: translateY(2px);
+    color: #ffffff;
+}
+
+.quick-link-btn:hover::before { opacity: 1; }
+
+.quick-link-icon {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(42, 79, 255, 0.1);
+    border: 1px solid rgba(42, 79, 255, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    stroke: #2a4fff;
+    flex-shrink: 0;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.quick-link-btn:hover .quick-link-icon {
+    background-color: rgba(42, 79, 255, 0.18);
+    border-color: rgba(42, 79, 255, 0.4);
+}
+
+.quick-link-icon svg { stroke: #2a4fff; }
+
+.quick-link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.quick-link-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.01em;
+}
+
+.quick-link-sub {
+    font-size: 11px;
+    color: #4a5a78;
+    letter-spacing: 0.03em;
+}
+
+.quick-link-arrow {
+    stroke: #4a5a78;
+    transition: stroke 0.2s, transform 0.2s;
+    flex-shrink: 0;
+}
+
+.quick-link-btn:hover .quick-link-arrow {
+    stroke: #2a4fff;
+    transform: translate(2px, -2px);
+}
+
+@media (max-width: 768px) {
+    .quick-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 24px;
     }
-
-    /* --- SIDEBAR --- */
-    .sidebar {
-      width: 280px;
-      background-color: #1f2937;
-      border-right: 1px solid #374151;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      /* Transición suave para el menú móvil */
-      transition: transform 0.3s ease-in-out;
-      z-index: 50;
-    }
-
-    .sidebar-header {
-      padding: 24px;
-      border-bottom: 1px solid #374151;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      justify-content: space-between; /* Para acomodar el botón de cerrar en móvil */
-    }
-
-    .sidebar-header h1 {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .sidebar-nav {
-      padding: 24px;
-      overflow-y: auto;
-      flex: 1; /* Ocupa el espacio disponible */
-    }
-
-    .sidebar-footer {
-      padding: 16px;
-      border-top: 1px solid #374151;
-      margin-top: auto;
-      background-color: #1f2937; /* Asegura fondo sólido */
-    }
-
-    /* Botones y Navegación */
-    .hotel-item { margin-bottom: 8px; }
-
-    .hotel-button {
-      width: 100%;
-      padding: 12px 16px;
-      background: transparent;
-      border: none;
-      color: #f3f4f6;
-      cursor: pointer;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 16px;
-      font-weight: 500;
-      transition: background-color 0.2s;
-    }
-
-    .hotel-button:hover, .hotel-button.active {
-      background-color: #374151;
-    }
-
-    .subsection-button {
-      width: 100%;
-      padding: 8px 16px;
-      margin-left: 24px;
-      background: transparent;
-      border: none;
-      color: #9ca3af;
-      cursor: pointer;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      transition: background-color 0.2s;
-      width: calc(100% - 24px); /* Ajuste para que no se salga */
-    }
-
-    .subsection-button:hover, .subsection-button.active {
-      background-color: #374151;
-      color: #f3f4f6;
-    }
-
-    .arrow {
-      width: 16px;
-      height: 16px;
-      transition: transform 0.2s;
-      display: inline-block; /* Asegura que rote bien */
-    }
-    .arrow.expanded { transform: rotate(90deg); }
-
-    .hotel-subsections {
-      display: none;
-      margin-top: 4px;
-    }
-    .hotel-subsections.show { display: block; }
-
-    /* Botón descarga */
-    .download-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      padding: 12px;
-      background-color: #000000;
-      color: #f3f4f6;
-      border: 1px solid #374151;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      gap: 10px;
-    }
-    .download-btn:hover {
-      background-color: #111827;
-      border-color: #3b82f6;
-      color: #ffffff;
-    }
-    .download-icon { width: 18px; height: 18px; stroke: #3b82f6; }
-
-    /* --- CONTENIDO PRINCIPAL --- */
-    .main-content {
-      flex: 1;
-      overflow-y: auto;
-      padding: 32px;
-      width: 100%;
-      position: relative;
-    }
-
-    /* NUEVO: Botón de menú móvil (Hamburguesa) */
-    .mobile-menu-btn {
-      display: none; /* Oculto en escritorio */
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 40;
-      background: #1f2937;
-      border: 1px solid #374151;
-      color: white;
-      padding: 8px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    /* NUEVO: Overlay oscuro para cuando abre el menú */
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 45;
-      backdrop-filter: blur(2px);
-    }
-
-    /* Estados vacíos y headers */
-    .empty-state {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      flex-direction: column;
-      color: #6b7280;
-      text-align: center;
-      padding: 20px;
-    }
-    .empty-state svg { width: 64px; height: 64px; margin-bottom: 16px; opacity: 0.5; }
-
-    .content-header { margin-bottom: 32px; margin-top: 40px; /* Margen extra para el botón móvil */ }
-    @media (min-width: 769px) {
-        .content-header { margin-top: 0; }
-    }
-
-    .content-header h2 { font-size: 32px; font-weight: bold; }
-    .content-header h3 { font-size: 20px; color: #9ca3af; margin-top: 8px; }
-
-    /* Tablas */
-    .table-container {
-      overflow-x: auto;
-      background-color: #1f2937;
-      border-radius: 8px;
-      border: 1px solid #374151;
-      margin-bottom: 24px;
-      /* Scrollbar estilo fino */
-      scrollbar-width: thin;
-      scrollbar-color: #4b5563 #1f2937;
-    }
-    
-    table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 600px; /* Fuerza scroll en móvil si es muy angosta */ }
-    th, td {
-      padding: 12px 16px;
-      text-align: left;
-      border-bottom: 1px solid #374151;
-      white-space: normal; /* Permite saltos de línea */
-    }
-    th { font-weight: 600; color: #d1d5db; background-color: #111827; white-space: nowrap; }
-    td { color: #d1d5db; line-height: 1.6; }
-    tr:hover { background-color: rgba(55, 65, 81, 0.5); }
-    tr:last-child td { border-bottom: none; }
-
-    .section-title { font-size: 20px; font-weight: 600; margin-bottom: 16px; color: #3b82f6; }
-    .hidden { display: none; }
-    a { color: #3b82f6; text-decoration: none; word-break: break-all; /* Rompe links largos en móvil */ }
-    a:hover { text-decoration: underline; }
-
-    /* --- RESPONSIVE MEDIA QUERIES --- */
-    @media (max-width: 768px) {
-      /* Ajuste del sidebar para móvil */
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        transform: translateX(-100%); /* Oculto por defecto */
-        width: 85%; /* No ocupa toda la pantalla para que se vea el fondo */
-        max-width: 300px;
-        box-shadow: 4px 0 15px rgba(0,0,0,0.5);
-      }
-
-      .sidebar.active {
-        transform: translateX(0); /* Visible */
-      }
-
-      /* Mostrar botón de menú */
-      .mobile-menu-btn {
-        display: block;
-      }
-
-      /* Ajustes de contenido */
-      .main-content {
-        padding: 20px;
-      }
-
-      .content-header h2 { font-size: 24px; }
-      .content-header h3 { font-size: 16px; }
-
-      /* Tablas en móvil */
-      th, td {
-        padding: 10px 12px;
-        font-size: 13px;
-      }
-    } 
+    .quick-link-btn { min-width: unset; width: 100%; }
+}
