@@ -135,6 +135,26 @@
 </button>
     </div>
 </div>
+<div class="hotel-item">
+    <button class="hotel-button" onclick="toggleHotel('hache')">
+        <span class="arrow" id="arrow-hache">▶</span>
+        <span>Hache Palermo by iPPA</span>
+    </button>
+    <div class="hotel-subsections" id="subsections-hache">
+        <button class="subsection-button" onclick="showSubsection('hache', 'links'); closeSidebarOnMobile()">
+            <span>→</span> <span>Links y contraseñas</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('hache', 'bedding'); closeSidebarOnMobile()">
+            <span>→</span> <span>Categoría y Bedding</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('hache', 'bankData'); closeSidebarOnMobile()">
+            <span>→</span> <span>Datos Bancarios</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('hache', 'billing'); closeSidebarOnMobile()">
+            <span>→</span> <span>Facturación</span>
+        </button>
+    </div>
+</div>
                 
  <div class="sidebar-header" style="border-top: 1px solid #eee; margin-top: 20px;">
     <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0;">
@@ -353,7 +373,7 @@
 
         // --- TU CÓDIGO ORIGINAL (Sin cambios en los datos) ---
         const hotelsData = {
-           baires: {
+            baires: {
                 name: 'Baires by iPPA',
                 subsections: {
                     links: {
@@ -370,16 +390,13 @@
                                     ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'IPHoteles2026!'],
                                 ]
                             },
-                            
                             {
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
-                                    
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
                                     ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
-                              
                                     ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2025!!'],
                                 ]
                             }
@@ -394,31 +411,91 @@
                                     ['Equipamiento y Bedding', '-', '-', 'Número'],
                                     ['HABS QUE SE HACEN TWIN', '-', '-', 'NINGUNA'],
                                     ['HABS CON SOFÁ CAMA', '-', '-', 'TODAS'],
-                                    
                                 ]
                             }
                         ]
                     },
                     bankData: {
-            title: 'Datos Bancarios',
-            sections: [
-                {
-                                            name: 'Información de Cuenta',
-                                            data: [
-                                                ['Concepto', 'Detalle'],
-                                                ['Razón Social', 'RUDI SA'],
-                                                ['Cuit', '30-71448142-4'],
-                                                ['CBU', '0070677920000000724717'],
-                                                ['Banco', 'Galicia']
-                                            ]
-                                        }
-            ],
-            
-        }
-        
-        
+                        title: 'Datos Bancarios',
+                        sections: [
+                            {
+                                name: 'Información de Cuenta',
+                                data: [
+                                    ['Concepto', 'Detalle'],
+                                    ['Razón Social', 'RUDI SA'],
+                                    ['Cuit', '30-71448142-4'],
+                                    ['CBU', '0070677920000000724717'],
+                                    ['Banco', 'Galicia']
+                                ]
+                            }
+                        ]
+                    }
                 }
-            },procedimientos: {
+            },
+            hache: {
+                name: 'Hache Palermo by iPPA',
+                subsections: {
+                    links: {
+                        title: 'Links y contraseñas',
+                        sections: [
+                            {
+                                name: 'Información General',
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Mail', '-', 'host.hachepalermo@ippa-hoteles.com', 'Hoteler1a96#'],
+                                    ['Hit Connect', '-', 'palermopalms@gmail.com', 'Costarica4828'],
+                                    ['TTlock', '<a href="https://lock2.ttlock.com/" target="_blank">TTlock Web</a>', 'asistente.operaciones@ippa-hoteles.com', 'Insoho2024'],
+                                    ['Wifi', '-', 'P1, P2,P3,P4', 'Costarica4828'],
+                                ]
+                            }
+                        ]
+                    },
+                    bedding: {
+                        title: 'Categoría y Bedding',
+                        sections: [
+                            {
+                                name: 'Configuración de Habitaciones',
+                                data: [
+                                    ['Detalle', 'Información'],
+                                    ['Bedding', 'Todas se pueden hacer Twin y king'],
+                                    ['Sofá Cama', '-'],
+                                    ['Hab al frente', '-'],
+                                    ['Hab al contrafrente', '-'],
+
+                                ]
+                            }
+                        ]
+                    },
+                    bankData: {
+                        title: 'Datos Bancarios',
+                        sections: [
+                            {
+                                name: 'Información de Cuenta',
+                                data: [
+                                    ['Concepto', 'Detalle'],
+                                    ['Razón Social', 'Rudi SA'],
+                                    ['Cuit', '-'],
+                                    ['CBU', '-'],
+                                    ['Banco', '-']
+                                ]
+                            }
+                        ]
+                    },
+                    billing: {
+                        title: 'Facturación',
+                        sections: [
+                            {
+                                name: 'Datos de Facturación',
+                                data: [
+                                    ['Concepto', 'Detalle'],
+                                    ['Instrucciones', 'Alquiler temporario, igual que todas exceptuando Filiberto']
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            procedimientos: {
     name: 'Procedimientos Administrativos',
     subsections: {
         cobroClover: {
@@ -757,9 +834,10 @@ checklist: {
                                 data: [
                                     ['Concepto', 'Detalle'],
                                     ['Razón Social', 'NUEVA JUSTA SRL'],
+                                    ['Número de cuenta', 'CC ARS 001-5760549-2'],
                                     ['Cuit', '30718562712'],
-                                    ['CBU', '0270001410057605490030'],
-                                    ['Alias', 'GRANO.GAFAS.DESPERTO']
+                                    ['CBU', '0270001410057605490023'],
+                                    ['Alias', 'GRANA.GAFAS.DESPERTO']
                                     
 
                                 ]
