@@ -184,6 +184,9 @@
     <button class="subsection-button" onclick="showSubsection('procedimientos', 'desayunosMilenia'); closeSidebarOnMobile()">
     <span>→</span> <span>Desayunos Milenia</span>
 </button>
+<button class="subsection-button" onclick="showSubsection('procedimientos', 'desayunosHache'); closeSidebarOnMobile()">
+    <span>→</span> <span>Desayunos Hache Palermo</span>
+</button>
 </div>
     </div>
 </nav>
@@ -397,7 +400,7 @@
                                     ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
                                     ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2025!!'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2026!!'],
                                 ]
                             }
                         ]
@@ -443,7 +446,7 @@
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['Mail', '-', 'host.hachepalermo@ippa-hoteles.com', 'Hoteler1a96#'],
-                                    ['Hit Connect', '-', 'palermopalms@gmail.com', 'Costarica4828'],
+                                    ['Hit Connect', '-', 'host@ippa-hoteles.com', 'IPHoteles2026!'],
                                     ['TTlock', '<a href="https://lock2.ttlock.com/" target="_blank">TTlock Web</a>', 'asistente.operaciones@ippa-hoteles.com', 'Insoho2024'],
                                     ['Wifi', '-', 'P1, P2,P3,P4', 'Costarica4828'],
                                 ]
@@ -608,7 +611,32 @@
                     ]
                 }
             ]
+        },desayunosHache: {
+    title: 'Desayunos Hache Palermo',
+    sections: [
+        {
+            name: 'Datos del Proveedor',
+            data: [
+                ['Detalle', 'Información'],
+                ['Nombre', 'Nadina Pastelería & Café'],
+                ['Instagram', '<a href="https://www.instagram.com/nadinapasteleria/" target="_blank">@nadinapasteleria</a>'],
+                ['Dirección', 'Costa Rica 4824 (Planta Baja del edificio)'],
+                ['Contacto', 'Jorge (encargado) – 11 6941 000'],
+                ['Horario', 'Mar a Sáb: 8 a 20hs | Dom: 10 a 20hs | Lun: Cerrado (*buscaremos opción para los lunes)']
+            ]
+        },
+        {
+            name: 'Menú de Desayuno Continental',
+            data: [
+                ['Componente', 'Opciones'],
+                ['Infusión (elegir 1)', 'Café tradicional / Café con leche / Té en hebras'],
+                ['Comida (elegir 1)', '• Dos medialunas<br>• Dos tostadas medianas con 2 dips a elección (manteca, queso crema, dulce de leche o mermelada)<br>• Fruta de estación con yogurt natural y granola<br>• Masitas rellenas, cuadraditos de lemon pie o brownie<br>• Bowl de huevos revueltos con mini tostada y palta'],
+                ['Bebida', 'Copón de jugo de naranja'],
+                ['Nota', 'Cualquier extra puede solicitarse directamente en el local']
+            ]
         }
+    ]
+}
     } // <--- Esta llave cierra "subsections"
 },
 checklist: {
@@ -804,7 +832,7 @@ checklist: {
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
                                     ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2025!!'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2026!!'],
                                     ['Almundo', '<a href="https://jintranet.trendoperadora.com.br/extranet/login.aspx?ReturnUrl=%2fextranet%2falojamiento%2fdefault.aspx%3falojamiento%3d4157&alojamiento=4157" target="_blank">Login Almundo</a>', 'FilibertobyiPPA2', 'IPHoteles2025!!'],
                                     ['Hotelbeds', '<a href="https://maxiroom.hotelbeds.com/#/login" target="_blank">Login Hotelbeds</a>', 'IPPA', 'IPHoteles2026*'],
                                 ]
@@ -899,7 +927,6 @@ checklist: {
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
                                     ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2025!!'],
                                 ]
                             }
                         ]
@@ -986,7 +1013,6 @@ checklist: {
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
                                     ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
                               
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2025!!'],
                                             ]
                                         }
                                     ]
