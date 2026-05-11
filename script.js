@@ -37,7 +37,8 @@
                                     ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2026!'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
-                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!']
+                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
+                                    ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024']
                                 ]
                             }
                         ]
@@ -63,7 +64,6 @@
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
                                     ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2026!!'],
                                 ]
                             }
@@ -155,6 +155,138 @@
                                 data: [
                                     ['Concepto', 'Detalle'],
                                     ['Instrucciones', 'Alquiler temporario, igual que todas exceptuando Filiberto']
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            aldeaAndina: {
+                name: 'Aldea Andina by iPPA',
+                subsections: {
+                    informacionGeneral: {
+                        title: 'Información general',
+                        sections: [
+                            {
+                                name: '1. Ubicación y Entorno',
+                                data: [
+                                    ['Contenido'],
+                                    [`<div style="line-height:1.65; max-width:900px;">
+<p><strong>Dirección:</strong> Av. de los Pioneros Km 2, San Carlos de Bariloche, Río Negro.</p>
+<p><strong>Entorno:</strong> El complejo está ubicado en un predio de 2 hectáreas de bosque nativo en las faldas del Cerro Otto.</p>
+<p><strong>Proximidad:</strong></p>
+<ul style="margin:0.35em 0 0 1.25em;">
+<li>A 18 cuadras (aprox. 2 km) del Centro Cívico.</li>
+<li>A 15 km del Centro de Ski Cerro Catedral.</li>
+<li>A 18 km del Aeropuerto Internacional de Bariloche.</li>
+</ul>
+</div>`]
+                                ]
+                            },
+                            {
+                                name: '2. Horarios Clave',
+                                data: [
+                                    ['Contenido'],
+                                    [`<div style="line-height:1.65; max-width:900px;">
+<ul style="margin:0; padding-left:1.25em;">
+<li><strong>Check-in:</strong> 16:00 hs.</li>
+<li><strong>Check-out:</strong> 10:00 hs. (El Late Check Out está sujeto a disponibilidad y tiene un cargo adicional).</li>
+<li><strong>Desayuno:</strong> Se sirve de 08:00 a 10:30 hs (o hasta las 11:00 hs según temporada).</li>
+<li><strong>Restaurante:</strong> Abierto de 08:00 a 23:30 hs (puede variar según la temporada).</li>
+</ul>
+</div>`]
+                                ]
+                            },
+                            {
+                                name: '3. Servicios e Instalaciones',
+                                data: [
+                                    ['Contenido'],
+                                    [`<div style="line-height:1.65; max-width:900px;">
+<p><strong>Conectividad:</strong> Wi-Fi gratuito en áreas comunes y unidades.</p>
+<p><strong>Internet Wi-Fi:</strong> Usuario <strong>Andina</strong> / Acceso <strong>Aldea2021</strong>.</p>
+<p><strong>Alojamiento:</strong> Cuenta con 34 unidades entre habitaciones de hotel y departamentos equipados (algunos con cocina e hidromasaje).</p>
+<p><strong>Gastronomía:</strong> El restaurante "El Bodegón del Lago" ofrece cocina casera con vistas al Lago Nahuel Huapi.</p>
+<p><strong>Bienestar (Spa):</strong></p>
+<ul style="margin:0.35em 0 0.5em 1.25em;">
+<li>Piscina climatizada in-out (interior/exterior).</li>
+<li>Jacuzzi y sauna.</li>
+<li>Servicios de masajes, quiropraxia y reflexología.</li>
+</ul>
+<p><strong>Pileta y toallones:</strong> Se provee un toallón por persona para toda la estadía. El recambio de la prenda tiene un costo adicional $1000. La temperatura del agua de la pileta es establecida por la normativa vigente.</p>
+<p><strong>Horario de pileta y spa (pileta / instalaciones asociadas):</strong> Lunes a domingo: de 11:00 a 23:00 h. Fuera de ese horario se realiza mantenimiento y limpieza de las mismas por lo que no se podrán utilizar.</p>
+<p><strong>Deportes y Recreación:</strong></p>
+<ul style="margin:0.35em 0 0.5em 1.25em;">
+<li>Cancha de tenis de polvo de ladrillo.</li>
+<li>Sala de juegos (ping-pong, metegol).</li>
+<li>Quincho/parrilla y fogón para asados.</li>
+</ul>
+<p><strong>Check-in y vehículos:</strong> Al realizar el check-in deberá informar el número de patente del vehículo. Cada edificio tiene asignado su estacionamiento para un auto. El único estacionamiento exclusivo es para el módulo Abedules. Si necesitara un lugar extra, comuníquese con la recepción.</p>
+<p><strong>Estacionamiento:</strong> Gratuito dentro del predio (por orden de llegada). En caso de necesitar un estacionamiento extra, deberá utilizarse el estacionamiento de visita (todo auto de visita deberá usar dicho estacionamiento); de lo contrario se estaría ocupando un lugar ya asignado, ocasionando molestias a un huésped.</p>
+</div>`]
+                                ]
+                            },
+                            {
+                                name: '4. Datos Técnicos y Normativas',
+                                data: [
+                                    ['Contenido'],
+                                    [`<div style="line-height:1.65; max-width:900px;">
+<p><strong>Mascotas:</strong> El establecimiento no admite mascotas.</p>
+<p><strong>Días de limpieza:</strong> De lunes a sábados de 9:00 a 16:00 hs. Los domingos no se prestará servicio de housekeeping.</p>
+<p><strong>Quincho:</strong> El uso del quincho deberá solicitarse en recepción; tiene costo. La vajilla debe quedar limpia y en su lugar al desocupar el quincho; caso contrario se cargará en cuenta el valor del lavado (11 USD TCV — oficial).</p>
+<p><strong>Invitados:</strong> No está permitido el ingreso al establecimiento de invitados o personas que no estén alojadas en el complejo, tanto a las unidades como a los espacios comunes, sin previa autorización de la Administración.</p>
+<p><strong>Sostenibilidad:</strong> El hotel cuenta con un programa de compromiso ambiental dentro del Parque Nacional Nahuel Huapi.</p>
+</div>`]
+                                ]
+                            }
+                        ]
+                    },
+                    links: {
+                        title: 'Links y contraseñas',
+                        sections: [
+                            {
+                                name: 'Accesos y plataformas',
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Wi-Fi', '-', 'Andina', 'Aldea2021'],
+                                    ['Mail Aldea Andina', '-', 'host.aldeaandina@ippa-hoteles.com', 'Ippa0405'],
+                                    ['TTHoteles', '<a href="https://play.google.com/store/apps/details?id=com.sciener.hotela" target="_blank">Descargar app (Android)</a> · <a href="https://apps.apple.com/app/tthotel/id1440266680" target="_blank">Descargar app (iOS)</a>', 'asistente.operaciones@ippa-hoteles.com', 'l0136247'],
+                                    ['PMS Venice', '<a href="https://s1.venicepms.com/ala551/admin/login" target="_blank">Login Venice PMS</a>', '-', '-']
+                                ]
+                            }
+                        ]
+                    },
+                    bedding: {
+                        title: 'Categoría y Bedding',
+                        sections: [
+                            {
+                                name: 'Configuración de Habitaciones',
+                                data: [
+                                    ['Detalle', 'Información'],
+                                    ['Nota', 'Pendiente de carga.']
+                                ]
+                            }
+                        ]
+                    },
+                    bankData: {
+                        title: 'Datos Bancarios',
+                        sections: [
+                            {
+                                name: 'Información de Cuenta',
+                                data: [
+                                    ['Concepto', 'Detalle'],
+                                    ['Nota', 'Pendiente de carga.']
+                                ]
+                            }
+                        ]
+                    },
+                    mapaComplejo: {
+                        title: 'Mapa del complejo',
+                        sections: [
+                            {
+                                name: 'Plano del predio',
+                                data: [
+                                    ['Vista'],
+                                    ['<div style="text-align:center; padding:12px 0;"><img src="Media/Mapa_AldeaAndina.jpg" alt="Mapa del complejo Aldea Andina by iPPA" style="max-width:100%; max-height:85vh; width:auto; height:auto; border-radius:8px; border:1px solid #ddd; box-shadow:0 2px 8px rgba(0,0,0,.08);" loading="lazy" /></div>']
                                 ]
                             }
                         ]
@@ -467,7 +599,7 @@ checklist: {
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718562712', 'Filiberto2026*'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718562712', 'Filiberto2026!'],
                                     ['Celular', '-', '-', '1564'],
                                     ['Mail','-', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024@'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
@@ -486,7 +618,6 @@ checklist: {
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
                                     ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2026!!'],
@@ -576,7 +707,6 @@ checklist: {
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
                                 ]
@@ -759,7 +889,6 @@ checklist: {
                                             data: [
                                                 ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                                 ['Mail','-', 'Host.bahcongreso@ippa-hoteles.com ', 'IPP4HOTELES475#'],
-                                                ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
                                     
                                             ]
                                         }

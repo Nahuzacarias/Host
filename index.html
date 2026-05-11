@@ -170,6 +170,29 @@
         </button>
     </div>
 </div>
+<div class="hotel-item">
+    <button class="hotel-button" onclick="toggleHotel('aldeaAndina')">
+        <span class="arrow" id="arrow-aldeaAndina">▶</span>
+        <span>Aldea Andina by iPPA</span>
+    </button>
+    <div class="hotel-subsections" id="subsections-aldeaAndina">
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'informacionGeneral'); closeSidebarOnMobile()">
+            <span>→</span> <span>Información general</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'links'); closeSidebarOnMobile()">
+            <span>→</span> <span>Links y contraseñas</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'bedding'); closeSidebarOnMobile()">
+            <span>→</span> <span>Categoría y Bedding</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'bankData'); closeSidebarOnMobile()">
+            <span>→</span> <span>Datos Bancarios</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'mapaComplejo'); closeSidebarOnMobile()">
+            <span>→</span> <span>Mapa del complejo</span>
+        </button>
+    </div>
+</div>
                 
  <div class="sidebar-header" style="border-top: 1px solid #eee; margin-top: 20px;">
     <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0;">
@@ -336,6 +359,23 @@
         </div>
         <div class="quick-link-text">
             <span class="quick-link-label">Venice PMS</span>
+            <span class="quick-link-sub">Sistema de gestión</span>
+        </div>
+        <svg class="quick-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+    </a>
+
+    <a href="https://s1.venicepms.com/ala551/admin/login" target="_blank" class="quick-link-btn">
+        <div class="quick-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+                <path d="M7 8h4M7 11h6"/>
+            </svg>
+        </div>
+        <div class="quick-link-text">
+            <span class="quick-link-label">Venice PMS Aldea Andina</span>
             <span class="quick-link-sub">Sistema de gestión</span>
         </div>
         <svg class="quick-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
