@@ -169,12 +169,32 @@
                         title: 'Información general',
                         sections: [
                             {
-                                name: '1. Ubicación y Entorno',
+                                name: '1. Entorno y segmentos de huéspedes',
+                                data: [
+                                    ['Contenido'],
+                                    [`<div style="line-height:1.65; max-width:900px;">
+<p><strong>Ubicación:</strong> Aprox. 2 km del Centro Cívico, en la ladera del Cerro Otto (Av. de los Pioneros, 2.ª arteria principal).</p>
+<p><strong>Segmento VENTA:</strong></p>
+<ul style="margin:0.35em 0 0.5em 1.25em;">
+<li><strong>Julio / Agosto:</strong> Familias + ski.</li>
+<li><strong>Enero:</strong> Playa, trekking y actividades de verano.</li>
+</ul>
+<p><strong>Segmento SOCIOS (tiempo compartido — RHS / RCI):</strong></p>
+<ul style="margin:0.35em 0 0 1.25em;">
+<li>Perfil habitual: personas mayores que valoran la cercanía al centro y el estado del inmueble.</li>
+<li>Orientación a tiempo compartido: remises, restaurante y excursiones.</li>
+<li>Si un socio desea hablar o necesita asistencia específica, derivar al teléfono de <strong>Experiencia</strong> (tiempo compartido).</li>
+</ul>
+</div>`]
+                                ]
+                            },
+                            {
+                                name: '2. Ubicación y entorno',
                                 data: [
                                     ['Contenido'],
                                     [`<div style="line-height:1.65; max-width:900px;">
 <p><strong>Dirección:</strong> Av. de los Pioneros Km 2, San Carlos de Bariloche, Río Negro.</p>
-<p><strong>Entorno:</strong> El complejo está ubicado en un predio de 2 hectáreas de bosque nativo en las faldas del Cerro Otto.</p>
+<p><strong>Entorno:</strong> Predio de 2 hectáreas de bosque nativo en las faldas del Cerro Otto.</p>
 <p><strong>Proximidad:</strong></p>
 <ul style="margin:0.35em 0 0 1.25em;">
 <li>A 18 cuadras (aprox. 2 km) del Centro Cívico.</li>
@@ -185,58 +205,143 @@
                                 ]
                             },
                             {
-                                name: '2. Horarios Clave',
+                                name: '3. Acceso, transporte y estacionamiento',
+                                data: [
+                                    ['Contenido'],
+                                    [`<div style="line-height:1.65; max-width:900px;">
+<p><strong>Cómo llegar:</strong> Remis, auto rentado o vehículo propio. Al indicar el acceso, informar siempre qué estacionamiento debe utilizar el huésped.</p>
+<p><strong>Ingreso al predio:</strong></p>
+<ul style="margin:0.35em 0 0.5em 1.25em;">
+<li><strong>Módulo Abedules:</strong> ingresar por Av. de los Pioneros.</li>
+<li><strong>Resto de edificios:</strong> ingresar por el acceso alternativo (no Pioneros).</li>
+</ul>
+<p><strong>Colectivos:</strong> Líneas <strong>50</strong> y <strong>51</strong> al centro · Línea <strong>52</strong> al Cerro Catedral. Recomendar la app <strong>Mi Bus Bariloche</strong>.</p>
+<p><strong>Estacionamiento:</strong> Gratuito dentro del predio (un auto por unidad; Abedules tiene estacionamiento exclusivo). Extras y visitas: estacionamiento de visita. Informar patente en el check-in.</p>
+</div>`]
+                                ]
+                            },
+                            {
+                                name: '4. Bariloche: información y clima',
+                                data: [
+                                    ['Contenido'],
+                                    [`<div style="line-height:1.65; max-width:900px;">
+<p><strong>Turismo:</strong> <a href="https://barilocheturismo.gob.ar/" target="_blank">barilocheturismo.gob.ar</a></p>
+<p><strong>Clima:</strong> <a href="https://www.rionegro.com.ar/clima-hoy/bariloche/" target="_blank">Clima en Bariloche (Río Negro)</a></p>
+<p>Las alertas climáticas puntuales serán comunicadas por el equipo operativo.</p>
+</div>`]
+                                ]
+                            },
+                            {
+                                name: '5. Horarios clave',
                                 data: [
                                     ['Contenido'],
                                     [`<div style="line-height:1.65; max-width:900px;">
 <ul style="margin:0; padding-left:1.25em;">
 <li><strong>Check-in:</strong> 16:00 hs.</li>
-<li><strong>Check-out:</strong> 10:00 hs. (El Late Check Out está sujeto a disponibilidad y tiene un cargo adicional).</li>
-<li><strong>Desayuno:</strong> Se sirve de 08:00 a 10:30 hs (o hasta las 11:00 hs según temporada).</li>
-<li><strong>Restaurante:</strong> Abierto de 08:00 a 23:30 hs (puede variar según la temporada).</li>
+<li><strong>Check-out:</strong> 10:00 hs. (Late Check Out sujeto a disponibilidad, con cargo adicional).</li>
+<li><strong>Desayuno:</strong> Buffet de 08:00 a 10:30 hs (o hasta las 11:00 hs según temporada). Extras con costo; ver linktree del hotel.</li>
+<li><strong>Restaurante El Bodegón del Lago:</strong> Abierto de 08:00 a 23:30 hs (puede variar según temporada).</li>
 </ul>
 </div>`]
                                 ]
                             },
                             {
-                                name: '3. Servicios e Instalaciones',
+                                name: '6. Servicios e instalaciones',
                                 data: [
                                     ['Contenido'],
                                     [`<div style="line-height:1.65; max-width:900px;">
-<p><strong>Conectividad:</strong> Wi-Fi gratuito en áreas comunes y unidades.</p>
-<p><strong>Internet Wi-Fi:</strong> Usuario <strong>Andina</strong> / Acceso <strong>Aldea2021</strong>.</p>
-<p><strong>Alojamiento:</strong> Cuenta con 34 unidades entre habitaciones de hotel y departamentos equipados (algunos con cocina e hidromasaje).</p>
-<p><strong>Gastronomía:</strong> El restaurante "El Bodegón del Lago" ofrece cocina casera con vistas al Lago Nahuel Huapi.</p>
-<p><strong>Bienestar (Spa):</strong></p>
+<p><strong>Conectividad:</strong> Wi-Fi gratuito en áreas comunes y unidades. Usuario <strong>Andina</strong> / Acceso <strong>Aldea2021</strong>. Pueden producirse microinterrupciones por viento (ver textos de contención).</p>
+<p><strong>Alojamiento:</strong> 34 unidades entre habitaciones de hotel y departamentos equipados (algunos con cocina e hidromasaje).</p>
+<p><strong>Acceso a habitaciones:</strong> Por código (TTHoteles).</p>
+<p><strong>Desayuno:</strong> Buffet; extras con costo (linktree). No está alcanzado por descuentos. Las promociones de alojamiento nunca incluyen desayuno.</p>
+<p><strong>Restaurante — El Bodegón del Lago:</strong> Cocina casera con vistas al Lago Nahuel Huapi. <a href="https://www.elbodegondellago.com.ar" target="_blank">www.elbodegondellago.com.ar</a></p>
+<p><strong>Spa:</strong> Pileta climatizada interior/exterior (todo en una), sauna, jacuzzi y duchas. Personal permanente; horario de atención <strong>11:00 a 22:00 hs</strong>. Doble acceso al sector.</p>
 <ul style="margin:0.35em 0 0.5em 1.25em;">
-<li>Piscina climatizada in-out (interior/exterior).</li>
-<li>Jacuzzi y sauna.</li>
-<li>Servicios de masajes, quiropraxia y reflexología.</li>
+<li>Derivar al Spa consultas de disponibilidad y precios de masajes y servicios especiales.</li>
+<li>Sauna y servicios especiales tienen costo adicional.</li>
+<li>1 toallón por persona por estadía; recambio $1000. Si contrata masaje, incluye 20 min de sauna.</li>
+<li>Masajes, quiropraxia y reflexología (consultar en Spa).</li>
 </ul>
-<p><strong>Pileta y toallones:</strong> Se provee un toallón por persona para toda la estadía. El recambio de la prenda tiene un costo adicional $1000. La temperatura del agua de la pileta es establecida por la normativa vigente.</p>
-<p><strong>Horario de pileta y spa (pileta / instalaciones asociadas):</strong> Lunes a domingo: de 11:00 a 23:00 h. Fuera de ese horario se realiza mantenimiento y limpieza de las mismas por lo que no se podrán utilizar.</p>
-<p><strong>Deportes y Recreación:</strong></p>
-<ul style="margin:0.35em 0 0.5em 1.25em;">
-<li>Cancha de tenis de polvo de ladrillo.</li>
-<li>Sala de juegos (ping-pong, metegol).</li>
-<li>Quincho/parrilla y fogón para asados.</li>
-</ul>
-<p><strong>Check-in y vehículos:</strong> Al realizar el check-in deberá informar el número de patente del vehículo. Cada edificio tiene asignado su estacionamiento para un auto. El único estacionamiento exclusivo es para el módulo Abedules. Si necesitara un lugar extra, comuníquese con la recepción.</p>
-<p><strong>Estacionamiento:</strong> Gratuito dentro del predio (por orden de llegada). En caso de necesitar un estacionamiento extra, deberá utilizarse el estacionamiento de visita (todo auto de visita deberá usar dicho estacionamiento); de lo contrario se estaría ocupando un lugar ya asignado, ocasionando molestias a un huésped.</p>
+<p><strong>Excursiones y autos:</strong> Consultar linktree del hotel (incluir <strong>Grupo Visión</strong> para excursiones y <strong>Hertz</strong> para alquiler de autos).</p>
+<p><strong>Sala de juegos:</strong> Juegos de mesa, metegol, raquetas y pelotas de tenis y ping pong.</p>
+<p><strong>Cancha de tenis:</strong> Uso diurno, con reserva en recepción, sin costo adicional (polvo de ladrillo).</p>
+<p><strong>Quincho:</strong> Mediodía y noche, con costo adicional (bonificado). Reservar en recepción. La vajilla debe quedar limpia al desocupar; de lo contrario se cargará el lavado (11 USD TCV — oficial).</p>
+<p><strong>Fogón:</strong> Mediodía y noche, sin costo adicional. Reservar en recepción.</p>
 </div>`]
                                 ]
                             },
                             {
-                                name: '4. Datos Técnicos y Normativas',
+                                name: '7. Acceso a habitaciones',
                                 data: [
                                     ['Contenido'],
                                     [`<div style="line-height:1.65; max-width:900px;">
-<p><strong>Mascotas:</strong> El establecimiento no admite mascotas.</p>
-<p><strong>Días de limpieza:</strong> De lunes a sábados de 9:00 a 16:00 hs. Los domingos no se prestará servicio de housekeeping.</p>
-<p><strong>Quincho:</strong> El uso del quincho deberá solicitarse en recepción; tiene costo. La vajilla debe quedar limpia y en su lugar al desocupar el quincho; caso contrario se cargará en cuenta el valor del lavado (11 USD TCV — oficial).</p>
-<p><strong>Invitados:</strong> No está permitido el ingreso al establecimiento de invitados o personas que no estén alojadas en el complejo, tanto a las unidades como a los espacios comunes, sin previa autorización de la Administración.</p>
-<p><strong>Sostenibilidad:</strong> El hotel cuenta con un programa de compromiso ambiental dentro del Parque Nacional Nahuel Huapi.</p>
+<p>Las unidades se abren con <strong>código</strong> mediante la app <strong>TTHoteles</strong> (ver Links y contraseñas).</p>
 </div>`]
+                                ]
+                            },
+                            {
+                                name: '8. Proceso del huésped y plantillas',
+                                data: [
+                                    ['Etapa', 'Acción'],
+                                    ['Ingreso', 'Plantilla inicial + envío de web check-in'],
+                                    ['Socios', 'Utilizar plantilla específica para socios (tiempo compartido)'],
+                                    ['48 hs antes', 'Reenvío de web check-in'],
+                                    ['Registro de autos', 'Sumar patente del vehículo a las plantillas de contacto'],
+                                    ['24 hs antes', 'Plantilla de recordatorio'],
+                                    ['Primer día', 'Plantilla de primer día de estadía'],
+                                    ['Día de limpieza', 'Plantilla de día de limpieza'],
+                                    ['24 hs antes del check-out', 'Plantilla previa a check-out']
+                                ]
+                            },
+                            {
+                                name: '9. Comercios de cercanía',
+                                data: [
+                                    ['Contenido'],
+                                    [`<div style="line-height:1.65; max-width:900px;">
+<p>Consultar con <strong>Lu</strong> el listado actualizado de comercios recomendados para derivar a los huéspedes.</p>
+</div>`]
+                                ]
+                            },
+                            {
+                                name: '10. Datos técnicos y normativas',
+                                data: [
+                                    ['Contenido'],
+                                    [`<div style="line-height:1.65; max-width:900px;">
+<p><strong>Mascotas:</strong> No se admiten.</p>
+<p><strong>Limpieza:</strong> Lunes a sábado de 9:00 a 16:00 hs. Domingos sin housekeeping.</p>
+<p><strong>Invitados:</strong> No permitido el ingreso de personas no alojadas a unidades ni espacios comunes sin autorización de Administración.</p>
+<p><strong>Sostenibilidad:</strong> Programa de compromiso ambiental dentro del Parque Nacional Nahuel Huapi.</p>
+</div>`]
+                                ]
+                            },
+                            {
+                                name: '11. Quejas habituales y textos de contención',
+                                data: [
+                                    ['Tema', 'Texto sugerido'],
+                                    ['Televisión (24", cable)', `<div style="line-height:1.55; max-width:900px; font-size:0.95em;"><p><strong>Motivo:</strong> TVs de 24 pulgadas y calidad del cable.</p><p>Lamentablemente, por el momento las habitaciones cuentan con este equipamiento y estándar de servicio de televisión de forma fija. Comprendemos perfectamente su descargo y lamentamos que este aspecto no sea de su total agrado ni cumpla con sus expectativas de entretenimiento durante su estadía.</p><p>Tomamos nota de sus comentarios respecto al tamaño de las pantallas y la señal, ya que la opinión de quienes nos eligen siempre es recibida para conocer la experiencia en nuestras instalaciones.</p><p>Agradecemos su comprensión y quedamos a su entera disposición para cualquier otra necesidad que pueda surgir durante el resto de su alojamiento.</p></div>`],
+                                    ['Wi-Fi (viento)', `<div style="line-height:1.55; max-width:900px; font-size:0.95em;"><p><strong>Motivo:</strong> Microinterrupciones por ráfagas de viento.</p><p>Lamentablemente, las condiciones climáticas actuales y las fuertes ráfagas de viento en la zona generan microinterrupciones temporales en la estabilidad de la señal. Comprendemos perfectamente el malestar que esto ocasiona y lamentamos los inconvenientes que pueda causar en su conectividad durante este lapso.</p><p>Este tipo de fluctuaciones disminuye de forma natural a medida que el clima se estabiliza. Mientras tanto, seguimos atentos al comportamiento de la red para asegurar que el servicio se restablezca por completo en cuanto el factor climático lo permita.</p><p>Agradecemos enormemente su paciencia y comprensión ante esta situación ajena a nuestra operación, y quedamos a su entera disposición para lo que necesite.</p></div>`],
+                                    ['Cipresales (pendiente)', 'Acceso con mucha pendiente — elaborar texto de contención predefinido.']
+                                ]
+                            },
+                            {
+                                name: '12. Check-out: chequeo de habitación',
+                                data: [
+                                    ['Ítem', 'Verificar'],
+                                    ['Secador de pelo', 'Presente en la unidad'],
+                                    ['Toalla de talle', 'Devuelta'],
+                                    ['Llave de balcón', 'Devuelta'],
+                                    ['Llave de caja fuerte', 'Devuelta en recepción']
+                                ]
+                            },
+                            {
+                                name: '13. Notas operativas pendientes',
+                                data: [
+                                    ['Tarea', 'Estado'],
+                                    ['Plantilla específica para socios', 'Pendiente de confección'],
+                                    ['Registro de autos en plantillas', 'Pendiente de incorporar'],
+                                    ['Texto de contención — acceso Cipresales (pendiente)', 'Pendiente'],
+                                    ['Textos de contención predefinidos adicionales', 'Pendiente'],
+                                    ['Bedding — configuración por categoría', 'Pendiente de carga']
                                 ]
                             }
                         ]
@@ -249,9 +354,23 @@
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['Wi-Fi', '-', 'Andina', 'Aldea2021'],
-                                    ['Mail Aldea Andina', '-', 'host.aldeaandina@ippa-hoteles.com', 'Ippa0405'],
+                                    ['Mail Aldea Andina', '-', 'host.aldeaandina@ippa-hoteles.com', 'Ippa0405!'],
+                                    ['Payway', '-', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
                                     ['TTHoteles', '<a href="https://play.google.com/store/apps/details?id=com.sciener.hotela" target="_blank">Descargar app (Android)</a> · <a href="https://apps.apple.com/app/tthotel/id1440266680" target="_blank">Descargar app (iOS)</a>', 'asistente.operaciones@ippa-hoteles.com', 'l0136247'],
-                                    ['PMS Venice', '<a href="https://s1.venicepms.com/ala551/admin/login" target="_blank">Login Venice PMS</a>', '-', '-']
+                                    ['PMS Venice', '<a href="https://s1.venicepms.com/ala551/admin/login" target="_blank">Login Venice PMS</a>', '-', '-'],
+                                    ['El Bodegón del Lago', '<a href="https://www.elbodegondellago.com.ar" target="_blank">Sitio del restaurante</a>', '-', '-'],
+                                    ['Turismo Bariloche', '<a href="https://barilocheturismo.gob.ar/" target="_blank">barilocheturismo.gob.ar</a>', '-', '-'],
+                                    ['Clima Bariloche', '<a href="https://www.rionegro.com.ar/clima-hoy/bariloche/" target="_blank">Clima (Río Negro)</a>', '-', '-'],
+                                    ['Info al huésped (web hotel)', '<a href="https://www.aldeaandinahotel.com/informacion-al-huesped/" target="_blank">Información al huésped</a>', '-', '-']
+                                ]
+                            },
+                            {
+                                name: 'Linktree (referencias)',
+                                data: [
+                                    ['Ítem', 'Nota'],
+                                    ['Desayuno extras', 'Consultar linktree del hotel'],
+                                    ['Excursiones', 'Agregar / consultar Grupo Visión en linktree'],
+                                    ['Alquiler de autos', 'Agregar / consultar Hertz en linktree']
                                 ]
                             }
                         ]
@@ -263,7 +382,7 @@
                                 name: 'Configuración de Habitaciones',
                                 data: [
                                     ['Detalle', 'Información'],
-                                    ['Nota', 'Pendiente de carga.']
+                                    ['Nota', 'Pendiente de carga detallada por categoría. Ver también chequeo de check-out en Información general.']
                                 ]
                             }
                         ]
@@ -275,7 +394,10 @@
                                 name: 'Información de Cuenta',
                                 data: [
                                     ['Concepto', 'Detalle'],
-                                    ['Nota', 'Pendiente de carga.']
+                                    ['Razon social', 'TRESBES SA'],
+                                    ['Cuit', '30-71155821-3'],
+                                    ['Cuenta Corriente en Pesos N°', '0002102-9 142-1'],
+                                    ['CBU', ' 0070142220000002102913'],
                                 ]
                             }
                         ]
@@ -692,7 +814,7 @@ checklist: {
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718528018', 'Milenia2026!'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718528018', 'IPHoteles2031!!'],
                                     ['Celular', '-', '-', '1564'],
                                     ['Hipcam', '-', 'host.insoho@ippa-hoteles.com', 'ippahoteles2025'],
                                     ['Mail','-', 'host.mileniasoho@ippa-hoteles.com', 'IPHoteles2024'],
