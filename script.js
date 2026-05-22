@@ -356,7 +356,7 @@
                                     ['Wi-Fi', '-', 'Andina', 'Aldea2021'],
                                     ['Mail Aldea Andina', '-', 'host.aldeaandina@ippa-hoteles.com', 'Ippa0405!'],
                                     ['Payway', '-', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
-                                    ['TTHoteles', '<a href="https://play.google.com/store/apps/details?id=com.sciener.hotela" target="_blank">Descargar app (Android)</a> · <a href="https://apps.apple.com/app/tthotel/id1440266680" target="_blank">Descargar app (iOS)</a>', 'asistente.operaciones@ippa-hoteles.com', 'l0136247'],
+                                    ['TTHoteles', '<a href="https://play.google.com/store/apps/details?id=com.sciener.hotela" target="_blank">Descargar app (Android)</a> · <a href="https://apps.apple.com/app/tthotel/id1440266680" target="_blank">Descargar app (iOS)</a>', 'asistente.operaciones@ippa-hoteles.com', 'IPHoteles2030!!'],
                                     ['PMS Venice', '<a href="https://s1.venicepms.com/ala551/admin/login" target="_blank">Login Venice PMS</a>', '-', '-'],
                                     ['El Bodegón del Lago', '<a href="https://www.elbodegondellago.com.ar" target="_blank">Sitio del restaurante</a>', '-', '-'],
                                     ['Turismo Bariloche', '<a href="https://barilocheturismo.gob.ar/" target="_blank">barilocheturismo.gob.ar</a>', '-', '-'],
