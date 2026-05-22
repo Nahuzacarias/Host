@@ -454,6 +454,64 @@ td { color: #d1d9e8; line-height: 1.6; }
   font-size: 12px;
 }
 
+/* --- ALARMA (Aldea Andina) --- */
+.alarm-codes-toolbar {
+  margin-bottom: 14px;
+}
+
+.alarm-codes-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.alarm-codes-column {
+  overflow-x: auto;
+}
+
+.alarm-codes-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.alarm-codes-table thead th {
+  background: #f5c518;
+  color: #1a1a1a;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 13px;
+  padding: 8px 10px;
+}
+
+.alarm-codes-table thead th:last-child {
+  width: 72px;
+}
+
+.alarm-codes-table tbody td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #1e2738;
+  vertical-align: middle;
+}
+
+.alarm-depto {
+  font-weight: 600;
+  color: #e8edf5;
+  white-space: nowrap;
+}
+
+.alarm-codigo {
+  color: #f87171;
+  font-family: Consolas, "Courier New", monospace;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.alarm-copy-cell {
+  text-align: right;
+}
+
 /* --- MAPPING (Milenia) --- */
 .mapping-legend {
   display: flex;

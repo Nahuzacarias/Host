@@ -361,7 +361,8 @@
                                     ['El Bodegón del Lago', '<a href="https://www.elbodegondellago.com.ar" target="_blank">Sitio del restaurante</a>', '-', '-'],
                                     ['Turismo Bariloche', '<a href="https://barilocheturismo.gob.ar/" target="_blank">barilocheturismo.gob.ar</a>', '-', '-'],
                                     ['Clima Bariloche', '<a href="https://www.rionegro.com.ar/clima-hoy/bariloche/" target="_blank">Clima (Río Negro)</a>', '-', '-'],
-                                    ['Info al huésped (web hotel)', '<a href="https://www.aldeaandinahotel.com/informacion-al-huesped/" target="_blank">Información al huésped</a>', '-', '-']
+                                    ['Info al huésped (web hotel)', '<a href="https://www.aldeaandinahotel.com/informacion-al-huesped/" target="_blank">Información al huésped</a>', '-', '-'],
+                                    ['Farmacias de turno', '<a href="https://www.barilochense.com/servicios/farmacias" target="_blank">Información al huésped</a>', '-', '-']
                                 ]
                             },
                             {
@@ -410,6 +411,33 @@
                                 data: [
                                     ['Vista'],
                                     ['<div style="text-align:center; padding:12px 0;"><img src="Media/Mapa_AldeaAndina.jpg" alt="Mapa del complejo Aldea Andina by iPPA" style="max-width:100%; max-height:85vh; width:auto; height:auto; border-radius:8px; border:1px solid #ddd; box-shadow:0 2px 8px rgba(0,0,0,.08);" loading="lazy" /></div>']
+                                ]
+                            }
+                        ]
+                    },
+                    codigosAlarma: {
+                        title: 'Alarma y códigos',
+                        sections: [
+                            {
+                                name: 'Códigos por departamento',
+                                customRender: 'alarmaCodes',
+                                codes: [
+                                    ['725', '2245'], ['726', '9977'], ['729', '4445'], ['730', '5567'],
+                                    ['733', '6678'], ['734', '7789'], ['727', '7688'], ['728', '5512'],
+                                    ['731', '0071'], ['732', '6631'], ['735', '8861'], ['736', '6431'],
+                                    ['101', '5893'], ['102', '6547'], ['103', '6358'], ['104', '5896'],
+                                    ['105', '4787'], ['106', '6523'], ['107', '5879'], ['108', '8879'],
+                                    ['301', '5557'], ['302', '6655'], ['303', '9876'], ['304', '5588'],
+                                    ['305', '1401'], ['306', '6987'], ['111', '7688'], ['111BIS', '5512'],
+                                    ['112', '0071'], ['112 BIS', '6631'], ['114', '8861'], ['114 BIS', '6431'],
+                                    ['115', '3523'], ['115 BIS', '1204']
+                                ]
+                            },
+                            {
+                                name: 'Panel de alarma (Paradox)',
+                                data: [
+                                    ['Vista'],
+                                    ['<div style="text-align:center; padding:12px 0;"><img src="Media/Alarma_AldeaAndina.jpg" alt="Panel de alarma Aldea Andina" style="max-width:100%; max-height:70vh; width:auto; height:auto; border-radius:8px; border:1px solid #ddd; box-shadow:0 2px 8px rgba(0,0,0,.08);" loading="lazy" /><p style="margin-top:12px; color:#8896ae; font-size:13px; line-height:1.5;">Ingrese el código del departamento para activar o desactivar la alarma. Si no posee código, solicitarlo en recepción.</p></div>']
                                 ]
                             }
                         ]
@@ -699,13 +727,13 @@ checklist: {
             name: 'Códigos de Cajas',
             data: [
                 ['Caja', , 'Apartamento', 'Contraseña'],
-                ['1', 'D','2941'],
-                ['2', 'J', '8305'],
-                ['3', 'E', '1762' ],
-                ['4', 'F', '6493'],
-                ['5', 'Extra','4028'],
-                ['6', 'Extra', '9517'],
-                ['7', 'Extra', '3850' ],
+                ['1', '14D', '2941'],
+                ['2', '14J', '8305'],
+                ['3', '14E', '1762'],
+                ['4', '14F', '6493'],
+                ['5', '13E', '4028'],
+                ['6', '13G', '9517'],
+                ['7', '13H', '3850'],
             ]
         }
     ]
@@ -1101,7 +1129,7 @@ checklist: {
                     
 
                     
-const LAST_UPDATE = { date: '2026-04-26', owner: 'Nahuel Zacarias' };
+const LAST_UPDATE = { date: '2026-05-22', owner: 'Nahuel Zacarias' };
 let currentHotelId = null;
 let currentSubsectionId = null;
 let copyToastTimer = null;
@@ -1198,6 +1226,67 @@ function renderBankDataSection(section, tableContainer) {
 
     if (activeHighlightQuery) {
         applyTextHighlight(wrapper, activeHighlightQuery);
+    }
+}
+
+function renderAlarmaCodesSection(section, tableContainer) {
+    const codes = section.codes || [];
+    const allText = codes.map(([depto, codigo]) => `${depto}\t${codigo}`).join('\n');
+
+    const toolbar = document.createElement('div');
+    toolbar.className = 'alarm-codes-toolbar';
+    const copyAllBtn = document.createElement('button');
+    copyAllBtn.className = 'copy-btn bank-copy-btn';
+    copyAllBtn.type = 'button';
+    copyAllBtn.textContent = 'Copiar todos los códigos';
+    copyAllBtn.addEventListener('click', () => copyCellValue(allText));
+    toolbar.appendChild(copyAllBtn);
+    tableContainer.appendChild(toolbar);
+
+    const splitIndex = Math.ceil(codes.length / 2);
+    const columns = [codes.slice(0, splitIndex), codes.slice(splitIndex)];
+
+    const gridWrapper = document.createElement('div');
+    gridWrapper.className = 'alarm-codes-columns';
+
+    columns.forEach((columnCodes) => {
+        const table = document.createElement('table');
+        table.className = 'alarm-codes-table';
+        table.innerHTML = `
+            <thead><tr><th>Depto</th><th>Código</th><th></th></tr></thead>
+            <tbody></tbody>
+        `;
+        const tbody = table.querySelector('tbody');
+        columnCodes.forEach(([depto, codigo]) => {
+            const tr = document.createElement('tr');
+            const deptoTd = document.createElement('td');
+            deptoTd.className = 'alarm-depto';
+            deptoTd.textContent = depto;
+            const codigoTd = document.createElement('td');
+            codigoTd.className = 'alarm-codigo';
+            codigoTd.textContent = codigo;
+            const actionTd = document.createElement('td');
+            actionTd.className = 'alarm-copy-cell';
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'copy-btn';
+            copyBtn.type = 'button';
+            copyBtn.textContent = 'Copiar';
+            copyBtn.addEventListener('click', () => copyCellValue(codigo));
+            actionTd.appendChild(copyBtn);
+            tr.appendChild(deptoTd);
+            tr.appendChild(codigoTd);
+            tr.appendChild(actionTd);
+            tbody.appendChild(tr);
+        });
+        const colWrap = document.createElement('div');
+        colWrap.className = 'alarm-codes-column';
+        colWrap.appendChild(table);
+        gridWrapper.appendChild(colWrap);
+    });
+
+    tableContainer.appendChild(gridWrapper);
+    if (activeHighlightQuery) {
+        applyTextHighlight(gridWrapper, activeHighlightQuery);
     }
 }
 
@@ -1441,6 +1530,11 @@ function showSubsection(hotelId, subsectionId) {
 
         if (isBankDataSubsection) {
             renderBankDataSection(section, tableContainer);
+            return;
+        }
+
+        if (section.customRender === 'alarmaCodes') {
+            renderAlarmaCodesSection(section, tableContainer);
             return;
         }
 
