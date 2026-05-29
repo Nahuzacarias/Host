@@ -49,6 +49,7 @@
             baires: {
                 name: 'Baires by iPPA',
                 subsections: {
+                    
                     links: {
                         title: 'Links y contraseñas',
                         sections: [
@@ -165,6 +166,7 @@
             aldeaAndina: {
                 name: 'Aldea Andina by iPPA',
                 subsections: {
+                    
                     informacionGeneral: {
                         title: 'Información general',
                         sections: [
@@ -264,7 +266,6 @@
 </ul>
 <p><strong>Excursiones y autos:</strong> Consultar linktree del hotel (incluir <strong>Grupo Visión</strong> para excursiones y <strong>Hertz</strong> para alquiler de autos).</p>
 <p><strong>Sala de juegos:</strong> Juegos de mesa, metegol, raquetas y pelotas de tenis y ping pong.</p>
-<p><strong>Cancha de tenis:</strong> Uso diurno, con reserva en recepción, sin costo adicional (polvo de ladrillo).</p>
 <p><strong>Quincho:</strong> Mediodía y noche, con costo adicional (bonificado). Reservar en recepción. La vajilla debe quedar limpia al desocupar; de lo contrario se cargará el lavado (11 USD TCV — oficial).</p>
 <p><strong>Fogón:</strong> Mediodía y noche, sin costo adicional. Reservar en recepción.</p>
 </div>`]
@@ -279,31 +280,18 @@
 </div>`]
                                 ]
                             },
+                            
                             {
-                                name: '8. Proceso del huésped y plantillas',
-                                data: [
-                                    ['Etapa', 'Acción'],
-                                    ['Ingreso', 'Plantilla inicial + envío de web check-in'],
-                                    ['Socios', 'Utilizar plantilla específica para socios (tiempo compartido)'],
-                                    ['48 hs antes', 'Reenvío de web check-in'],
-                                    ['Registro de autos', 'Sumar patente del vehículo a las plantillas de contacto'],
-                                    ['24 hs antes', 'Plantilla de recordatorio'],
-                                    ['Primer día', 'Plantilla de primer día de estadía'],
-                                    ['Día de limpieza', 'Plantilla de día de limpieza'],
-                                    ['24 hs antes del check-out', 'Plantilla previa a check-out']
-                                ]
-                            },
-                            {
-                                name: '9. Comercios de cercanía',
+                                name: '8. Comercios de cercanía',
                                 data: [
                                     ['Contenido'],
                                     [`<div style="line-height:1.65; max-width:900px;">
-<p>Consultar con <strong>Lu</strong> el listado actualizado de comercios recomendados para derivar a los huéspedes.</p>
+<p>Guía de comercios cercanos <a href="Guia_Aldea_Andina_Bariloche_servicios_gastronomia.docx" download>aquí</a>.</p>
 </div>`]
                                 ]
                             },
                             {
-                                name: '10. Datos técnicos y normativas',
+                                name: '9. Datos técnicos y normativas',
                                 data: [
                                     ['Contenido'],
                                     [`<div style="line-height:1.65; max-width:900px;">
@@ -315,37 +303,33 @@
                                 ]
                             },
                             {
-                                name: '11. Quejas habituales y textos de contención',
+                                name: '10. Quejas habituales y textos de contención',
                                 data: [
                                     ['Tema', 'Texto sugerido'],
                                     ['Televisión (24", cable)', `<div style="line-height:1.55; max-width:900px; font-size:0.95em;"><p><strong>Motivo:</strong> TVs de 24 pulgadas y calidad del cable.</p><p>Lamentablemente, por el momento las habitaciones cuentan con este equipamiento y estándar de servicio de televisión de forma fija. Comprendemos perfectamente su descargo y lamentamos que este aspecto no sea de su total agrado ni cumpla con sus expectativas de entretenimiento durante su estadía.</p><p>Tomamos nota de sus comentarios respecto al tamaño de las pantallas y la señal, ya que la opinión de quienes nos eligen siempre es recibida para conocer la experiencia en nuestras instalaciones.</p><p>Agradecemos su comprensión y quedamos a su entera disposición para cualquier otra necesidad que pueda surgir durante el resto de su alojamiento.</p></div>`],
                                     ['Wi-Fi (viento)', `<div style="line-height:1.55; max-width:900px; font-size:0.95em;"><p><strong>Motivo:</strong> Microinterrupciones por ráfagas de viento.</p><p>Lamentablemente, las condiciones climáticas actuales y las fuertes ráfagas de viento en la zona generan microinterrupciones temporales en la estabilidad de la señal. Comprendemos perfectamente el malestar que esto ocasiona y lamentamos los inconvenientes que pueda causar en su conectividad durante este lapso.</p><p>Este tipo de fluctuaciones disminuye de forma natural a medida que el clima se estabiliza. Mientras tanto, seguimos atentos al comportamiento de la red para asegurar que el servicio se restablezca por completo en cuanto el factor climático lo permita.</p><p>Agradecemos enormemente su paciencia y comprensión ante esta situación ajena a nuestra operación, y quedamos a su entera disposición para lo que necesite.</p></div>`],
-                                    ['Cipresales (pendiente)', 'Acceso con mucha pendiente — elaborar texto de contención predefinido.']
+                                    
                                 ]
                             },
+                            
+                            
                             {
-                                name: '12. Check-out: chequeo de habitación',
+                                name: '11. Preguntas frecuentes',
                                 data: [
-                                    ['Ítem', 'Verificar'],
-                                    ['Secador de pelo', 'Presente en la unidad'],
-                                    ['Toalla de talle', 'Devuelta'],
-                                    ['Llave de balcón', 'Devuelta'],
-                                    ['Llave de caja fuerte', 'Devuelta en recepción']
-                                ]
-                            },
-                            {
-                                name: '13. Notas operativas pendientes',
-                                data: [
-                                    ['Tarea', 'Estado'],
-                                    ['Plantilla específica para socios', 'Pendiente de confección'],
-                                    ['Registro de autos en plantillas', 'Pendiente de incorporar'],
-                                    ['Texto de contención — acceso Cipresales (pendiente)', 'Pendiente'],
-                                    ['Textos de contención predefinidos adicionales', 'Pendiente'],
-                                    ['Bedding — configuración por categoría', 'Pendiente de carga']
+                                    ['Pregunta', 'Respuesta'],
+                                    ['¿Qué es el pase del día?', 'Modalidad para disfrutar del Spa & Wellness (pileta climatizada in-out y jacuzzi). Horario Spa: 11:00 a 22:00 hs. Consultas: +54 9 2944 133356.'],
+                                    ['¿Se pueden realizar pagos en cuotas?', 'Sí: opción de 3 cuotas sin interés los miércoles y sábados cuando aplica la promo. Requisito mínimo: 3 noches de estadía. Enviar link de pago configurado en 3 cuotas.'],
+                                    ['¿Cuál es el horario de late check out?', 'Los late check out sin cargo se pueden autorizar hasta las 12:00, sujeto a disponibilidad; en casos excepcionales se puede autorizar más tarde.'],
+                                    ['¿Cómo registro el vehículo del huésped?', 'Registrar la patente en la reserva: existe un campo "Vehículo" en el detalle del huésped. Importante para control de estacionamiento.'],
+                                    ['¿Cuál es el horario del Spa?', 'El Spa atiende de 11:00 a 22:00 hs; ofrece pileta climatizada, sauna y jacuzzi. Para precios y masajes comunicarse al +54 9 2944 133356.'],
+                                    ['¿Cuál es el costo del desayuno adicional?', 'El desayuno está disponible con opción de extras a costo; consultar el linktree del hotel o preguntar en recepción para precios actualizados.'],
+                                    ['¿Pueden ingresar invitados a las unidades?', 'No se permite el ingreso de personas no alojadas a unidades ni espacios comunes sin autorización de Administración.'],
+                                    ['¿Cuáles son los horarios de limpieza?', 'Housekeeping: lunes a sábado de 09:00 a 16:00 hs. Domingos no hay servicio de limpieza.'],
+                                    ['¿Cómo reservo la cancha de tenis?', 'Reservas a través de Venice; la cancha tiene un costo informado en recepción.']
                                 ]
                             }
                         ]
-                    },
+                    }, 
                     links: {
                         title: 'Links y contraseñas',
                         sections: [
@@ -414,7 +398,8 @@
                                 ]
                             }
                         ]
-                    },
+                    }, 
+                   
                     codigosAlarma: {
                         title: 'Alarma y códigos',
                         sections: [
@@ -496,6 +481,49 @@
                 }
             ]
         }, // <--- Esta coma separa Despegar de Desayunos
+        facturacionAA: {
+            title: 'Procedimiento de facturación AA',
+            sections: [
+                {
+                    name: 'Procedimiento Cobranza Aldea Andina',
+                    data: [
+                        ['Detalle'],
+                        [`<div style="line-height:1.65; max-width:900px;">
+                            <p><strong>Procedimiento Cobranza Aldea Andina:</strong></p>
+                            <ul style="margin:0.5em 0 0 1.25em;">
+                                <li>Antes de cobrar una tarifa se tienen que adelantar las noches: “adelantar noches &gt; Adelantar todas”. Esto hace que se carguen todos los pagos por adelantado y se pueda saber exactamente cuánto hay que cobrar (ver Imagen 1 y 2).</li>
+                                <li><strong>IMPORTANTE:</strong> luego de esto, automáticamente se guarde la reserva.</li>
+                                <li>Luego tendrán en la cuenta el monto total a cobrar (ver Imagen 3).</li>
+                                <li>Al cobrar exactamente el importe, ir a “facturar”; en ese caso hay que ingresar el método de pago y automáticamente les ingresa el importe total (ver Imagen 4).</li>
+                                <li>Luego se selecciona el tipo de factura a emitir (ver Imagen 5).</li>
+                            </ul>
+                            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:20px; margin-top:20px; align-items:start; max-width:1200px; margin-left:auto; margin-right:auto;">
+                                <div style="text-align:center;">
+                                    <img src="Media/image1.png" alt="Imagen 1 procedimiento" style="width:auto; max-width:100%; height:auto; border-radius:8px; border:1px solid #ddd;" />
+                                    <p style="margin:8px 0 0;font-size:0.95rem;color:#4b5563;">Imagen 1</p>
+                                </div>
+                                <div style="text-align:center;">
+                                    <img src="Media/image2.png" alt="Imagen 2 procedimiento" style="width:auto; max-width:100%; height:auto; border-radius:8px; border:1px solid #ddd;" />
+                                    <p style="margin:8px 0 0;font-size:0.95rem;color:#4b5563;">Imagen 2</p>
+                                </div>
+                                <div style="text-align:center;">
+                                    <img src="Media/image3.png" alt="Imagen 3 procedimiento" style="width:auto; max-width:100%; height:auto; border-radius:8px; border:1px solid #ddd;" />
+                                    <p style="margin:8px 0 0;font-size:0.95rem;color:#4b5563;">Imagen 3</p>
+                                </div>
+                                <div style="text-align:center;">
+                                    <img src="Media/image4.png" alt="Imagen 4 procedimiento" style="width:auto; max-width:100%; height:auto; border-radius:8px; border:1px solid #ddd;" />
+                                    <p style="margin:8px 0 0;font-size:0.95rem;color:#4b5563;">Imagen 4</p>
+                                </div>
+                                <div style="text-align:center;">
+                                    <img src="Media/image5.png" alt="Imagen 5 procedimiento" style="width:auto; max-width:100%; height:auto; border-radius:8px; border:1px solid #ddd;" />
+                                    <p style="margin:8px 0 0;font-size:0.95rem;color:#4b5563;">Imagen 5</p>
+                                </div>
+                            </div>
+                        </div>`]
+                    ]
+                }
+            ]
+        },
         desayunosBaires: {
             title: 'Desayunos Baires Belgrano',
             sections: [
@@ -734,6 +762,9 @@ checklist: {
                 ['5', '13E', '4028'],
                 ['6', '13G', '9517'],
                 ['7', '13H', '3850'],
+                ['8', '14i', '0000'],
+                ['9', '', '0000'],
+                ['10', '', '0000'],
             ]
         }
     ]
