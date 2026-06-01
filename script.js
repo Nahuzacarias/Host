@@ -325,7 +325,8 @@
                                     ['¿Cuál es el costo del desayuno adicional?', 'El desayuno está disponible con opción de extras a costo; consultar el linktree del hotel o preguntar en recepción para precios actualizados.'],
                                     ['¿Pueden ingresar invitados a las unidades?', 'No se permite el ingreso de personas no alojadas a unidades ni espacios comunes sin autorización de Administración.'],
                                     ['¿Cuáles son los horarios de limpieza?', 'Housekeeping: lunes a sábado de 09:00 a 16:00 hs. Domingos no hay servicio de limpieza.'],
-                                    ['¿Cómo reservo la cancha de tenis?', 'Reservas a través de Venice; la cancha tiene un costo informado en recepción.']
+                                    ['¿Cómo reservo la cancha de tenis?', 'Reservas a través de Venice; la cancha tiene un costo informado en recepción.'],
+                                    ['Guardan equipaje en la recepción?', 'Se puede guardar equipaje en el complejo, aunque tener en cuenta que hay un horario limitado mientras tengan personal.'],
                                 ]
                             }
                         ]
