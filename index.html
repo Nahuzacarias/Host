@@ -69,6 +69,30 @@
                 </div>
 
                 <div class="hotel-item">
+                    <button class="hotel-button" onclick="toggleHotel('mileniaVidt')">
+                        <span class="arrow" id="arrow-mileniaVidt">▶</span>
+                        <span>Milenia Vidt by iPPA</span>
+                    </button>
+                    <div class="hotel-subsections" id="subsections-mileniaVidt">
+                        <button class="subsection-button" onclick="showSubsection('mileniaVidt', 'links'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Links y contraseñas</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('mileniaVidt', 'bedding'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Categoría y Bedding</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('mileniaVidt', 'mapping'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Mapping</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('mileniaVidt', 'bankData'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Datos Bancarios</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('mileniaVidt', 'billing'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Facturación</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hotel-item">
                     <button class="hotel-button" onclick="toggleHotel('filiberto')">
                         <span class="arrow" id="arrow-filiberto">▶</span>
                         <span>Filiberto by iPPA</span>
@@ -229,7 +253,7 @@
     <span>→</span> <span>Desayunos Milenia</span>
 </button>
 <button class="subsection-button" onclick="showSubsection('procedimientos', 'desayunosHache'); closeSidebarOnMobile()">
-    <span>→</span> <span>Desayunos Hache Palermo</span>
+    <span>→</span> <span>Desayunos Hache / Nadina</span>
 </button>
 </div>
     </div>

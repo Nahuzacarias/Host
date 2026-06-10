@@ -587,7 +587,7 @@
                 }
             ]
         },desayunosHache: {
-    title: 'Desayunos Hache Palermo',
+    title: 'Desayunos Hache Palermo — Nadina',
     sections: [
         {
             name: 'Datos del Proveedor',
@@ -598,6 +598,34 @@
                 ['Dirección', 'Costa Rica 4824 (Planta Baja del edificio)'],
                 ['Contacto', 'Jorge (encargado) – 11 6941 000'],
                 ['Horario', 'Mar a Sáb: 8 a 20hs | Dom: 10 a 20hs | Lun: Cerrado (*buscaremos opción para los lunes)']
+            ]
+        },
+        {
+            name: 'Procedimiento de envío diario',
+            data: [
+                ['Detalle'],
+                [`<div style="line-height:1.65; max-width:900px;">
+                    <p style="margin-top:0;">Enviar la planilla de desayunos a Nadina <strong>todos los días salvo domingos</strong> con la lista de huéspedes que desayunan ese día.</p>
+                    <ol style="margin:0.75em 0 0 1.25em; padding:0;">
+                        <li style="margin-bottom:0.75em;">Ingresar al PMS de Hache Palermo y navegar a <strong>Misceláneos → Reportes → Planilla de desayuno</strong>.</li>
+                        <li style="margin-bottom:0.75em;">Descargar el PDF que genera el sistema.</li>
+                        <li style="margin-bottom:0.75em;">Recortar <strong>solo la tabla de huéspedes</strong> (columnas Huésped, Llegada, Salida, Noc y A/C), como se muestra en la referencia.</li>
+                        <li style="margin-bottom:0.75em;">Enviar a la cafetería la parte recortada (Jorge – 11 6941 000).</li>
+                    </ol>
+                    <p style="margin:1em 0 0; padding:10px 12px; background:#fef2f2; border-left:4px solid #dc2626; border-radius:4px; color:#b91c1c; font-weight:600;">
+                        <strong style="color:#991b1b;">⚠ Importante:</strong> la planilla debe mostrar <strong>nombres y apellidos</strong> de las personas a desayunar y la <strong>cantidad</strong> (A/C). <strong>No</strong> debe incluir el número de reserva.
+                    </p>
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; margin-top:24px; align-items:start;">
+                        <div style="text-align:center;">
+                            <p style="margin:0 0 8px; font-weight:600; color:#374151;">Paso 1 — Ubicar la planilla</p>
+                            <img src="Media/desayunos_nadina_reporte.png" alt="Misceláneos, Reportes, Planilla de desayuno" style="width:auto; max-width:100%; height:auto; border-radius:8px; border:1px solid #ddd; box-shadow:0 2px 8px rgba(0,0,0,.06);" loading="lazy" />
+                        </div>
+                        <div style="text-align:center;">
+                            <p style="margin:0 0 8px; font-weight:600; color:#374151;">Paso 2 — Parte a recortar y enviar</p>
+                            <img src="Media/desayunos_nadina_recorte.png" alt="Tabla de huéspedes a enviar a Nadina" style="width:auto; max-width:100%; height:auto; border-radius:8px; border:1px solid #ddd; box-shadow:0 2px 8px rgba(0,0,0,.06);" loading="lazy" />
+                        </div>
+                    </div>
+                </div>`]
             ]
         },
         {
@@ -876,7 +904,7 @@ checklist: {
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718528018', 'IPHoteles2031!!'],
                                     ['Celular', '-', '-', '1564'],
-                                    ['Hipcam', '-', 'host.insoho@ippa-hoteles.com', 'ippahoteles2025'],
+                                    ['Hipcam', '-', 'asistente.operaciones@ippa-hoteles.com', 'IPHoteles2030!!'],
                                     ['Mail','-', 'host.mileniasoho@ippa-hoteles.com', 'IPHoteles2024'],
 ['Tecnolav', '<a href="https://clientes.tecnolav.com.ar" target="_blank">Login Tecnolav</a>', 'host.milenia@ippa-hoteles.com', 'Milenia2025'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
@@ -1061,6 +1089,31 @@ checklist: {
                     }
                 }
             },
+            mileniaVidt: {
+                name: 'Milenia Vidt by iPPA',
+                subsections: {
+                    links: {
+                        title: 'Links y contraseñas',
+                        sections: []
+                    },
+                    bedding: {
+                        title: 'Categoría y Bedding',
+                        sections: []
+                    },
+                    mapping: {
+                        title: 'Mapping',
+                        sections: []
+                    },
+                    bankData: {
+                        title: 'Datos Bancarios',
+                        sections: []
+                    },
+                    billing: {
+                        title: 'Facturación',
+                        sections: []
+                    }
+                }
+            },
                                      bah: {
                             name: 'BAH Congreso By iPPA',
                             subsections: {
