@@ -35,11 +35,23 @@
                                     ['Clover Rudi', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Clover Rudi</a>', '5930714481424', 'iPPAHoteles2026!'],
                                     ['TTlock', '<a href="https://lock2.ttlock.com/" target="_blank">TTlock Web</a>', 'asistente.operaciones@ippa-hoteles.com', 'IPHoteles2030!!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2026!'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2027!'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
                                     ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
                                     ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024']
+                                ]
+                            },
+                            {
+                                name: 'Usuarios personales',
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Edy Prieto', '-', 'ippahosttm@gmail.com', '-'],
+                                    ['Julian Carrizo', '-', 'ippahosttt@gmail.com', '-'],
+                                    ['Sebastian recchimuzzi', '-', 'ippahostt@gmail.com', '-'],
+                                    ['Emmanuel Medina', '-', 'emmanuel.medina@ip-hoteles.com', '-'],
+                                    ['Nahuel Zacarias', '-', 'asistente.operaciones@ippa-hoteles.com', '-'],
+                                    ['ippahostTN', '-', 'ippahostTN', 'IPHoteles2030!!'],
                                 ]
                             }
                         ]
@@ -365,10 +377,30 @@
                         title: 'Categoría y Bedding',
                         sections: [
                             {
-                                name: 'Configuración de Habitaciones',
+                                name: 'Distribución de departamentos',
                                 data: [
-                                    ['Detalle', 'Información'],
-                                    ['Nota', 'Pendiente de carga detallada por categoría. Ver también chequeo de check-out en Información general.']
+                                    ['Edificio Abedules (dtos 4/5 pax)', 'Edificio Cipresales (dtos 6/7 pax)'],
+                                    ['725 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '301 (1 dormitorio con cama matrimonial y baño, 1 dormitorio con dos camas de 1 plaza, otro baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['726 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '302 (1 dormitorio con cama matrimonial y baño, 1 dormitorio con dos camas de 1 plaza, otro baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['727 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '303 (1 dormitorio con cama matrimonial y baño, 1 dormitorio con dos camas de 1 plaza, otro baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['728 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '304 (1 dormitorio con cama matrimonial y baño, 1 dormitorio con dos camas de 1 plaza, otro baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['729 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '305 (1 dormitorio con cama matrimonial y baño, 1 dormitorio con dos camas de 1 plaza, otro baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['730 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '306 (1 dormitorio con cama matrimonial y baño, 1 dormitorio con dos camas de 1 plaza, otro baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['731 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', ''],
+                                    ['732 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', ''],
+                                    ['733 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', ''],
+                                    ['734 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', ''],
+                                    ['735 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', ''],
+                                    ['736 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', ''],
+                                    ['Edificio Arrayanes (dtos 4/5 pax y 6/7 pax)', 'Edificio Sorbus (dtos 6/7 pax)'],
+                                    ['101 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '111 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['102 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '111 BIS (1 dormitorio con cama matrimonial, 1 baño)'],
+                                    ['103 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '112 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['104 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '112 BIS (1 dormitorio con cama matrimonial, 1 baño)'],
+                                    ['105 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '114 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['106 (2 dormitorios con cama matrimonial, 1 baño, cocina y living con dos sofa cama con una cama marinera)', '114 BIS (1 dormitorio con cama matrimonial, 1 baño)'],
+                                    ['107 (1 dormitorio con cama matrimonial, 1 dormitorio con dos camas de 1 plaza, cocina y living con dos sofa cama con una cama marinera)', '115 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['108 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '115 BIS (1 dormitorio con cama matrimonial, 1 baño)']
                                 ]
                             }
                         ]
@@ -1094,7 +1126,15 @@ checklist: {
                 subsections: {
                     links: {
                         title: 'Links y contraseñas',
-                        sections: []
+                        sections: [
+                            {
+                                name: 'Información General',
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Mail Milenia Vidt', '-', 'Host.mileniavidt@ippa-hoteles.com', 'IPHoteles2026&']
+                                ]
+                            }
+                        ]
                     },
                     bedding: {
                         title: 'Categoría y Bedding',
