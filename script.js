@@ -78,7 +78,7 @@
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2026!!'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2027!!'],
                                 ]
                             }
                         ]
@@ -125,7 +125,8 @@
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['Mail', '-', 'host.hachepalermo@ippa-hoteles.com', 'Hoteler1a96#'],
                                     ['Hit Connect', '-', 'host@ippa-hoteles.com', 'IPHoteles2026!'],
-                                    ['Wifi', '-', 'P1, P2,P3,P4', 'Costarica4828'],
+                                    ['Wifi', 'Piso 1', 'P1', 'Costarica4828'],
+                                    ['Wifi', 'Pisos restantes', 'Hache Palermo by iPPA', 'conectate'],
                                 ]
                             }
                         ]
@@ -778,6 +779,7 @@ checklist: {
                     data: [
                         ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                         ['Mail', '-', 'host.bahindependencia@ippa-hoteles.com', 'IPHoteles2026@'],
+                        ['Tecnolav', '<a href="https://clientes.tecnolav.com.ar" target="_blank">Login Tecnolav</a>', 'host.bahindependencia@ippa-hoteles.com', 'Bahhotel2026'],
                     ]
                 }
             ]
@@ -863,7 +865,7 @@ checklist: {
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2026!!'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2027!!'],
                                     ['Almundo', '<a href="https://jintranet.trendoperadora.com.br/extranet/login.aspx?ReturnUrl=%2fextranet%2falojamiento%2fdefault.aspx%3falojamiento%3d4157&alojamiento=4157" target="_blank">Login Almundo</a>', 'FilibertobyiPPA2', 'IPHoteles2025!!'],
                                     ['Hotelbeds', '<a href="https://maxiroom.hotelbeds.com/#/login" target="_blank">Login Hotelbeds</a>', 'IPPA', 'IPHoteles2026*'],
                                 ]
@@ -1138,11 +1140,32 @@ checklist: {
                     },
                     bedding: {
                         title: 'Categoría y Bedding',
-                        sections: []
+                        sections: [
+                            {
+                                name: 'Configuración de Habitaciones',
+                                data: [
+                                    ['Bedding y Equipamiento', 'Número'],
+                                    ['DPTO Standar:', '1 ambiente'],
+                                    ['DPTO Superior:', '2 ambientes'],
+                                    ['DUPLEX:', '2 pisos'],
+                                    ['DEPTO 802:', '2 ambientes. Balcón que recorre toda la esquina; apartamento en forma de L'],
+                                    ['BEDDING (TODAS LAS UNIDADES):', '1 cama matrimonial + 1 sofá cama para 1 persona'],
+                                    ['SE HACEN MAT O TWIN:', 'TODOS LOS DEPARTAMENTOS'],
+                                ]
+                            }
+                        ]
                     },
-                    mapping: {
-                        title: 'Mapping',
-                        sections: []
+                    desayunos: {
+                        title: 'Desayunos',
+                        sections: [
+                            {
+                                name: 'Información',
+                                data: [
+                                    ['Concepto', 'Detalle'],
+                                    ['Desayunos', 'A confirmar'],
+                                ]
+                            }
+                        ]
                     },
                     bankData: {
                         title: 'Datos Bancarios',
@@ -1154,85 +1177,7 @@ checklist: {
                     }
                 }
             },
-                                     bah: {
-                            name: 'BAH Congreso By iPPA',
-                            subsections: {
-                                links: {
-                                    title: 'Links y contraseñas',
-                                    sections: [
-                                        {
-                                            name: 'Información General',
-                                            data: [
-                                                ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                                ['Mail','-', 'Host.bahcongreso@ippa-hoteles.com ', 'IPP4HOTELES475#'],
-                                    
-                                            ]
-                                        }
-                                    ]
-                                },
-                                bedding: {
-                                    title: 'Categoría y Bedding',
-                                    sections: [
-                                        {
-                                            name: 'Configuración de Habitaciones',
-                                            data: [
-                                                ['Bedding,equipamiento y vista', '', '', 'Número'],
-                                                ['SE HACEN TWIN Y MAT', '', '', 'Todas'],
-                                               
-                                                ['HABS SIN LAVAROPAS', '', '', '1G , 1M Y 2M'],
-                                                ['HABS CON VISTA A LA CALLE', '', '', '1A , 7B'],
-                                                ['HABS CON VISTA AL PATIO', '', '', '1G,1M Y 2M'],
-                                                ['SIN VISTA, TIENE UN PATIECITO', '', '', '3H, 5G, 9D'],
-                                            ]
-                                        }
-                                    ]
-                                },
-                                bankData: {
-                                    title: 'Datos Bancarios',
-                                    sections: [
-                                        {
-                                            name: 'Información de Cuenta',
-                                            data: [
-                                                ['Concepto', 'Detalle'],
-                                                ['Razón Social', 'RUDI SA'],
-                                                ['Cuit', '30-71448142-4'],
-                                                ['CBU', '0070677920000001636839'],
-                                                ['Banco', 'Galicia'],
-                                            ]
-                                        }
-                                    ]
-                                },
-                                billing: {
-                                    title: 'Facturación',
-                                    sections: [
-                                        {
-                                            name: 'Tipos de Facturación',
-                                            data:  [                              
-                                                ['Origen', 'Tipo de Factura'],
-                                                ['Sin información', 'Sin información'],
-                                            ]
-                                        }
-                                    ]
-                                },
-                                accesos: { // Nuevo bloque accesos
-                                    title: 'Accesos',
-                                    sections: [
-                                        {
-                                            name: 'Códigos y Permisos',
-                                            data: [
-                                                ['Piso', 'Depto', 'Clave Cerradura', 'Software', 'Caja', 'Clave Caja', 'Tipo de Cerradura'],
-                ['1', 'A', '112233#', 'Chino', '9', '1989', 'Negra'],
-                ['1', 'M', '223344#', 'Chino', '15', '1995', 'Negra'],
-                ['1', 'G', '223344#', 'Chino', '7', '1987', 'Negra'],
-                ['2', 'M', '445566#', 'Chino', '17', '1997', 'Negra'],
-                ['5', 'G', '6431#', 'TTLOCK', '12', '1992', 'Gris'],
-                ['9', 'D', '262689#', 'TTLOCK', '10', '1990', 'Gris']
-                                            ]
-                                        }
-                                    ]
-                                }
-                            }
-                        },reservas: {
+            reservas: {
                             name: 'Reservas',
                             subsections: {
                                 links: {

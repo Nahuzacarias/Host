@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iPPA Hoteles</title>
-  <link rel="icon" href="/Media/ippa.ico">
+  <link rel="icon" href="Media/ippa.ico">
   <link rel="stylesheet" href="styles.css">
   
 </head>
@@ -32,6 +32,18 @@
             
             <nav class="sidebar-nav">
                 <div class="hotel-item">
+                    <button class="hotel-button" onclick="toggleHotel('generalLinks')">
+                        <span class="arrow" id="arrow-generalLinks">▶</span>
+                        <span>Links y contraseñas general</span>
+                    </button>
+                    <div class="hotel-subsections" id="subsections-generalLinks">
+                        <button class="subsection-button" onclick="showSubsection('generalLinks', 'links'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Ver accesos generales</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hotel-item">
                     <button class="hotel-button" onclick="toggleHotel('milenia')">
                         <span class="arrow" id="arrow-milenia">▶</span>
                         <span>Milenia by iPPA</span>
@@ -43,6 +55,9 @@
                         <button class="subsection-button" onclick="showSubsection('milenia', 'bedding'); closeSidebarOnMobile()">
                             <span>→</span> <span>Categoría y Bedding</span>
                         </button>
+                        <button class="subsection-button" onclick="showSubsection('milenia', 'mapping'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Mapping</span>
+                        </button>
                         <button class="subsection-button" onclick="showSubsection('milenia', 'bankData'); closeSidebarOnMobile()">
                             <span>→</span> <span>Datos Bancarios</span>
                         </button>
@@ -50,6 +65,30 @@
                             <span>→</span> <span>Facturación</span>
                         </button>
                         
+                    </div>
+                </div>
+
+                <div class="hotel-item">
+                    <button class="hotel-button" onclick="toggleHotel('mileniaVidt')">
+                        <span class="arrow" id="arrow-mileniaVidt">▶</span>
+                        <span>Milenia Vidt by iPPA</span>
+                    </button>
+                    <div class="hotel-subsections" id="subsections-mileniaVidt">
+                        <button class="subsection-button" onclick="showSubsection('mileniaVidt', 'links'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Links y contraseñas</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('mileniaVidt', 'bedding'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Categoría y Bedding</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('mileniaVidt', 'desayunos'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Desayunos</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('mileniaVidt', 'bankData'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Datos Bancarios</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('mileniaVidt', 'billing'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Facturación</span>
+                        </button>
                     </div>
                 </div>
 
@@ -71,30 +110,6 @@
                         <button class="subsection-button" onclick="showSubsection('filiberto', 'billing'); closeSidebarOnMobile()">
                             <span>→</span> <span>Facturación</span>
                         </button>
-                    </div>
-                </div>
-
-                <div class="hotel-item">
-                    <button class="hotel-button" onclick="toggleHotel('bah')">
-                        <span class="arrow" id="arrow-bah">▶</span>
-                        <span>BAH Congreso By iPPA</span>
-                    </button>
-                    <div class="hotel-subsections" id="subsections-bah">
-                        <button class="subsection-button" onclick="showSubsection('bah', 'links'); closeSidebarOnMobile()">
-                            <span>→</span> <span>Links y contraseñas</span>
-                        </button>
-                        <button class="subsection-button" onclick="showSubsection('bah', 'bedding'); closeSidebarOnMobile()">
-                            <span>→</span> <span>Categoría y Bedding</span>
-                        </button>
-                        <button class="subsection-button" onclick="showSubsection('bah', 'bankData'); closeSidebarOnMobile()">
-                            <span>→</span> <span>Datos Bancarios</span>
-                        </button>
-                        <button class="subsection-button" onclick="showSubsection('bah', 'billing'); closeSidebarOnMobile()">
-                            <span>→</span> <span>Facturación</span>
-                        </button>
-                        <button class="subsection-button" onclick="showSubsection('bah', 'accesos'); closeSidebarOnMobile()">
-    <span>→</span> <span>Accesos</span>
-</button>
                     </div>
                 </div>
 
@@ -155,6 +170,32 @@
         </button>
     </div>
 </div>
+<div class="hotel-item">
+    <button class="hotel-button" onclick="toggleHotel('aldeaAndina')">
+        <span class="arrow" id="arrow-aldeaAndina">▶</span>
+        <span>Aldea Andina by iPPA</span>
+    </button>
+    <div class="hotel-subsections" id="subsections-aldeaAndina">
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'informacionGeneral'); closeSidebarOnMobile()">
+            <span>→</span> <span>Información general</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'links'); closeSidebarOnMobile()">
+            <span>→</span> <span>Links y contraseñas</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'bedding'); closeSidebarOnMobile()">
+            <span>→</span> <span>Categoría y Bedding</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'bankData'); closeSidebarOnMobile()">
+            <span>→</span> <span>Datos Bancarios</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'mapaComplejo'); closeSidebarOnMobile()">
+            <span>→</span> <span>Mapa del complejo</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'codigosAlarma'); closeSidebarOnMobile()">
+            <span>→</span> <span>Alarma y códigos</span>
+        </button>
+    </div>
+</div>
                 
  <div class="sidebar-header" style="border-top: 1px solid #eee; margin-top: 20px;">
     <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0;">
@@ -178,11 +219,17 @@
     <button class="subsection-button" onclick="showSubsection('procedimientos', 'billingDespegar'); closeSidebarOnMobile()">
         <span>→</span> <span>Facturación Despegar</span>
     </button>
+    <button class="subsection-button" onclick="showSubsection('procedimientos', 'facturacionAA'); closeSidebarOnMobile()">
+        <span>→</span> <span>Procedimiento facturación AA</span>
+    </button>
     <button class="subsection-button" onclick="showSubsection('procedimientos', 'desayunosBaires'); closeSidebarOnMobile()">
         <span>→</span> <span>Desayunos Baires</span>
     </button>
     <button class="subsection-button" onclick="showSubsection('procedimientos', 'desayunosMilenia'); closeSidebarOnMobile()">
     <span>→</span> <span>Desayunos Milenia</span>
+</button>
+<button class="subsection-button" onclick="showSubsection('procedimientos', 'desayunosHache'); closeSidebarOnMobile()">
+    <span>→</span> <span>Desayunos Hache / Nadina</span>
 </button>
 </div>
     </div>
@@ -245,7 +292,7 @@
             </nav>
 
             <div class="sidebar-footer">
-                <a href="/Media/Host.xlsx" class="download-btn" download>
+                <a href="Media/Host.xlsx" class="download-btn" download>
                     <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                         <polyline points="7 10 12 15 17 10"></polyline>
@@ -276,7 +323,7 @@
             <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
             Horarios iPPA
         </a>
-        <a href="https://docs.google.com/spreadsheets/d/1HB_7KmgWWBmSPKmMmv0g3Lg8DozVid63/edit?gid=1833510799#gid=1833510799" target="_blank" class="download-btn" style="border-radius:0; margin:0;">
+        <a href="https://docs.google.com/spreadsheets/d/11DIUNZlwky4PO8jTRKg4gC1HQ-uG2z0f/edit?gid=925203728#gid=925203728" target="_blank" class="download-btn" style="border-radius:0; margin:0;">
             <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
             Mantenimiento iPPA
         </a>
@@ -293,6 +340,20 @@
                     <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
             </button>
+            <div class="utility-bar">
+                <div class="utility-group">
+                    <input id="global-search" type="text" placeholder="Buscar hotel, usuario, plataforma..." />
+                    <button class="utility-btn" onclick="runGlobalSearch()">Buscar</button>
+                    <button class="utility-btn utility-btn-secondary" onclick="clearGlobalSearch()">Limpiar</button>
+                    <button class="utility-btn utility-btn-secondary" onclick="prevHighlightMatch()">Anterior</button>
+                    <button class="utility-btn utility-btn-secondary" onclick="nextHighlightMatch()">Siguiente</button>
+                </div>
+                <div class="utility-group">
+                    <button class="utility-btn utility-btn-secondary" onclick="expandAllHotels()">Expandir todo</button>
+                    <button class="utility-btn utility-btn-secondary" onclick="collapseAllHotels()">Colapsar todo</button>
+                </div>
+                <div class="last-update" id="last-update"></div>
+            </div>
             <div class="quick-links">
     <a href="https://s1.venicepms.com/ipa547/admin/login" target="_blank" class="quick-link-btn">
         <div class="quick-link-icon">
@@ -304,6 +365,23 @@
         </div>
         <div class="quick-link-text">
             <span class="quick-link-label">Venice PMS</span>
+            <span class="quick-link-sub">Sistema de gestión</span>
+        </div>
+        <svg class="quick-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+    </a>
+
+    <a href="https://s1.venicepms.com/ala551/admin/login" target="_blank" class="quick-link-btn">
+        <div class="quick-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+                <path d="M7 8h4M7 11h6"/>
+            </svg>
+        </div>
+        <div class="quick-link-text">
+            <span class="quick-link-label">Venice PMS Aldea Andina</span>
             <span class="quick-link-sub">Sistema de gestión</span>
         </div>
         <svg class="quick-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -350,807 +428,9 @@
         </div>
     </div>
 
-    <script>
-        // --- LÓGICA RESPONSIVE NUEVA ---
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-            sidebar.classList.toggle('active');
-            
-            if (sidebar.classList.contains('active')) {
-                overlay.style.display = 'block';
-            } else {
-                overlay.style.display = 'none';
-            }
-        }
+        <div id="copy-toast" class="copy-toast">Copiado</div>
+        <script src="script.js"></script>
 
-        function closeSidebarOnMobile() {
-            // Solo cerrar si estamos en pantalla pequeña
-            if (window.innerWidth <= 768) {
-                toggleSidebar();
-            }
-        }
-
-        // --- TU CÓDIGO ORIGINAL (Sin cambios en los datos) ---
-        const hotelsData = {
-            baires: {
-                name: 'Baires by iPPA',
-                subsections: {
-                    links: {
-                        title: 'Links y contraseñas',
-                        sections: [
-                            {
-                                name: 'Información General',
-                                data: [
-                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
-                                    ['Mail Baires ','-', 'host.baires@ippa-hoteles.com', 'IPHoteles2025!'],
-                                    ['Mail Host ','-', 'host@ippa-hoteles.com', 'IPHoteles2025!'],
-                                    ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'IPHoteles2026!'],
-                                ]
-                            },
-                            {
-                                name: "OTA's",
-                                data: [
-                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
-                                    ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
-                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2025!!'],
-                                ]
-                            }
-                        ]
-                    },
-                    bedding: {
-                        title: 'Categoría y Bedding',
-                        sections: [
-                            {
-                                name: 'Configuración de Habitaciones',
-                                data: [
-                                    ['Equipamiento y Bedding', '-', '-', 'Número'],
-                                    ['HABS QUE SE HACEN TWIN', '-', '-', 'NINGUNA'],
-                                    ['HABS CON SOFÁ CAMA', '-', '-', 'TODAS'],
-                                ]
-                            }
-                        ]
-                    },
-                    bankData: {
-                        title: 'Datos Bancarios',
-                        sections: [
-                            {
-                                name: 'Información de Cuenta',
-                                data: [
-                                    ['Concepto', 'Detalle'],
-                                    ['Razón Social', 'RUDI SA'],
-                                    ['Cuit', '30-71448142-4'],
-                                    ['CBU', '0070677920000000724717'],
-                                    ['Banco', 'Galicia']
-                                ]
-                            }
-                        ]
-                    }
-                }
-            },
-            hache: {
-                name: 'Hache Palermo by iPPA',
-                subsections: {
-                    links: {
-                        title: 'Links y contraseñas',
-                        sections: [
-                            {
-                                name: 'Información General',
-                                data: [
-                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Mail', '-', 'host.hachepalermo@ippa-hoteles.com', 'Hoteler1a96#'],
-                                    ['Hit Connect', '-', 'palermopalms@gmail.com', 'Costarica4828'],
-                                    ['TTlock', '<a href="https://lock2.ttlock.com/" target="_blank">TTlock Web</a>', 'asistente.operaciones@ippa-hoteles.com', 'Insoho2024'],
-                                    ['Wifi', '-', 'P1, P2,P3,P4', 'Costarica4828'],
-                                ]
-                            }
-                        ]
-                    },
-                    bedding: {
-                        title: 'Categoría y Bedding',
-                        sections: [
-                            {
-                                name: 'Configuración de Habitaciones',
-                                data: [
-                                    ['Detalle', 'Información'],
-                                    ['Bedding', 'Todas se pueden hacer Twin y king'],
-                                    ['Sofá Cama', '-'],
-                                    ['Hab al frente', '-'],
-                                    ['Hab al contrafrente', '-'],
-
-                                ]
-                            }
-                        ]
-                    },
-                    bankData: {
-                        title: 'Datos Bancarios',
-                        sections: [
-                            {
-                                name: 'Información de Cuenta',
-                                data: [
-                                    ['Concepto', 'Detalle'],
-                                    ['Razón Social', 'Rudi SA'],
-                                    ['Cuit', '-'],
-                                    ['CBU', '-'],
-                                    ['Banco', '-']
-                                ]
-                            }
-                        ]
-                    },
-                    billing: {
-                        title: 'Facturación',
-                        sections: [
-                            {
-                                name: 'Datos de Facturación',
-                                data: [
-                                    ['Concepto', 'Detalle'],
-                                    ['Instrucciones', 'Alquiler temporario, igual que todas exceptuando Filiberto']
-                                ]
-                            }
-                        ]
-                    }
-                }
-            },
-            procedimientos: {
-    name: 'Procedimientos Administrativos',
-    subsections: {
-        cobroClover: {
-            title: 'Instrucciones: Cobro con Clover',
-            sections: [
-                {
-                    name: 'Modificación en el Procedimiento de Facturación',
-                    data: [
-                        ['Detalle del Procedimiento'],
-                        ['Por razones administrativas vinculadas al control y seguimiento de los pagos realizados a través del Link de Clover y su posterior acreditación, hemos implementado una modificación en el procedimiento de facturación y aplicación de estos cobros en el sistema.'],
-                        ['<div style="text-align:center; padding: 20px;"><img src="/Media/clover.jpg" alt="Instructivo Clover" style="max-width:100%; border-radius:8px; border: 1px solid #ddd;"></div>'],
-                        ['<strong>1. Imputación de Tarjetas:</strong> Los pagos efectuados mediante el Link de Clover deberán imputarse utilizando la misma tarjeta de crédito/débito que haya utilizado el huésped (Ej: Si abonó con Visa, la factura se emite como Visa).'],
-                        ['<strong>2. Origen de Información:</strong> La información se obtiene de los mails automáticos que llegan a la casilla de cada hotel cuando el huésped utiliza el link.'],
-                        ['<strong>3. Contacto al Huésped:</strong> Una vez aplicado el pago, contactar al huésped con la plantilla "Contacto – Pago aprobado", adjuntando la factura.'],
-                        ['<strong>4. Responsabilidad por Turno:</strong> Cada turno es responsable de imputar los cobros recibidos durante su horario. Nadie debe retirarse sin haber aplicado todos los pagos.']
-                    ]
-                }
-            ]
-        },
-      billingDespegar: {
-            title: 'Facturación Despegar',
-            sections: [
-                {
-                    name: 'Accesos a Carpetas (Drive)',
-                    data: [
-                        ['Hotel', 'Acceso Directo', 'Ruta en Drive'],
-                        ['InSoho', '<a href="https://drive.google.com/drive/folders/1UCuVYL3Y5VmGQZd30otIu-a6gN75lk0y?usp=drive_link" target="_blank">Abrir Carpeta</a>', 'Ippa Hoteles > Clientes > Insoho > Administracion > Ingresos > FC Despegar'],
-                        ['Filiberto', '<a href="https://drive.google.com/drive/folders/1jrL52C6D9whk4lYQJk-fAQbp3CZTVAvC?usp=drive_link" target="_blank">Abrir Carpeta</a>', 'Ippa Hoteles > Clientes > Filiberto > Administracion > Ingresos > FC Despegar']
-                    ]
-                },
-                {
-                    name: 'Instrucciones y Procedimiento',
-                    data: [
-                        ['Detalle del Proceso'],
-                        [`<div style="line-height: 1.6; ">
-                            <p>Las facturas emitidas a Despegar se deben guardar <strong>POR MES</strong> (el criterio es la fecha de Check-In) en las carpetas mencionadas arriba. Esto permite que Administración las cargue en la extranet para gestionar el pago. <strong>A partir de ahora, esta tarea debe ser realizada por el auditor.</strong></p>
-                            <p><strong>¿Cómo debemos facturar?</strong><br>
-                            Se debe emitir <strong>FACTURA A</strong> a Despegar según el perfil cargado en el sistema. La forma de pago será <strong>Cuenta Corriente</strong>. Al emitir la factura, es fundamental que en el campo <strong>NOTAS</strong> se coloque la palabra "PNR" seguida del número (Ej: PNR 106777167), nunca el número solo.</p>
-                            <p><strong>Guardado de archivos:</strong><br>
-                            El archivo PDF debe nombrarse con el siguiente formato: <strong>Apellido del huésped + In y Out + PNR</strong>.</p>
-                            <div style="margin: 15px 0; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; max-width: 500px;">
-                                <img src="/Media/despegar.png" alt="Ejemplo de nomenclatura" style="width: 100%; display: block;">
-                            </div>
-                            <p style="background-color: #fff3f3; padding: 10px; border-left: 4px solid #f44336; color: black;">
-                                <strong>Aclaración importante:</strong> A Despegar solo debe facturarse <strong>ALOJAMIENTO</strong>. No se debe facturar el DDU, el cual debe ser abonado por los huéspedes.
-                            </p>
-                        </div>`]
-                    ]
-                }
-            ]
-        }, // <--- Esta coma separa Despegar de Desayunos
-        desayunosBaires: {
-            title: 'Desayunos Baires Belgrano',
-            sections: [
-                {
-                    name: 'Convenio de desayunos con panadería “La Argentina”',
-                    data: [
-                        ['Detalle', 'Información'],
-                        ['Procedimiento', 'Avisar a la panadería con los datos del huésped el mismo día de los desayunos temprano.'],
-                        ['Horarios', 'La panadería abre a las 7:30. No hay horario específico de cierre de desayuno.'],
-                        ['Opciones', 'También pueden pedir el desayuno para llevar.']
-                    ]
-                },
-                {
-                    name: 'Menú de Desayuno',
-                    data: [
-                        ['Base', 'Café con leche + Vasito de jugo'],
-                        ['1ra opción', 'Tostada con palta y cherry'],
-                        ['2da opción', 'Chipá con jamón y queso'],
-                        ['3ra opción', 'Árabe con jamón y queso'],
-                        ['Nota', 'Si no desea ninguna: CCL + 2 Medialunas + Vasito de jugo']
-                    ]
-                }
-            ]
-        },desayunosMilenia: {
-            title: 'Desayunos Milenia Soho by iPPA',
-            sections: [
-                {
-                    name: 'Información General',
-                    data: [
-                        ['Detalle'],
-                        [`<div style="line-height: 1.8; padding: 10px;">
-                            <p><strong>Valor:</strong> USD 11.5 por persona</p>
-                            <p>En el desayuno podrán optar por <strong>1 infusión + 1 comida + 1 extra por día</strong>, es a la carta por lo que podrán elegir en el momento.</p>
-
-                            <p><strong>☕ Infusión:</strong></p>
-                            <ul>
-                                <li>Café de especialidad en cualquier tamaño</li>
-                                <li>Té en hebras</li>
-                                <li>Chocolatada</li>
-                            </ul>
-
-                            <p><strong>🥐 Comida:</strong></p>
-                            <ul>
-                                <li>Medialunas</li>
-                                <li>Croissant con J&Q o relleno de dulce</li>
-                                <li>Scone de tomillo y queso</li>
-                                <li>Tostadas con queso y mermelada (3 en variedad de panes)</li>
-                                <li>1 porción de torta</li>
-                                <li>Tostada de pan de campo con huevos, palta y aceite de oliva</li>
-                            </ul>
-
-                            <p><strong>🥤 Extra:</strong></p>
-                            <ul>
-                                <li>Vaso de jugo de naranja</li>
-                                <li>Vaso de limonada</li>
-                                <li>Botella de agua con o sin gas</li>
-                            </ul>
-                        </div>`]
-                    ]
-                }
-            ]
-        }
-    } // <--- Esta llave cierra "subsections"
-},
-checklist: {
-    name: 'CheckLists',
-    subsections: {
-        tm: {
-    title: 'CheckList Turno Mañana',
-    sections: [{
-        name: 'Instrucciones Detalladas',
-        data: [
-            ['Acciones a realizar:'],
-            ['• Repasar y actualizar Trello junto con TN.'],
-            ['• Abrir Caja en Venice.'],
-            ['• Revisar llegadas del día y repasar asignación según requerimientos especiales.'],
-            ['• <strong>InSoho / Filiberto / Baires:</strong> Preparar Report de habitaciones para Hskp.'],
-            ['• <strong>Contactar ingresos del día con la plantilla correspondiente:</strong><br>' +
-             '&nbsp;&nbsp;- "Mensaje Bienvenida" (Ingresos completos)<br>' +
-             '&nbsp;&nbsp;- "Bienvenida WCI pendiente" (Pagado, sin WCI)<br>' +
-             '&nbsp;&nbsp;- "Bienvenida Pago Pendiente" (WCI hecho, sin pago)<br>' +
-             '&nbsp;&nbsp;- "Bienvenida WCI y Pago Pendiente" (Nada completado)'],
-            ['• <strong>Check Outs:</strong> Contactar con la plantilla "Dia de Check Out".'],
-            ['• <strong>Seguimiento:</strong> Contactar con "Contacto 1er Noche" a quienes ingresaron ayer y se quedan más de 1 día.'],
-            ['• <strong>Limpieza:</strong> Contactar huéspedes LongStay con plantilla "Contacto InHouse - LongStay".'],
-            ['• <strong>Filiberto:</strong> Informar a JDD desayunos del día.'],
-            ['• Informar en grupos de Operaciones salidas o pedidos especiales para HSKP o Manager.'],
-            ['• <strong>InSoho:</strong> Preparar códigos de acceso en TTLOCK una vez firme la asignación.'],
-            ['• Cerca de las 11 AM verificar tipo de cambio BNA y actualizar.'],
-            ['• Realizar seguimiento de Check Outs pendientes después de las 11 Hrs y verificar cierre en sistema.'],
-            ['• A medida que las habs. estén limpias, enviar plantilla "Envío de Accesos" y realizar Check In en sistema.'],
-            ['• <strong>Cierre:</strong> Verificar bandeja de mails vacía, Trello actualizado y cierre de caja en Venice.']
-        ]
-    }],
-    footer: `
-        <a href="/media/checkTM.docx" class="download-btn" download>
-            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            Descargar Checklist Turno Mañana
-        </a>
-    `
-},
-        tt: {
-    title: 'CheckList Turno Tarde',
-    sections: [{
-        name: 'Instrucciones Detalladas',
-        data: [
-            ['Acciones a realizar:'],
-            ['• Repasar y actualizar Trello junto con Host TM.'],
-            ['• Abrir Caja en Venice.'],
-            ['• Verificar disponibilidad del día: ingresos por llegar y Late Check Out pendientes.'],
-            ['• <strong>Limpieza:</strong> Chequear con Hskp dptos con ingreso pendiente que aún figuren sucios.'],
-            ['• <strong>Contactar ingresos del día pendientes según corresponda:</strong><br>' +
-             '&nbsp;&nbsp;- "Dpto Listo - WCI y Pago Pendiente"<br>' +
-             '&nbsp;&nbsp;- "Dpto Listo - WCI Pendiente"<br>' +
-             '&nbsp;&nbsp;- "Dpto Listo - Pago Pendiente" '],
-            ['• <strong>Contactar Ingresos (48 horas):</strong> Iniciar proceso de Check In según situación (Contacto 48 Hrs, WCI o Pago Pendiente).'],
-            ['• <strong>Contactar Ingresos (24 horas):</strong> Contactar ingresos del día siguiente con procesos pendientes.'],
-            ['• <strong>Nuevas Reservas:</strong> Verificar reservas generadas en las últimas 24 hrs y enviar plantilla "Agradecimiento".'],
-            ['• <strong>Sin contacto:</strong> Contactar por extranet o mail a quienes no tengan teléfono para que escriban al WUP.'],
-            ['• <strong>Pre Check Out:</strong> Enviar plantilla "Positiva" o "Negativa" a las salidas de mañana (Preferentemente entre 19 y 21 hrs)].'],
-            ['• <strong>Cierre:</strong> Verificar bandeja de entrada vacía, Trello actualizado y cierre de caja en Venice.']
-        ]
-    }],
-    footer: '<div style="margin-top:20px; text-align:center;"><a href="/Media/CheckTT.docx" class="download-btn" download style="background-color: #2b579a;">📄 Descargar Checklist Turno Tarde</a></div>'
-},
-        tn: {
-    title: 'CheckList Turno Noche - Auditoría',
-    sections: [{
-        name: 'Tareas Iniciales y Auditoría',
-        data: [
-            ['Acciones iniciales:'],
-            ['• Revisar Trello con novedades junto con el compañero saliente.'],
-            ['• Revisar junto con TT los arribos pendientes y reconfirmar requerimientos especiales.'],
-            ['<strong>AUDITORÍA (Todas las propiedades):</strong>'],
-            ['• Verificar que todas las reservas In House tengan el Web Check In realizado.'],
-            ['• Verificar carga y cobro del Cleaning Fee en las reservas correspondientes.'],
-            ['• Confirmar el pago total de la estadía para todas las reservas In House.'],
-            ['• Completar informe de auditoría "Cuentas con Saldo".'],
-            ['• Controlar carga correcta de Mercado, Origen, Agencia, Empresa y Tipo de Reserva.'],
-            ['• Verificar emisión de facturas (cobros banco) y recibos (WeTravel).'],
-            ['• Completar informe de auditoría "Descuentos Realizados".'],
-            ['• <strong>Rodar auditoría</strong> en todas las propiedades.'],
-            ['<strong>LUEGO DE RODAR AUDITORÍA:</strong>'],
-            ['• Controlar carga automática (Channel VS Venice) para el día que comienza y 3 días vista.'],
-            ['• <strong>Cobros NRF:</strong> Cobrar todas las reservas NRF generadas en el día cerrado.'],
-            ['• <strong>Cobros Flexibles:</strong> Cobrar reservas con ingreso en 48 horas.'],
-            ['• <strong>CTA CTE / Transferencia:</strong> Cobrar a clientes que hacen Check Out ese día.'],
-            ['• Verificar que no queden Check Outs con saldo pendiente (si hay, informar al TM).'],
-            ['• Ajustar a $0 los saldos por diferencias de tipo de cambio.'],
-            ['• <strong>Milenia:</strong> Generar QR de acceso en HIPCAM y enviarlos al WhatsApp de Host.'],
-            ['• Enviar recibos/facturas con plantilla "Contacto Pago Aprobado" o informar "Pago Denegado".'],
-            ['• <strong>Cierre final:</strong> Verificar mails respondidos, Trello actualizado y cierre de caja en Venice.']
-        ]
-    }],
-    footer: '<div style="margin-top:20px; text-align:center;"><a href="/Media/CheckTN.docx" class="download-btn" download style="background-color: #2b579a;">📄 Descargar Checklist Turno Noche</a></div>'
-}
-    },
-},independencia: {
-    name: 'Independencia by iPPA',
-    subsections: {
-        links: {
-            title: 'Links y contraseñas',
-            sections: [
-                {
-                    name: 'Información General',
-                    data: [
-                        ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                        ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar</a>', '-', '-'],
-                        ['Mail', '-', 'host.bahindependencia@ippa-hoteles.com', 'IPHoteles2026@'],
-                         ['TTlock', '<a href="https://lock2.ttlock.com/" target="_blank">TTlock Web</a>', 'asistente.operaciones@ippa-hoteles.com', 'Insoho2024'],
-                    ]
-                }
-            ]
-        },
-        bedding: {
-            title: 'Categoría y Bedding',
-            sections: [
-                {
-                    name: 'Configuración',
-                    data: [
-                        ['Detalle', 'Información'],
-                        ['Tipo', 'Departamentos'],
-                        ['Camas', 'Consultar planilla']
-                    ]
-                }
-            ]
-        },
-        bankData: {
-            title: 'Datos Bancarios',
-            sections: [
-                {
-                    name: 'Cuenta',
-                    data: [
-                        ['Concepto', 'Detalle'],
-                        ['Razón Social', 'Rudi SA'],
-                        ['Cuit', '30-71448142-4'],
-                                                ['CBU', '0070677920000002471468'],
-                                                ['Banco', 'Galicia'],
-                    ]
-                }
-            ]
-        },accesos: {
-    title: 'Accesos',
-    sections: [
-        {
-            name: 'Códigos de Cajas',
-            data: [
-                ['Caja', , 'Apartamento', 'Contraseña'],
-                ['1', 'D','2941'],
-                ['2', 'J', '8305'],
-                ['3', 'E', '1762' ],
-                ['4', 'F', '6493'],
-                ['5', 'Extra','4028'],
-                ['6', 'Extra', '9517'],
-                ['7', 'Extra', '3850' ],
-            ]
-        }
-    ]
-}
-    }
-},
-            filiberto: {
-                name: 'Filiberto by iPPA',
-                subsections: {
-                    links: {
-                        title: 'Links y contraseñas',
-                        sections: [
-                            {
-                                name: 'Información General',
-                                data: [
-                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718562712', 'Filiberto2026*'],
-                                    ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
-                                    ['Celular', '-', '-', '1564'],
-                                    ['Mail','-', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024@'],
-                                    ['Mail Host ','-', 'host@ippa-hoteles.com', 'IPHoteles2025!'],
-                                    ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['TESA', '-', 'nahuelz', 'nahuelz1']
-                                ]
-                            },
-                            {
-                                name: 'Tecnología',
-                                data: [
-                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2026!'],
-                                    ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024_!?']
-                                ]
-                            },
-                            {
-                                name: "OTA's",
-                                data: [
-                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
-                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
-                                    ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
-                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
-                                    ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2025!!'],
-                                    ['Almundo', '<a href="https://jintranet.trendoperadora.com.br/extranet/login.aspx?ReturnUrl=%2fextranet%2falojamiento%2fdefault.aspx%3falojamiento%3d4157&alojamiento=4157" target="_blank">Login Almundo</a>', 'FilibertobyiPPA2', 'IPHoteles2025!!'],
-                                    ['Hotelbeds', '<a href="https://maxiroom.hotelbeds.com/#/login" target="_blank">Login Hotelbeds</a>', 'IPPA', 'IPHoteles2026*'],
-                                ]
-                            }
-                        ]
-                    },
-                    bedding: {
-                        title: 'Categoría y Bedding',
-                        sections: [
-                            {
-                                name: 'Configuración de Habitaciones',
-                                data: [
-                                    ['Hab con Terminación', 'Tipo de Habitación', 'Configuración', 'Notas'],
-                                    ['02', 'Twin', 'Todas las habitaciones terminadas en 02', 'Dos camas individuales'],
-                                    ['03', 'Matrimonial (MAT)', 'No se pueden separar', 'Incluye: 104, 105, 504'],
-                                    ['06', 'Categoría Superior', 'Todas las habitaciones terminadas en 06', 'Mat + Cama/Tres camas'],
-                                    ['01', 'Categoría Familiar', '', 'Todas menos la 501 Se pueden hacer cuádruple twin']
-                                ]
-                            }
-                        ]
-                    },
-                    bankData: {
-                        title: 'Datos Bancarios',
-                        sections: [
-                            {
-                                name: 'Información de Cuenta',
-                                data: [
-                                    ['Concepto', 'Detalle'],
-                                    ['Razón Social', 'NUEVA JUSTA SRL'],
-                                    ['Número de cuenta', 'CC ARS 001-5760549-2'],
-                                    ['Cuit', '30718562712'],
-                                    ['CBU', '0270001410057605490023'],
-                                    ['Alias', 'GRANA.GAFAS.DESPERTO']
-                                    
-
-                                ]
-                                
-                            }
-                            
-                        ]
-                    },
-                    
-                    billing: {
-                        title: 'Facturación',
-                        sections: [
-                            {
-                                name: 'Tipos de Facturación por Origen',
-                                data: [
-                                    ['Origen', 'Tipo de Pago', 'Tipo de Factura'],
-                                    ['Booking.com', 'Visa, Mastercard,Amex,etc', 'Factura A/B'],
-                                    ['Despegar', 'Cuenta corriente', 'Factura A'],
-                                    ['Airbnb', 'Cuenta corriente', 'Factura A'],
-                                    ['Expedia', 'Visa, Mastercard,Amex,etc', 'Factura T/Electrónica T'],
-                                    ['Efectivo', 'Factura T', 'Recibo T']
-                                ]
-                            }
-                        ]
-                    }
-                }
-            },
-            milenia: {
-                name: 'Milenia by iPPA',
-                subsections: {
-                    links: {
-                        title: 'Links y contraseñas',
-                        sections: [
-                            {
-                                name: 'Información General',
-                                data: [
-                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718528018', 'Milenia2026!'],
-                                    ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
-                                    ['Celular', '-', '-', '1564'],
-                                    ['TTlock', '<a href="https://lock2.ttlock.com/" target="_blank">TTlock Web</a>', 'asistente.operaciones@ippa-hoteles.com', 'Insoho2024'],
-                                    ['Hipcam', '-', 'host.insoho@ippa-hoteles.com', 'ippahoteles2025'],
-                                    ['Mail','-', 'host.mileniasoho@ippa-hoteles.com', 'IPHoteles2024'],
-['Mail Host ','-', 'host@ippa-hoteles.com', 'IPHoteles2025!'],
-['Tecnolav', '<a href="https://clientes.tecnolav.com.ar" target="_blank">Login Tecnolav</a>', 'host.milenia@ippa-hoteles.com', 'Milenia2025'],
-                                    ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2026!'],
-                                   
-                                    ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.insoho@ippa-hoteles.com', 'InSoho2025'],
-
-                                ]
-                            },
-                            {
-                                name: "OTA's",
-                                data: [
-                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
-                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
-                                    ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
-                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
-                                    ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2025!!'],
-                                ]
-                            }
-                        ]
-                    },
-                    bedding: {
-                        title: 'Categoría y Bedding',
-                        sections: [
-                            {
-                                name: 'Configuración de Habitaciones',
-                                data: [
-                                    ['Bedding y Equipamiento','Número'],
-                                    ['HABITACIONES HACIA EL FRENTE:','TODAS LAS 01 Y 02'],
-                                    ['HABITACIONES HACIA EL CONTRAFRENTE:','TODAS LAS 03 Y 04'],
-                                    ['HABITACIONES QUE NO SE HACEN TWIN:','604, 704, 901, 403'],
-                                    ['NO TIENE SOFA CAMA:', '801, 802, 604, 704, 901, 902, 402'],
-                                    ['TIENEN MICROONDAS:','704 Y 604'],
-                                    ['HABITACIONES CON 2 BAÑOS:','TODAS MENOS 901 Y 801']
-                                ]
-                            }
-                        ]
-                    },
-                    bankData: {
-                        title: 'Datos Bancarios',
-                        sections: [
-                            {
-                                name: 'Información de Cuenta (ARS)',
-                                data: [
-                                    ['Concepto', 'Detalle'],
-                                    ['Razón Social', 'FIDEICOMISO STAY HOME FIDEICOM '],
-                                    ['Cuit', '30718528018'],
-                                    ['Tipo y número de cuenta corriente en pesos ', '429-019952/2'],
-                                    ['CBU', '0720429020000001995222'],
-                                    ['Alias', 'milenia.by.ippa'],
-                                ]
-                            },
-                            {
-                                name: 'Información de Cuenta (USD)',
-                                data: [
-                                    ['Concepto', 'Detalle'],
-                                    ['Beneficiary', 'Nassimoff Jonathan Javier'],
-                                    ['Beneficiary Adress', '18800 NE 29th AVE #514 33180 Aventura'],
-                                    ['Account Numer ', '6389525129'], 
-                                    ['ABA/Routing', '121000248'], 
-                                    ['Bank Adress', '420 montgomery St. San Francisco , CA 94104'] ,
-['Bank Name', 'Wells Fargo Bank'] ,
-
-                                ]
-                            }
-                        ]
-                    },
-                    
-                    billing: {
-                        title: 'Facturación',
-                        sections: [
-                            {
-                                name: 'Tipos de Facturación por Origen',
-                                data: [
-                                    ['Origen', 'Tipo de Pago', 'Tipo de Factura'],
-                                    ['Booking.com', 'Visa, Mastercard,Amex,etc', 'Factura A/B'],
-                                    ['Despegar', 'Cuenta corriente', 'Factura A'],
-                                    ['Airbnb', 'Cuenta corriente', 'Factura A'],
-                                    ['Expedia', 'Visa, Mastercard,Amex,etc', 'Factura T/Recibo T'],
-                                    ['Efectivo', 'No aplica']
-                                ]
-                            }
-                        ]
-                    }
-                }
-            },
-                                     bah: {
-                            name: 'BAH Congreso By iPPA',
-                            subsections: {
-                                links: {
-                                    title: 'Links y contraseñas',
-                                    sections: [
-                                        {
-                                            name: 'Información General',
-                                            data: [
-                                                ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                                ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
-                                                ['Mail','-', 'Host.bahcongreso@ippa-hoteles.com ', 'IPP4HOTELES475#'],
-                                                ['Airbnb', '-', 'Sin información al momento', 'Sin información al momento'],
-                                    
-                                    ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
-                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
-                              
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2025!!'],
-                                            ]
-                                        }
-                                    ]
-                                },
-                                bedding: {
-                                    title: 'Categoría y Bedding',
-                                    sections: [
-                                        {
-                                            name: 'Configuración de Habitaciones',
-                                            data: [
-                                                ['Bedding,equipamiento y vista', '', '', 'Número'],
-                                                ['SE HACEN TWIN Y MAT', '', '', 'Todas'],
-                                               
-                                                ['HABS SIN LAVAROPAS', '', '', '1G , 1M Y 2M'],
-                                                ['HABS CON VISTA A LA CALLE', '', '', '1A , 7B'],
-                                                ['HABS CON VISTA AL PATIO', '', '', '1G,1M Y 2M'],
-                                                ['SIN VISTA, TIENE UN PATIECITO', '', '', '3H, 5G, 9D'],
-                                            ]
-                                        }
-                                    ]
-                                },
-                                bankData: {
-                                    title: 'Datos Bancarios',
-                                    sections: [
-                                        {
-                                            name: 'Información de Cuenta',
-                                            data: [
-                                                ['Concepto', 'Detalle'],
-                                                ['Razón Social', 'RUDI SA'],
-                                                ['Cuit', '30-71448142-4'],
-                                                ['CBU', '0070677920000001636839'],
-                                                ['Banco', 'Galicia'],
-                                            ]
-                                        }
-                                    ]
-                                },
-                                billing: {
-                                    title: 'Facturación',
-                                    sections: [
-                                        {
-                                            name: 'Tipos de Facturación',
-                                            data:  [                              
-                                                ['Origen', 'Tipo de Factura'],
-                                                ['Sin información', 'Sin información'],
-                                            ]
-                                        }
-                                    ]
-                                },
-                                accesos: { // Nuevo bloque accesos
-                                    title: 'Accesos',
-                                    sections: [
-                                        {
-                                            name: 'Códigos y Permisos',
-                                            data: [
-                                                ['Piso', 'Depto', 'Clave Cerradura', 'Software', 'Caja', 'Clave Caja', 'Tipo de Cerradura'],
-                ['1', 'A', '112233#', 'Chino', '9', '1989', 'Negra'],
-                ['1', 'M', '223344#', 'Chino', '15', '1995', 'Negra'],
-                ['1', 'G', '223344#', 'Chino', '7', '1987', 'Negra'],
-                ['2', 'M', '445566#', 'Chino', '17', '1997', 'Negra'],
-                ['3', 'H', '1989#', 'TTLOCK', '1', '1981', 'Gris'],
-                ['5', 'G', '6431#', 'TTLOCK', '12', '1992', 'Gris'],
-                ['9', 'D', '262689#', 'TTLOCK', '10', '1990', 'Gris'],
-                ['-', '-', '-', 'Extra', '4', '5291', '-'],
-                ['-', '-', '-', 'Extra', '14', '8034', '-']
-                                            ]
-                                        }
-                                    ]
-                                }
-                            }
-                        },reservas: {
-                            name: 'Reservas',
-                            subsections: {
-                                links: {
-                                    title: 'Links y contraseñas',
-                                    sections: [
-                                        {
-                                            name: 'Información General',
-                                            data: [
-                                                ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                                ['Mail Reservas', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024$'],
-                                                ['We Speak', '<a href="https://app.wespeak.pro/dashboard" target="_blank">Acceder</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
-                                            ]
-                                        }
-                                    ]
-                                }
-                            }
-                        }
-                    };
-                    
-
-                    
-                    function toggleHotel(hotelId) {
-    const subsections = document.getElementById(`subsections-${hotelId}`);
-    const arrow = document.getElementById(`arrow-${hotelId}`);
-    subsections.classList.toggle('show');
-    arrow.classList.toggle('expanded');
-}
-
-function showSubsection(hotelId, subsectionId) {
-    const hotel = hotelsData[hotelId];
-    const subsection = hotel.subsections[subsectionId];
-
-    document.getElementById('hotel-title').textContent = hotel.name;
-    document.getElementById('subsection-title').textContent = subsection.title;
-
-    const tableContainer = document.getElementById('table-container');
-    tableContainer.innerHTML = '';
-
-    // Dibujar las tablas
-    subsection.sections.forEach(section => {
-        const sectionTitle = document.createElement('div');
-        sectionTitle.className = 'section-title';
-        sectionTitle.textContent = section.name;
-        tableContainer.appendChild(sectionTitle);
-
-        const table = document.createElement('table');
-        const thead = document.createElement('thead');
-        const tbody = document.createElement('tbody');
-
-        section.data.forEach((row, index) => {
-            const tr = document.createElement('tr');
-            row.forEach(cell => {
-                const element = index === 0 ? document.createElement('th') : document.createElement('td');
-                element.innerHTML = cell;
-                tr.appendChild(element);
-            });
-            if (index === 0) {
-                thead.appendChild(tr);
-            } else {
-                tbody.appendChild(tr);
-            }
-        });
-
-        table.appendChild(thead);
-        table.appendChild(tbody);
-
-        const wrapper = document.createElement('div');
-        wrapper.className = 'table-container';
-        wrapper.appendChild(table);
-        tableContainer.appendChild(wrapper);
-    });
-
-    // --- AQUÍ SE COLOCA EL FOOTER (Botón de descarga) ---
-    if (subsection.footer) {
-        const footerDiv = document.createElement('div');
-        footerDiv.style.marginTop = "20px";
-        footerDiv.style.textAlign = "center";
-        footerDiv.innerHTML = subsection.footer;
-        tableContainer.appendChild(footerDiv);
-    }
-
-    // Mostrar el contenido
-    document.getElementById('empty-state').classList.add('hidden');
-    document.getElementById('content').classList.remove('hidden');
-} // <-- Esta llave cierra showSubsection correctamente
-function toggleDriveMenu() {
-    const dropdown = document.getElementById('driveDropdown');
-    const arrow = document.getElementById('drive-arrow');
-    const isOpen = dropdown.style.display === 'flex';
-    dropdown.style.display = isOpen ? 'none' : 'flex';
-    arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
-}
-
-                        </script>
                         
                     </body>
                     </html>
