@@ -142,7 +142,7 @@
                                     ['Sofá Cama', '-'],
                                     ['Hab al frente', '-'],
                                     ['Hab al contrafrente', '-'],
-
+                                    ['Habs con futón', '103, 201, 202, 302, 303, 403'],
                                 ]
                             }
                         ]
@@ -1156,13 +1156,45 @@ checklist: {
                         ]
                     },
                     desayunos: {
-                        title: 'Desayunos',
+                        title: 'Desayuno Café Registrado',
                         sections: [
                             {
-                                name: 'Información',
+                                name: 'Datos del Proveedor',
                                 data: [
-                                    ['Concepto', 'Detalle'],
-                                    ['Desayunos', 'A confirmar'],
+                                    ['Detalle', 'Información'],
+                                    ['Nombre', 'Café Registrado, suc. Plaza Güemes'],
+                                    ['Web', '<a href="https://www.caferegistrado.com" target="_blank">www.caferegistrado.com</a>'],
+                                    ['Dirección', 'Av. Medrano 1881 (a 200 metros de Milenia Vidt, en Palermo Soho)'],
+                                    ['Contacto Comercial', 'Fernanda Pérez – 11 3041 2891'],
+                                    ['Contacto Operativo', '<a href="mailto:plazaguemes@caferegistrado.com">plazaguemes@caferegistrado.com</a>'],
+                                    ['Horario', 'Todos los días de 8 a 20 hs. Abre los feriados.'],
+                                    ['Guarda equipaje', 'No presta este servicio.']
+                                ]
+                            },
+                            {
+                                name: 'Procedimiento Operativo',
+                                data: [
+                                    ['Detalle'],
+                                    [`<div style="line-height:1.65; max-width:900px;">
+                                        <p style="margin-top:0;">Operación <strong>igual que el resto de las cafeterías</strong> con convenio de desayuno:</p>
+                                        <ol style="margin:0.75em 0 0 1.25em; padding:0;">
+                                            <li style="margin-bottom:0.75em;">Entre las <strong>7:00 y las 7:30 hs</strong>, enviar por mail a la operación de la cafetería (<a href="mailto:plazaguemes@caferegistrado.com">plazaguemes@caferegistrado.com</a>) el <strong>listado de huéspedes</strong> que desayunan ese día.</li>
+                                            <li style="margin-bottom:0.75em;">El listado debe incluir <strong>solo el nombre</strong> del huésped. <strong>No</strong> incluir el número de reserva.</li>
+                                            <li style="margin-bottom:0.75em;">En el local, la cafetería solicitará al huésped el <strong>código de reserva iPPA</strong>. Si el huésped entrega por error el código de la OTA, no hay inconveniente.</li>
+                                            <li style="margin-bottom:0.75em;">La cafetería presentará <strong>quincenalmente</strong> la <strong>Liquidación de Desayunos</strong> efectivamente consumidos, con: fecha, nombre, código de reserva y opción de desayuno consumida.</li>
+                                        </ol>
+                                    </div>`]
+                                ]
+                            },
+                            {
+                                name: 'Menú de Desayuno Continental',
+                                data: [
+                                    ['Detalle', 'Información'],
+                                    ['Tipo', 'Desayuno continental (consta de tres componentes). El huésped elige una de las siguientes opciones:'],
+                                    ['Opción 1', 'Café o infusión mediana a elección, dos medialunas y un jugo chico de naranja'],
+                                    ['Opción 2', 'Café o infusión mediana a elección, tostadas con dip de mermelada y queso crema'],
+                                    ['Opción 3', 'Café o infusión mediana a elección, yogurt chico y plato de frutas'],
+                                    ['Extras', 'Cualquier cosa extra que el pasajero requiera puede solicitarla directamente en el local.']
                                 ]
                             }
                         ]
