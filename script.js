@@ -3,20 +3,29 @@
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('overlay');
             sidebar.classList.toggle('active');
-            
-            if (sidebar.classList.contains('active')) {
-                overlay.style.display = 'block';
-            } else {
-                overlay.style.display = 'none';
-            }
+            const isOpen = sidebar.classList.contains('active');
+            overlay.style.display = isOpen ? 'block' : 'none';
+            document.body.classList.toggle('sidebar-open', isOpen);
         }
 
         function closeSidebarOnMobile() {
-            // Solo cerrar si estamos en pantalla pequeña
-            if (window.innerWidth <= 768) {
-                toggleSidebar();
+            if (window.innerWidth <= 900) {
+                const sidebar = document.getElementById('sidebar');
+                if (sidebar.classList.contains('active')) {
+                    toggleSidebar();
+                }
             }
         }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900) {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('overlay');
+                if (sidebar) sidebar.classList.remove('active');
+                if (overlay) overlay.style.display = 'none';
+                document.body.classList.remove('sidebar-open');
+            }
+        });
 
         // --- TU CÓDIGO ORIGINAL (Sin cambios en los datos) ---
         const hotelsData = {
@@ -1444,10 +1453,10 @@ function renderSearchResults(results, query) {
       <tbody>
       ${results.map((item, idx) => `
         <tr>
-          <td>${item.hotelName}</td>
-          <td>${item.subsectionTitle}</td>
-          <td>${item.sectionName}</td>
-          <td><button class="copy-btn" onclick="openSearchResult(${idx})">Abrir</button></td>
+          <td data-label="Hotel">${item.hotelName}</td>
+          <td data-label="Seccion">${item.subsectionTitle}</td>
+          <td data-label="Detalle">${item.sectionName}</td>
+          <td data-label="Accion"><button class="copy-btn" onclick="openSearchResult(${idx})">Abrir</button></td>
         </tr>
       `).join('') || '<tr><td colspan="4">Sin resultados</td></tr>'}
       </tbody>`;
@@ -1586,6 +1595,9 @@ function showSubsection(hotelId, subsectionId) {
             const tr = document.createElement('tr');
             row.forEach((cell, colIndex) => {
                 const element = index === 0 ? document.createElement('th') : document.createElement('td');
+                if (index > 0) {
+                    element.setAttribute('data-label', headers[colIndex] || '');
+                }
                 if (index > 0 && shouldAddCopyButton(headers, String(cell), colIndex, index)) {
                     const plainValue = getPlainCellValue(String(cell));
                     const wrapper = document.createElement('div');
