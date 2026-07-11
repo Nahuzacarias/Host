@@ -78,7 +78,7 @@
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2027!!'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'Host2026!'],
                                 ]
                             }
                         ]
@@ -92,6 +92,30 @@
                                     ['Equipamiento y Bedding', '-', '-', 'Número'],
                                     ['HABS QUE SE HACEN TWIN', '-', '-', 'NINGUNA'],
                                     ['HABS CON SOFÁ CAMA', '-', '-', 'TODAS'],
+                                ]
+                            }
+                        ]
+                    },
+                    desayunos: {
+                        title: 'Desayunos',
+                        sections: [
+                            {
+                                name: 'Convenio de desayunos con panadería “La Argentina”',
+                                data: [
+                                    ['Detalle', 'Información'],
+                                    ['Procedimiento', 'Avisar a la panadería con los datos del huésped el mismo día de los desayunos temprano.'],
+                                    ['Horarios', 'La panadería abre a las 7:30. No hay horario específico de cierre de desayuno.'],
+                                    ['Opciones', 'También pueden pedir el desayuno para llevar.']
+                                ]
+                            },
+                            {
+                                name: 'Menú de Desayuno',
+                                data: [
+                                    ['Base', 'Café con leche + Vasito de jugo'],
+                                    ['1ra opción', 'Tostada con palta y cherry'],
+                                    ['2da opción', 'Chipá con jamón y queso'],
+                                    ['3ra opción', 'Árabe con jamón y queso'],
+                                    ['Nota', 'Si no desea ninguna: CCL + 2 Medialunas + Vasito de jugo']
                                 ]
                             }
                         ]
@@ -139,10 +163,61 @@
                                 data: [
                                     ['Detalle', 'Información'],
                                     ['Bedding', 'Todas se pueden hacer Twin y king'],
-                                    ['Sofá Cama', '-'],
-                                    ['Hab al frente', '-'],
-                                    ['Hab al contrafrente', '-'],
                                     ['Habs con futón', '103, 201, 202, 302, 303, 403'],
+                                ]
+                            }
+                        ]
+                    },
+                    desayunos: {
+                        title: 'Desayunos Nadina',
+                        sections: [
+                            {
+                                name: 'Datos del Proveedor',
+                                data: [
+                                    ['Detalle', 'Información'],
+                                    ['Nombre', 'Nadina Pastelería & Café'],
+                                    ['Instagram', '<a href="https://www.instagram.com/nadinapasteleria/" target="_blank">@nadinapasteleria</a>'],
+                                    ['Dirección', 'Costa Rica 4824 (Planta Baja del edificio)'],
+                                    ['Contacto', 'Jorge (encargado) – 11 6941 000'],
+                                    ['Horario', 'Mar a Sáb: 8 a 20hs | Dom: 10 a 20hs | Lun: Cerrado (*buscaremos opción para los lunes)']
+                                ]
+                            },
+                            {
+                                name: 'Procedimiento de envío diario',
+                                data: [
+                                    ['Detalle'],
+                                    [`<div style="line-height:1.65; max-width:900px;">
+                                        <p style="margin-top:0;">Enviar la planilla de desayunos a Nadina <strong>todos los días salvo domingos</strong> con la lista de huéspedes que desayunan ese día.</p>
+                                        <ol style="margin:0.75em 0 0 1.25em; padding:0;">
+                                            <li style="margin-bottom:0.75em;">Ingresar al PMS de Hache Palermo y navegar a <strong>Misceláneos → Reportes → Planilla de desayuno</strong>.</li>
+                                            <li style="margin-bottom:0.75em;">Descargar el PDF que genera el sistema.</li>
+                                            <li style="margin-bottom:0.75em;">Recortar <strong>solo la tabla de huéspedes</strong> (columnas Huésped, Llegada, Salida, Noc y A/C), como se muestra en la referencia.</li>
+                                            <li style="margin-bottom:0.75em;">Enviar a la cafetería la parte recortada (Jorge – 11 6941 000).</li>
+                                        </ol>
+                                        <p style="margin:1em 0 0; padding:10px 12px; background:#fef2f2; border-left:4px solid #dc2626; border-radius:4px; color:#b91c1c; font-weight:600;">
+                                            <strong style="color:#991b1b;">⚠ Importante:</strong> la planilla debe mostrar <strong>nombres y apellidos</strong> de las personas a desayunar y la <strong>cantidad</strong> (A/C). <strong>No</strong> debe incluir el número de reserva.
+                                        </p>
+                                        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; margin-top:24px; align-items:start;">
+                                            <div style="text-align:center;">
+                                                <p style="margin:0 0 8px; font-weight:600; color:#374151;">Paso 1 — Ubicar la planilla</p>
+                                                <img src="Media/desayunos_nadina_reporte.png" alt="Misceláneos, Reportes, Planilla de desayuno" style="width:auto; max-width:100%; height:auto; border-radius:8px; border:1px solid #ddd; box-shadow:0 2px 8px rgba(0,0,0,.06);" loading="lazy" />
+                                            </div>
+                                            <div style="text-align:center;">
+                                                <p style="margin:0 0 8px; font-weight:600; color:#374151;">Paso 2 — Parte a recortar y enviar</p>
+                                                <img src="Media/desayunos_nadina_recorte.png" alt="Tabla de huéspedes a enviar a Nadina" style="width:auto; max-width:100%; height:auto; border-radius:8px; border:1px solid #ddd; box-shadow:0 2px 8px rgba(0,0,0,.06);" loading="lazy" />
+                                            </div>
+                                        </div>
+                                    </div>`]
+                                ]
+                            },
+                            {
+                                name: 'Menú de Desayuno Continental',
+                                data: [
+                                    ['Componente', 'Opciones'],
+                                    ['Infusión (elegir 1)', 'Café tradicional / Café con leche / Té en hebras'],
+                                    ['Comida (elegir 1)', '• Dos medialunas<br>• Dos tostadas medianas con 2 dips a elección (manteca, queso crema, dulce de leche o mermelada)<br>• Fruta de estación con yogurt natural y granola<br>• Masitas rellenas, cuadraditos de lemon pie o brownie<br>• Bowl de huevos revueltos con mini tostada y palta'],
+                                    ['Bebida', 'Copón de jugo de naranja'],
+                                    ['Nota', 'Cualquier extra puede solicitarse directamente en el local']
                                 ]
                             }
                         ]
@@ -158,18 +233,6 @@
                                     ['Cuit', '30-71448142-4'],
                                     ['CBU', '0070677920000002492951'],
                                     ['Banco', 'Galicia']
-                                ]
-                            }
-                        ]
-                    },
-                    billing: {
-                        title: 'Facturación',
-                        sections: [
-                            {
-                                name: 'Datos de Facturación',
-                                data: [
-                                    ['Concepto', 'Detalle'],
-                                    ['Instrucciones', 'Alquiler temporario, igual que todas exceptuando Filiberto']
                                 ]
                             }
                         ]
@@ -483,38 +546,6 @@
                 }
             ]
         },
-      billingDespegar: {
-            title: 'Facturación Despegar',
-            sections: [
-                {
-                    name: 'Accesos a Carpetas (Drive)',
-                    data: [
-                        ['Hotel', 'Acceso Directo', 'Ruta en Drive'],
-                        ['InSoho', '<a href="https://drive.google.com/drive/folders/1UCuVYL3Y5VmGQZd30otIu-a6gN75lk0y?usp=drive_link" target="_blank">Abrir Carpeta</a>', 'Ippa Hoteles > Clientes > Insoho > Administracion > Ingresos > FC Despegar'],
-                        ['Filiberto', '<a href="https://drive.google.com/drive/folders/1jrL52C6D9whk4lYQJk-fAQbp3CZTVAvC?usp=drive_link" target="_blank">Abrir Carpeta</a>', 'Ippa Hoteles > Clientes > Filiberto > Administracion > Ingresos > FC Despegar']
-                    ]
-                },
-                {
-                    name: 'Instrucciones y Procedimiento',
-                    data: [
-                        ['Detalle del Proceso'],
-                        [`<div style="line-height: 1.6; ">
-                            <p>Las facturas emitidas a Despegar se deben guardar <strong>POR MES</strong> (el criterio es la fecha de Check-In) en las carpetas mencionadas arriba. Esto permite que Administración las cargue en la extranet para gestionar el pago. <strong>A partir de ahora, esta tarea debe ser realizada por el auditor.</strong></p>
-                            <p><strong>¿Cómo debemos facturar?</strong><br>
-                            Se debe emitir <strong>FACTURA A</strong> a Despegar según el perfil cargado en el sistema. La forma de pago será <strong>Cuenta Corriente</strong>. Al emitir la factura, es fundamental que en el campo <strong>NOTAS</strong> se coloque la palabra "PNR" seguida del número (Ej: PNR 106777167), nunca el número solo.</p>
-                            <p><strong>Guardado de archivos:</strong><br>
-                            El archivo PDF debe nombrarse con el siguiente formato: <strong>Apellido del huésped + In y Out + PNR</strong>.</p>
-                            <div style="margin: 15px 0; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; max-width: 500px;">
-                                <img src="Media/despegar.png" alt="Ejemplo de nomenclatura" style="width: 100%; display: block;">
-                            </div>
-                            <p style="background-color: #fff3f3; padding: 10px; border-left: 4px solid #f44336; color: black;">
-                                <strong>Aclaración importante:</strong> A Despegar solo debe facturarse <strong>ALOJAMIENTO</strong>. No se debe facturar el DDU, el cual debe ser abonado por los huéspedes.
-                            </p>
-                        </div>`]
-                    ]
-                }
-            ]
-        }, // <--- Esta coma separa Despegar de Desayunos
         facturacionAA: {
             title: 'Procedimiento de facturación AA',
             sections: [
@@ -557,123 +588,8 @@
                     ]
                 }
             ]
-        },
-        desayunosBaires: {
-            title: 'Desayunos Baires Belgrano',
-            sections: [
-                {
-                    name: 'Convenio de desayunos con panadería “La Argentina”',
-                    data: [
-                        ['Detalle', 'Información'],
-                        ['Procedimiento', 'Avisar a la panadería con los datos del huésped el mismo día de los desayunos temprano.'],
-                        ['Horarios', 'La panadería abre a las 7:30. No hay horario específico de cierre de desayuno.'],
-                        ['Opciones', 'También pueden pedir el desayuno para llevar.']
-                    ]
-                },
-                {
-                    name: 'Menú de Desayuno',
-                    data: [
-                        ['Base', 'Café con leche + Vasito de jugo'],
-                        ['1ra opción', 'Tostada con palta y cherry'],
-                        ['2da opción', 'Chipá con jamón y queso'],
-                        ['3ra opción', 'Árabe con jamón y queso'],
-                        ['Nota', 'Si no desea ninguna: CCL + 2 Medialunas + Vasito de jugo']
-                    ]
-                }
-            ]
-        },desayunosMilenia: {
-            title: 'Desayunos Milenia Soho by iPPA',
-            sections: [
-                {
-                    name: 'Información General',
-                    data: [
-                        ['Detalle'],
-                        [`<div style="line-height: 1.8; padding: 10px;">
-                            <p><strong>Valor:</strong> USD 11.5 por persona</p>
-                            <p>En el desayuno podrán optar por <strong>1 infusión + 1 comida + 1 extra por día</strong>, es a la carta por lo que podrán elegir en el momento.</p>
-
-                            <p><strong>☕ Infusión:</strong></p>
-                            <ul>
-                                <li>Café de especialidad en cualquier tamaño</li>
-                                <li>Té en hebras</li>
-                                <li>Chocolatada</li>
-                            </ul>
-
-                            <p><strong>🥐 Comida:</strong></p>
-                            <ul>
-                                <li>Medialunas</li>
-                                <li>Croissant con J&Q o relleno de dulce</li>
-                                <li>Scone de tomillo y queso</li>
-                                <li>Tostadas con queso y mermelada (3 en variedad de panes)</li>
-                                <li>1 porción de torta</li>
-                                <li>Tostada de pan de campo con huevos, palta y aceite de oliva</li>
-                            </ul>
-
-                            <p><strong>🥤 Extra:</strong></p>
-                            <ul>
-                                <li>Vaso de jugo de naranja</li>
-                                <li>Vaso de limonada</li>
-                                <li>Botella de agua con o sin gas</li>
-                            </ul>
-                        </div>`]
-                    ]
-                }
-            ]
-        },desayunosHache: {
-    title: 'Desayunos Hache Palermo — Nadina',
-    sections: [
-        {
-            name: 'Datos del Proveedor',
-            data: [
-                ['Detalle', 'Información'],
-                ['Nombre', 'Nadina Pastelería & Café'],
-                ['Instagram', '<a href="https://www.instagram.com/nadinapasteleria/" target="_blank">@nadinapasteleria</a>'],
-                ['Dirección', 'Costa Rica 4824 (Planta Baja del edificio)'],
-                ['Contacto', 'Jorge (encargado) – 11 6941 000'],
-                ['Horario', 'Mar a Sáb: 8 a 20hs | Dom: 10 a 20hs | Lun: Cerrado (*buscaremos opción para los lunes)']
-            ]
-        },
-        {
-            name: 'Procedimiento de envío diario',
-            data: [
-                ['Detalle'],
-                [`<div style="line-height:1.65; max-width:900px;">
-                    <p style="margin-top:0;">Enviar la planilla de desayunos a Nadina <strong>todos los días salvo domingos</strong> con la lista de huéspedes que desayunan ese día.</p>
-                    <ol style="margin:0.75em 0 0 1.25em; padding:0;">
-                        <li style="margin-bottom:0.75em;">Ingresar al PMS de Hache Palermo y navegar a <strong>Misceláneos → Reportes → Planilla de desayuno</strong>.</li>
-                        <li style="margin-bottom:0.75em;">Descargar el PDF que genera el sistema.</li>
-                        <li style="margin-bottom:0.75em;">Recortar <strong>solo la tabla de huéspedes</strong> (columnas Huésped, Llegada, Salida, Noc y A/C), como se muestra en la referencia.</li>
-                        <li style="margin-bottom:0.75em;">Enviar a la cafetería la parte recortada (Jorge – 11 6941 000).</li>
-                    </ol>
-                    <p style="margin:1em 0 0; padding:10px 12px; background:#fef2f2; border-left:4px solid #dc2626; border-radius:4px; color:#b91c1c; font-weight:600;">
-                        <strong style="color:#991b1b;">⚠ Importante:</strong> la planilla debe mostrar <strong>nombres y apellidos</strong> de las personas a desayunar y la <strong>cantidad</strong> (A/C). <strong>No</strong> debe incluir el número de reserva.
-                    </p>
-                    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; margin-top:24px; align-items:start;">
-                        <div style="text-align:center;">
-                            <p style="margin:0 0 8px; font-weight:600; color:#374151;">Paso 1 — Ubicar la planilla</p>
-                            <img src="Media/desayunos_nadina_reporte.png" alt="Misceláneos, Reportes, Planilla de desayuno" style="width:auto; max-width:100%; height:auto; border-radius:8px; border:1px solid #ddd; box-shadow:0 2px 8px rgba(0,0,0,.06);" loading="lazy" />
-                        </div>
-                        <div style="text-align:center;">
-                            <p style="margin:0 0 8px; font-weight:600; color:#374151;">Paso 2 — Parte a recortar y enviar</p>
-                            <img src="Media/desayunos_nadina_recorte.png" alt="Tabla de huéspedes a enviar a Nadina" style="width:auto; max-width:100%; height:auto; border-radius:8px; border:1px solid #ddd; box-shadow:0 2px 8px rgba(0,0,0,.06);" loading="lazy" />
-                        </div>
-                    </div>
-                </div>`]
-            ]
-        },
-        {
-            name: 'Menú de Desayuno Continental',
-            data: [
-                ['Componente', 'Opciones'],
-                ['Infusión (elegir 1)', 'Café tradicional / Café con leche / Té en hebras'],
-                ['Comida (elegir 1)', '• Dos medialunas<br>• Dos tostadas medianas con 2 dips a elección (manteca, queso crema, dulce de leche o mermelada)<br>• Fruta de estación con yogurt natural y granola<br>• Masitas rellenas, cuadraditos de lemon pie o brownie<br>• Bowl de huevos revueltos con mini tostada y palta'],
-                ['Bebida', 'Copón de jugo de naranja'],
-                ['Nota', 'Cualquier extra puede solicitarse directamente en el local']
-            ]
         }
-    ]
-}
-    } // <--- Esta llave cierra "subsections"
+    }
 },
 checklist: {
     name: 'CheckLists',
@@ -865,7 +781,7 @@ checklist: {
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2027!!'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'Host2026!'],
                                     ['Almundo', '<a href="https://jintranet.trendoperadora.com.br/extranet/login.aspx?ReturnUrl=%2fextranet%2falojamiento%2fdefault.aspx%3falojamiento%3d4157&alojamiento=4157" target="_blank">Login Almundo</a>', 'FilibertobyiPPA2', 'IPHoteles2025!!'],
                                     ['Hotelbeds', '<a href="https://maxiroom.hotelbeds.com/#/login" target="_blank">Login Hotelbeds</a>', 'IPPA', 'IPHoteles2026*'],
                                 ]
@@ -905,23 +821,6 @@ checklist: {
                                 
                             }
                             
-                        ]
-                    },
-                    
-                    billing: {
-                        title: 'Facturación',
-                        sections: [
-                            {
-                                name: 'Tipos de Facturación por Origen',
-                                data: [
-                                    ['Origen', 'Tipo de Pago', 'Tipo de Factura'],
-                                    ['Booking.com', 'Visa, Mastercard,Amex,etc', 'Factura A/B'],
-                                    ['Despegar', 'Cuenta corriente', 'Factura A'],
-                                    ['Airbnb', 'Cuenta corriente', 'Factura A'],
-                                    ['Expedia', 'Visa, Mastercard,Amex,etc', 'Factura T/Electrónica T'],
-                                    ['Efectivo', 'Factura T', 'Recibo T']
-                                ]
-                            }
                         ]
                     }
                 }
@@ -1075,6 +974,45 @@ checklist: {
                             }
                         ]
                     },
+                    desayunos: {
+                        title: 'Desayunos',
+                        sections: [
+                            {
+                                name: 'Información General',
+                                data: [
+                                    ['Detalle'],
+                                    [`<div style="line-height: 1.8; padding: 10px;">
+                                        <p><strong>Valor:</strong> USD 11.5 por persona</p>
+                                        <p>En el desayuno podrán optar por <strong>1 infusión + 1 comida + 1 extra por día</strong>, es a la carta por lo que podrán elegir en el momento.</p>
+
+                                        <p><strong>☕ Infusión:</strong></p>
+                                        <ul>
+                                            <li>Café de especialidad en cualquier tamaño</li>
+                                            <li>Té en hebras</li>
+                                            <li>Chocolatada</li>
+                                        </ul>
+
+                                        <p><strong>🥐 Comida:</strong></p>
+                                        <ul>
+                                            <li>Medialunas</li>
+                                            <li>Croissant con J&Q o relleno de dulce</li>
+                                            <li>Scone de tomillo y queso</li>
+                                            <li>Tostadas con queso y mermelada (3 en variedad de panes)</li>
+                                            <li>1 porción de torta</li>
+                                            <li>Tostada de pan de campo con huevos, palta y aceite de oliva</li>
+                                        </ul>
+
+                                        <p><strong>🥤 Extra:</strong></p>
+                                        <ul>
+                                            <li>Vaso de jugo de naranja</li>
+                                            <li>Vaso de limonada</li>
+                                            <li>Botella de agua con o sin gas</li>
+                                        </ul>
+                                    </div>`]
+                                ]
+                            }
+                        ]
+                    },
                     bankData: {
                         title: 'Datos Bancarios',
                         sections: [
@@ -1103,23 +1041,6 @@ checklist: {
                                 ]
                             }
                         ]
-                    },
-                    
-                    billing: {
-                        title: 'Facturación',
-                        sections: [
-                            {
-                                name: 'Tipos de Facturación por Origen',
-                                data: [
-                                    ['Origen', 'Tipo de Pago', 'Tipo de Factura'],
-                                    ['Booking.com', 'Visa, Mastercard,Amex,etc', 'Factura A/B'],
-                                    ['Despegar', 'Cuenta corriente', 'Factura A'],
-                                    ['Airbnb', 'Cuenta corriente', 'Factura A'],
-                                    ['Expedia', 'Visa, Mastercard,Amex,etc', 'Factura T/Recibo T'],
-                                    ['Efectivo', 'No aplica']
-                                ]
-                            }
-                        ]
                     }
                 }
             },
@@ -1133,7 +1054,15 @@ checklist: {
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Mail Milenia Vidt', '-', 'Host.mileniavidt@ippa-hoteles.com', 'IPHoteles2026&']
+                                    ['Mail Milenia Vidt', '-', 'Host.mileniavidt@ippa-hoteles.com', 'IPHoteles2026&'],
+                                    ['Wifi', 'Piso 1', 'MileniaAp01', 'Milenia Wifi'],
+                                    ['Wifi', 'Piso 2', 'Milenia AP02', 'Milenia Wifi'],
+                                    ['Wifi', 'Piso 3', 'Milenia AP03', 'Milenia Wifi'],
+                                    ['Wifi', 'Piso 4', 'Milenia AP04', 'Milenia Wifi'],
+                                    ['Wifi', 'Piso 5', 'Milenia AP05', 'Milenia Wifi'],
+                                    ['Wifi', 'Piso 6', 'Milenia AP06', 'Milenia Wifi'],
+                                    ['Wifi', 'Piso 7', 'Milenia AP07', 'Milenia Wifi'],
+                                    ['Wifi', 'Piso 8', 'Milenia AP08', 'Milenia Wifi'],
                                 ]
                             }
                         ]
@@ -1201,11 +1130,19 @@ checklist: {
                     },
                     bankData: {
                         title: 'Datos Bancarios',
-                        sections: []
-                    },
-                    billing: {
-                        title: 'Facturación',
-                        sections: []
+                        sections: [
+                            {
+                                name: 'Información de Cuenta (ARS)',
+                                data: [
+                                    ['Concepto', 'Detalle'],
+                                    ['Razón Social', 'FIDEICOMISO STAY HOME FIDEICOM'],
+                                    ['Cuit', '30718528018'],
+                                    ['Tipo y número de cuenta corriente en pesos', '429-025036/8'],
+                                    ['CBU', '0720429020000002503686'],
+                                    ['Alias', 'ANALOGIA.MISA.REBAJO'],
+                                ]
+                            }
+                        ]
                     }
                 }
             },
