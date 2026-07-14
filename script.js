@@ -647,10 +647,13 @@ checklist: {
             ['• Abrir Caja en Venice.'],
             ['• Verificar disponibilidad del día: ingresos por llegar y Late Check Out pendientes.'],
             ['• <strong>Limpieza:</strong> Chequear con Hskp dptos con ingreso pendiente que aún figuren sucios.'],
-            ['• <strong>Contactar ingresos del día pendientes según corresponda:</strong><br>' +
+            ['• <strong>Contactar a los huéspedes con las plantillas de Pre-check in para iniciar el proceso:</strong><br>' +
              '&nbsp;&nbsp;- "Dpto Listo - WCI y Pago Pendiente"<br>' +
              '&nbsp;&nbsp;- "Dpto Listo - WCI Pendiente"<br>' +
-             '&nbsp;&nbsp;- "Dpto Listo - Pago Pendiente" '],
+             '&nbsp;&nbsp;- "Dpto Listo - Pago Pendiente"<br>' +
+             '&nbsp;&nbsp;- Contactar reservas que no se han podido cobrar durante la noche'],
+            ['• <strong>Asignación de habitaciones de Aldea Andina.</strong>'],
+            ['• <strong>Contestar mensajes recibidos de Booking, Airbnb y Expedia de todas las propiedades.</strong>'],
             ['• <strong>Contactar Ingresos (48 horas):</strong> Iniciar proceso de Check In según situación (Contacto 48 Hrs, WCI o Pago Pendiente).'],
             ['• <strong>Contactar Ingresos (24 horas):</strong> Contactar ingresos del día siguiente con procesos pendientes.'],
             ['• <strong>Nuevas Reservas:</strong> Verificar reservas generadas en las últimas 24 hrs y enviar plantilla "Agradecimiento".'],
@@ -769,7 +772,7 @@ checklist: {
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718562712', 'Filiberto2026!'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718562712', 'Argentina2026!'],
                                     ['Celular', '-', '-', '1564'],
                                     ['Mail','-', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024@'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
