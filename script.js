@@ -716,11 +716,13 @@ checklist: {
             title: 'Categoría y Bedding',
             sections: [
                 {
-                    name: 'Configuración',
+                    name: 'Configuración de Habitaciones',
                     data: [
-                        ['Detalle', 'Información'],
-                        ['Tipo', 'Departamentos'],
-                        ['Camas', 'Consultar planilla']
+                        ['Categoría', 'Bedding', 'Notas'],
+                        ['STD', '1 cama mat o twin + 1 camastro', '1 persona entra por camastro'],
+                        ['SUP', '1 cama mat o twin + 1 camastro', '1 persona entra por camastro'],
+                        ['1Door', '1 cama mat o twin + 2 camastros', '1 persona entra por camastro'],
+                        ['2Door', '2 camas mat o twin + 2 camastros', '1 persona entra por camastro'],
                     ]
                 }
             ]
