@@ -42,27 +42,17 @@
                                     ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
                                     ['Mail Host', '-', 'host@ippa-hoteles.com', 'IPHoteles2025!'],
                                     ['Clover Rudi', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Clover Rudi</a>', '5930714481424', 'iPPAHoteles2026!'],
+                                    ['Cabify Host', '<a href="https://cabify.com/app/auth/login" target="_blank">Cabify Host</a>', 'host@ippa-hoteles.com', 'IPHoteles2026**'],
                                     ['TTlock', '<a href="https://lock2.ttlock.com/" target="_blank">TTlock Web</a>', 'asistente.operaciones@ippa-hoteles.com', 'IPHoteles2030!!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
                                     ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2027!'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
-                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
+                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'Argentina2026!'],
                                     ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024']
                                 ]
                             },
-                            {
-                                name: 'Usuarios personales',
-                                data: [
-                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Edy Prieto', '-', 'ippahosttm@gmail.com', '-'],
-                                    ['Julian Carrizo', '-', 'ippahosttt@gmail.com', '-'],
-                                    ['Sebastian recchimuzzi', '-', 'ippahostt@gmail.com', '-'],
-                                    ['Emmanuel Medina', '-', 'emmanuel.medina@ip-hoteles.com', '-'],
-                                    ['Nahuel Zacarias', '-', 'asistente.operaciones@ippa-hoteles.com', '-'],
-                                    ['ippahostTN', '-', 'ippahostTN', 'IPHoteles2030!!'],
-                                ]
-                            }
+                            
                         ]
                     }
                 }
@@ -156,6 +146,7 @@
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930714481421 / Usuario: Host', 'iPHoteles2030!!'],
                                     ['Mail', '-', 'host.hachepalermo@ippa-hoteles.com', 'Hoteler1a96#'],
                                     ['Hit Connect', '-', 'host@ippa-hoteles.com', 'IPHoteles2026!'],
                                     ['Wifi', 'Piso 1', 'P1', 'Costarica4828'],
@@ -597,6 +588,52 @@
                     ]
                 }
             ]
+        },
+        atajosWeSpeak: {
+            title: 'Atajos We Speak',
+            sections: [
+                {
+                    name: 'Plantillas We Speak',
+                    data: [
+                        ['Atajo', 'Descripción'],
+                        ['/Reservas', 'Derivar a reservas'],
+                        ['/Soho / Baires / Filiberto / Vidt / Hache / Aldea Andina / Independencia', 'Apertura de pre check in'],
+                        ['/General', 'Apertura de pre check in para edificios de iPPA Inglés'],
+                        ['/Envío de accesos', 'Cuando hay que enviarle accesos y necesitamos su respuesta'],
+                        ['/Envío de accesos', 'Cuando hay que enviarle accesos y necesitamos su respuesta INGLÉS'],
+                        ['/Día out Baires', 'Plantilla de Check out en Baires'],
+                        ['/Día Out Filiberto', 'Plantilla de Check out en Filiberto'],
+                        ['/Día Out General', 'Plantilla de check out en los demás iPPAS'],
+                        ['/Pre check out', 'Plantilla de pre check out, todos los iPPA, menos Filiberto'],
+                        ['/Desayuno Soho', 'Plantillas de reservas con desayunos'],
+                        ['/Desayuno Vidt', 'Plantillas de reservas con desayunos'],
+                        ['/Desayuno Hache', 'Plantillas de reservas con desayunos']
+                    ]
+                }
+            ]
+        },
+        reporteHSK: {
+            title: 'Reporte HSK',
+            sections: [
+                {
+                    name: 'Procedimiento para generar el reporte de Housekeeping',
+                    data: [
+                        ['Detalle del Procedimiento'],
+                        ['Para generar el reporte de Housekeeping, dirigirse a <strong>Asignación de tareas &gt; Nuevo</strong> (ver Imagen 1).'],
+                        ['<div style="text-align:center; padding: 12px 0;"><img src="Media/hsk_reporte_1.png" alt="Imagen 1 - Asignación de tareas" style="max-width:100%; border-radius:8px; border: 1px solid #ddd;"><p style="margin:8px 0 0;font-size:0.95rem;color:#4b5563;">Imagen 1</p></div>'],
+                        ['En el campo <strong>Tareas</strong>, seleccionar las opciones “Check Out” y “Repaso”. Esto permitirá que el reporte muestre las habitaciones con salida programada (Check Out) y las que se encuentren vacías (Repaso).'],
+                        ['En el campo <strong>Mucamas</strong>, seleccionar el personal de HSK que trabaja ese día. Esto permite distribuir y asignar los apartamentos a limpiar entre el personal disponible.'],
+                        ['En el campo <strong>Estado de limpieza</strong>, seleccionar las opciones “Sucia”, “Limpia” y “Retocar”. Esto filtrará los apartamentos que, además de tener Check Out, se encuentren en alguno de esos estados.'],
+                        ['Una vez configuradas todas las opciones, hacer clic en <strong>“Crear Plantilla”</strong>.'],
+                        ['En caso de contar con varias mucamas, tildar los apartamentos correspondientes a cada una y luego ir a <strong>Opciones &gt; Reporte</strong>. Finalmente, hacer clic en <strong>Guardar</strong>.'],
+                        ['<div style="text-align:center; padding: 12px 0;"><img src="Media/hsk_reporte_2.png" alt="Imagen 2 - Opciones Reporte" style="max-width:100%; border-radius:8px; border: 1px solid #ddd;"><p style="margin:8px 0 0;font-size:0.95rem;color:#4b5563;">Imagen 2</p></div>'],
+                        ['En el reporte se visualiza el apartamento y el tipo de limpieza requerida: si indica “Limpieza de Check Out”, significa que el apartamento tiene salida; si indica “Limpieza”, el apartamento se encuentra vacío. En la columna <strong>Situación</strong>: “Recambio” indica que el apartamento tiene salida e ingreso el mismo día.'],
+                        ['“Sale” indica que el apartamento tiene salida sin ingreso posterior.'],
+                        ['<div style="text-align:center; padding: 12px 0;"><img src="Media/hsk_reporte_3.png" alt="Imagen 3 - Ejemplo de reporte" style="max-width:100%; border-radius:8px; border: 1px solid #ddd;"><p style="margin:8px 0 0;font-size:0.95rem;color:#4b5563;">Imagen 3</p></div>'],
+                        ['<strong>¡IMPORTANTE!</strong> Todas las reservas deben tener cargado el bedding, ya que es un requisito indispensable para que el reporte indique correctamente cómo debe realizar la limpieza el personal de Housekeeping.']
+                    ]
+                }
+            ]
         }
     }
 },
@@ -881,7 +918,7 @@ checklist: {
                                     ['HABITACIONES HACIA EL FRENTE:','TODAS LAS 01 Y 02'],
                                     ['HABITACIONES HACIA EL CONTRAFRENTE:','TODAS LAS 03 Y 04'],
                                     ['HABITACIONES QUE NO SE HACEN TWIN:','604, 704, 901, 403'],
-                                    ['NO TIENE SOFA CAMA:', '801, 802, 604, 704, 901, 902, 402'],
+                                    ['NO TIENE SOFA CAMA:', '801, 802, 604, 704, 901, 902, 402, 502'],
                                     ['TIENEN MICROONDAS:','704 Y 604'],
                                     ['HABITACIONES CON 2 BAÑOS:','TODAS MENOS 901 Y 801']
                                 ]
@@ -992,36 +1029,25 @@ checklist: {
                         title: 'Desayunos',
                         sections: [
                             {
-                                name: 'Información General',
+                                name: 'Menú de Desayuno',
                                 data: [
                                     ['Detalle'],
                                     [`<div style="line-height: 1.8; padding: 10px;">
-                                        <p><strong>Valor:</strong> USD 11.5 por persona</p>
-                                        <p>En el desayuno podrán optar por <strong>1 infusión + 1 comida + 1 extra por día</strong>, es a la carta por lo que podrán elegir en el momento.</p>
-
-                                        <p><strong>☕ Infusión:</strong></p>
+                                        <p><strong>1 opción de comida entre:</strong></p>
                                         <ul>
-                                            <li>Café de especialidad en cualquier tamaño</li>
-                                            <li>Té en hebras</li>
-                                            <li>Chocolatada</li>
+                                            <li>2 medialunas</li>
+                                            <li>1 medialuna rellena (jamón y queso; queso y tomate ó dulce de leche)</li>
+                                            <li>1 croissant</li>
+                                            <li>3 chipas de queso</li>
+                                            <li>1 scon de queso</li>
+                                            <li>1 bowl con huevos revueltos</li>
                                         </ul>
 
-                                        <p><strong>🥐 Comida:</strong></p>
+                                        <p><strong>1 opción de bebida:</strong></p>
                                         <ul>
-                                            <li>Medialunas</li>
-                                            <li>Croissant con J&Q o relleno de dulce</li>
-                                            <li>Scone de tomillo y queso</li>
-                                            <li>Tostadas con queso y mermelada (3 en variedad de panes)</li>
-                                            <li>1 porción de torta</li>
-                                            <li>Tostada de pan de campo con huevos, palta y aceite de oliva</li>
+                                            <li>1 té o café de la carta (el que quieran)</li>
                                         </ul>
-
-                                        <p><strong>🥤 Extra:</strong></p>
-                                        <ul>
-                                            <li>Vaso de jugo de naranja</li>
-                                            <li>Vaso de limonada</li>
-                                            <li>Botella de agua con o sin gas</li>
-                                        </ul>
+                                        <p>+ 1 jugo de naranja</p>
                                     </div>`]
                                 ]
                             }
@@ -1069,14 +1095,8 @@ checklist: {
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['Mail Milenia Vidt', '-', 'Host.mileniavidt@ippa-hoteles.com', 'IPHoteles2026&'],
-                                    ['Wifi', 'Piso 1', 'MileniaAp01', 'Milenia Wifi'],
-                                    ['Wifi', 'Piso 2', 'Milenia AP02', 'Milenia Wifi'],
-                                    ['Wifi', 'Piso 3', 'Milenia AP03', 'Milenia Wifi'],
-                                    ['Wifi', 'Piso 4', 'Milenia AP04', 'Milenia Wifi'],
-                                    ['Wifi', 'Piso 5', 'Milenia AP05', 'Milenia Wifi'],
-                                    ['Wifi', 'Piso 6', 'Milenia AP06', 'Milenia Wifi'],
-                                    ['Wifi', 'Piso 7', 'Milenia AP07', 'Milenia Wifi'],
-                                    ['Wifi', 'Piso 8', 'Milenia AP08', 'Milenia Wifi'],
+                                    ['Wifi', 'Todos los pisos', 'Milenia Vidt by iPPA', 'conectate'],
+                                    
                                 ]
                             }
                         ]
