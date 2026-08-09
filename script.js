@@ -146,7 +146,7 @@
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930714481421 / Usuario: Host', 'iPHoteles2030!!'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930714481421 / Usuario: Host', 'iPHoteles2035!!'],
                                     ['Mail', '-', 'host.hachepalermo@ippa-hoteles.com', 'Hoteler1a96#'],
                                     ['Hit Connect', '-', 'host@ippa-hoteles.com', 'IPHoteles2026!'],
                                     ['Wifi', 'Piso 1', 'P1', 'Costarica4828'],
@@ -743,6 +743,7 @@ checklist: {
                     name: 'Información General',
                     data: [
                         ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                        ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930714481477 / Usuario: Host', 'IPHoteles2035!!'],
                         ['Mail', '-', 'host.bahindependencia@ippa-hoteles.com', 'IPHoteles2026@'],
                         ['Tecnolav', '<a href="https://clientes.tecnolav.com.ar" target="_blank">Login Tecnolav</a>', 'host.bahindependencia@ippa-hoteles.com', 'Bahhotel2026'],
                     ]
@@ -795,6 +796,8 @@ checklist: {
                 ['8', '14H', '0000'],
                 ['9', '13F', '4217'],
                 ['10', '14G', '7138'],
+                ['11', '14I', '5287'],
+                ['12', 'Extra', '3623'],
             ]
         }
     ]
