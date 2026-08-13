@@ -146,7 +146,7 @@
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930714481421 / Usuario: Host', 'iPHoteles2035!!'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930714481421 / Usuario: Host', 'IPHoteles2035!!'],
                                     ['Mail', '-', 'host.hachepalermo@ippa-hoteles.com', 'Hoteler1a96#'],
                                     ['Hit Connect', '-', 'host@ippa-hoteles.com', 'IPHoteles2026!'],
                                     ['Wifi', 'Piso 1', 'P1', 'Costarica4828'],
@@ -862,6 +862,7 @@ checklist: {
                         sections: [
                             {
                                 name: 'Información de Cuenta',
+                                struck: true,
                                 data: [
                                     ['Concepto', 'Detalle'],
                                     ['Razón Social', 'NUEVA JUSTA SRL'],
@@ -869,12 +870,18 @@ checklist: {
                                     ['Cuit', '30718562712'],
                                     ['CBU', '0270001410057605490023'],
                                     ['Alias', 'GRANA.GAFAS.DESPERTO']
-                                    
-
                                 ]
-                                
+                            },
+                            {
+                                name: 'Información de Cuenta',
+                                data: [
+                                    ['Concepto', 'Detalle'],
+                                    ['Razón Social', 'RUDI S A'],
+                                    ['Número de cuenta', 'CC ARS 0001636-8 677-3'],
+                                    ['Cuit', '30-71448142-4'],
+                                    ['CBU', '0070677920000001636839']
+                                ]
                             }
-                            
                         ]
                     }
                 }
@@ -1282,7 +1289,7 @@ function formatBankSectionAsText(section) {
 
 function renderBankDataSection(section, tableContainer) {
     const wrapper = document.createElement('div');
-    wrapper.className = 'bank-copy-wrapper';
+    wrapper.className = section.struck ? 'bank-copy-wrapper bank-copy-struck' : 'bank-copy-wrapper';
 
     const textBlock = formatBankSectionAsText(section);
 
@@ -1595,7 +1602,7 @@ function showSubsection(hotelId, subsectionId) {
     // Dibujar las tablas
     subsection.sections.forEach(section => {
         const sectionTitle = document.createElement('div');
-        sectionTitle.className = 'section-title';
+        sectionTitle.className = section.struck ? 'section-title bank-copy-struck' : 'section-title';
         sectionTitle.textContent = section.name;
         tableContainer.appendChild(sectionTitle);
 

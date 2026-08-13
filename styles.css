@@ -462,6 +462,11 @@ td { color: #d1d9e8; line-height: 1.6; }
   padding: 14px;
 }
 
+.bank-copy-struck {
+  text-decoration: line-through;
+  opacity: 0.65;
+}
+
 .bank-copy-block {
   margin: 0 0 12px;
   padding: 12px;
