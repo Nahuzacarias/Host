@@ -46,7 +46,7 @@
                                     ['TTlock', '<a href="https://lock2.ttlock.com/" target="_blank">TTlock Web</a>', 'asistente.operaciones@ippa-hoteles.com', 'IPHoteles2030!!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
                                     ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2027!'],
-                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
+                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'AgoSStoo2026!!'],
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
                                     ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'Argentina2026!'],
                                     ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024']
@@ -163,7 +163,7 @@
                                 data: [
                                     ['Detalle', 'Información'],
                                     ['Bedding', 'Todas se pueden hacer Twin y king'],
-                                    ['Habs con futón', '103, 201, 202, 302, 303, 403'],
+                                    ['Habs con futón', 'Todos los apartamentos superiores (101, 102, 201, 202, 301, 302)'],
                                 ]
                             }
                         ]
@@ -649,26 +649,30 @@ checklist: {
             ['• Repasar y actualizar Trello junto con TN.'],
             ['• Abrir Caja en Venice.'],
             ['• Revisar llegadas del día y repasar asignación según requerimientos especiales.'],
-            ['• <strong>InSoho / Filiberto / Baires:</strong> Preparar Report de habitaciones para Hskp.'],
-            ['• <strong>Contactar ingresos del día con la plantilla correspondiente:</strong><br>' +
-             '&nbsp;&nbsp;- "Mensaje Bienvenida" (Ingresos completos)<br>' +
-             '&nbsp;&nbsp;- "Bienvenida WCI pendiente" (Pagado, sin WCI)<br>' +
-             '&nbsp;&nbsp;- "Bienvenida Pago Pendiente" (WCI hecho, sin pago)<br>' +
-             '&nbsp;&nbsp;- "Bienvenida WCI y Pago Pendiente" (Nada completado)'],
-            ['• <strong>Check Outs:</strong> Contactar con la plantilla "Dia de Check Out".'],
-            ['• <strong>Seguimiento:</strong> Contactar con "Contacto 1er Noche" a quienes ingresaron ayer y se quedan más de 1 día.'],
-            ['• <strong>Limpieza:</strong> Contactar huéspedes LongStay con plantilla "Contacto InHouse - LongStay".'],
-            ['• <strong>Filiberto:</strong> Informar a JDD desayunos del día.'],
-            ['• Informar en grupos de Operaciones salidas o pedidos especiales para HSKP o Manager.'],
-            ['• <strong>InSoho:</strong> Preparar códigos de acceso en TTLOCK una vez firme la asignación.'],
-            ['• Cerca de las 11 AM verificar tipo de cambio BNA y actualizar.'],
-            ['• Realizar seguimiento de Check Outs pendientes después de las 11 Hrs y verificar cierre en sistema.'],
-            ['• A medida que las habs. estén limpias, enviar plantilla "Envío de Accesos" y realizar Check In en sistema.'],
-            ['• <strong>Cierre:</strong> Verificar bandeja de mails vacía, Trello actualizado y cierre de caja en Venice.']
+            ['• Enviar Reporte de habitaciones para Hskp.'],
+            ['• <strong>Contactar a los ingresos del día con la plantilla correspondiente:</strong><br>' +
+             '&nbsp;&nbsp;- "Mensaje Bienvenida" para los ingresos con todo completo<br>' +
+             '&nbsp;&nbsp;- "Bienvenida WCI pendiente" para los que pagaron, pero no hicieron el WCI<br>' +
+             '&nbsp;&nbsp;- "Bienvenida Pago Pendiente" para los que hicieron el WCI pero no pagaron<br>' +
+             '&nbsp;&nbsp;- "Bienvenida WCI y Pago Pendiente" para los que aún no completaron ninguno'],
+            ['• Contactar a los Check Out del día con la plantilla "Dia de Check Out".'],
+            ['• Contactar a los huéspedes que hayan hecho Check In el día anterior y se queden más de 1 día con la plantilla "Contacto 1er Noche".'],
+            ['• Contactar a los huéspedes que les corresponda limpieza con la plantilla "Contacto InHouse – LongStay".'],
+            ['• <strong>Enviar desayunos del día:</strong><br>' +
+             '&nbsp;&nbsp;- Nadina<br>' +
+             '&nbsp;&nbsp;- La Argentina<br>' +
+             '&nbsp;&nbsp;- Café Registrado<br>' +
+             '&nbsp;&nbsp;- Bari'],
+            ['• Informar en grupos de Operaciones del hotel que corresponda cada salida, situación o pedido de huéspedes InHouse para que HSKP o Hotel Manager actúen.'],
+            ['• Una vez definida y firme la asignación, preparar códigos de acceso a dptos. en TTLOCK y HIPCAM, si hubiera que hacerlos.'],
+            ['• Cerca de las 11 AM verificar tipo de cambio según BNA y actualizar si correspondiese.'],
+            ['• Realizar seguimiento de Check Outs pendientes luego de las 11 Hrs y verificar que se hayan realizado todos los Check Out en sistema.'],
+            ['• A medida que las habitaciones se pasan a Limpio, contactar ingresos con la plantilla "Envío de Accesos" y realizar Check In en sistema a todas las reservas a las que se envían códigos.'],
+            ['• <strong>Cierre:</strong> Verificar que todos los mails hayan sido realizados o respondidos (bandeja de entrada vacía), dejar Trello actualizado y realizar cierre de caja en Venice en los hoteles que corresponda.']
         ]
     }],
     footer: `
-        <a href="Media/CheckTM.docx" class="download-btn" download>
+        <a href="Media/CheckTM.docx" class="download-btn" download="CheckTM.docx">
             <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
             Descargar Checklist Turno Mañana
         </a>
@@ -683,23 +687,31 @@ checklist: {
             ['• Repasar y actualizar Trello junto con Host TM.'],
             ['• Abrir Caja en Venice.'],
             ['• Verificar disponibilidad del día: ingresos por llegar y Late Check Out pendientes.'],
-            ['• <strong>Limpieza:</strong> Chequear con Hskp dptos con ingreso pendiente que aún figuren sucios.'],
-            ['• <strong>Contactar a los huéspedes con las plantillas de Pre-check in para iniciar el proceso:</strong><br>' +
-             '&nbsp;&nbsp;- "Dpto Listo - WCI y Pago Pendiente"<br>' +
-             '&nbsp;&nbsp;- "Dpto Listo - WCI Pendiente"<br>' +
-             '&nbsp;&nbsp;- "Dpto Listo - Pago Pendiente"<br>' +
-             '&nbsp;&nbsp;- Contactar reservas que no se han podido cobrar durante la noche'],
-            ['• <strong>Asignación de habitaciones de Aldea Andina.</strong>'],
-            ['• <strong>Contestar mensajes recibidos de Booking, Airbnb y Expedia de todas las propiedades.</strong>'],
-            ['• <strong>Contactar Ingresos (48 horas):</strong> Iniciar proceso de Check In según situación (Contacto 48 Hrs, WCI o Pago Pendiente).'],
-            ['• <strong>Contactar Ingresos (24 horas):</strong> Contactar ingresos del día siguiente con procesos pendientes.'],
-            ['• <strong>Nuevas Reservas:</strong> Verificar reservas generadas en las últimas 24 hrs y enviar plantilla "Agradecimiento".'],
-            ['• <strong>Sin contacto:</strong> Contactar por extranet o mail a quienes no tengan teléfono para que escriban al WUP.'],
-            ['• <strong>Pre Check Out:</strong> Enviar plantilla "Positiva" o "Negativa" a las salidas de mañana (Preferentemente entre 19 y 21 hrs)].'],
-            ['• <strong>Cierre:</strong> Verificar bandeja de entrada vacía, Trello actualizado y cierre de caja en Venice.']
+            ['• Chequear con Hskp apartamentos con ingreso pendiente que aún figuren sucios.'],
+            ['• <strong>Contactar ingresos por llegar en 48 horas</strong> para comenzar el proceso de Check In, según corresponda:<br>' +
+             '&nbsp;&nbsp;- Plantilla pre-check in "Contacto 48 Hrs"<br>' +
+             '&nbsp;&nbsp;- "Contacto 48 Hrs WCI y Pago Pendiente"<br>' +
+             '&nbsp;&nbsp;- "Contacto 48 Hrs WCI Pendiente"<br>' +
+             '&nbsp;&nbsp;- "Contacto 48 Hrs Pago Pendiente"'],
+            ['• <strong>Contactar ingresos del día siguiente</strong> que aún tengan algún proceso pendiente:<br>' +
+             '&nbsp;&nbsp;- Plantilla pre-check in "Contacto 24 Hrs WCI y Pago Pendiente"<br>' +
+             '&nbsp;&nbsp;- "Contacto 24 Hrs WCI Pendiente"<br>' +
+             '&nbsp;&nbsp;- "Contacto 24 Hrs Pago Pendiente"'],
+            ['• Enviar plantilla de "agradecimiento" a las reservas hechas en el día.'],
+            ['• Enviar a Nadina el reporte de desayunos.'],
+            ['• Contactarse y organizar las reservas próximas a su llegada en Baires Belgrano.'],
+            ['• <strong>Aldea Andina:</strong> Contestar los mensajes recibidos en las OTAs (Booking, Expedia, Airbnb).'],
+            ['• Verificar reservas sin contacto telefónico y contactarlas a través de la extranet correspondiente o mail, para informarles que nos escriban a nuestro WUP.'],
+            ['• Enviar planilla "Pre Check Out Positivo" a las salidas del día siguiente (entre 19 y 21 hrs).'],
+            ['• <strong>Cierre:</strong> Verificar que todos los mails hayan sido realizados o respondidos (bandeja de entrada vacía) y dejar Trello actualizado.']
         ]
     }],
-    footer: '<div style="margin-top:20px; text-align:center;"><a href="Media/CheckTT.docx" class="download-btn" download style="background-color: #2b579a;">📄 Descargar Checklist Turno Tarde</a></div>'
+    footer: `
+        <a href="Media/CheckTT.docx" class="download-btn" download="CheckTT.docx">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Descargar Checklist Turno Tarde
+        </a>
+    `
 },
         tn: {
     title: 'CheckList Turno Noche - Auditoría',
@@ -708,29 +720,38 @@ checklist: {
         data: [
             ['Acciones iniciales:'],
             ['• Revisar Trello con novedades junto con el compañero saliente.'],
-            ['• Revisar junto con TT los arribos pendientes y reconfirmar requerimientos especiales.'],
+            ['• Revisar junto con TT los arribos pendientes (de haber) y reconfirmar juntos todos los requerimientos especiales para evitar sorpresas más tarde.'],
             ['<strong>AUDITORÍA (Todas las propiedades):</strong>'],
             ['• Verificar que todas las reservas In House tengan el Web Check In realizado.'],
-            ['• Verificar carga y cobro del Cleaning Fee en las reservas correspondientes.'],
-            ['• Confirmar el pago total de la estadía para todas las reservas In House.'],
-            ['• Completar informe de auditoría "Cuentas con Saldo".'],
-            ['• Controlar carga correcta de Mercado, Origen, Agencia, Empresa y Tipo de Reserva.'],
-            ['• Verificar emisión de facturas (cobros banco) y recibos (WeTravel).'],
-            ['• Completar informe de auditoría "Descuentos Realizados".'],
+            ['• Verificar que todas las reservas que correspondan tengan cargado y cobrado el Cleaning Fee.'],
+            ['• Verificar que todas las reservas In House tengan realizado el pago total de su estadía.'],
+            ['• Controlar que todas las reservas InHouse tengan correctamente cargados MERCADO - ORIGEN - AGENCIA - EMPRESA y TIPO DE RESERVA, según corresponda.'],
+            ['• Verificar que se haya emitido factura para cobros por banco y recibo para WeTravel.'],
             ['• <strong>Rodar auditoría</strong> en todas las propiedades.'],
             ['<strong>LUEGO DE RODAR AUDITORÍA:</strong>'],
-            ['• Controlar carga automática (Channel VS Venice) para el día que comienza y 3 días vista.'],
-            ['• <strong>Cobros NRF:</strong> Cobrar todas las reservas NRF generadas en el día cerrado.'],
-            ['• <strong>Cobros Flexibles:</strong> Cobrar reservas con ingreso en 48 horas.'],
-            ['• <strong>CTA CTE / Transferencia:</strong> Cobrar a clientes que hacen Check Out ese día.'],
-            ['• Verificar que no queden Check Outs con saldo pendiente (si hay, informar al TM).'],
-            ['• Ajustar a $0 los saldos por diferencias de tipo de cambio.'],
-            ['• <strong>Milenia:</strong> Generar QR de acceso en HIPCAM y enviarlos al WhatsApp de Host.'],
-            ['• Enviar recibos/facturas con plantilla "Contacto Pago Aprobado" o informar "Pago Denegado".'],
-            ['• <strong>Cierre final:</strong> Verificar mails respondidos, Trello actualizado y cierre de caja en Venice.']
+            ['• <strong>Todas las propiedades — Controlar carga automática Channel vs Venice:</strong><br>' +
+             '&nbsp;&nbsp;- Que estén correctamente cargadas en Venice todas las reservas que figuran en el Channel para el día que comienza.<br>' +
+             '&nbsp;&nbsp;- Que se hayan cargado correctamente en Venice todas las reservas generadas en el Channel durante el día que hemos cerrado.<br>' +
+             '&nbsp;&nbsp;- Que estén correctamente cargadas en Venice todas las reservas a 3 días vista.'],
+            ['• <strong>Todas las propiedades:</strong> Cobrar todas las reservas NRF generadas en el día que cerramos, a través de la plataforma de pago que corresponda según el hotel.'],
+            ['• <strong>Todas las propiedades:</strong> Cobrar todas las reservas FLEXIBLES con ingreso dos días después de la fecha actual (ejemplo: si estamos empezando el día 10, cobrar las de ingreso el día 12).'],
+            ['• <strong>Todas las propiedades:</strong> Cobrar todas las reservas de clientes en CTA CTE / TRANSFERENCIA / TARJETA VIRTUAL que hagan check out ese día.'],
+            ['• <strong>Aldea Andina:</strong> Completar planilla de "Seguimiento planilla Aldea Andina".'],
+            ['• <strong>Todas las propiedades:</strong> Verificar que no quede ningún Check Out del día con saldo a abonar; de lo contrario, informar al TM.'],
+            ['• Ajustar a $0 todas las reservas que tengan saldos por diferencias en el tipo de cambio.'],
+            ['• <strong>Milenia, Hache y Vidt:</strong> Generar QR de acceso para las reservas que ingresan en el día y enviarlos al WhatsApp de Host.'],
+            ['• <strong>Aldea Andina:</strong> Generar accesos por TT Hotel, colocarlos en Trello y luego enviar los accesos cobrados y facturados 48 hs antes.'],
+            ['• <strong>Todas las propiedades:</strong> Enviar a todos los que se hayan cobrado el recibo o factura junto con la plantilla "Contacto Pago Aprobado".'],
+            ['• <strong>Todas las propiedades:</strong> Enviar la plantilla "Contacto - Pago Denegado" a todos los que no se hayan podido cobrar y, si corresponde, marcar la TC como inválida en la OTA.'],
+            ['• <strong>Cierre final:</strong> Verificar mails realizados o respondidos (bandeja vacía), dejar Trello actualizado y realizar cierre de caja en Venice en los hoteles que corresponda.']
         ]
     }],
-    footer: '<div style="margin-top:20px; text-align:center;"><a href="Media/CheckTN.docx" class="download-btn" download style="background-color: #2b579a;">📄 Descargar Checklist Turno Noche</a></div>'
+    footer: `
+        <a href="Media/CheckTN.docx" class="download-btn" download="CheckTN.docx">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Descargar Checklist Turno Noche
+        </a>
+    `
 }
     },
 },independencia: {
@@ -833,7 +854,7 @@ checklist: {
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
+                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'AgoSStoo2026!!'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
                                     ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'Host2026!'],
                                     ['Almundo', '<a href="https://jintranet.trendoperadora.com.br/extranet/login.aspx?ReturnUrl=%2fextranet%2falojamiento%2fdefault.aspx%3falojamiento%3d4157&alojamiento=4157" target="_blank">Login Almundo</a>', 'FilibertobyiPPA2', 'IPHoteles2025!!'],
@@ -912,7 +933,7 @@ checklist: {
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
+                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'AgoSStoo2026!!'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
                                 ]
                             }
