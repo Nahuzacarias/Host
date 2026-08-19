@@ -1,0 +1,31 @@
+ASISTENTE iPPA — WIDGET EN LA WEB DE PRUEBA
+===========================================
+
+Abrí la copia de la web:
+  /prueba/Prueba.html
+
+El chat no es una página aparte. Aparece como un globo abajo a la derecha.
+Hacé clic para abrir el panel.
+
+1. Documentos (la única fuente del bot)
+   Copiá acá tus archivos:
+   - PDF (.pdf)
+   - Word (.docx)
+   - Texto (.txt / .md)
+   - Excel (.xlsx / .csv)
+
+   Después hacé doble clic en:
+     prueba\actualizar-docs.ps1
+
+   Eso actualiza la lista. Subí los cambios a Netlify (o recargá si ya está publicado).
+
+2. Inteligencia (LLM)
+   El chat NO pide clave en el navegador.
+   Para que redacte las respuestas:
+   - Creá una clave gratis en https://console.groq.com
+   - En Netlify: Site settings → Environment variables → GROQ_API_KEY
+   - Volvé a publicar el sitio
+
+No hay carga de archivos en el chat ni rueda de configuración.
+El sitio original (index.html en la raíz) no se toca.
+No hace falta copiar contraseñas de la web al bot: esa info no se ingiere sola.

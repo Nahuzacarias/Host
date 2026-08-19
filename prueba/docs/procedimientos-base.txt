@@ -1,0 +1,125 @@
+PROCEDIMIENTOS iPPA — BASE INICIAL DEL BOT
+Este archivo es un punto de partida. Podés sumar PDFs y Word en esta misma carpeta.
+
+=== COBRO CON CLOVER ===
+Por control de pagos del Link de Clover y su acreditación:
+1. Imputación de tarjetas: los pagos del Link de Clover se imputan con la misma tarjeta que usó el huésped (si pagó con Visa, la factura se emite como Visa).
+2. Origen de la información: mails automáticos que llegan a la casilla de cada hotel cuando el huésped usa el link.
+3. Contacto al huésped: una vez aplicado el pago, contactar con la plantilla "Contacto – Pago aprobado" y adjuntar la factura.
+4. Responsabilidad por turno: cada turno imputa los cobros de su horario. Nadie se retira sin haber aplicado todos los pagos.
+
+=== FACTURACIÓN DESPEGAR ===
+Las facturas a Despegar se guardan POR MES (criterio: fecha de check-in) en las carpetas de Drive de cada hotel (Administracion > Ingresos > FC Despegar). A partir de ahora lo hace el auditor.
+
+Cómo facturar:
+- Emitir FACTURA A a Despegar según el perfil en el sistema.
+- Forma de pago: Cuenta Corriente.
+- En NOTAS poner "PNR" y el número (ejemplo: PNR 106777167). Nunca el número solo.
+
+Nombre del PDF: Apellido del huésped + In y Out + PNR.
+
+Aclaración: a Despegar solo se factura ALOJAMIENTO. No facturar el DDU; el DDU lo abonan los huéspedes.
+
+Carpetas Drive (rutas):
+- InSoho: Ippa Hoteles > Clientes > Insoho > Administracion > Ingresos > FC Despegar
+- Filiberto: Ippa Hoteles > Clientes > Filiberto > Administracion > Ingresos > FC Despegar
+
+=== DESAYUNOS BAIRES BELGRANO ===
+Convenio con panadería “La Argentina”.
+- Avisar a la panadería con los datos del huésped el mismo día de los desayunos, temprano.
+- La panadería abre a las 7:30. No hay horario específico de cierre de desayuno.
+- Pueden pedir el desayuno para llevar.
+
+Menú:
+- Base: Café con leche + vasito de jugo
+- 1ra opción: Tostada con palta y cherry
+- 2da opción: Chipá con jamón y queso
+- 3ra opción: Árabe con jamón y queso
+- Si no desea ninguna: CCL + 2 medialunas + vasito de jugo
+
+=== DESAYUNOS MILENIA SOHO ===
+Valor: USD 11.5 por persona.
+En el desayuno pueden optar por 1 infusión + 1 comida + 1 extra por día, a la carta.
+
+Infusión: café de especialidad (cualquier tamaño), té en hebras, chocolatada.
+Comida: medialunas; croissant con jamón y queso o relleno de dulce; scone de tomillo y queso; tostadas con queso y mermelada (3 en variedad de panes); 1 porción de torta; tostada de pan de campo con huevos, palta y aceite de oliva.
+Extra: vaso de jugo de naranja, vaso de limonada, botella de agua con o sin gas.
+
+=== CHECKLIST TURNO MAÑANA (TM) ===
+- Repasar y actualizar Trello junto con TN.
+- Abrir caja en Venice.
+- Revisar llegadas del día y asignación según requerimientos especiales.
+- InSoho / Filiberto / Baires: preparar report de habitaciones para housekeeping.
+- Contactar ingresos del día con la plantilla que corresponda:
+  - "Mensaje Bienvenida" (ingresos completos)
+  - "Bienvenida WCI pendiente" (pagado, sin WCI)
+  - "Bienvenida Pago Pendiente" (WCI hecho, sin pago)
+  - "Bienvenida WCI y Pago Pendiente" (nada completado)
+- Check Outs: plantilla "Dia de Check Out".
+- Seguimiento: "Contacto 1er Noche" a quienes ingresaron ayer y se quedan más de 1 día.
+- Limpieza: contactar long stay con "Contacto InHouse - LongStay".
+- Filiberto: informar a JDD desayunos del día.
+- Informar en grupos de Operaciones salidas o pedidos especiales para HSKP o Manager.
+- InSoho: preparar códigos de acceso en TTLOCK una vez firme la asignación.
+- Cerca de las 11 AM verificar tipo de cambio BNA y actualizar.
+- Seguimiento de check-outs pendientes después de las 11 y verificar cierre en sistema.
+- Cuando las habitaciones estén limpias: plantilla "Envío de Accesos" y check-in en sistema.
+- Cierre: bandeja de mails vacía, Trello actualizado y cierre de caja en Venice.
+
+=== CHECKLIST TURNO TARDE (TT) ===
+- Repasar y actualizar Trello junto con Host TM.
+- Abrir caja en Venice.
+- Verificar disponibilidad del día: ingresos por llegar y late check-out pendientes.
+- Limpieza: chequear con HSKP departamentos con ingreso pendiente que aún figuren sucios.
+- Contactar ingresos del día pendientes:
+  - "Dpto Listo - WCI y Pago Pendiente"
+  - "Dpto Listo - WCI Pendiente"
+  - "Dpto Listo - Pago Pendiente"
+- Contactar ingresos a 48 horas e iniciar proceso de check-in según situación.
+- Contactar ingresos a 24 horas (día siguiente) con procesos pendientes.
+- Nuevas reservas: verificar las de las últimas 24 hs y enviar plantilla "Agradecimiento".
+- Sin contacto: contactar por extranet o mail a quienes no tengan teléfono para que escriban al WhatsApp.
+- Pre check-out: plantilla "Positiva" o "Negativa" a las salidas de mañana (preferente entre 19 y 21 hs).
+- Cierre: bandeja vacía, Trello actualizado y cierre de caja en Venice.
+
+=== CHECKLIST TURNO NOCHE / AUDITORÍA (TN) ===
+- Revisar Trello con el compañero saliente.
+- Revisar con TT arribos pendientes y reconfirmar requerimientos especiales.
+
+Auditoría (todas las propiedades):
+- Verificar que todas las reservas in house tengan web check-in.
+- Verificar carga y cobro del cleaning fee donde corresponda.
+- Confirmar pago total de la estadía para in house.
+- Completar informe "Cuentas con Saldo".
+- Controlar mercado, origen, agencia, empresa y tipo de reserva.
+- Verificar emisión de facturas (cobros banco) y recibos (WeTravel).
+- Completar informe "Descuentos Realizados".
+- Rodar auditoría en todas las propiedades.
+
+Después de rodar auditoría:
+- Controlar carga automática (Channel vs Venice) para el día que comienza y 3 días vista.
+- Cobros NRF: cobrar reservas NRF generadas en el día cerrado.
+- Cobros flexibles: cobrar reservas con ingreso en 48 horas.
+- CTA CTE / transferencia: cobrar a clientes que hacen check-out ese día.
+- Verificar que no queden check-outs con saldo pendiente (si hay, informar al TM).
+- Ajustar a $0 los saldos por diferencia de tipo de cambio.
+- Milenia: generar QR de acceso en HIPCAM y enviarlos al WhatsApp de Host.
+- Enviar recibos/facturas con "Contacto Pago Aprobado" o informar "Pago Denegado".
+- Cierre: mails respondidos, Trello actualizado y cierre de caja en Venice.
+
+=== BEDDING RÁPIDO ===
+Baires: ninguna habitación se hace twin; todas tienen sofá cama.
+Hache Palermo: todas se pueden hacer twin y king.
+Filiberto:
+- Terminación 02: Twin (dos camas individuales)
+- Terminación 03: matrimonial, no se pueden separar (incluye 104, 105, 504)
+- Terminación 06: categoría superior (mat + cama / tres camas)
+- Terminación 01: familiar; todas menos la 501 se pueden hacer cuádruple twin
+Milenia:
+- Frente: todas las 01 y 02
+- Contrafrente: todas las 03 y 04
+- No se hacen twin: 604, 704, 901, 403
+- Sin sofá cama: 801, 802, 604, 704, 901, 902, 402
+- Microondas: 704 y 604
+- Dos baños: todas menos 901 y 801
+BAH Congreso: todas se hacen twin y mat. Sin lavarropas: 1G, 1M y 2M. Vista a la calle: 1A y 7B. Vista al patio: 1G, 1M y 2M. Sin vista (patiecito): 3H, 5G, 9D.

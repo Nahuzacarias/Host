@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>iPPA Hoteles — Prueba</title>
+  <link rel="icon" href="../Media/ippa.ico">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="bot.css">
+  
+</head>
+
+<body>
+
+    <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+    <div class="container">
+        
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div style="display:flex; align-items:center; gap:12px">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+                        <path d="M3 21h18"></path>
+                        <path d="M9 8h10"></path>
+                        <path d="M9 12h10"></path>
+                        <path d="M9 16h10"></path>
+                        <path d="M4.5 19.5L4.5 9l3-3h9l3 3v10.5"></path>
+                        <path d="M4 21l1-7h14l1 7"></path>
+                    </svg>
+                    <h1>Propiedades</h1>
+                </div>
+                </div>
+            
+            <nav class="sidebar-nav">
+                <div class="hotel-item">
+                    <button class="hotel-button" onclick="toggleHotel('generalLinks')">
+                        <span class="arrow" id="arrow-generalLinks">▶</span>
+                        <span>Links y contraseñas general</span>
+                    </button>
+                    <div class="hotel-subsections" id="subsections-generalLinks">
+                        <button class="subsection-button" onclick="showSubsection('generalLinks', 'links'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Ver accesos generales</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hotel-item">
+                    <button class="hotel-button" onclick="toggleHotel('milenia')">
+                        <span class="arrow" id="arrow-milenia">▶</span>
+                        <span>Milenia by iPPA</span>
+                    </button>
+                    <div class="hotel-subsections" id="subsections-milenia">
+                        <button class="subsection-button" onclick="showSubsection('milenia', 'links'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Links y contraseñas</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('milenia', 'bedding'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Categoría y Bedding</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('milenia', 'mapping'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Mapping</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('milenia', 'bankData'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Datos Bancarios</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('milenia', 'billing'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Facturación</span>
+                        </button>
+                        
+                    </div>
+                </div>
+
+                <div class="hotel-item">
+                    <button class="hotel-button" onclick="toggleHotel('filiberto')">
+                        <span class="arrow" id="arrow-filiberto">▶</span>
+                        <span>Filiberto by iPPA</span>
+                    </button>
+                    <div class="hotel-subsections" id="subsections-filiberto">
+                        <button class="subsection-button" onclick="showSubsection('filiberto', 'links'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Links y contraseñas</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('filiberto', 'bedding'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Categoría y Bedding</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('filiberto', 'bankData'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Datos Bancarios</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('filiberto', 'billing'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Facturación</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hotel-item">
+                    <button class="hotel-button" onclick="toggleHotel('bah')">
+                        <span class="arrow" id="arrow-bah">▶</span>
+                        <span>BAH Congreso By iPPA</span>
+                    </button>
+                    <div class="hotel-subsections" id="subsections-bah">
+                        <button class="subsection-button" onclick="showSubsection('bah', 'links'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Links y contraseñas</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('bah', 'bedding'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Categoría y Bedding</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('bah', 'bankData'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Datos Bancarios</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('bah', 'billing'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Facturación</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('bah', 'accesos'); closeSidebarOnMobile()">
+    <span>→</span> <span>Accesos</span>
+</button>
+                    </div>
+                </div>
+
+                <div class="hotel-item">
+                    <button class="hotel-button" onclick="toggleHotel('baires')">
+                        <span class="arrow" id="arrow-baires">▶</span>
+                        <span>Baires by iPPA</span>
+                    </button>
+                    <div class="hotel-subsections" id="subsections-baires">
+                        <button class="subsection-button" onclick="showSubsection('baires', 'links'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Links y contraseñas</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('baires', 'bedding'); closeSidebarOnMobile()">
+                            <span>→</span> <span>Categoría y Bedding</span>
+                        </button>
+                        <button class="subsection-button" onclick="showSubsection('baires', 'bankData'); closeSidebarOnMobile()">
+            <span>→</span> <span>Datos Bancarios</span>
+        </button>
+                    </div>
+                </div>
+                <div class="hotel-item">
+    <button class="hotel-button" onclick="toggleHotel('independencia')">
+        <span class="arrow" id="arrow-independencia">▶</span>
+        <span>Independencia by iPPA</span>
+    </button>
+    <div class="hotel-subsections" id="subsections-independencia">
+        <button class="subsection-button" onclick="showSubsection('independencia', 'links'); closeSidebarOnMobile()">
+            <span>→</span> <span>Links y contraseñas</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('independencia', 'bedding'); closeSidebarOnMobile()">
+            <span>→</span> <span>Categoría y Bedding</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('independencia', 'bankData'); closeSidebarOnMobile()">
+            <span>→</span> <span>Datos Bancarios</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('independencia', 'accesos'); closeSidebarOnMobile()">
+    <span>→</span> <span>Accesos</span>
+</button>
+    </div>
+</div>
+<div class="hotel-item">
+    <button class="hotel-button" onclick="toggleHotel('hache')">
+        <span class="arrow" id="arrow-hache">▶</span>
+        <span>Hache Palermo by iPPA</span>
+    </button>
+    <div class="hotel-subsections" id="subsections-hache">
+        <button class="subsection-button" onclick="showSubsection('hache', 'links'); closeSidebarOnMobile()">
+            <span>→</span> <span>Links y contraseñas</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('hache', 'bedding'); closeSidebarOnMobile()">
+            <span>→</span> <span>Categoría y Bedding</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('hache', 'bankData'); closeSidebarOnMobile()">
+            <span>→</span> <span>Datos Bancarios</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('hache', 'billing'); closeSidebarOnMobile()">
+            <span>→</span> <span>Facturación</span>
+        </button>
+    </div>
+</div>
+<div class="hotel-item">
+    <button class="hotel-button" onclick="toggleHotel('aldeaAndina')">
+        <span class="arrow" id="arrow-aldeaAndina">▶</span>
+        <span>Aldea Andina by iPPA</span>
+    </button>
+    <div class="hotel-subsections" id="subsections-aldeaAndina">
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'informacionGeneral'); closeSidebarOnMobile()">
+            <span>→</span> <span>Información general</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'links'); closeSidebarOnMobile()">
+            <span>→</span> <span>Links y contraseñas</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'bedding'); closeSidebarOnMobile()">
+            <span>→</span> <span>Categoría y Bedding</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'bankData'); closeSidebarOnMobile()">
+            <span>→</span> <span>Datos Bancarios</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'mapaComplejo'); closeSidebarOnMobile()">
+            <span>→</span> <span>Mapa del complejo</span>
+        </button>
+        <button class="subsection-button" onclick="showSubsection('aldeaAndina', 'codigosAlarma'); closeSidebarOnMobile()">
+            <span>→</span> <span>Alarma y códigos</span>
+        </button>
+    </div>
+</div>
+                
+ <div class="sidebar-header" style="border-top: 1px solid #eee; margin-top: 20px;">
+    <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0;">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+    </svg>
+    <h1 style="margin: 0; font-size: 1.25rem;">Procedimientos</h1>
+</div>
+</div>
+
+<nav class="sidebar-nav">
+    <div class="hotel-item">
+        <button class="hotel-button" onclick="toggleHotel('procedimientos')">
+            <span class="arrow" id="arrow-procedimientos">▶</span>
+            <span>Procedimientos</span>
+        </button>
+        <div class="hotel-subsections" id="subsections-procedimientos">
+    <button class="subsection-button" onclick="showSubsection('procedimientos', 'cobroClover'); closeSidebarOnMobile()">
+        <span>→</span> <span>Cobro con Clover</span>
+    </button>
+    <button class="subsection-button" onclick="showSubsection('procedimientos', 'billingDespegar'); closeSidebarOnMobile()">
+        <span>→</span> <span>Facturación Despegar</span>
+    </button>
+    <button class="subsection-button" onclick="showSubsection('procedimientos', 'facturacionAA'); closeSidebarOnMobile()">
+        <span>→</span> <span>Procedimiento facturación AA</span>
+    </button>
+    <button class="subsection-button" onclick="showSubsection('procedimientos', 'desayunosBaires'); closeSidebarOnMobile()">
+        <span>→</span> <span>Desayunos Baires</span>
+    </button>
+    <button class="subsection-button" onclick="showSubsection('procedimientos', 'desayunosMilenia'); closeSidebarOnMobile()">
+    <span>→</span> <span>Desayunos Milenia</span>
+</button>
+<button class="subsection-button" onclick="showSubsection('procedimientos', 'desayunosHache'); closeSidebarOnMobile()">
+    <span>→</span> <span>Desayunos Hache Palermo</span>
+</button>
+</div>
+    </div>
+</nav>
+<div class="sidebar-header" style="border-top: 1px solid #eee; margin-top: 20px;">
+    <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+        </svg>
+        <h1 style="margin: 0; font-size: 1.25rem;">CheckLists</h1>
+    </div>
+</div>
+
+<nav class="sidebar-nav">
+    <div class="hotel-item">
+        <button class="hotel-button" onclick="toggleHotel('checklist')">
+            <span class="arrow" id="arrow-checklist">▶</span>
+            <span>Checklists</span>
+        </button>
+        <div class="hotel-subsections" id="subsections-checklist">
+            <button class="subsection-button" onclick="showSubsection('checklist', 'tm'); closeSidebarOnMobile()">
+                <span>→</span> <span>Checklist TM</span>
+            </button>
+            <button class="subsection-button" onclick="showSubsection('checklist', 'tt'); closeSidebarOnMobile()">
+                <span>→</span> <span>Checklist TT</span>
+            </button>
+            <button class="subsection-button" onclick="showSubsection('checklist', 'tn'); closeSidebarOnMobile()">
+                <span>→</span> <span>Checklist TN</span>
+            </button>
+        </div>
+    </div>
+</nav>
+<div class="sidebar-header" style="border-top: 1px solid #eee; margin-top: 20px;">
+    <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <h1 style="margin: 0; font-size: 1.25rem;">Reservas</h1>
+    </div>
+</div>
+
+<nav class="sidebar-nav">
+    <div class="hotel-item">
+        <button class="hotel-button" onclick="toggleHotel('reservas')">
+            <span class="arrow" id="arrow-reservas">▶</span>
+            <span>Reservas</span>
+        </button>
+        <div class="hotel-subsections" id="subsections-reservas">
+            <button class="subsection-button" onclick="showSubsection('reservas', 'links'); closeSidebarOnMobile()">
+                <span>→</span> <span>Links y contraseñas</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../Media/Host.xlsx" class="download-btn" download>
+                    <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Descargá la info en Excel
+                </a>
+                <!-- Menú desplegable Drive -->
+<div class="drive-menu-container" style="position:relative; width:100%; margin-bottom:8px;">
+    <button class="download-btn" onclick="toggleDriveMenu()" style="width:100%; justify-content:space-between;">
+       <span style="display:flex; align-items:center; gap:8px; flex:1; justify-content:center;">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M3 9h18M9 21V9"/>
+            </svg>
+            Google Drive iPPA
+        </span>
+        <svg id="drive-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.2s;">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </button>
+    <div id="driveDropdown" style="display:none; flex-direction:column; background:white; border:1px solid #e2e8f0; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10); margin-top:4px; overflow:hidden;">
+        <a href="https://drive.google.com/drive/u/0/folders/0AOwXJUVbBiZiUk9PVA" target="_blank" class="download-btn" style="border-radius:0; margin:0; border-bottom:1px solid #f0f0f0;">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            Drive iPPA
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/1QCDz5184W8TaFTITb0bCv-aSSa357PQv/edit?gid=882631380#gid=882631380" target="_blank" class="download-btn" style="border-radius:0; margin:0; border-bottom:1px solid #f0f0f0;">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            Horarios iPPA
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/11DIUNZlwky4PO8jTRKg4gC1HQ-uG2z0f/edit?gid=925203728#gid=925203728" target="_blank" class="download-btn" style="border-radius:0; margin:0;">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            Mantenimiento iPPA
+        </a>
+    </div>
+</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <button class="mobile-menu-btn" onclick="toggleSidebar()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <div class="utility-bar">
+                <div class="utility-group">
+                    <input id="global-search" type="text" placeholder="Buscar hotel, usuario, plataforma..." />
+                    <button class="utility-btn" onclick="runGlobalSearch()">Buscar</button>
+                    <button class="utility-btn utility-btn-secondary" onclick="clearGlobalSearch()">Limpiar</button>
+                    <button class="utility-btn utility-btn-secondary" onclick="prevHighlightMatch()">Anterior</button>
+                    <button class="utility-btn utility-btn-secondary" onclick="nextHighlightMatch()">Siguiente</button>
+                </div>
+                <div class="utility-group">
+                    <button class="utility-btn utility-btn-secondary" onclick="expandAllHotels()">Expandir todo</button>
+                    <button class="utility-btn utility-btn-secondary" onclick="collapseAllHotels()">Colapsar todo</button>
+                </div>
+                <div class="last-update" id="last-update"></div>
+            </div>
+            <div class="quick-links">
+    <a href="https://s1.venicepms.com/ipa547/admin/login" target="_blank" class="quick-link-btn">
+        <div class="quick-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+                <path d="M7 8h4M7 11h6"/>
+            </svg>
+        </div>
+        <div class="quick-link-text">
+            <span class="quick-link-label">Venice PMS</span>
+            <span class="quick-link-sub">Sistema de gestión</span>
+        </div>
+        <svg class="quick-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+    </a>
+
+    <a href="https://s1.venicepms.com/ala551/admin/login" target="_blank" class="quick-link-btn">
+        <div class="quick-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+                <path d="M7 8h4M7 11h6"/>
+            </svg>
+        </div>
+        <div class="quick-link-text">
+            <span class="quick-link-label">Venice PMS Aldea Andina</span>
+            <span class="quick-link-sub">Sistema de gestión</span>
+        </div>
+        <svg class="quick-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+    </a>
+
+    <a href="https://app.wespeak.pro/chats" target="_blank" class="quick-link-btn">
+        <div class="quick-link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <path d="M8 10h8M8 14h5"/>
+            </svg>
+        </div>
+        <div class="quick-link-text">
+            <span class="quick-link-label">We Speak</span>
+            <span class="quick-link-sub">Centro de mensajes</span>
+        </div>
+        <svg class="quick-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+    </a>
+</div>
+
+            <div id="empty-state" class="empty-state">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 21h18"></path>
+                    <path d="M9 8h10"></path>
+                    <path d="M9 12h10"></path>
+                    <path d="M9 16h10"></path>
+                    <path d="M4.5 19.5L4.5 9l3-3h9l3 3v10.5"></path>
+                    <path d="M4 21l1-7h14l1 7"></path>
+                </svg>
+                <p style="font-size: 18px;">Selecciona una propiedad del menú</p>
+            </div>
+            
+            <div id="content" class="hidden">
+                <div class="content-header">
+                    <h2 id="hotel-title"></h2>
+                    <h3 id="subsection-title"></h3>
+                </div>
+                <div id="table-container"></div>
+            </div>
+        </div>
+    </div>
+
+        <div id="copy-toast" class="copy-toast">Copiado</div>
+        <script src="script.js"></script>
+
+  <!-- Asistente iPPA: widget de prueba (no es una página aparte) -->
+  <div id="ippa-bot">
+    <div class="ippa-bot-panel" id="ippa-bot-panel" hidden>
+      <div class="ippa-bot-header">
+        <div>
+          <h2>Asistente iPPA</h2>
+          <p>Procedimientos y documentos de host</p>
+        </div>
+        <div class="ippa-bot-header-actions">
+          <button type="button" class="ippa-bot-icon-btn" id="ippa-bot-close" title="Cerrar" aria-label="Cerrar chat">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="ippa-bot-messages" id="ippa-bot-messages"></div>
+      <div class="ippa-bot-chips" id="ippa-bot-chips"></div>
+      <p class="ippa-bot-status" id="ippa-bot-status">Cargando documentos…</p>
+      <form class="ippa-bot-composer" id="ippa-bot-form">
+        <textarea id="ippa-bot-input" rows="2" placeholder="Ej: el huésped de Baires quiere desayuno, ¿qué hago?"></textarea>
+        <button type="submit">Preguntar</button>
+      </form>
+    </div>
+
+    <button type="button" class="ippa-bot-launcher" id="ippa-bot-toggle" aria-label="Abrir asistente iPPA" aria-expanded="false">
+      <svg class="ippa-bot-icon-globe" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M2 12h20"></path>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      </svg>
+      <svg class="ippa-bot-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="bot.js"></script>
+</body>
+</html>
