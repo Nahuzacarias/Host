@@ -3,20 +3,29 @@
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('overlay');
             sidebar.classList.toggle('active');
-            
-            if (sidebar.classList.contains('active')) {
-                overlay.style.display = 'block';
-            } else {
-                overlay.style.display = 'none';
-            }
+            const isOpen = sidebar.classList.contains('active');
+            overlay.style.display = isOpen ? 'block' : 'none';
+            document.body.classList.toggle('sidebar-open', isOpen);
         }
 
         function closeSidebarOnMobile() {
-            // Solo cerrar si estamos en pantalla pequeña
-            if (window.innerWidth <= 768) {
-                toggleSidebar();
+            if (window.innerWidth <= 900) {
+                const sidebar = document.getElementById('sidebar');
+                if (sidebar.classList.contains('active')) {
+                    toggleSidebar();
+                }
             }
         }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900) {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('overlay');
+                if (sidebar) sidebar.classList.remove('active');
+                if (overlay) overlay.style.display = 'none';
+                document.body.classList.remove('sidebar-open');
+            }
+        });
 
         // --- TU CÓDIGO ORIGINAL (Sin cambios en los datos) ---
         const hotelsData = {
@@ -33,15 +42,17 @@
                                     ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
                                     ['Mail Host', '-', 'host@ippa-hoteles.com', 'IPHoteles2025!'],
                                     ['Clover Rudi', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Clover Rudi</a>', '5930714481424', 'iPPAHoteles2026!'],
+                                    ['Cabify Host', '<a href="https://cabify.com/app/auth/login" target="_blank">Cabify Host</a>', 'host@ippa-hoteles.com', 'IPHoteles2026**'],
                                     ['TTlock', '<a href="https://lock2.ttlock.com/" target="_blank">TTlock Web</a>', 'asistente.operaciones@ippa-hoteles.com', 'IPHoteles2030!!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2026!'],
-                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2027!'],
+                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'AgoSStoo2026!!'],
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
-                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'IPHoteles2025!!'],
+                                    ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'Argentina2026!'],
                                     ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024']
                                 ]
-                            }
+                            },
+                            
                         ]
                     }
                 }
@@ -66,7 +77,7 @@
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2026!!'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'Host2026!'],
                                 ]
                             }
                         ]
@@ -80,6 +91,30 @@
                                     ['Equipamiento y Bedding', '-', '-', 'Número'],
                                     ['HABS QUE SE HACEN TWIN', '-', '-', 'NINGUNA'],
                                     ['HABS CON SOFÁ CAMA', '-', '-', 'TODAS'],
+                                ]
+                            }
+                        ]
+                    },
+                    desayunos: {
+                        title: 'Desayunos',
+                        sections: [
+                            {
+                                name: 'Convenio de desayunos con panadería “La Argentina”',
+                                data: [
+                                    ['Detalle', 'Información'],
+                                    ['Procedimiento', 'Avisar a la panadería con los datos del huésped el mismo día de los desayunos temprano.'],
+                                    ['Horarios', 'La panadería abre a las 7:30. No hay horario específico de cierre de desayuno.'],
+                                    ['Opciones', 'También pueden pedir el desayuno para llevar.']
+                                ]
+                            },
+                            {
+                                name: 'Menú de Desayuno',
+                                data: [
+                                    ['Base', 'Café con leche + Vasito de jugo'],
+                                    ['1ra opción', 'Tostada con palta y cherry'],
+                                    ['2da opción', 'Chipá con jamón y queso'],
+                                    ['3ra opción', 'Árabe con jamón y queso'],
+                                    ['Nota', 'Si no desea ninguna: CCL + 2 Medialunas + Vasito de jugo']
                                 ]
                             }
                         ]
@@ -111,9 +146,11 @@
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930714481421 / Usuario: Host', 'IPHoteles2035!!'],
                                     ['Mail', '-', 'host.hachepalermo@ippa-hoteles.com', 'Hoteler1a96#'],
                                     ['Hit Connect', '-', 'host@ippa-hoteles.com', 'IPHoteles2026!'],
-                                    ['Wifi', '-', 'P1, P2,P3,P4', 'Costarica4828'],
+                                    ['Wifi', 'Piso 1', 'P1', 'Costarica4828'],
+                                    ['Wifi', 'Pisos restantes', 'Hache Palermo by iPPA', 'conectate'],
                                 ]
                             }
                         ]
@@ -126,10 +163,61 @@
                                 data: [
                                     ['Detalle', 'Información'],
                                     ['Bedding', 'Todas se pueden hacer Twin y king'],
-                                    ['Sofá Cama', '-'],
-                                    ['Hab al frente', '-'],
-                                    ['Hab al contrafrente', '-'],
-
+                                    ['Habs con futón', 'Todos los apartamentos superiores (101, 102, 201, 202, 301, 302)'],
+                                ]
+                            }
+                        ]
+                    },
+                    desayunos: {
+                        title: 'Desayunos Nadina',
+                        sections: [
+                            {
+                                name: 'Datos del Proveedor',
+                                data: [
+                                    ['Detalle', 'Información'],
+                                    ['Nombre', 'Nadina Pastelería & Café'],
+                                    ['Instagram', '<a href="https://www.instagram.com/nadinapasteleria/" target="_blank">@nadinapasteleria</a>'],
+                                    ['Dirección', 'Costa Rica 4824 (Planta Baja del edificio)'],
+                                    ['Contacto', 'Jorge (encargado) – 11 6941 000'],
+                                    ['Horario', 'Mar a Sáb: 8 a 20hs | Dom: 10 a 20hs | Lun: Cerrado (*buscaremos opción para los lunes)']
+                                ]
+                            },
+                            {
+                                name: 'Procedimiento de envío diario',
+                                data: [
+                                    ['Detalle'],
+                                    [`<div style="line-height:1.65; max-width:900px;">
+                                        <p style="margin-top:0;">Enviar la planilla de desayunos a Nadina <strong>todos los días salvo domingos</strong> con la lista de huéspedes que desayunan ese día.</p>
+                                        <ol style="margin:0.75em 0 0 1.25em; padding:0;">
+                                            <li style="margin-bottom:0.75em;">Ingresar al PMS de Hache Palermo y navegar a <strong>Misceláneos → Reportes → Planilla de desayuno</strong>.</li>
+                                            <li style="margin-bottom:0.75em;">Descargar el PDF que genera el sistema.</li>
+                                            <li style="margin-bottom:0.75em;">Recortar <strong>solo la tabla de huéspedes</strong> (columnas Huésped, Llegada, Salida, Noc y A/C), como se muestra en la referencia.</li>
+                                            <li style="margin-bottom:0.75em;">Enviar a la cafetería la parte recortada (Jorge – 11 6941 000).</li>
+                                        </ol>
+                                        <p style="margin:1em 0 0; padding:10px 12px; background:#fef2f2; border-left:4px solid #dc2626; border-radius:4px; color:#b91c1c; font-weight:600;">
+                                            <strong style="color:#991b1b;">⚠ Importante:</strong> la planilla debe mostrar <strong>nombres y apellidos</strong> de las personas a desayunar y la <strong>cantidad</strong> (A/C). <strong>No</strong> debe incluir el número de reserva.
+                                        </p>
+                                        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; margin-top:24px; align-items:start;">
+                                            <div style="text-align:center;">
+                                                <p style="margin:0 0 8px; font-weight:600; color:#374151;">Paso 1 — Ubicar la planilla</p>
+                                                <img src="Media/desayunos_nadina_reporte.png" alt="Misceláneos, Reportes, Planilla de desayuno" style="width:auto; max-width:100%; height:auto; border-radius:8px; border:1px solid #ddd; box-shadow:0 2px 8px rgba(0,0,0,.06);" loading="lazy" />
+                                            </div>
+                                            <div style="text-align:center;">
+                                                <p style="margin:0 0 8px; font-weight:600; color:#374151;">Paso 2 — Parte a recortar y enviar</p>
+                                                <img src="Media/desayunos_nadina_recorte.png" alt="Tabla de huéspedes a enviar a Nadina" style="width:auto; max-width:100%; height:auto; border-radius:8px; border:1px solid #ddd; box-shadow:0 2px 8px rgba(0,0,0,.06);" loading="lazy" />
+                                            </div>
+                                        </div>
+                                    </div>`]
+                                ]
+                            },
+                            {
+                                name: 'Menú de Desayuno Continental',
+                                data: [
+                                    ['Componente', 'Opciones'],
+                                    ['Infusión (elegir 1)', 'Café tradicional / Café con leche / Té en hebras'],
+                                    ['Comida (elegir 1)', '• Dos medialunas<br>• Dos tostadas medianas con 2 dips a elección (manteca, queso crema, dulce de leche o mermelada)<br>• Fruta de estación con yogurt natural y granola<br>• Masitas rellenas, cuadraditos de lemon pie o brownie<br>• Bowl de huevos revueltos con mini tostada y palta'],
+                                    ['Bebida', 'Copón de jugo de naranja'],
+                                    ['Nota', 'Cualquier extra puede solicitarse directamente en el local']
                                 ]
                             }
                         ]
@@ -145,18 +233,6 @@
                                     ['Cuit', '30-71448142-4'],
                                     ['CBU', '0070677920000002492951'],
                                     ['Banco', 'Galicia']
-                                ]
-                            }
-                        ]
-                    },
-                    billing: {
-                        title: 'Facturación',
-                        sections: [
-                            {
-                                name: 'Datos de Facturación',
-                                data: [
-                                    ['Concepto', 'Detalle'],
-                                    ['Instrucciones', 'Alquiler temporario, igual que todas exceptuando Filiberto']
                                 ]
                             }
                         ]
@@ -365,10 +441,30 @@
                         title: 'Categoría y Bedding',
                         sections: [
                             {
-                                name: 'Configuración de Habitaciones',
+                                name: 'Distribución de departamentos',
                                 data: [
-                                    ['Detalle', 'Información'],
-                                    ['Nota', 'Pendiente de carga detallada por categoría. Ver también chequeo de check-out en Información general.']
+                                    ['Edificio Abedules (dtos 4/5 pax)', 'Edificio Cipresales (dtos 6/7 pax)'],
+                                    ['725 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '301 (1 dormitorio con cama matrimonial y baño, 1 dormitorio con dos camas de 1 plaza, otro baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['726 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '302 (1 dormitorio con cama matrimonial y baño, 1 dormitorio con dos camas de 1 plaza, otro baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['727 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '303 (1 dormitorio con cama matrimonial y baño, 1 dormitorio con dos camas de 1 plaza, otro baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['728 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '304 (1 dormitorio con cama matrimonial y baño, 1 dormitorio con dos camas de 1 plaza, otro baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['729 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '305 (1 dormitorio con cama matrimonial y baño, 1 dormitorio con dos camas de 1 plaza, otro baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['730 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '306 (1 dormitorio con cama matrimonial y baño, 1 dormitorio con dos camas de 1 plaza, otro baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['731 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', ''],
+                                    ['732 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', ''],
+                                    ['733 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', ''],
+                                    ['734 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', ''],
+                                    ['735 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', ''],
+                                    ['736 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', ''],
+                                    ['Edificio Arrayanes (dtos 4/5 pax y 6/7 pax)', 'Edificio Sorbus (dtos 6/7 pax)'],
+                                    ['101 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '111 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['102 (1 dormitorio, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '111 BIS (1 dormitorio con cama matrimonial, 1 baño)'],
+                                    ['103 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '112 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['104 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '112 BIS (1 dormitorio con cama matrimonial, 1 baño)'],
+                                    ['105 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '114 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['106 (2 dormitorios con cama matrimonial, 1 baño, cocina y living con dos sofa cama con una cama marinera)', '114 BIS (1 dormitorio con cama matrimonial, 1 baño)'],
+                                    ['107 (1 dormitorio con cama matrimonial, 1 dormitorio con dos camas de 1 plaza, cocina y living con dos sofa cama con una cama marinera)', '115 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)'],
+                                    ['108 (1 dormitorio con cama matrimonial, 1 baño, cocina y en el living dos sofa cama con una cama marinera)', '115 BIS (1 dormitorio con cama matrimonial, 1 baño)']
                                 ]
                             }
                         ]
@@ -450,38 +546,6 @@
                 }
             ]
         },
-      billingDespegar: {
-            title: 'Facturación Despegar',
-            sections: [
-                {
-                    name: 'Accesos a Carpetas (Drive)',
-                    data: [
-                        ['Hotel', 'Acceso Directo', 'Ruta en Drive'],
-                        ['InSoho', '<a href="https://drive.google.com/drive/folders/1UCuVYL3Y5VmGQZd30otIu-a6gN75lk0y?usp=drive_link" target="_blank">Abrir Carpeta</a>', 'Ippa Hoteles > Clientes > Insoho > Administracion > Ingresos > FC Despegar'],
-                        ['Filiberto', '<a href="https://drive.google.com/drive/folders/1jrL52C6D9whk4lYQJk-fAQbp3CZTVAvC?usp=drive_link" target="_blank">Abrir Carpeta</a>', 'Ippa Hoteles > Clientes > Filiberto > Administracion > Ingresos > FC Despegar']
-                    ]
-                },
-                {
-                    name: 'Instrucciones y Procedimiento',
-                    data: [
-                        ['Detalle del Proceso'],
-                        [`<div style="line-height: 1.6; ">
-                            <p>Las facturas emitidas a Despegar se deben guardar <strong>POR MES</strong> (el criterio es la fecha de Check-In) en las carpetas mencionadas arriba. Esto permite que Administración las cargue en la extranet para gestionar el pago. <strong>A partir de ahora, esta tarea debe ser realizada por el auditor.</strong></p>
-                            <p><strong>¿Cómo debemos facturar?</strong><br>
-                            Se debe emitir <strong>FACTURA A</strong> a Despegar según el perfil cargado en el sistema. La forma de pago será <strong>Cuenta Corriente</strong>. Al emitir la factura, es fundamental que en el campo <strong>NOTAS</strong> se coloque la palabra "PNR" seguida del número (Ej: PNR 106777167), nunca el número solo.</p>
-                            <p><strong>Guardado de archivos:</strong><br>
-                            El archivo PDF debe nombrarse con el siguiente formato: <strong>Apellido del huésped + In y Out + PNR</strong>.</p>
-                            <div style="margin: 15px 0; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; max-width: 500px;">
-                                <img src="Media/despegar.png" alt="Ejemplo de nomenclatura" style="width: 100%; display: block;">
-                            </div>
-                            <p style="background-color: #fff3f3; padding: 10px; border-left: 4px solid #f44336; color: black;">
-                                <strong>Aclaración importante:</strong> A Despegar solo debe facturarse <strong>ALOJAMIENTO</strong>. No se debe facturar el DDU, el cual debe ser abonado por los huéspedes.
-                            </p>
-                        </div>`]
-                    ]
-                }
-            ]
-        }, // <--- Esta coma separa Despegar de Desayunos
         facturacionAA: {
             title: 'Procedimiento de facturación AA',
             sections: [
@@ -525,94 +589,53 @@
                 }
             ]
         },
-        desayunosBaires: {
-            title: 'Desayunos Baires Belgrano',
+        atajosWeSpeak: {
+            title: 'Atajos We Speak',
             sections: [
                 {
-                    name: 'Convenio de desayunos con panadería “La Argentina”',
+                    name: 'Plantillas We Speak',
                     data: [
-                        ['Detalle', 'Información'],
-                        ['Procedimiento', 'Avisar a la panadería con los datos del huésped el mismo día de los desayunos temprano.'],
-                        ['Horarios', 'La panadería abre a las 7:30. No hay horario específico de cierre de desayuno.'],
-                        ['Opciones', 'También pueden pedir el desayuno para llevar.']
-                    ]
-                },
-                {
-                    name: 'Menú de Desayuno',
-                    data: [
-                        ['Base', 'Café con leche + Vasito de jugo'],
-                        ['1ra opción', 'Tostada con palta y cherry'],
-                        ['2da opción', 'Chipá con jamón y queso'],
-                        ['3ra opción', 'Árabe con jamón y queso'],
-                        ['Nota', 'Si no desea ninguna: CCL + 2 Medialunas + Vasito de jugo']
-                    ]
-                }
-            ]
-        },desayunosMilenia: {
-            title: 'Desayunos Milenia Soho by iPPA',
-            sections: [
-                {
-                    name: 'Información General',
-                    data: [
-                        ['Detalle'],
-                        [`<div style="line-height: 1.8; padding: 10px;">
-                            <p><strong>Valor:</strong> USD 11.5 por persona</p>
-                            <p>En el desayuno podrán optar por <strong>1 infusión + 1 comida + 1 extra por día</strong>, es a la carta por lo que podrán elegir en el momento.</p>
-
-                            <p><strong>☕ Infusión:</strong></p>
-                            <ul>
-                                <li>Café de especialidad en cualquier tamaño</li>
-                                <li>Té en hebras</li>
-                                <li>Chocolatada</li>
-                            </ul>
-
-                            <p><strong>🥐 Comida:</strong></p>
-                            <ul>
-                                <li>Medialunas</li>
-                                <li>Croissant con J&Q o relleno de dulce</li>
-                                <li>Scone de tomillo y queso</li>
-                                <li>Tostadas con queso y mermelada (3 en variedad de panes)</li>
-                                <li>1 porción de torta</li>
-                                <li>Tostada de pan de campo con huevos, palta y aceite de oliva</li>
-                            </ul>
-
-                            <p><strong>🥤 Extra:</strong></p>
-                            <ul>
-                                <li>Vaso de jugo de naranja</li>
-                                <li>Vaso de limonada</li>
-                                <li>Botella de agua con o sin gas</li>
-                            </ul>
-                        </div>`]
+                        ['Atajo', 'Descripción'],
+                        ['/Reservas', 'Derivar a reservas'],
+                        ['/Soho / Baires / Filiberto / Vidt / Hache / Aldea Andina / Independencia', 'Apertura de pre check in'],
+                        ['/General', 'Apertura de pre check in para edificios de iPPA Inglés'],
+                        ['/Envío de accesos', 'Cuando hay que enviarle accesos y necesitamos su respuesta'],
+                        ['/Envío de accesos', 'Cuando hay que enviarle accesos y necesitamos su respuesta INGLÉS'],
+                        ['/Día out Baires', 'Plantilla de Check out en Baires'],
+                        ['/Día Out Filiberto', 'Plantilla de Check out en Filiberto'],
+                        ['/Día Out General', 'Plantilla de check out en los demás iPPAS'],
+                        ['/Pre check out', 'Plantilla de pre check out, todos los iPPA, menos Filiberto'],
+                        ['/Desayuno Soho', 'Plantillas de reservas con desayunos'],
+                        ['/Desayuno Vidt', 'Plantillas de reservas con desayunos'],
+                        ['/Desayuno Hache', 'Plantillas de reservas con desayunos']
                     ]
                 }
-            ]
-        },desayunosHache: {
-    title: 'Desayunos Hache Palermo',
-    sections: [
-        {
-            name: 'Datos del Proveedor',
-            data: [
-                ['Detalle', 'Información'],
-                ['Nombre', 'Nadina Pastelería & Café'],
-                ['Instagram', '<a href="https://www.instagram.com/nadinapasteleria/" target="_blank">@nadinapasteleria</a>'],
-                ['Dirección', 'Costa Rica 4824 (Planta Baja del edificio)'],
-                ['Contacto', 'Jorge (encargado) – 11 6941 000'],
-                ['Horario', 'Mar a Sáb: 8 a 20hs | Dom: 10 a 20hs | Lun: Cerrado (*buscaremos opción para los lunes)']
             ]
         },
-        {
-            name: 'Menú de Desayuno Continental',
-            data: [
-                ['Componente', 'Opciones'],
-                ['Infusión (elegir 1)', 'Café tradicional / Café con leche / Té en hebras'],
-                ['Comida (elegir 1)', '• Dos medialunas<br>• Dos tostadas medianas con 2 dips a elección (manteca, queso crema, dulce de leche o mermelada)<br>• Fruta de estación con yogurt natural y granola<br>• Masitas rellenas, cuadraditos de lemon pie o brownie<br>• Bowl de huevos revueltos con mini tostada y palta'],
-                ['Bebida', 'Copón de jugo de naranja'],
-                ['Nota', 'Cualquier extra puede solicitarse directamente en el local']
+        reporteHSK: {
+            title: 'Reporte HSK',
+            sections: [
+                {
+                    name: 'Procedimiento para generar el reporte de Housekeeping',
+                    data: [
+                        ['Detalle del Procedimiento'],
+                        ['Para generar el reporte de Housekeeping, dirigirse a <strong>Asignación de tareas &gt; Nuevo</strong> (ver Imagen 1).'],
+                        ['<div style="text-align:center; padding: 12px 0;"><img src="Media/hsk_reporte_1.png" alt="Imagen 1 - Asignación de tareas" style="max-width:100%; border-radius:8px; border: 1px solid #ddd;"><p style="margin:8px 0 0;font-size:0.95rem;color:#4b5563;">Imagen 1</p></div>'],
+                        ['En el campo <strong>Tareas</strong>, seleccionar las opciones “Check Out” y “Repaso”. Esto permitirá que el reporte muestre las habitaciones con salida programada (Check Out) y las que se encuentren vacías (Repaso).'],
+                        ['En el campo <strong>Mucamas</strong>, seleccionar el personal de HSK que trabaja ese día. Esto permite distribuir y asignar los apartamentos a limpiar entre el personal disponible.'],
+                        ['En el campo <strong>Estado de limpieza</strong>, seleccionar las opciones “Sucia”, “Limpia” y “Retocar”. Esto filtrará los apartamentos que, además de tener Check Out, se encuentren en alguno de esos estados.'],
+                        ['Una vez configuradas todas las opciones, hacer clic en <strong>“Crear Plantilla”</strong>.'],
+                        ['En caso de contar con varias mucamas, tildar los apartamentos correspondientes a cada una y luego ir a <strong>Opciones &gt; Reporte</strong>. Finalmente, hacer clic en <strong>Guardar</strong>.'],
+                        ['<div style="text-align:center; padding: 12px 0;"><img src="Media/hsk_reporte_2.png" alt="Imagen 2 - Opciones Reporte" style="max-width:100%; border-radius:8px; border: 1px solid #ddd;"><p style="margin:8px 0 0;font-size:0.95rem;color:#4b5563;">Imagen 2</p></div>'],
+                        ['En el reporte se visualiza el apartamento y el tipo de limpieza requerida: si indica “Limpieza de Check Out”, significa que el apartamento tiene salida; si indica “Limpieza”, el apartamento se encuentra vacío. En la columna <strong>Situación</strong>: “Recambio” indica que el apartamento tiene salida e ingreso el mismo día.'],
+                        ['“Sale” indica que el apartamento tiene salida sin ingreso posterior.'],
+                        ['<div style="text-align:center; padding: 12px 0;"><img src="Media/hsk_reporte_3.png" alt="Imagen 3 - Ejemplo de reporte" style="max-width:100%; border-radius:8px; border: 1px solid #ddd;"><p style="margin:8px 0 0;font-size:0.95rem;color:#4b5563;">Imagen 3</p></div>'],
+                        ['<strong>¡IMPORTANTE!</strong> Todas las reservas deben tener cargado el bedding, ya que es un requisito indispensable para que el reporte indique correctamente cómo debe realizar la limpieza el personal de Housekeeping.']
+                    ]
+                }
             ]
         }
-    ]
-}
-    } // <--- Esta llave cierra "subsections"
+    }
 },
 checklist: {
     name: 'CheckLists',
@@ -626,26 +649,30 @@ checklist: {
             ['• Repasar y actualizar Trello junto con TN.'],
             ['• Abrir Caja en Venice.'],
             ['• Revisar llegadas del día y repasar asignación según requerimientos especiales.'],
-            ['• <strong>InSoho / Filiberto / Baires:</strong> Preparar Report de habitaciones para Hskp.'],
-            ['• <strong>Contactar ingresos del día con la plantilla correspondiente:</strong><br>' +
-             '&nbsp;&nbsp;- "Mensaje Bienvenida" (Ingresos completos)<br>' +
-             '&nbsp;&nbsp;- "Bienvenida WCI pendiente" (Pagado, sin WCI)<br>' +
-             '&nbsp;&nbsp;- "Bienvenida Pago Pendiente" (WCI hecho, sin pago)<br>' +
-             '&nbsp;&nbsp;- "Bienvenida WCI y Pago Pendiente" (Nada completado)'],
-            ['• <strong>Check Outs:</strong> Contactar con la plantilla "Dia de Check Out".'],
-            ['• <strong>Seguimiento:</strong> Contactar con "Contacto 1er Noche" a quienes ingresaron ayer y se quedan más de 1 día.'],
-            ['• <strong>Limpieza:</strong> Contactar huéspedes LongStay con plantilla "Contacto InHouse - LongStay".'],
-            ['• <strong>Filiberto:</strong> Informar a JDD desayunos del día.'],
-            ['• Informar en grupos de Operaciones salidas o pedidos especiales para HSKP o Manager.'],
-            ['• <strong>InSoho:</strong> Preparar códigos de acceso en TTLOCK una vez firme la asignación.'],
-            ['• Cerca de las 11 AM verificar tipo de cambio BNA y actualizar.'],
-            ['• Realizar seguimiento de Check Outs pendientes después de las 11 Hrs y verificar cierre en sistema.'],
-            ['• A medida que las habs. estén limpias, enviar plantilla "Envío de Accesos" y realizar Check In en sistema.'],
-            ['• <strong>Cierre:</strong> Verificar bandeja de mails vacía, Trello actualizado y cierre de caja en Venice.']
+            ['• Enviar Reporte de habitaciones para Hskp.'],
+            ['• <strong>Contactar a los ingresos del día con la plantilla correspondiente:</strong><br>' +
+             '&nbsp;&nbsp;- "Mensaje Bienvenida" para los ingresos con todo completo<br>' +
+             '&nbsp;&nbsp;- "Bienvenida WCI pendiente" para los que pagaron, pero no hicieron el WCI<br>' +
+             '&nbsp;&nbsp;- "Bienvenida Pago Pendiente" para los que hicieron el WCI pero no pagaron<br>' +
+             '&nbsp;&nbsp;- "Bienvenida WCI y Pago Pendiente" para los que aún no completaron ninguno'],
+            ['• Contactar a los Check Out del día con la plantilla "Dia de Check Out".'],
+            ['• Contactar a los huéspedes que hayan hecho Check In el día anterior y se queden más de 1 día con la plantilla "Contacto 1er Noche".'],
+            ['• Contactar a los huéspedes que les corresponda limpieza con la plantilla "Contacto InHouse – LongStay".'],
+            ['• <strong>Enviar desayunos del día:</strong><br>' +
+             '&nbsp;&nbsp;- Nadina<br>' +
+             '&nbsp;&nbsp;- La Argentina<br>' +
+             '&nbsp;&nbsp;- Café Registrado<br>' +
+             '&nbsp;&nbsp;- Bari'],
+            ['• Informar en grupos de Operaciones del hotel que corresponda cada salida, situación o pedido de huéspedes InHouse para que HSKP o Hotel Manager actúen.'],
+            ['• Una vez definida y firme la asignación, preparar códigos de acceso a dptos. en TTLOCK y HIPCAM, si hubiera que hacerlos.'],
+            ['• Cerca de las 11 AM verificar tipo de cambio según BNA y actualizar si correspondiese.'],
+            ['• Realizar seguimiento de Check Outs pendientes luego de las 11 Hrs y verificar que se hayan realizado todos los Check Out en sistema.'],
+            ['• A medida que las habitaciones se pasan a Limpio, contactar ingresos con la plantilla "Envío de Accesos" y realizar Check In en sistema a todas las reservas a las que se envían códigos.'],
+            ['• <strong>Cierre:</strong> Verificar que todos los mails hayan sido realizados o respondidos (bandeja de entrada vacía), dejar Trello actualizado y realizar cierre de caja en Venice en los hoteles que corresponda.']
         ]
     }],
     footer: `
-        <a href="Media/CheckTM.docx" class="download-btn" download>
+        <a href="Media/CheckTM.docx" class="download-btn" download="CheckTM.docx">
             <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
             Descargar Checklist Turno Mañana
         </a>
@@ -660,20 +687,31 @@ checklist: {
             ['• Repasar y actualizar Trello junto con Host TM.'],
             ['• Abrir Caja en Venice.'],
             ['• Verificar disponibilidad del día: ingresos por llegar y Late Check Out pendientes.'],
-            ['• <strong>Limpieza:</strong> Chequear con Hskp dptos con ingreso pendiente que aún figuren sucios.'],
-            ['• <strong>Contactar ingresos del día pendientes según corresponda:</strong><br>' +
-             '&nbsp;&nbsp;- "Dpto Listo - WCI y Pago Pendiente"<br>' +
-             '&nbsp;&nbsp;- "Dpto Listo - WCI Pendiente"<br>' +
-             '&nbsp;&nbsp;- "Dpto Listo - Pago Pendiente" '],
-            ['• <strong>Contactar Ingresos (48 horas):</strong> Iniciar proceso de Check In según situación (Contacto 48 Hrs, WCI o Pago Pendiente).'],
-            ['• <strong>Contactar Ingresos (24 horas):</strong> Contactar ingresos del día siguiente con procesos pendientes.'],
-            ['• <strong>Nuevas Reservas:</strong> Verificar reservas generadas en las últimas 24 hrs y enviar plantilla "Agradecimiento".'],
-            ['• <strong>Sin contacto:</strong> Contactar por extranet o mail a quienes no tengan teléfono para que escriban al WUP.'],
-            ['• <strong>Pre Check Out:</strong> Enviar plantilla "Positiva" o "Negativa" a las salidas de mañana (Preferentemente entre 19 y 21 hrs)].'],
-            ['• <strong>Cierre:</strong> Verificar bandeja de entrada vacía, Trello actualizado y cierre de caja en Venice.']
+            ['• Chequear con Hskp apartamentos con ingreso pendiente que aún figuren sucios.'],
+            ['• <strong>Contactar ingresos por llegar en 48 horas</strong> para comenzar el proceso de Check In, según corresponda:<br>' +
+             '&nbsp;&nbsp;- Plantilla pre-check in "Contacto 48 Hrs"<br>' +
+             '&nbsp;&nbsp;- "Contacto 48 Hrs WCI y Pago Pendiente"<br>' +
+             '&nbsp;&nbsp;- "Contacto 48 Hrs WCI Pendiente"<br>' +
+             '&nbsp;&nbsp;- "Contacto 48 Hrs Pago Pendiente"'],
+            ['• <strong>Contactar ingresos del día siguiente</strong> que aún tengan algún proceso pendiente:<br>' +
+             '&nbsp;&nbsp;- Plantilla pre-check in "Contacto 24 Hrs WCI y Pago Pendiente"<br>' +
+             '&nbsp;&nbsp;- "Contacto 24 Hrs WCI Pendiente"<br>' +
+             '&nbsp;&nbsp;- "Contacto 24 Hrs Pago Pendiente"'],
+            ['• Enviar plantilla de "agradecimiento" a las reservas hechas en el día.'],
+            ['• Enviar a Nadina el reporte de desayunos.'],
+            ['• Contactarse y organizar las reservas próximas a su llegada en Baires Belgrano.'],
+            ['• <strong>Aldea Andina:</strong> Contestar los mensajes recibidos en las OTAs (Booking, Expedia, Airbnb).'],
+            ['• Verificar reservas sin contacto telefónico y contactarlas a través de la extranet correspondiente o mail, para informarles que nos escriban a nuestro WUP.'],
+            ['• Enviar planilla "Pre Check Out Positivo" a las salidas del día siguiente (entre 19 y 21 hrs).'],
+            ['• <strong>Cierre:</strong> Verificar que todos los mails hayan sido realizados o respondidos (bandeja de entrada vacía) y dejar Trello actualizado.']
         ]
     }],
-    footer: '<div style="margin-top:20px; text-align:center;"><a href="Media/CheckTT.docx" class="download-btn" download style="background-color: #2b579a;">📄 Descargar Checklist Turno Tarde</a></div>'
+    footer: `
+        <a href="Media/CheckTT.docx" class="download-btn" download="CheckTT.docx">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Descargar Checklist Turno Tarde
+        </a>
+    `
 },
         tn: {
     title: 'CheckList Turno Noche - Auditoría',
@@ -682,29 +720,38 @@ checklist: {
         data: [
             ['Acciones iniciales:'],
             ['• Revisar Trello con novedades junto con el compañero saliente.'],
-            ['• Revisar junto con TT los arribos pendientes y reconfirmar requerimientos especiales.'],
+            ['• Revisar junto con TT los arribos pendientes (de haber) y reconfirmar juntos todos los requerimientos especiales para evitar sorpresas más tarde.'],
             ['<strong>AUDITORÍA (Todas las propiedades):</strong>'],
             ['• Verificar que todas las reservas In House tengan el Web Check In realizado.'],
-            ['• Verificar carga y cobro del Cleaning Fee en las reservas correspondientes.'],
-            ['• Confirmar el pago total de la estadía para todas las reservas In House.'],
-            ['• Completar informe de auditoría "Cuentas con Saldo".'],
-            ['• Controlar carga correcta de Mercado, Origen, Agencia, Empresa y Tipo de Reserva.'],
-            ['• Verificar emisión de facturas (cobros banco) y recibos (WeTravel).'],
-            ['• Completar informe de auditoría "Descuentos Realizados".'],
+            ['• Verificar que todas las reservas que correspondan tengan cargado y cobrado el Cleaning Fee.'],
+            ['• Verificar que todas las reservas In House tengan realizado el pago total de su estadía.'],
+            ['• Controlar que todas las reservas InHouse tengan correctamente cargados MERCADO - ORIGEN - AGENCIA - EMPRESA y TIPO DE RESERVA, según corresponda.'],
+            ['• Verificar que se haya emitido factura para cobros por banco y recibo para WeTravel.'],
             ['• <strong>Rodar auditoría</strong> en todas las propiedades.'],
             ['<strong>LUEGO DE RODAR AUDITORÍA:</strong>'],
-            ['• Controlar carga automática (Channel VS Venice) para el día que comienza y 3 días vista.'],
-            ['• <strong>Cobros NRF:</strong> Cobrar todas las reservas NRF generadas en el día cerrado.'],
-            ['• <strong>Cobros Flexibles:</strong> Cobrar reservas con ingreso en 48 horas.'],
-            ['• <strong>CTA CTE / Transferencia:</strong> Cobrar a clientes que hacen Check Out ese día.'],
-            ['• Verificar que no queden Check Outs con saldo pendiente (si hay, informar al TM).'],
-            ['• Ajustar a $0 los saldos por diferencias de tipo de cambio.'],
-            ['• <strong>Milenia:</strong> Generar QR de acceso en HIPCAM y enviarlos al WhatsApp de Host.'],
-            ['• Enviar recibos/facturas con plantilla "Contacto Pago Aprobado" o informar "Pago Denegado".'],
-            ['• <strong>Cierre final:</strong> Verificar mails respondidos, Trello actualizado y cierre de caja en Venice.']
+            ['• <strong>Todas las propiedades — Controlar carga automática Channel vs Venice:</strong><br>' +
+             '&nbsp;&nbsp;- Que estén correctamente cargadas en Venice todas las reservas que figuran en el Channel para el día que comienza.<br>' +
+             '&nbsp;&nbsp;- Que se hayan cargado correctamente en Venice todas las reservas generadas en el Channel durante el día que hemos cerrado.<br>' +
+             '&nbsp;&nbsp;- Que estén correctamente cargadas en Venice todas las reservas a 3 días vista.'],
+            ['• <strong>Todas las propiedades:</strong> Cobrar todas las reservas NRF generadas en el día que cerramos, a través de la plataforma de pago que corresponda según el hotel.'],
+            ['• <strong>Todas las propiedades:</strong> Cobrar todas las reservas FLEXIBLES con ingreso dos días después de la fecha actual (ejemplo: si estamos empezando el día 10, cobrar las de ingreso el día 12).'],
+            ['• <strong>Todas las propiedades:</strong> Cobrar todas las reservas de clientes en CTA CTE / TRANSFERENCIA / TARJETA VIRTUAL que hagan check out ese día.'],
+            ['• <strong>Aldea Andina:</strong> Completar planilla de "Seguimiento planilla Aldea Andina".'],
+            ['• <strong>Todas las propiedades:</strong> Verificar que no quede ningún Check Out del día con saldo a abonar; de lo contrario, informar al TM.'],
+            ['• Ajustar a $0 todas las reservas que tengan saldos por diferencias en el tipo de cambio.'],
+            ['• <strong>Milenia, Hache y Vidt:</strong> Generar QR de acceso para las reservas que ingresan en el día y enviarlos al WhatsApp de Host.'],
+            ['• <strong>Aldea Andina:</strong> Generar accesos por TT Hotel, colocarlos en Trello y luego enviar los accesos cobrados y facturados 48 hs antes.'],
+            ['• <strong>Todas las propiedades:</strong> Enviar a todos los que se hayan cobrado el recibo o factura junto con la plantilla "Contacto Pago Aprobado".'],
+            ['• <strong>Todas las propiedades:</strong> Enviar la plantilla "Contacto - Pago Denegado" a todos los que no se hayan podido cobrar y, si corresponde, marcar la TC como inválida en la OTA.'],
+            ['• <strong>Cierre final:</strong> Verificar mails realizados o respondidos (bandeja vacía), dejar Trello actualizado y realizar cierre de caja en Venice en los hoteles que corresponda.']
         ]
     }],
-    footer: '<div style="margin-top:20px; text-align:center;"><a href="Media/CheckTN.docx" class="download-btn" download style="background-color: #2b579a;">📄 Descargar Checklist Turno Noche</a></div>'
+    footer: `
+        <a href="Media/CheckTN.docx" class="download-btn" download="CheckTN.docx">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Descargar Checklist Turno Noche
+        </a>
+    `
 }
     },
 },independencia: {
@@ -717,7 +764,9 @@ checklist: {
                     name: 'Información General',
                     data: [
                         ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                        ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930714481477 / Usuario: Host', 'IPHoteles2035!!'],
                         ['Mail', '-', 'host.bahindependencia@ippa-hoteles.com', 'IPHoteles2026@'],
+                        ['Tecnolav', '<a href="https://clientes.tecnolav.com.ar" target="_blank">Login Tecnolav</a>', 'host.bahindependencia@ippa-hoteles.com', 'Bahhotel2026'],
                     ]
                 }
             ]
@@ -726,11 +775,13 @@ checklist: {
             title: 'Categoría y Bedding',
             sections: [
                 {
-                    name: 'Configuración',
+                    name: 'Configuración de Habitaciones',
                     data: [
-                        ['Detalle', 'Información'],
-                        ['Tipo', 'Departamentos'],
-                        ['Camas', 'Consultar planilla']
+                        ['Categoría', 'Bedding', 'Notas'],
+                        ['STD', '1 cama mat o twin + 1 camastro', '1 persona entra por camastro'],
+                        ['SUP', '1 cama mat o twin + 1 camastro', '1 persona entra por camastro'],
+                        ['1Door', '1 cama mat o twin + 2 camastros', '1 persona entra por camastro'],
+                        ['2Door', '2 camas mat o twin + 2 camastros', '1 persona entra por camastro'],
                     ]
                 }
             ]
@@ -755,7 +806,7 @@ checklist: {
         {
             name: 'Códigos de Cajas',
             data: [
-                ['Caja', , 'Apartamento', 'Contraseña'],
+                ['Caja', 'Apartamento', 'Contraseña'],
                 ['1', '14D', '2941'],
                 ['2', '14J', '8305'],
                 ['3', '14E', '1762'],
@@ -763,9 +814,11 @@ checklist: {
                 ['5', '13E', '4028'],
                 ['6', '13G', '9517'],
                 ['7', '13H', '3850'],
-                ['8', '14i', '0000'],
-                ['9', '', '0000'],
-                ['10', '', '0000'],
+                ['8', '14H', '0000'],
+                ['9', '13F', '4217'],
+                ['10', '14G', '7138'],
+                ['11', '14I', '5287'],
+                ['12', 'Extra', '3623'],
             ]
         }
     ]
@@ -782,7 +835,7 @@ checklist: {
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718562712', 'Filiberto2026!'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718562712', 'Argentina2026!'],
                                     ['Celular', '-', '-', '1564'],
                                     ['Mail','-', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024@'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
@@ -801,9 +854,9 @@ checklist: {
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
+                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'AgoSStoo2026!!'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2026!!'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'Host2026!'],
                                     ['Almundo', '<a href="https://jintranet.trendoperadora.com.br/extranet/login.aspx?ReturnUrl=%2fextranet%2falojamiento%2fdefault.aspx%3falojamiento%3d4157&alojamiento=4157" target="_blank">Login Almundo</a>', 'FilibertobyiPPA2', 'IPHoteles2025!!'],
                                     ['Hotelbeds', '<a href="https://maxiroom.hotelbeds.com/#/login" target="_blank">Login Hotelbeds</a>', 'IPPA', 'IPHoteles2026*'],
                                 ]
@@ -830,6 +883,7 @@ checklist: {
                         sections: [
                             {
                                 name: 'Información de Cuenta',
+                                struck: true,
                                 data: [
                                     ['Concepto', 'Detalle'],
                                     ['Razón Social', 'NUEVA JUSTA SRL'],
@@ -837,27 +891,16 @@ checklist: {
                                     ['Cuit', '30718562712'],
                                     ['CBU', '0270001410057605490023'],
                                     ['Alias', 'GRANA.GAFAS.DESPERTO']
-                                    
-
                                 ]
-                                
-                            }
-                            
-                        ]
-                    },
-                    
-                    billing: {
-                        title: 'Facturación',
-                        sections: [
+                            },
                             {
-                                name: 'Tipos de Facturación por Origen',
+                                name: 'Información de Cuenta',
                                 data: [
-                                    ['Origen', 'Tipo de Pago', 'Tipo de Factura'],
-                                    ['Booking.com', 'Visa, Mastercard,Amex,etc', 'Factura A/B'],
-                                    ['Despegar', 'Cuenta corriente', 'Factura A'],
-                                    ['Airbnb', 'Cuenta corriente', 'Factura A'],
-                                    ['Expedia', 'Visa, Mastercard,Amex,etc', 'Factura T/Electrónica T'],
-                                    ['Efectivo', 'Factura T', 'Recibo T']
+                                    ['Concepto', 'Detalle'],
+                                    ['Razón Social', 'RUDI S A'],
+                                    ['Número de cuenta', 'CC ARS 0001636-8 677-3'],
+                                    ['Cuit', '30-71448142-4'],
+                                    ['CBU', '0070677920000001636839']
                                 ]
                             }
                         ]
@@ -874,7 +917,7 @@ checklist: {
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718528018', 'IPHoteles2031!!'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718528018', 'IPHoteles2027!'],
                                     ['Celular', '-', '-', '1564'],
                                     ['Hipcam', '-', 'asistente.operaciones@ippa-hoteles.com', 'IPHoteles2030!!'],
                                     ['Mail','-', 'host.mileniasoho@ippa-hoteles.com', 'IPHoteles2024'],
@@ -890,7 +933,7 @@ checklist: {
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
+                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'AgoSStoo2026!!'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
                                 ]
                             }
@@ -906,7 +949,7 @@ checklist: {
                                     ['HABITACIONES HACIA EL FRENTE:','TODAS LAS 01 Y 02'],
                                     ['HABITACIONES HACIA EL CONTRAFRENTE:','TODAS LAS 03 Y 04'],
                                     ['HABITACIONES QUE NO SE HACEN TWIN:','604, 704, 901, 403'],
-                                    ['NO TIENE SOFA CAMA:', '801, 802, 604, 704, 901, 902, 402'],
+                                    ['NO TIENE SOFA CAMA:', '801, 802, 604, 704, 901, 902, 402, 502'],
                                     ['TIENEN MICROONDAS:','704 Y 604'],
                                     ['HABITACIONES CON 2 BAÑOS:','TODAS MENOS 901 Y 801']
                                 ]
@@ -1013,6 +1056,34 @@ checklist: {
                             }
                         ]
                     },
+                    desayunos: {
+                        title: 'Desayunos',
+                        sections: [
+                            {
+                                name: 'Menú de Desayuno',
+                                data: [
+                                    ['Detalle'],
+                                    [`<div style="line-height: 1.8; padding: 10px;">
+                                        <p><strong>1 opción de comida entre:</strong></p>
+                                        <ul>
+                                            <li>2 medialunas</li>
+                                            <li>1 medialuna rellena (jamón y queso; queso y tomate ó dulce de leche)</li>
+                                            <li>1 croissant</li>
+                                            <li>3 chipas de queso</li>
+                                            <li>1 scon de queso</li>
+                                            <li>1 bowl con huevos revueltos</li>
+                                        </ul>
+
+                                        <p><strong>1 opción de bebida:</strong></p>
+                                        <ul>
+                                            <li>1 té o café de la carta (el que quieran)</li>
+                                        </ul>
+                                        <p>+ 1 jugo de naranja</p>
+                                    </div>`]
+                                ]
+                            }
+                        ]
+                    },
                     bankData: {
                         title: 'Datos Bancarios',
                         sections: [
@@ -1041,105 +1112,106 @@ checklist: {
                                 ]
                             }
                         ]
-                    },
-                    
-                    billing: {
-                        title: 'Facturación',
-                        sections: [
-                            {
-                                name: 'Tipos de Facturación por Origen',
-                                data: [
-                                    ['Origen', 'Tipo de Pago', 'Tipo de Factura'],
-                                    ['Booking.com', 'Visa, Mastercard,Amex,etc', 'Factura A/B'],
-                                    ['Despegar', 'Cuenta corriente', 'Factura A'],
-                                    ['Airbnb', 'Cuenta corriente', 'Factura A'],
-                                    ['Expedia', 'Visa, Mastercard,Amex,etc', 'Factura T/Recibo T'],
-                                    ['Efectivo', 'No aplica']
-                                ]
-                            }
-                        ]
                     }
                 }
             },
-                                     bah: {
-                            name: 'BAH Congreso By iPPA',
-                            subsections: {
-                                links: {
-                                    title: 'Links y contraseñas',
-                                    sections: [
-                                        {
-                                            name: 'Información General',
-                                            data: [
-                                                ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                                ['Mail','-', 'Host.bahcongreso@ippa-hoteles.com ', 'IPP4HOTELES475#'],
+            mileniaVidt: {
+                name: 'Milenia Vidt by iPPA',
+                subsections: {
+                    links: {
+                        title: 'Links y contraseñas',
+                        sections: [
+                            {
+                                name: 'Información General',
+                                data: [
+                                    ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Mail Milenia Vidt', '-', 'Host.mileniavidt@ippa-hoteles.com', 'IPHoteles2026&'],
+                                    ['Wifi', 'Todos los pisos', 'Milenia Vidt by iPPA', 'conectate'],
                                     
-                                            ]
-                                        }
-                                    ]
-                                },
-                                bedding: {
-                                    title: 'Categoría y Bedding',
-                                    sections: [
-                                        {
-                                            name: 'Configuración de Habitaciones',
-                                            data: [
-                                                ['Bedding,equipamiento y vista', '', '', 'Número'],
-                                                ['SE HACEN TWIN Y MAT', '', '', 'Todas'],
-                                               
-                                                ['HABS SIN LAVAROPAS', '', '', '1G , 1M Y 2M'],
-                                                ['HABS CON VISTA A LA CALLE', '', '', '1A , 7B'],
-                                                ['HABS CON VISTA AL PATIO', '', '', '1G,1M Y 2M'],
-                                                ['SIN VISTA, TIENE UN PATIECITO', '', '', '3H, 5G, 9D'],
-                                            ]
-                                        }
-                                    ]
-                                },
-                                bankData: {
-                                    title: 'Datos Bancarios',
-                                    sections: [
-                                        {
-                                            name: 'Información de Cuenta',
-                                            data: [
-                                                ['Concepto', 'Detalle'],
-                                                ['Razón Social', 'RUDI SA'],
-                                                ['Cuit', '30-71448142-4'],
-                                                ['CBU', '0070677920000001636839'],
-                                                ['Banco', 'Galicia'],
-                                            ]
-                                        }
-                                    ]
-                                },
-                                billing: {
-                                    title: 'Facturación',
-                                    sections: [
-                                        {
-                                            name: 'Tipos de Facturación',
-                                            data:  [                              
-                                                ['Origen', 'Tipo de Factura'],
-                                                ['Sin información', 'Sin información'],
-                                            ]
-                                        }
-                                    ]
-                                },
-                                accesos: { // Nuevo bloque accesos
-                                    title: 'Accesos',
-                                    sections: [
-                                        {
-                                            name: 'Códigos y Permisos',
-                                            data: [
-                                                ['Piso', 'Depto', 'Clave Cerradura', 'Software', 'Caja', 'Clave Caja', 'Tipo de Cerradura'],
-                ['1', 'A', '112233#', 'Chino', '9', '1989', 'Negra'],
-                ['1', 'M', '223344#', 'Chino', '15', '1995', 'Negra'],
-                ['1', 'G', '223344#', 'Chino', '7', '1987', 'Negra'],
-                ['2', 'M', '445566#', 'Chino', '17', '1997', 'Negra'],
-                ['5', 'G', '6431#', 'TTLOCK', '12', '1992', 'Gris'],
-                ['9', 'D', '262689#', 'TTLOCK', '10', '1990', 'Gris']
-                                            ]
-                                        }
-                                    ]
-                                }
-                            }
-                        },reservas: {
+                                ]
+                            }
+                        ]
+                    },
+                    bedding: {
+                        title: 'Categoría y Bedding',
+                        sections: [
+                            {
+                                name: 'Configuración de Habitaciones',
+                                data: [
+                                    ['Bedding y Equipamiento', 'Número'],
+                                    ['DPTO Standar:', '1 ambiente'],
+                                    ['DPTO Superior:', '2 ambientes'],
+                                    ['DUPLEX:', '2 pisos'],
+                                    ['DEPTO 802:', '2 ambientes. Balcón que recorre toda la esquina; apartamento en forma de L'],
+                                    ['BEDDING (TODAS LAS UNIDADES):', '1 cama matrimonial + 1 sofá cama para 1 persona'],
+                                    ['SE HACEN MAT O TWIN:', 'TODOS LOS DEPARTAMENTOS'],
+                                ]
+                            }
+                        ]
+                    },
+                    desayunos: {
+                        title: 'Desayuno Café Registrado',
+                        sections: [
+                            {
+                                name: 'Datos del Proveedor',
+                                data: [
+                                    ['Detalle', 'Información'],
+                                    ['Nombre', 'Café Registrado, suc. Plaza Güemes'],
+                                    ['Web', '<a href="https://www.caferegistrado.com" target="_blank">www.caferegistrado.com</a>'],
+                                    ['Dirección', 'Av. Medrano 1881 (a 200 metros de Milenia Vidt, en Palermo Soho)'],
+                                    ['Contacto Comercial', 'Fernanda Pérez – 11 3041 2891'],
+                                    ['Contacto Operativo', '<a href="mailto:plazaguemes@caferegistrado.com">plazaguemes@caferegistrado.com</a>'],
+                                    ['Horario', 'Todos los días de 8 a 20 hs. Abre los feriados.'],
+                                    ['Guarda equipaje', 'No presta este servicio.']
+                                ]
+                            },
+                            {
+                                name: 'Procedimiento Operativo',
+                                data: [
+                                    ['Detalle'],
+                                    [`<div style="line-height:1.65; max-width:900px;">
+                                        <p style="margin-top:0;">Operación <strong>igual que el resto de las cafeterías</strong> con convenio de desayuno:</p>
+                                        <ol style="margin:0.75em 0 0 1.25em; padding:0;">
+                                            <li style="margin-bottom:0.75em;">Entre las <strong>7:00 y las 7:30 hs</strong>, enviar por mail a la operación de la cafetería (<a href="mailto:plazaguemes@caferegistrado.com">plazaguemes@caferegistrado.com</a>) el <strong>listado de huéspedes</strong> que desayunan ese día.</li>
+                                            <li style="margin-bottom:0.75em;">El listado debe incluir <strong>solo el nombre</strong> del huésped. <strong>No</strong> incluir el número de reserva.</li>
+                                            <li style="margin-bottom:0.75em;">En el local, la cafetería solicitará al huésped el <strong>código de reserva iPPA</strong>. Si el huésped entrega por error el código de la OTA, no hay inconveniente.</li>
+                                            <li style="margin-bottom:0.75em;">La cafetería presentará <strong>quincenalmente</strong> la <strong>Liquidación de Desayunos</strong> efectivamente consumidos, con: fecha, nombre, código de reserva y opción de desayuno consumida.</li>
+                                        </ol>
+                                    </div>`]
+                                ]
+                            },
+                            {
+                                name: 'Menú de Desayuno Continental',
+                                data: [
+                                    ['Detalle', 'Información'],
+                                    ['Tipo', 'Desayuno continental (consta de tres componentes). El huésped elige una de las siguientes opciones:'],
+                                    ['Opción 1', 'Café o infusión mediana a elección, dos medialunas y un jugo chico de naranja'],
+                                    ['Opción 2', 'Café o infusión mediana a elección, tostadas con dip de mermelada y queso crema'],
+                                    ['Opción 3', 'Café o infusión mediana a elección, yogurt chico y plato de frutas'],
+                                    ['Extras', 'Cualquier cosa extra que el pasajero requiera puede solicitarla directamente en el local.']
+                                ]
+                            }
+                        ]
+                    },
+                    bankData: {
+                        title: 'Datos Bancarios',
+                        sections: [
+                            {
+                                name: 'Información de Cuenta (ARS)',
+                                data: [
+                                    ['Concepto', 'Detalle'],
+                                    ['Razón Social', 'FIDEICOMISO STAY HOME FIDEICOM'],
+                                    ['Cuit', '30718528018'],
+                                    ['Tipo y número de cuenta corriente en pesos', '429-025036/8'],
+                                    ['CBU', '0720429020000002503686'],
+                                    ['Alias', 'ANALOGIA.MISA.REBAJO'],
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            reservas: {
                             name: 'Reservas',
                             subsections: {
                                 links: {
@@ -1238,7 +1310,7 @@ function formatBankSectionAsText(section) {
 
 function renderBankDataSection(section, tableContainer) {
     const wrapper = document.createElement('div');
-    wrapper.className = 'bank-copy-wrapper';
+    wrapper.className = section.struck ? 'bank-copy-wrapper bank-copy-struck' : 'bank-copy-wrapper';
 
     const textBlock = formatBankSectionAsText(section);
 
@@ -1437,10 +1509,10 @@ function renderSearchResults(results, query) {
       <tbody>
       ${results.map((item, idx) => `
         <tr>
-          <td>${item.hotelName}</td>
-          <td>${item.subsectionTitle}</td>
-          <td>${item.sectionName}</td>
-          <td><button class="copy-btn" onclick="openSearchResult(${idx})">Abrir</button></td>
+          <td data-label="Hotel">${item.hotelName}</td>
+          <td data-label="Seccion">${item.subsectionTitle}</td>
+          <td data-label="Detalle">${item.sectionName}</td>
+          <td data-label="Accion"><button class="copy-btn" onclick="openSearchResult(${idx})">Abrir</button></td>
         </tr>
       `).join('') || '<tr><td colspan="4">Sin resultados</td></tr>'}
       </tbody>`;
@@ -1551,7 +1623,7 @@ function showSubsection(hotelId, subsectionId) {
     // Dibujar las tablas
     subsection.sections.forEach(section => {
         const sectionTitle = document.createElement('div');
-        sectionTitle.className = 'section-title';
+        sectionTitle.className = section.struck ? 'section-title bank-copy-struck' : 'section-title';
         sectionTitle.textContent = section.name;
         tableContainer.appendChild(sectionTitle);
 
@@ -1579,6 +1651,9 @@ function showSubsection(hotelId, subsectionId) {
             const tr = document.createElement('tr');
             row.forEach((cell, colIndex) => {
                 const element = index === 0 ? document.createElement('th') : document.createElement('td');
+                if (index > 0) {
+                    element.setAttribute('data-label', headers[colIndex] || '');
+                }
                 if (index > 0 && shouldAddCopyButton(headers, String(cell), colIndex, index)) {
                     const plainValue = getPlainCellValue(String(cell));
                     const wrapper = document.createElement('div');
