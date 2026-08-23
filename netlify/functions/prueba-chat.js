@@ -38,6 +38,13 @@ exports.handler = async (event) => {
     return json(event, 503, { error: MISSING_KEY, code: "missing_key" });
   }
 
+  // llama-3.1-8b-instant se apagó el 16/08/2026. Reemplazo oficial: openai/gpt-oss-20b
+  const models = [
+    process.env.GROQ_MODEL,
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-120b"
+  ].filter(Boolean);
+
   let payload;
   try {
     payload = JSON.parse(event.body || "{}");
@@ -63,44 +70,54 @@ exports.handler = async (event) => {
 
   const context = chunks.map((chunk, i) => `[${i + 1} ${chunk.name}]\n${chunk.text}`).join("\n\n");
 
+  const messages = [
+    {
+      role: "system",
+      content: "Sos el asistente interno de host de iPPA Hoteles. Respondé en español, claro y en pasos. Usá SOLO el contexto. Si no está, decí que no está en los documentos. No inventes."
+    },
+    {
+      role: "user",
+      content: `Pregunta: ${question}\n\nContexto:\n${context}`
+    }
+  ];
+
+  let lastError = "";
   try {
-    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${key}`
-      },
-      body: JSON.stringify({
-        model: "llama-3.1-8b-instant",
-        temperature: 0.2,
-        messages: [
-          {
-            role: "system",
-            content: "Sos el asistente interno de host de iPPA Hoteles. Respondé en español, claro y en pasos. Usá SOLO el contexto. Si no está, decí que no está en los documentos. No inventes."
-          },
-          {
-            role: "user",
-            content: `Pregunta: ${question}\n\nContexto:\n${context}`
-          }
-        ]
-      })
-    });
-
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok) {
-      const groqMsg = data.error && data.error.message ? data.error.message : "";
-      return json(event, 502, {
-        error: groqMsg
-          ? `Groq no respondió: ${groqMsg}`
-          : "Groq no respondió. Revisá el cupo diario o volvé a intentar."
+    for (const model of models) {
+      const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${key}`
+        },
+        body: JSON.stringify({
+          model,
+          temperature: 0.2,
+          messages
+        })
       });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        lastError = data.error && data.error.message ? data.error.message : `HTTP ${res.status}`;
+        const modelGone = /decommission|deprecated|not found|does not exist|model_not_found/i.test(lastError);
+        if (modelGone) continue;
+        return json(event, 502, { error: `Groq no respondió: ${lastError}` });
+      }
+
+      const text = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || "").trim();
+      if (!text) {
+        lastError = "Groq no devolvió texto.";
+        continue;
+      }
+      return json(event, 200, { text });
     }
 
-    const text = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || "").trim();
-    if (!text) {
-      return json(event, 502, { error: "Groq no devolvió texto." });
-    }
-    return json(event, 200, { text });
+    return json(event, 502, {
+      error: lastError
+        ? `Groq no respondió: ${lastError}`
+        : "Groq no respondió. Revisá el cupo diario o volvé a intentar."
+    });
   } catch (err) {
     return json(event, 502, { error: "No se pudo contactar a Groq." });
   }

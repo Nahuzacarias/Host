@@ -1,0 +1,6 @@
+# Base operativa local: no va a GitHub (fotos, videos y docs internos)
+/Base de datos iPPA/
+*.mp4
+*.mov
+*.avi
+*.mkv

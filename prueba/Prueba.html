@@ -433,13 +433,16 @@
         <div id="copy-toast" class="copy-toast">Copiado</div>
         <script src="script.js"></script>
 
-  <!-- Asistente iPPA: widget de prueba (no es una página aparte) -->
+  <!-- Asistente iPPA: widget de prueba -->
   <div id="ippa-bot">
     <div class="ippa-bot-panel" id="ippa-bot-panel" hidden>
       <div class="ippa-bot-header">
-        <div>
-          <h2>Asistente iPPA</h2>
-          <p>Procedimientos y documentos de host</p>
+        <div class="ippa-bot-header-title">
+          <div class="ippa-bot-avatar">⚡</div>
+          <div>
+            <h2>Asistente Host iPPA</h2>
+            <p>SOPs, Fichas de Edificios y Checklists</p>
+          </div>
         </div>
         <div class="ippa-bot-header-actions">
           <button type="button" class="ippa-bot-icon-btn" id="ippa-bot-close" title="Cerrar" aria-label="Cerrar chat">
@@ -450,18 +453,20 @@
 
       <div class="ippa-bot-messages" id="ippa-bot-messages"></div>
       <div class="ippa-bot-chips" id="ippa-bot-chips"></div>
-      <p class="ippa-bot-status" id="ippa-bot-status">Cargando documentos…</p>
+      <div class="ippa-bot-status-bar" id="ippa-bot-status">
+        <span class="ippa-bot-status-dot" id="ippa-bot-status-dot"></span>
+        <span id="ippa-bot-status-text">Cargando base operativa…</span>
+      </div>
       <form class="ippa-bot-composer" id="ippa-bot-form">
-        <textarea id="ippa-bot-input" rows="2" placeholder="Ej: el huésped de Baires quiere desayuno, ¿qué hago?"></textarea>
-        <button type="submit">Preguntar</button>
+        <textarea id="ippa-bot-input" rows="2" placeholder="Ej: ¿Cómo se cobra con Clover? / Claves Milenia..."></textarea>
+        <button type="submit" id="ippa-bot-submit">Enviar</button>
       </form>
     </div>
 
     <button type="button" class="ippa-bot-launcher" id="ippa-bot-toggle" aria-label="Abrir asistente iPPA" aria-expanded="false">
-      <svg class="ippa-bot-icon-globe" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-        <circle cx="12" cy="12" r="10"></circle>
-        <path d="M2 12h20"></path>
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      <span class="ippa-bot-badge-status" title="En línea"></span>
+      <svg class="ippa-bot-icon-globe" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
       </svg>
       <svg class="ippa-bot-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <line x1="18" y1="6" x2="6" y2="18"></line>

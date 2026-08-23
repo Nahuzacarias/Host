@@ -1,31 +1,35 @@
-ASISTENTE iPPA — WIDGET EN LA WEB DE PRUEBA
-===========================================
+ASISTENTE HOST iPPA — WIDGET EN LA WEB DE PRUEBA
+=================================================
 
-Abrí la copia de la web:
-  /prueba/Prueba.html
+1. ¿Cómo abrir la web de prueba?
+   Abrí en tu navegador:
+     /prueba/Prueba.html
 
-El chat no es una página aparte. Aparece como un globo abajo a la derecha.
-Hacé clic para abrir el panel.
+   El chat es un widget flotante en la esquina inferior derecha (globo azul con ícono de chat).
+   Hacé clic para abrir el panel del asistente.
 
-1. Documentos (la única fuente del bot)
-   Copiá acá tus archivos:
-   - PDF (.pdf)
-   - Word (.docx)
-   - Texto (.txt / .md)
-   - Excel (.xlsx / .csv)
+2. Base de Conocimiento Operativa (23 Documentos / 660 Temas)
+   Ya contiene todos los documentos esenciales de la empresa:
+   - Host.xlsx (Links, usuarios, contraseñas y tablas de propiedades)
+   - Manual de Procedimientos Host 2025-2026
+   - Checklists de turnos: Mañana (TM), Tarde (TT) y Noche (TN)
+   - Procedimientos de HSK y Reportes
+   - Facturación y Cobranzas (Clover, WeTravel, Despegar, Aldea Andina)
+   - Fichas técnicas de propiedades: Milenia Soho, Milenia Vidt, Filiberto, BAH Congreso, Baires Belgrano, Hache Palermo, Aldea Andina Bariloche
+   - Guía de Bariloche y Políticas de reservas de propietarios
 
-   Después hacé doble clic en:
-     prueba\actualizar-docs.ps1
+3. ¿Cómo actualizar o agregar nuevos documentos?
+   - Si agregás o modificás archivos en "Base de datos iPPA" o en "prueba\docs", simplemente hacé doble clic en:
+       prueba\actualizar-docs.ps1
+   - Eso regenera automáticamente la base de conocimiento estructurada (knowledge-base.json).
 
-   Eso actualiza la lista. Subí los cambios a Netlify (o recargá si ya está publicado).
+4. Inteligencia Artificial (LLM)
+   El backend soporta 3 opciones de IA de alta velocidad:
+   - Opción 1 (Recomendada y ultrarrápida): GROQ_API_KEY (gratis en https://console.groq.com)
+   - Opción 2: GEMINI_API_KEY (gratis en https://aistudio.google.com)
+   - Opción 3: OPENAI_API_KEY (https://platform.openai.com)
 
-2. Inteligencia (LLM)
-   El chat NO pide clave en el navegador.
-   Para que redacte las respuestas:
-   - Creá una clave gratis en https://console.groq.com
-   - En Netlify: Site settings → Environment variables → GROQ_API_KEY
-   - Volvé a publicar el sitio
-
-No hay carga de archivos en el chat ni rueda de configuración.
-El sitio original (index.html en la raíz) no se toca.
-No hace falta copiar contraseñas de la web al bot: esa info no se ingiere sola.
+   Configuración en Netlify:
+   - Andá a: Site configuration → Environment variables
+   - Agregá GROQ_API_KEY (o GEMINI_API_KEY / OPENAI_API_KEY) con tu clave
+   - Volvé a desplegar el sitio (Deploy)
