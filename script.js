@@ -54,6 +54,22 @@
                             },
                             
                         ]
+                    },
+                    accesosMaestros: {
+                        title: 'Accesos Maestros Puertas',
+                        sections: [
+                            {
+                                name: 'Códigos maestros',
+                                customRender: 'masterDoorCodes',
+                                data: [
+                                    ['Propiedad', 'Código'],
+                                    ['Hache', '7788#'],
+                                    ['Milenia Vidt', '462852#'],
+                                    ['Independencia', '9988#'],
+                                    ['Milenia Soho', '6677#']
+                                ]
+                            }
+                        ]
                     }
                 }
             },
@@ -1287,7 +1303,45 @@ function shouldAddCopyButton(headers, cellHtml, colIndex, rowIndex) {
     if (rowIndex === 0) return false;
     const header = (headers[colIndex] || '').toLowerCase();
     const hasAnchor = /<a\s/i.test(cellHtml);
-    return hasAnchor || header.includes('usuario') || header.includes('contraseña') || header.includes('link');
+    return hasAnchor || header.includes('usuario') || header.includes('contraseña') || header.includes('link') || header.includes('código') || header.includes('codigo');
+}
+
+function renderMasterDoorCodesSection(section, tableContainer) {
+    const rows = (section.data || []).slice(1);
+    const wrapper = document.createElement('div');
+    wrapper.className = 'master-codes-box';
+
+    rows.forEach((row) => {
+        const name = String(row[0] || '');
+        const code = String(row[1] || '');
+        const item = document.createElement('div');
+        item.className = 'master-codes-row';
+
+        const nameEl = document.createElement('span');
+        nameEl.className = 'master-codes-name';
+        nameEl.textContent = name;
+
+        const codeEl = document.createElement('span');
+        codeEl.className = 'master-codes-code';
+        codeEl.textContent = code;
+
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'copy-btn';
+        copyBtn.type = 'button';
+        copyBtn.textContent = 'Copiar';
+        copyBtn.addEventListener('click', () => copyCellValue(code));
+
+        item.appendChild(nameEl);
+        item.appendChild(codeEl);
+        item.appendChild(copyBtn);
+        wrapper.appendChild(item);
+    });
+
+    tableContainer.appendChild(wrapper);
+
+    if (activeHighlightQuery) {
+        applyTextHighlight(wrapper, activeHighlightQuery);
+    }
 }
 
 function formatBankSectionAsText(section) {
@@ -1642,6 +1696,11 @@ function showSubsection(hotelId, subsectionId) {
             return;
         }
 
+        if (section.customRender === 'masterDoorCodes') {
+            renderMasterDoorCodesSection(section, tableContainer);
+            return;
+        }
+
         const table = document.createElement('table');
         const thead = document.createElement('thead');
         const tbody = document.createElement('tbody');
@@ -1720,3 +1779,166 @@ function toggleDriveMenu() {
 }
 
 setLastUpdate();
+
+(function initOpsMailWidget() {
+    const root = document.getElementById('ops-mail');
+    const toggle = document.getElementById('ops-mail-toggle');
+    const closeBtn = document.getElementById('ops-mail-close');
+    const overlay = document.getElementById('ops-mail-overlay');
+    const panel = document.getElementById('ops-mail-panel');
+    const form = document.getElementById('ops-mail-form');
+    const fileInput = document.getElementById('ops-mail-adjunto');
+    const fileName = document.getElementById('ops-mail-file-name');
+    const statusEl = document.getElementById('ops-mail-status');
+    const submitBtn = document.getElementById('ops-mail-submit');
+    if (!root || !toggle || !form) return;
+
+    const MAIL_TO = 'asistente.operaciones@ippa-hoteles.com';
+    const MAX_FILE_BYTES = 4 * 1024 * 1024;
+
+    function setOpen(open) {
+        root.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (panel) panel.hidden = !open;
+        if (overlay) overlay.hidden = !open;
+        if (open) {
+            const first = document.getElementById('ops-mail-asunto');
+            if (first) first.focus();
+        }
+    }
+
+    function setStatus(message, type) {
+        if (!statusEl) return;
+        statusEl.textContent = message || '';
+        statusEl.classList.toggle('is-ok', type === 'ok');
+        statusEl.classList.toggle('is-error', type === 'error');
+    }
+
+    function buildFormData(nombre, asunto, descripcion, file) {
+        const data = new FormData();
+        data.append('Nombre y apellido', nombre);
+        data.append('Asunto', asunto);
+        data.append('Descripción', descripcion);
+        data.append('_subject', '[Host iPPA] ' + asunto);
+        data.append('_template', 'table');
+        data.append('_captcha', 'false');
+        if (file) data.append('Adjunto', file, file.name);
+        return data;
+    }
+
+    async function postToMailbox(email, formData) {
+        const res = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(email), {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: formData
+        });
+        const payload = await res.json().catch(() => ({}));
+        const ok = res.ok || payload.success === true || payload.success === 'true';
+        if (!ok) {
+            throw new Error(payload.message || 'No se pudo enviar el mail.');
+        }
+        return payload;
+    }
+
+    async function sendViaFunction(nombre, asunto, descripcion, file) {
+        let attachment = null;
+        if (file) {
+            const base64 = await new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const result = String(reader.result || '');
+                    resolve(result.includes(',') ? result.split(',')[1] : result);
+                };
+                reader.onerror = () => reject(new Error('No se pudo leer el adjunto.'));
+                reader.readAsDataURL(file);
+            });
+            attachment = {
+                filename: file.name,
+                contentType: file.type || 'application/octet-stream',
+                data: base64
+            };
+        }
+
+        const res = await fetch('/.netlify/functions/send-report', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({ nombre, asunto, descripcion, attachment })
+        });
+        const payload = await res.json().catch(() => ({}));
+        if (!res.ok) {
+            const error = new Error(payload.error || 'No se pudo enviar el mail.');
+            error.status = res.status;
+            throw error;
+        }
+        return payload;
+    }
+
+    toggle.addEventListener('click', () => setOpen(true));
+    if (closeBtn) closeBtn.addEventListener('click', () => setOpen(false));
+    if (overlay) overlay.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && root.classList.contains('is-open')) {
+            setOpen(false);
+        }
+    });
+
+    if (fileInput && fileName) {
+        fileInput.addEventListener('change', () => {
+            const file = fileInput.files && fileInput.files[0];
+            fileName.textContent = file ? file.name : 'Ningún archivo seleccionado';
+            if (file && file.size > MAX_FILE_BYTES) {
+                setStatus('El adjunto no puede superar los 4 MB.', 'error');
+            } else if (statusEl && statusEl.classList.contains('is-error')) {
+                setStatus('');
+            }
+        });
+    }
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const honeypot = document.getElementById('ops-mail-website');
+        if (honeypot && honeypot.value.trim()) {
+            setStatus('Aviso enviado.', 'ok');
+            form.reset();
+            if (fileName) fileName.textContent = 'Ningún archivo seleccionado';
+            return;
+        }
+
+        const nombre = (document.getElementById('ops-mail-nombre')?.value || '').trim();
+        const asunto = (document.getElementById('ops-mail-asunto')?.value || '').trim();
+        const descripcion = (document.getElementById('ops-mail-descripcion')?.value || '').trim();
+        const file = fileInput && fileInput.files ? fileInput.files[0] : null;
+
+        if (!asunto || !descripcion || !nombre) {
+            setStatus('Completá asunto, descripción y nombre y apellido.', 'error');
+            return;
+        }
+        if (file && file.size > MAX_FILE_BYTES) {
+            setStatus('El adjunto no puede superar los 4 MB.', 'error');
+            return;
+        }
+
+        if (submitBtn) submitBtn.disabled = true;
+        setStatus('Enviando aviso…');
+
+        try {
+            try {
+                await sendViaFunction(nombre, asunto, descripcion, file);
+            } catch (fnError) {
+                if (fnError && fnError.status && fnError.status !== 404 && fnError.status !== 405) {
+                    throw fnError;
+                }
+                await postToMailbox(MAIL_TO, buildFormData(nombre, asunto, descripcion, file));
+            }
+
+            form.reset();
+            if (fileName) fileName.textContent = 'Ningún archivo seleccionado';
+            setStatus('Aviso enviado a Operaciones.', 'ok');
+            window.setTimeout(() => setOpen(false), 1400);
+        } catch (error) {
+            setStatus(error.message || 'No se pudo enviar el aviso. Probá de nuevo.', 'error');
+        } finally {
+            if (submitBtn) submitBtn.disabled = false;
+        }
+    });
+})();

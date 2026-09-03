@@ -486,6 +486,55 @@ td { color: #d1d9e8; line-height: 1.6; }
   font-size: 12px;
 }
 
+.master-codes-box {
+  background-color: #13181f;
+  border: 1px solid #1e2738;
+  border-radius: 10px;
+  padding: 6px 14px;
+  margin-bottom: 24px;
+  max-width: 520px;
+  position: relative;
+}
+
+.master-codes-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #2a4fff, transparent);
+  border-radius: 2px 0 0 0;
+}
+
+.master-codes-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 4px;
+  border-bottom: 1px solid #1a2030;
+}
+
+.master-codes-row:last-child {
+  border-bottom: none;
+}
+
+.master-codes-name {
+  flex: 1;
+  color: #d1d9e8;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.master-codes-code {
+  font-family: Consolas, "Courier New", monospace;
+  color: #ffd166;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  min-width: 96px;
+  text-align: right;
+}
+
 /* --- ALARMA (Aldea Andina) --- */
 .alarm-codes-toolbar {
   margin-bottom: 14px;
@@ -1013,6 +1062,252 @@ td { color: #d1d9e8; line-height: 1.6; }
   transform: translateY(0);
 }
 
+/* --- AVISO A OPERACIONES (panel derecho) --- */
+.ops-mail-honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.ops-mail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 10, 16, 0.55);
+  z-index: 120;
+}
+
+.ops-mail-panel[hidden],
+.ops-mail-overlay[hidden] {
+  display: none !important;
+}
+
+.ops-mail-tab {
+  position: fixed;
+  top: 46%;
+  right: 0;
+  z-index: 130;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 10px;
+  border: 1px solid #2a4fff;
+  border-right: 0;
+  border-radius: 12px 0 0 12px;
+  background: #2a4fff;
+  color: #ffffff;
+  cursor: pointer;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: translateY(-50%) rotate(180deg);
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  text-transform: uppercase;
+  box-shadow: -6px 0 20px rgba(42, 79, 255, 0.28);
+  transition: background 0.2s, padding-right 0.2s;
+}
+
+.ops-mail-tab svg {
+  transform: rotate(180deg);
+  flex-shrink: 0;
+}
+
+.ops-mail-tab:hover {
+  background: #3b5bff;
+  padding-right: 14px;
+}
+
+.ops-mail.is-open .ops-mail-tab {
+  display: none;
+}
+
+.ops-mail-panel {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 140;
+  width: min(400px, calc(100vw - 24px));
+  display: flex;
+  flex-direction: column;
+  background: #13181f;
+  border: 1px solid #1e2738;
+  border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+
+.ops-mail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid #1e2738;
+  background: linear-gradient(180deg, #172033, #13181f);
+}
+
+.ops-mail-header h2 {
+  font-size: 16px;
+  font-weight: 650;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.ops-mail-header p {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.ops-mail-close {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #1e2738;
+  border-radius: 8px;
+  background: #0e1117;
+  color: #c9d1e0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ops-mail-close:hover {
+  color: #ffffff;
+  border-color: #2a4fff;
+}
+
+.ops-mail-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.ops-mail-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ops-mail-field > span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8896ae;
+}
+
+.ops-mail-field input,
+.ops-mail-field textarea {
+  width: 100%;
+  background: #0e1117;
+  color: #f3f4f6;
+  border: 1px solid #1e2738;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+}
+
+.ops-mail-field input:focus,
+.ops-mail-field textarea:focus {
+  border-color: #2a4fff;
+  box-shadow: 0 0 0 3px rgba(42, 79, 255, 0.18);
+}
+
+.ops-mail-field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.ops-mail-file {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.ops-mail-file input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ops-mail-file-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid #1e2738;
+  border-radius: 8px;
+  background: #0e1117;
+  color: #c9d1e0;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ops-mail-file:hover .ops-mail-file-btn {
+  border-color: #2a4fff;
+  color: #ffffff;
+}
+
+.ops-mail-file-name {
+  font-size: 12px;
+  color: #94a3b8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ops-mail-submit {
+  margin-top: 4px;
+  background: #2a4fff;
+  color: #ffffff;
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-size: 13px;
+  font-weight: 650;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.ops-mail-submit:hover:not(:disabled) {
+  background: #3b5bff;
+}
+
+.ops-mail-submit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.ops-mail-status {
+  min-height: 18px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.ops-mail-status.is-ok {
+  color: #34d399;
+}
+
+.ops-mail-status.is-error {
+  color: #f87171;
+}
+
 .search-highlight {
   background: #2a4fff66;
   color: #ffffff;
@@ -1196,6 +1491,10 @@ a:hover { color: #ffffff; text-decoration: underline; }
   }
   .content-header h2 { font-size: 22px; }
   .content-header h3 { font-size: 11px; }
+
+  .master-codes-box {
+    max-width: 100%;
+  }
 
   .utility-bar {
     flex-direction: column;
@@ -1426,6 +1725,15 @@ a:hover { color: #ffffff; text-decoration: underline; }
     left: 12px;
     bottom: calc(12px + env(safe-area-inset-bottom));
     text-align: center;
+  }
+
+  .ops-mail-panel {
+    top: 8px;
+    right: 8px;
+    left: 8px;
+    bottom: 8px;
+    width: auto;
+    border-radius: 14px;
   }
 
   th, td { padding: 10px 12px; font-size: 13px; }
