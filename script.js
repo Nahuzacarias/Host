@@ -68,6 +68,17 @@
                                     ['Independencia', '9988#'],
                                     ['Milenia Soho', '6677#']
                                 ]
+                            },
+                            {
+                                name: 'Milenia Vidt — Se puede hacer código',
+                                customRender: 'masterDoorNotes',
+                                items: ['802', 'Piso 7', 'Piso 3', 'Piso 1'],
+                                note: 'Hab 603 es la única que abre con',
+                                noteCode: '0060300#',
+                                data: [
+                                    ['Detalle'],
+                                    ['Milenia Vidt Se puede hacer código: 802, Piso 7, Piso 3, Piso 1. Hab 603 es la única que abre con 0060300#']
+                                ]
                             }
                         ]
                     }
@@ -933,7 +944,7 @@ checklist: {
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718528018', 'IPHoteles2027!'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930718528018 / Usuario: Host', 'IPHoteles2027!'],
                                     ['Celular', '-', '-', '1564'],
                                     ['Hipcam', '-', 'asistente.operaciones@ippa-hoteles.com', 'IPHoteles2030!!'],
                                     ['Mail','-', 'host.mileniasoho@ippa-hoteles.com', 'IPHoteles2024'],
@@ -1344,6 +1355,57 @@ function renderMasterDoorCodesSection(section, tableContainer) {
     }
 }
 
+function renderMasterDoorNotesSection(section, tableContainer) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'master-codes-box master-codes-notes-box';
+
+    (section.items || []).forEach((itemText) => {
+        const item = document.createElement('div');
+        item.className = 'master-codes-row';
+
+        const nameEl = document.createElement('span');
+        nameEl.className = 'master-codes-name';
+        nameEl.textContent = itemText;
+
+        item.appendChild(nameEl);
+        wrapper.appendChild(item);
+    });
+
+    if (section.note || section.noteCode) {
+        const noteRow = document.createElement('div');
+        noteRow.className = 'master-codes-row master-codes-note-row';
+
+        const noteEl = document.createElement('span');
+        noteEl.className = 'master-codes-note';
+        noteEl.textContent = section.note || '';
+
+        noteRow.appendChild(noteEl);
+
+        if (section.noteCode) {
+            const codeEl = document.createElement('span');
+            codeEl.className = 'master-codes-code';
+            codeEl.textContent = section.noteCode;
+
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'copy-btn';
+            copyBtn.type = 'button';
+            copyBtn.textContent = 'Copiar';
+            copyBtn.addEventListener('click', () => copyCellValue(section.noteCode));
+
+            noteRow.appendChild(codeEl);
+            noteRow.appendChild(copyBtn);
+        }
+
+        wrapper.appendChild(noteRow);
+    }
+
+    tableContainer.appendChild(wrapper);
+
+    if (activeHighlightQuery) {
+        applyTextHighlight(wrapper, activeHighlightQuery);
+    }
+}
+
 function formatBankSectionAsText(section) {
     const rows = (section.data || []).slice(1);
     if (!rows.length) return '';
@@ -1698,6 +1760,11 @@ function showSubsection(hotelId, subsectionId) {
 
         if (section.customRender === 'masterDoorCodes') {
             renderMasterDoorCodesSection(section, tableContainer);
+            return;
+        }
+
+        if (section.customRender === 'masterDoorNotes') {
+            renderMasterDoorNotesSection(section, tableContainer);
             return;
         }
 

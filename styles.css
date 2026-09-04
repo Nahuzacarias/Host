@@ -535,6 +535,22 @@ td { color: #d1d9e8; line-height: 1.6; }
   text-align: right;
 }
 
+.master-codes-notes-box {
+  margin-top: 4px;
+}
+
+.master-codes-note-row {
+  align-items: flex-start;
+}
+
+.master-codes-note {
+  flex: 1;
+  color: #c9d1e0;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
 /* --- ALARMA (Aldea Andina) --- */
 .alarm-codes-toolbar {
   margin-bottom: 14px;
