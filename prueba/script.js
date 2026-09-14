@@ -384,6 +384,7 @@
                                     ['Cuit', '30-71155821-3'],
                                     ['Cuenta Corriente en Pesos N°', '0002102-9 142-1'],
                                     ['CBU', ' 0070142220000002102913'],
+                                    ['Alias', 'ideal.nudo.anana']
                                 ]
                             }
                         ]
