@@ -496,6 +496,34 @@ td { color: #d1d9e8; line-height: 1.6; }
   position: relative;
 }
 
+.access-lines-box {
+  background-color: #13181f;
+  border: 1px solid #1e2738;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.access-line {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #d1d9e8;
+}
+
+.access-line-label {
+  font-weight: 600;
+  color: #c9d1e0;
+}
+
+.access-line-rooms {
+  color: #ffd166;
+  font-weight: 500;
+}
+
 .master-codes-box::before {
   content: '';
   position: absolute;

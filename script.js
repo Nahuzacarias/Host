@@ -45,7 +45,7 @@
                                     ['Cabify Host', '<a href="https://cabify.com/app/auth/login" target="_blank">Cabify Host</a>', 'host@ippa-hoteles.com', 'IPHoteles2026**'],
                                     ['TTlock', '<a href="https://lock2.ttlock.com/" target="_blank">TTlock Web</a>', 'asistente.operaciones@ippa-hoteles.com', 'IPHoteles2030!!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2027!'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2025!'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'AgoSStoo2026!!'],
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
                                     ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'Argentina2026!'],
@@ -97,7 +97,7 @@
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['Mail Baires ','-', 'host.baires@ippa-hoteles.com', 'IPHoteles2025!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'IPHoteles2026!'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'HostiPPA', 'IPHoteles2025!'],
                                 ]
                             },
                             {
@@ -874,7 +874,7 @@ checklist: {
                                 name: 'Tecnología',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2026!'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2025!'],
                                     ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024_!?']
                                 ]
                             },
@@ -932,6 +932,30 @@ checklist: {
                                 ]
                             }
                         ]
+                    },
+                    accesos: {
+                        title: 'Accesos',
+                        sections: [
+                            {
+                                name: '',
+                                customRender: 'accessLines',
+                                lines: [
+                                    {
+                                        label: 'Habitaciones con cerraduras electrónicas',
+                                        rooms: '206, 302, 303, 304, 402, 403, 405'
+                                    },
+                                    {
+                                        label: 'Habitaciones con tarjeta magnética',
+                                        rooms: '201, 202, 305, 306, 401, 404, 406, 502'
+                                    }
+                                ],
+                                data: [
+                                    ['Tipo', 'Habitaciones'],
+                                    ['Habitaciones con cerraduras electrónicas', '206, 302, 303, 304, 402, 403, 405'],
+                                    ['Habitaciones con tarjeta magnética', '201, 202, 305, 306, 401, 404, 406, 502'],
+                                ]
+                            }
+                        ]
                     }
                 }
             },
@@ -951,7 +975,7 @@ checklist: {
                                     ['Mail','-', 'host.mileniasoho@ippa-hoteles.com', 'IPHoteles2024'],
 ['Tecnolav', '<a href="https://clientes.tecnolav.com.ar" target="_blank">Login Tecnolav</a>', 'host.milenia@ippa-hoteles.com', 'Milenia2025'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2026!'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2025!'],
                                    
                                     ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.insoho@ippa-hoteles.com', 'InSoho2025'],
 
@@ -1407,6 +1431,34 @@ function renderMasterDoorNotesSection(section, tableContainer) {
     }
 }
 
+function renderAccessLinesSection(section, tableContainer) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'access-lines-box';
+
+    (section.lines || []).forEach((line) => {
+        const item = document.createElement('p');
+        item.className = 'access-line';
+
+        const labelEl = document.createElement('span');
+        labelEl.className = 'access-line-label';
+        labelEl.textContent = `${line.label}: `;
+
+        const roomsEl = document.createElement('span');
+        roomsEl.className = 'access-line-rooms';
+        roomsEl.textContent = line.rooms;
+
+        item.appendChild(labelEl);
+        item.appendChild(roomsEl);
+        wrapper.appendChild(item);
+    });
+
+    tableContainer.appendChild(wrapper);
+
+    if (activeHighlightQuery) {
+        applyTextHighlight(wrapper, activeHighlightQuery);
+    }
+}
+
 function formatBankSectionAsText(section) {
     const rows = (section.data || []).slice(1);
     if (!rows.length) return '';
@@ -1739,10 +1791,12 @@ function showSubsection(hotelId, subsectionId) {
 
     // Dibujar las tablas
     subsection.sections.forEach(section => {
-        const sectionTitle = document.createElement('div');
-        sectionTitle.className = section.struck ? 'section-title bank-copy-struck' : 'section-title';
-        sectionTitle.textContent = section.name;
-        tableContainer.appendChild(sectionTitle);
+        if (section.name) {
+            const sectionTitle = document.createElement('div');
+            sectionTitle.className = section.struck ? 'section-title bank-copy-struck' : 'section-title';
+            sectionTitle.textContent = section.name;
+            tableContainer.appendChild(sectionTitle);
+        }
 
         if (isMileniaMappingSubsection) {
             renderMileniaMappingSection(section, tableContainer);
@@ -1766,6 +1820,11 @@ function showSubsection(hotelId, subsectionId) {
 
         if (section.customRender === 'masterDoorNotes') {
             renderMasterDoorNotesSection(section, tableContainer);
+            return;
+        }
+
+        if (section.customRender === 'accessLines') {
+            renderAccessLinesSection(section, tableContainer);
             return;
         }
 
