@@ -218,11 +218,6 @@ body {
   flex-shrink: 0;
 }
 
-/* --- DRIVE MENÚ --- */
-.drive-menu-container {
-  position: relative;
-  width: 100%;
-}
 
 /* --- CONTENIDO PRINCIPAL --- */
 .main-content {

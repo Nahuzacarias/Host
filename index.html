@@ -297,35 +297,6 @@
                     </svg>
                     Descargá la info en Excel
                 </a>
-                <!-- Menú desplegable Drive -->
-<div class="drive-menu-container" style="position:relative; width:100%; margin-bottom:8px;">
-    <button class="download-btn" onclick="toggleDriveMenu()" style="width:100%; justify-content:space-between;">
-       <span style="display:flex; align-items:center; gap:8px; flex:1; justify-content:center;">
-            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <path d="M3 9h18M9 21V9"/>
-            </svg>
-            Google Drive iPPA
-        </span>
-        <svg id="drive-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.2s;">
-            <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-    </button>
-    <div id="driveDropdown" style="display:none; flex-direction:column; background:white; border:1px solid #e2e8f0; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10); margin-top:4px; overflow:hidden;">
-        <a href="https://drive.google.com/drive/u/0/folders/0AOwXJUVbBiZiUk9PVA" target="_blank" class="download-btn" style="border-radius:0; margin:0; border-bottom:1px solid #f0f0f0;">
-            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            Drive iPPA
-        </a>
-        <a href="https://docs.google.com/spreadsheets/d/1QCDz5184W8TaFTITb0bCv-aSSa357PQv/edit?gid=882631380#gid=882631380" target="_blank" class="download-btn" style="border-radius:0; margin:0; border-bottom:1px solid #f0f0f0;">
-            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            Horarios iPPA
-        </a>
-        <a href="https://docs.google.com/spreadsheets/d/11DIUNZlwky4PO8jTRKg4gC1HQ-uG2z0f/edit?gid=925203728#gid=925203728" target="_blank" class="download-btn" style="border-radius:0; margin:0;">
-            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            Mantenimiento iPPA
-        </a>
-    </div>
-</div>
             </div>
         </div>
 
@@ -350,6 +321,33 @@
                     <button class="utility-btn utility-btn-secondary" onclick="collapseAllHotels()">Colapsar todo</button>
                 </div>
                 <div class="last-update" id="last-update"></div>
+
+                <!-- [LOGIN DESHABILITADO TEMPORALMENTE]
+                <div class="user-auth-bar" id="user-auth-bar" style="display: none;">
+                    <div class="user-profile-badge" id="user-profile-badge">
+                        <span class="user-avatar" id="user-avatar">👤</span>
+                        <div class="user-info-text">
+                            <span class="user-name" id="user-display-name">Usuario</span>
+                            <span class="user-role-tag" id="user-role-tag">Host</span>
+                        </div>
+                    </div>
+                    <button id="admin-panel-btn" class="utility-btn admin-btn" style="display: none;" onclick="window.authSystem.openAdminPanel()">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span>Panel Admin</span>
+                        <span class="admin-badge-count" id="admin-pending-counter-badge" style="display: none;">0</span>
+                    </button>
+                    <button id="logout-btn" class="utility-btn utility-btn-secondary logout-btn" onclick="window.authSystem.logout()" title="Cerrar sesión">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        <span>Salir</span>
+                    </button>
+                </div>
+                -->
             </div>
             <div class="quick-links">
     <a href="https://s1.venicepms.com/ipa547/admin/login" target="_blank" class="quick-link-btn">
@@ -425,61 +423,347 @@
         </div>
     </div>
 
-        <div id="ops-mail" class="ops-mail">
-            <div class="ops-mail-overlay" id="ops-mail-overlay" hidden></div>
-            <button type="button" class="ops-mail-tab" id="ops-mail-toggle" aria-expanded="false" aria-controls="ops-mail-panel">
+
+
+        <!-- Menú desplegable lateral Horarios HSK -->
+        <div id="hsk-schedules" class="hsk-panel-widget">
+            <div class="hsk-overlay" id="hsk-overlay" hidden></div>
+            <button type="button" class="hsk-tab-btn" id="hsk-tab-btn" aria-expanded="false" aria-controls="hsk-drawer">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
                 </svg>
-                <span>Enviar mail a operaciones</span>
+                <span>Horarios HSK</span>
             </button>
-            <div class="ops-mail-panel" id="ops-mail-panel" role="dialog" aria-labelledby="ops-mail-title" hidden>
-                <div class="ops-mail-header">
-                    <div>
-                        <h2 id="ops-mail-title">Aviso a Operaciones</h2>
-                        <p>Completá los campos para enviar un mail a operaciones.</p>
+            <div class="hsk-drawer" id="hsk-drawer" role="dialog" aria-labelledby="hsk-title" hidden>
+                <div class="hsk-header">
+                    <div class="hsk-header-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <div>
+                            <h2 id="hsk-title">Horarios HSK</h2>
+                            <p>Planilla en tiempo real</p>
+                        </div>
                     </div>
-                    <button type="button" class="ops-mail-close" id="ops-mail-close" aria-label="Cerrar">
+                    <div class="hsk-header-actions">
+                        <button type="button" class="hsk-action-btn" id="hsk-refresh-btn" title="Recargar planilla">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 4v6h-6"></path>
+                                <path d="M1 20v-6h6"></path>
+                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                            </svg>
+                        </button>
+                        <a href="https://docs.google.com/spreadsheets/d/1Naz_e6pRDPbjF7iq6O09ClBI-LaLbZDr/edit?gid=544861313#gid=544861313" target="_blank" rel="noopener noreferrer" class="hsk-action-btn" title="Abrir en Google Sheets">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                        <button type="button" class="hsk-close-btn" id="hsk-close-btn" aria-label="Cerrar panel">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="hsk-iframe-container">
+                    <iframe
+                        id="hsk-iframe"
+                        src="about:blank"
+                        data-src="https://docs.google.com/spreadsheets/d/1Naz_e6pRDPbjF7iq6O09ClBI-LaLbZDr/preview?gid=544861313&rm=minimal"
+                        title="Horarios HSK Planilla"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <div id="copy-toast" class="copy-toast">Copiado</div>
+
+        <!-- ========================================================================= -->
+        <!-- SISTEMA DE LOGIN Y PANEL ADMIN (DESHABILITADO TEMPORALMENTE A PEDIDO)     -->
+        <!-- Para reactivar: Quitar el wrapper display:none y descomentar auth.js abajo -->
+        <!-- ========================================================================= -->
+        <div id="auth-system-dormant" style="display: none !important;">
+
+        <div id="auth-modal-overlay" class="auth-modal-overlay" style="display: none !important;">
+            <div class="auth-card-container">
+                <div class="auth-header">
+                    <div class="auth-logo-badge">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2">
+                            <path d="M3 21h18"></path>
+                            <path d="M9 8h10"></path>
+                            <path d="M9 12h10"></path>
+                            <path d="M9 16h10"></path>
+                            <path d="M4.5 19.5L4.5 9l3-3h9l3 3v10.5"></path>
+                            <path d="M4 21l1-7h14l1 7"></path>
+                        </svg>
+                    </div>
+                    <h2>iPPA Hoteles</h2>
+                    <p>Intranet de Operaciones & Host</p>
+                </div>
+
+                <div id="auth-error-banner" class="auth-banner-error"></div>
+                <div id="auth-success-banner" class="auth-banner-success"></div>
+
+                <div id="auth-loading-spinner" class="auth-loading-overlay">
+                    <div class="auth-spinner"></div>
+                    <span id="auth-loading-text">Cargando...</span>
+                </div>
+
+                <!-- CARD 1: INICIAR SESIÓN -->
+                <div id="auth-card-login">
+                    <form id="auth-form-login">
+                        <div class="auth-field">
+                            <label for="login-email">Correo Electrónico</label>
+                            <div class="auth-input-wrapper">
+                                <input type="email" id="login-email" class="auth-input" required placeholder="tu.nombre@ippa-hoteles.com" autocomplete="email">
+                            </div>
+                        </div>
+                        <div class="auth-field">
+                            <label for="login-password">Contraseña</label>
+                            <div class="auth-input-wrapper">
+                                <input type="password" id="login-password" class="auth-input" required placeholder="••••••••" autocomplete="current-password">
+                            </div>
+                        </div>
+                        <button type="submit" class="auth-btn-primary">Ingresar al Sistema</button>
+                    </form>
+                </div>
+
+                <!-- CARD 4: CUENTA PENDIENTE DE APROBACIÓN -->
+                <div id="auth-card-pending" class="auth-status-card" style="display: none;">
+                    <div class="auth-status-icon">⏳</div>
+                    <h3>Cuenta en Revisión</h3>
+                    <p>Hola <strong id="pending-user-name"></strong>. Tu cuenta fue creada correctamente y está <strong>pendiente de aprobación</strong> por el administrador (Nahuel). En cuanto te asigne los permisos podrás ingresar al sistema.</p>
+                    <button type="button" class="auth-btn-primary" onclick="window.location.reload()" style="margin-bottom: 12px;">Comprobar Aprobación</button>
+                    <div class="auth-footer-links">
+                        <button type="button" onclick="window.authSystem.logout()">Cerrar sesión e ingresar con otra cuenta</button>
+                    </div>
+                </div>
+
+                <!-- CARD 5: CUENTA BLOQUEADA -->
+                <div id="auth-card-blocked" class="auth-status-card" style="display: none;">
+                    <div class="auth-status-icon">⛔</div>
+                    <h3>Acceso Suspendido</h3>
+                    <p>Tu cuenta se encuentra deshabilitada temporalmente por el administrador. Contactate con Nahuel para más detalles.</p>
+                    <div class="auth-footer-links">
+                        <button type="button" onclick="window.authSystem.logout()">Cerrar sesión</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- PANEL DE ADMINISTRACIÓN (SOLO NAHUEL / ADMINS)                     -->
+        <!-- ================================================================= -->
+        <div id="admin-panel-modal" class="admin-modal-overlay">
+            <div class="admin-panel-container">
+                <div class="admin-header">
+                    <div class="admin-header-title">
+                        <span style="font-size:24px;">👑</span>
+                        <div>
+                            <h2>Panel de Administración iPPA</h2>
+                            <p>Gestión de colaboradores, roles y permisos de acceso</p>
+                        </div>
+                    </div>
+                    <button type="button" class="hsk-close-btn" onclick="window.authSystem.closeAdminPanel()" title="Cerrar panel">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
                     </button>
                 </div>
-                <form id="ops-mail-form" class="ops-mail-form" novalidate>
-                    <input type="text" id="ops-mail-website" name="website" tabindex="-1" autocomplete="off" class="ops-mail-honeypot" aria-hidden="true">
-                    <label class="ops-mail-field">
-                        <span>Asunto</span>
-                        <input id="ops-mail-asunto" name="asunto" type="text" maxlength="160" required placeholder="Ej: Falla de cerradura 704">
-                    </label>
-                    <label class="ops-mail-field">
-                        <span>Descripción</span>
-                        <textarea id="ops-mail-descripcion" name="descripcion" rows="5" maxlength="4000" required></textarea>
-                    </label>
-                    <div class="ops-mail-field">
-                        <span>Añadir adjunto</span>
-                        <label class="ops-mail-file">
-                            <input id="ops-mail-adjunto" name="adjunto" type="file" accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,.txt">
-                            <span class="ops-mail-file-btn">Elegir archivo</span>
-                            <span class="ops-mail-file-name" id="ops-mail-file-name">Ningún archivo seleccionado</span>
-                        </label>
+
+                <!-- Resumen de Estadísticas -->
+                <div class="admin-stats-row">
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-info">
+                            <span class="admin-stat-label">Total Usuarios</span>
+                            <span class="admin-stat-value" id="admin-stat-total">0</span>
+                        </div>
+                        <div class="admin-stat-icon">👥</div>
                     </div>
-                    <label class="ops-mail-field">
-                        <span>Nombre y apellido</span>
-                        <input id="ops-mail-nombre" name="nombre" type="text" maxlength="120" required placeholder="Tu nombre">
-                    </label>
-                    <button type="submit" class="ops-mail-submit" id="ops-mail-submit">Enviar</button>
-                    <p class="ops-mail-status" id="ops-mail-status" role="status" aria-live="polite"></p>
-                </form>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-info">
+                            <span class="admin-stat-label">Activos</span>
+                            <span class="admin-stat-value" id="admin-stat-active" style="color:#34d399;">0</span>
+                        </div>
+                        <div class="admin-stat-icon">✅</div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-info">
+                            <span class="admin-stat-label">Pendientes</span>
+                            <span class="admin-stat-value" id="admin-stat-pending" style="color:#fbbf24;">0</span>
+                        </div>
+                        <div class="admin-stat-icon">⏳</div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-info">
+                            <span class="admin-stat-label">Administradores</span>
+                            <span class="admin-stat-value" id="admin-stat-admins" style="color:#f59e0b;">0</span>
+                        </div>
+                        <div class="admin-stat-icon">👑</div>
+                    </div>
+                </div>
+
+                <!-- Tabs de Navegación -->
+                <div class="admin-tabs-bar">
+                    <button type="button" id="admin-tab-users" class="admin-tab-btn is-active" onclick="window.switchAdminTab('users')">
+                        👥 Usuarios & Permisos
+                    </button>
+                    <button type="button" id="admin-tab-create" class="admin-tab-btn" onclick="window.switchAdminTab('create')">
+                        ➕ Crear Usuario Directo
+                    </button>
+                </div>
+
+                <div class="admin-body">
+                    <!-- PESTAÑA 1: LISTADO DE USUARIOS -->
+                    <div id="admin-content-users">
+                        <div class="admin-toolbar">
+                            <input type="text" id="admin-user-search" class="admin-search-input" placeholder="🔍 Buscar por nombre o correo..." />
+                            <span style="font-size:12px; color:#94a3b8;">Cambios sincronizados en tiempo real con Firebase</span>
+                        </div>
+                        <div class="admin-table-wrapper">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Usuario</th>
+                                        <th>Rol</th>
+                                        <th>Estado</th>
+                                        <th>Permisos</th>
+                                        <th>Acciones de Administración</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-users-tbody">
+                                    <tr><td colspan="5" class="admin-empty-table">Cargando colaboradores...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- PESTAÑA 2: CREAR USUARIO DIRECTAMENTE -->
+                    <div id="admin-content-create" style="display: none;">
+                        <form id="admin-create-user-form" class="admin-create-form">
+                            <h3>Crear y Habilitar Nuevo Usuario</h3>
+                            <p>Podés dar de alta a un colaborador con sus permisos preconfigurados para que pueda ingresar inmediatamente sin esperar aprobación.</p>
+
+                            <div class="admin-form-row">
+                                <div class="auth-field">
+                                    <label>Nombre y Apellido</label>
+                                    <input type="text" id="admin-create-name" class="auth-input" required placeholder="Ej: Mariano López">
+                                </div>
+                                <div class="auth-field">
+                                    <label>Correo Electrónico</label>
+                                    <input type="email" id="admin-create-email" class="auth-input" required placeholder="mariano@ippa-hoteles.com">
+                                </div>
+                            </div>
+
+                            <div class="admin-form-row">
+                                <div class="auth-field">
+                                    <label>Contraseña Provisoria</label>
+                                    <input type="password" id="admin-create-password" class="auth-input" required placeholder="Mínimo 6 caracteres" minlength="6">
+                                </div>
+                                <div class="auth-field">
+                                    <label>Rol Inicial</label>
+                                    <select id="admin-create-role" class="auth-input">
+                                        <option value="host">Host (Colaborador)</option>
+                                        <option value="admin">Administrador (Acceso total y gestión)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div style="margin-top:14px; margin-bottom:14px;">
+                                <label class="hotel-perm-item" style="margin-bottom:8px;">
+                                    <input type="checkbox" id="admin-create-all-hotels" checked onchange="document.getElementById('admin-create-hotels-list').style.opacity = this.checked ? '0.5' : '1'; document.querySelectorAll('#admin-create-hotels-list input').forEach(c => c.disabled = this.checked);">
+                                    <div class="hotel-perm-info">
+                                        <span class="hotel-perm-title">🌟 Acceso a todas las propiedades y secciones</span>
+                                        <span class="hotel-perm-desc">Habilita visualización completa de todas las pestañas de hoteles</span>
+                                    </div>
+                                </label>
+                                <label class="hotel-perm-item">
+                                    <input type="checkbox" id="admin-create-master-keys">
+                                    <div class="hotel-perm-info">
+                                        <span class="hotel-perm-title">🔑 Acceso a Puertas Maestras</span>
+                                        <span class="hotel-perm-desc">Permite ver códigos maestros de puertas de acceso</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="perm-section-title" style="margin-top:14px;">Propiedades Asignadas (si no tiene acceso total):</div>
+                            <div id="admin-create-hotels-list" class="perm-checkbox-group" style="opacity: 0.5;">
+                                <!-- Se llena dinámicamente -->
+                            </div>
+
+                            <button type="submit" class="auth-btn-primary" style="margin-top:16px;">Crear Usuario y Habilitar Acceso</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div id="copy-toast" class="copy-toast">Copiado</div>
-        <script src="script.js"></script>
+        <!-- ================================================================= -->
+        <!-- MODAL DE EDICIÓN DE PERMISOS DE UN USUARIO                         -->
+        <!-- ================================================================= -->
+        <div id="permissions-modal" class="perm-modal-overlay">
+            <div class="perm-modal-container">
+                <div class="perm-modal-header">
+                    <div>
+                        <h3 id="perm-user-name">Configurar Permisos</h3>
+                        <p id="perm-user-email">usuario@correo.com</p>
+                    </div>
+                    <button type="button" class="hsk-close-btn" onclick="window.authSystem.closeEditPermissionsModal()" title="Cerrar">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="perm-modal-body">
+                    <label class="hotel-perm-item" style="margin-bottom:12px;">
+                        <input type="checkbox" id="perm-all-hotels">
+                        <div class="hotel-perm-info">
+                            <span class="hotel-perm-title">🌟 Acceso Total a Todas las Propiedades</span>
+                            <span class="hotel-perm-desc">Permite ver todos los hoteles sin restricciones</span>
+                        </div>
+                    </label>
 
-                        
-                    </body>
-                    </html>
+                    <label class="hotel-perm-item" style="margin-bottom:18px;">
+                        <input type="checkbox" id="perm-master-keys">
+                        <div class="hotel-perm-info">
+                            <span class="hotel-perm-title">🔑 Ver Códigos de Puertas Maestras</span>
+                            <span class="hotel-perm-desc">Permiso para visualizar la sección de accesos maestros</span>
+                        </div>
+                    </label>
+
+                    <div class="perm-section-title">Seleccionar Propiedades Específicas:</div>
+                    <div id="perm-hotels-list" class="perm-checkbox-group">
+                        <!-- Llenado dinámicamente -->
+                    </div>
+                </div>
+                <div class="perm-modal-footer">
+                    <button type="button" class="action-btn-small" onclick="window.authSystem.closeEditPermissionsModal()">Cancelar</button>
+                    <button type="button" class="auth-btn-primary" style="width:auto; padding:8px 18px; margin:0;" onclick="window.authSystem.saveUserPermissions()">Guardar Permisos</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="admin-toast" class="admin-toast">Acción completada</div>
+
+        </div> <!-- Fin de auth-system-dormant -->
+
+        <script src="script.js"></script>
+        <!-- [LOGIN DESHABILITADO TEMPORALMENTE - Descomentar la siguiente línea para reactivar el login] -->
+        <!-- <script type="module" src="auth.js"></script> -->
+
+    </body>
+</html>
 
                     

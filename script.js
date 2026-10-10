@@ -104,7 +104,7 @@
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'Host2026!'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'Argentina2027!'],
                                 ]
                             }
                         ]
@@ -173,7 +173,7 @@
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930714481421 / Usuario: Host', 'IPHoteles2035!!'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930714481421 / Usuario: Host', 'IPHoteles2026!'],
                                     ['Mail', '-', 'host.hachepalermo@ippa-hoteles.com', 'Hoteler1a96#'],
                                     ['Hit Connect', '-', 'host@ippa-hoteles.com', 'IPHoteles2026!'],
                                     ['Wifi', 'Piso 1', 'P1', 'Costarica4828'],
@@ -792,7 +792,7 @@ checklist: {
                     name: 'Información General',
                     data: [
                         ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                        ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930714481477 / Usuario: Host', 'IPHoteles2035!!'],
+                        ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930714481477 / Usuario: Host', 'IPHoteles2027!'],
                         ['Mail', '-', 'host.bahindependencia@ippa-hoteles.com', 'IPHoteles2026@'],
                         ['Tecnolav', '<a href="https://clientes.tecnolav.com.ar" target="_blank">Login Tecnolav</a>', 'host.bahindependencia@ippa-hoteles.com', 'Bahhotel2026'],
                     ]
@@ -835,16 +835,16 @@ checklist: {
             name: 'Códigos de Cajas',
             data: [
                 ['Caja', 'Apartamento', 'Contraseña'],
-                ['1', '14D', '2941'],
-                ['2', '14J', '8305'],
-                ['3', '14E', '1762'],
-                ['4', '14F', '6493'],
-                ['5', '13E', '4028'],
-                ['6', '13G', '9517'],
-                ['7', '13H', '3850'],
-                ['8', '14H', '0000'],
-                ['9', '13F', '4217'],
-                ['10', '14G', '7138'],
+                ['1', '14D', '8862'],
+                ['2', '14J', '6017'],
+                ['3', '14E', '9225'],
+                ['4', '14F', '8157'],
+                ['5', '13E', '4559'],
+                ['6', '13G', '0401'],
+                ['7', '13H', '7015'],
+                ['8', '14H', '5283'],
+                ['9', '13F', '1786'],
+                ['10', '14G', '6481'],
                 ['11', '14I', '5287'],
                 ['12', 'Extra', '3623'],
             ]
@@ -884,7 +884,7 @@ checklist: {
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'AgoSStoo2026!!'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'Host2026!'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'Argentina2027!'],
                                     ['Almundo', '<a href="https://jintranet.trendoperadora.com.br/extranet/login.aspx?ReturnUrl=%2fextranet%2falojamiento%2fdefault.aspx%3falojamiento%3d4157&alojamiento=4157" target="_blank">Login Almundo</a>', 'FilibertobyiPPA2', 'IPHoteles2025!!'],
                                     ['Hotelbeds', '<a href="https://maxiroom.hotelbeds.com/#/login" target="_blank">Login Hotelbeds</a>', 'IPPA', 'IPHoteles2026*'],
                                 ]
@@ -1775,6 +1775,12 @@ function prevHighlightMatch() {
 }
 
 function showSubsection(hotelId, subsectionId) {
+    /* [LOGIN DESHABILITADO TEMPORALMENTE]
+    if (typeof window.isHotelAllowed === 'function' && !window.isHotelAllowed(hotelId)) {
+        alert('No tenés permisos para ver esta propiedad. Solicitá acceso al administrador.');
+        return;
+    }
+    */
     const hotel = hotelsData[hotelId];
     const subsection = hotel.subsections[subsectionId];
     currentHotelId = hotelId;
@@ -1897,175 +1903,50 @@ function showSubsection(hotelId, subsectionId) {
     document.getElementById('empty-state').classList.add('hidden');
     document.getElementById('content').classList.remove('hidden');
 } // <-- Esta llave cierra showSubsection correctamente
-function toggleDriveMenu() {
-    const dropdown = document.getElementById('driveDropdown');
-    const arrow = document.getElementById('drive-arrow');
-    const isOpen = dropdown.style.display === 'flex';
-    dropdown.style.display = isOpen ? 'none' : 'flex';
-    arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
-}
+
 
 setLastUpdate();
 
-(function initOpsMailWidget() {
-    const root = document.getElementById('ops-mail');
-    const toggle = document.getElementById('ops-mail-toggle');
-    const closeBtn = document.getElementById('ops-mail-close');
-    const overlay = document.getElementById('ops-mail-overlay');
-    const panel = document.getElementById('ops-mail-panel');
-    const form = document.getElementById('ops-mail-form');
-    const fileInput = document.getElementById('ops-mail-adjunto');
-    const fileName = document.getElementById('ops-mail-file-name');
-    const statusEl = document.getElementById('ops-mail-status');
-    const submitBtn = document.getElementById('ops-mail-submit');
-    if (!root || !toggle || !form) return;
+(function initHskSchedulesWidget() {
+    const root = document.getElementById('hsk-schedules');
+    const toggle = document.getElementById('hsk-tab-btn');
+    const closeBtn = document.getElementById('hsk-close-btn');
+    const overlay = document.getElementById('hsk-overlay');
+    const drawer = document.getElementById('hsk-drawer');
+    const iframe = document.getElementById('hsk-iframe');
+    const refreshBtn = document.getElementById('hsk-refresh-btn');
 
-    const MAIL_TO = 'asistente.operaciones@ippa-hoteles.com';
-    const MAX_FILE_BYTES = 4 * 1024 * 1024;
+    if (!root || !toggle || !drawer || !iframe) return;
 
     function setOpen(open) {
         root.classList.toggle('is-open', open);
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        if (panel) panel.hidden = !open;
+        drawer.hidden = !open;
         if (overlay) overlay.hidden = !open;
-        if (open) {
-            const first = document.getElementById('ops-mail-asunto');
-            if (first) first.focus();
+
+        // Lazy load iframe al abrir por primera vez
+        if (open && iframe.getAttribute('src') === 'about:blank') {
+            const src = iframe.getAttribute('data-src');
+            if (src) iframe.src = src;
         }
-    }
-
-    function setStatus(message, type) {
-        if (!statusEl) return;
-        statusEl.textContent = message || '';
-        statusEl.classList.toggle('is-ok', type === 'ok');
-        statusEl.classList.toggle('is-error', type === 'error');
-    }
-
-    function buildFormData(nombre, asunto, descripcion, file) {
-        const data = new FormData();
-        data.append('Nombre y apellido', nombre);
-        data.append('Asunto', asunto);
-        data.append('Descripción', descripcion);
-        data.append('_subject', '[Host iPPA] ' + asunto);
-        data.append('_template', 'table');
-        data.append('_captcha', 'false');
-        if (file) data.append('Adjunto', file, file.name);
-        return data;
-    }
-
-    async function postToMailbox(email, formData) {
-        const res = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(email), {
-            method: 'POST',
-            headers: { Accept: 'application/json' },
-            body: formData
-        });
-        const payload = await res.json().catch(() => ({}));
-        const ok = res.ok || payload.success === true || payload.success === 'true';
-        if (!ok) {
-            throw new Error(payload.message || 'No se pudo enviar el mail.');
-        }
-        return payload;
-    }
-
-    async function sendViaFunction(nombre, asunto, descripcion, file) {
-        let attachment = null;
-        if (file) {
-            const base64 = await new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = () => {
-                    const result = String(reader.result || '');
-                    resolve(result.includes(',') ? result.split(',')[1] : result);
-                };
-                reader.onerror = () => reject(new Error('No se pudo leer el adjunto.'));
-                reader.readAsDataURL(file);
-            });
-            attachment = {
-                filename: file.name,
-                contentType: file.type || 'application/octet-stream',
-                data: base64
-            };
-        }
-
-        const res = await fetch('/.netlify/functions/send-report', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-            body: JSON.stringify({ nombre, asunto, descripcion, attachment })
-        });
-        const payload = await res.json().catch(() => ({}));
-        if (!res.ok) {
-            const error = new Error(payload.error || 'No se pudo enviar el mail.');
-            error.status = res.status;
-            throw error;
-        }
-        return payload;
     }
 
     toggle.addEventListener('click', () => setOpen(true));
     if (closeBtn) closeBtn.addEventListener('click', () => setOpen(false));
     if (overlay) overlay.addEventListener('click', () => setOpen(false));
+
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', () => {
+            const baseSrc = iframe.getAttribute('data-src') || iframe.src;
+            iframe.src = baseSrc;
+        });
+    }
+
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && root.classList.contains('is-open')) {
             setOpen(false);
         }
     });
-
-    if (fileInput && fileName) {
-        fileInput.addEventListener('change', () => {
-            const file = fileInput.files && fileInput.files[0];
-            fileName.textContent = file ? file.name : 'Ningún archivo seleccionado';
-            if (file && file.size > MAX_FILE_BYTES) {
-                setStatus('El adjunto no puede superar los 4 MB.', 'error');
-            } else if (statusEl && statusEl.classList.contains('is-error')) {
-                setStatus('');
-            }
-        });
-    }
-
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const honeypot = document.getElementById('ops-mail-website');
-        if (honeypot && honeypot.value.trim()) {
-            setStatus('Aviso enviado.', 'ok');
-            form.reset();
-            if (fileName) fileName.textContent = 'Ningún archivo seleccionado';
-            return;
-        }
-
-        const nombre = (document.getElementById('ops-mail-nombre')?.value || '').trim();
-        const asunto = (document.getElementById('ops-mail-asunto')?.value || '').trim();
-        const descripcion = (document.getElementById('ops-mail-descripcion')?.value || '').trim();
-        const file = fileInput && fileInput.files ? fileInput.files[0] : null;
-
-        if (!asunto || !descripcion || !nombre) {
-            setStatus('Completá asunto, descripción y nombre y apellido.', 'error');
-            return;
-        }
-        if (file && file.size > MAX_FILE_BYTES) {
-            setStatus('El adjunto no puede superar los 4 MB.', 'error');
-            return;
-        }
-
-        if (submitBtn) submitBtn.disabled = true;
-        setStatus('Enviando aviso…');
-
-        try {
-            try {
-                await sendViaFunction(nombre, asunto, descripcion, file);
-            } catch (fnError) {
-                if (fnError && fnError.status && fnError.status !== 404 && fnError.status !== 405) {
-                    throw fnError;
-                }
-                await postToMailbox(MAIL_TO, buildFormData(nombre, asunto, descripcion, file));
-            }
-
-            form.reset();
-            if (fileName) fileName.textContent = 'Ningún archivo seleccionado';
-            setStatus('Aviso enviado a Operaciones.', 'ok');
-            window.setTimeout(() => setOpen(false), 1400);
-        } catch (error) {
-            setStatus(error.message || 'No se pudo enviar el aviso. Probá de nuevo.', 'error');
-        } finally {
-            if (submitBtn) submitBtn.disabled = false;
-        }
-    });
 })();
+
+

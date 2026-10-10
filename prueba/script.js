@@ -66,7 +66,7 @@
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2026!!'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'Argentina2027!'],
                                 ]
                             }
                         ]
@@ -756,17 +756,19 @@ checklist: {
         {
             name: 'Códigos de Cajas',
             data: [
-                ['Caja', , 'Apartamento', 'Contraseña'],
-                ['1', '14D', '2941'],
-                ['2', '14J', '8305'],
-                ['3', '14E', '1762'],
-                ['4', '14F', '6493'],
-                ['5', '13E', '4028'],
-                ['6', '13G', '9517'],
-                ['7', '13H', '3850'],
-                ['8', '14i', '0000'],
-                ['9', '', '0000'],
-                ['10', '', '0000'],
+                ['Caja', 'Apartamento', 'Contraseña'],
+                ['1', '14D', '8862'],
+                ['2', '14J', '6017'],
+                ['3', '14E', '9225'],
+                ['4', '14F', '8157'],
+                ['5', '13E', '4559'],
+                ['6', '13G', '0401'],
+                ['7', '13H', '7015'],
+                ['8', '14H', '5283'],
+                ['9', '13F', '1786'],
+                ['10', '14G', '6481'],
+                ['11', '14I', '5287'],
+                ['12', 'Extra', '3623'],
             ]
         }
     ]
@@ -804,7 +806,7 @@ checklist: {
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'IPHoteles2024'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
-                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'IPHoteles2026!!'],
+                                    ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'Argentina2027!'],
                                     ['Almundo', '<a href="https://jintranet.trendoperadora.com.br/extranet/login.aspx?ReturnUrl=%2fextranet%2falojamiento%2fdefault.aspx%3falojamiento%3d4157&alojamiento=4157" target="_blank">Login Almundo</a>', 'FilibertobyiPPA2', 'IPHoteles2025!!'],
                                     ['Hotelbeds', '<a href="https://maxiroom.hotelbeds.com/#/login" target="_blank">Login Hotelbeds</a>', 'IPPA', 'IPHoteles2026*'],
                                 ]
@@ -1637,12 +1639,6 @@ function showSubsection(hotelId, subsectionId) {
     document.getElementById('empty-state').classList.add('hidden');
     document.getElementById('content').classList.remove('hidden');
 } // <-- Esta llave cierra showSubsection correctamente
-function toggleDriveMenu() {
-    const dropdown = document.getElementById('driveDropdown');
-    const arrow = document.getElementById('drive-arrow');
-    const isOpen = dropdown.style.display === 'flex';
-    dropdown.style.display = isOpen ? 'none' : 'flex';
-    arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
-}
+
 
 setLastUpdate();
