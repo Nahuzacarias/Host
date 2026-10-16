@@ -967,7 +967,6 @@ checklist: {
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930718528018 / Usuario: Host', 'IPHoteles2027!'],
-                                    ['Celular', '-', '-', '1564'],
                                     ['Hipcam', '-', 'asistente.operaciones@ippa-hoteles.com', 'IPHoteles2030!!'],
                                     ['Mail','-', 'host.mileniasoho@ippa-hoteles.com', 'IPHoteles2024'],
 ['Tecnolav', '<a href="https://clientes.tecnolav.com.ar" target="_blank">Login Tecnolav</a>', 'host.milenia@ippa-hoteles.com', 'Milenia2025'],
