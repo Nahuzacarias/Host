@@ -863,7 +863,6 @@ checklist: {
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Celular', '-', '-', '1564'],
                                     ['Mail','-', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024@'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
                                     ['TESA', '-', 'nahuelz', 'nahuelz1']
