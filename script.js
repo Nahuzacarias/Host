@@ -863,7 +863,6 @@ checklist: {
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', '5930718562712', 'Argentina2026!'],
                                     ['Celular', '-', '-', '1564'],
                                     ['Mail','-', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024@'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
@@ -874,8 +873,7 @@ checklist: {
                                 name: 'Tecnología',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2025!'],
-                                    ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024_!?']
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'IPHoteles2025!']
                                 ]
                             },
                             {
@@ -1074,7 +1072,7 @@ checklist: {
                                             A: { unit: '601', type: 'Studio', location: 'Frente', isOurs: true, hasBalcony: true },
                                             B: { unit: '6B', type: 'Studio Superior', location: 'Frente', isOurs: false, hasBalcony: true },
                                             C: { unit: '6C', type: 'Studio', location: 'Contra Frente', isOurs: false, hasBalcony: true },
-                                            D: { unit: '604', type: 'Studio Superior', location: 'Contra Frente', isOurs: true, hasBalcony: true }
+                                            D: { unit: '604', type: 'Studio Superior', location: 'Contra Frente', isOurs: false, hasBalcony: true }
                                         }
                                     },
                                     {
@@ -1195,8 +1193,8 @@ checklist: {
                                     ['DPTO Superior:', '2 ambientes'],
                                     ['DUPLEX:', '2 pisos'],
                                     ['DEPTO 802:', '2 ambientes. Balcón que recorre toda la esquina; apartamento en forma de L'],
-                                    ['BEDDING (TODAS LAS UNIDADES):', '1 cama matrimonial + 1 sofá cama para 1 persona'],
-                                    ['SE HACEN MAT O TWIN:', 'TODOS LOS DEPARTAMENTOS'],
+                                    ['BEDDING (TODAS LAS HABITACIONES):', '1 cama matrimonial (también se pueden hacer twin las camas) + 1 sofá cama para 1 persona'],
+                                    ['SE HACEN MAT O TWIN:', 'Todas las habitaciones'],
                                 ]
                             }
                         ]
@@ -1285,19 +1283,12 @@ checklist: {
                     
 
                     
-const LAST_UPDATE = { date: '2026-05-22', owner: 'Nahuel Zacarias' };
 let currentHotelId = null;
 let currentSubsectionId = null;
 let copyToastTimer = null;
 let activeHighlightQuery = '';
 let highlightMatches = [];
 let activeHighlightIndex = -1;
-
-function setLastUpdate() {
-    const node = document.getElementById('last-update');
-    if (!node) return;
-    node.textContent = `Ultima actualizacion: ${LAST_UPDATE.date} - Responsable: ${LAST_UPDATE.owner}`;
-}
 
 function expandAllHotels() {
     document.querySelectorAll('.hotel-subsections').forEach((node) => node.classList.add('show'));
@@ -1904,8 +1895,6 @@ function showSubsection(hotelId, subsectionId) {
     document.getElementById('content').classList.remove('hidden');
 } // <-- Esta llave cierra showSubsection correctamente
 
-
-setLastUpdate();
 
 (function initHskSchedulesWidget() {
     const root = document.getElementById('hsk-schedules');

@@ -298,9 +298,51 @@ img {
   border-color: #1e2738;
 }
 
-.last-update {
-  color: #8896ae;
-  font-size: 12px;
+.breakfast-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  border-radius: 20px;
+  font-size: 12.5px;
+  color: #e2e8f0;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.breakfast-badge:hover {
+  background: rgba(245, 158, 11, 0.14);
+  border-color: rgba(245, 158, 11, 0.45);
+}
+
+.breakfast-badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fbbf24;
+  flex-shrink: 0;
+}
+
+.breakfast-badge-icon svg {
+  display: block;
+}
+
+.breakfast-badge-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.breakfast-badge-price {
+  color: #fbbf24;
+  font-weight: 700;
+  background: rgba(245, 158, 11, 0.15);
+  padding: 1px 6px;
+  border-radius: 4px;
 }
 
 .mobile-menu-btn {
@@ -1311,9 +1353,14 @@ a:hover { color: #ffffff; text-decoration: underline; }
     flex: 1 1 calc(50% - 8px);
   }
 
-  .last-update {
+  .breakfast-badge {
     width: 100%;
-    text-align: left;
+    justify-content: center;
+    padding: 8px 12px;
+    font-size: 12px;
+    white-space: normal;
+    text-align: center;
+    box-sizing: border-box;
   }
 
   .quick-links {
