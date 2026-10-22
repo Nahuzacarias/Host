@@ -1173,6 +1173,7 @@ checklist: {
                                 name: 'Información General',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
+                                    ['Link de pago Clover', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Login Clover</a>', 'Tienda : 5930718528066 / Usuario: Host', 'IPHoteles2030!!'],
                                     ['Mail Milenia Vidt', '-', 'Host.mileniavidt@ippa-hoteles.com', 'IPHoteles2026&'],
                                     ['Wifi', 'Todos los pisos', 'Milenia Vidt by iPPA', 'conectate'],
                                     
