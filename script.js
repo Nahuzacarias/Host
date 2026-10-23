@@ -835,7 +835,7 @@ checklist: {
             name: 'Códigos de Cajas',
             data: [
                 ['Caja', 'Apartamento', 'Contraseña'],
-                ['1', '14D', '8862'],
+                ['1', '14D', '8962'],
                 ['2', '14J', '6017'],
                 ['3', '14E', '9225'],
                 ['4', '14F', '8157'],
