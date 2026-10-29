@@ -46,7 +46,7 @@
                                     ['TTlock', '<a href="https://lock2.ttlock.com/" target="_blank">TTlock Web</a>', 'asistente.operaciones@ippa-hoteles.com', 'IPHoteles2030!!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
                                     ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'Host iPPA', 'Argentina2027!'],
-                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'AgoSStoo2026!!'],
+                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'Noviembre2026!'],
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
                                     ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'Argentina2026!'],
                                     ['Airbnb', '-', 'reservas@ippa-hoteles.com', 'IPHoteles2024']
@@ -879,7 +879,7 @@ checklist: {
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'AgoSStoo2026!!'],
+                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'Noviembre2026!'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
                                     ['Despegar', '<a href="https://extranet.despegar.com/extranet-hotels/bkd/hotels/dashboard/6057403" target="_blank">Login Despegar</a>', 'Dana-Croatto', 'Argentina2027!'],
                                     ['Almundo', '<a href="https://jintranet.trendoperadora.com.br/extranet/login.aspx?ReturnUrl=%2fextranet%2falojamiento%2fdefault.aspx%3falojamiento%3d4157&alojamiento=4157" target="_blank">Login Almundo</a>', 'FilibertobyiPPA2', 'IPHoteles2025!!'],
@@ -981,7 +981,7 @@ checklist: {
                                 name: "OTA's",
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'AgoSStoo2026!!'],
+                                    ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'Noviembre2026!'],
                                     ['Hyperguest', '<a href="https://app.hyperguest.com/login" target="_blank">Login Hyperguest</a>', 'host@ippa-hoteles.com', 'Pide confirmación por mail'],
                                 ]
                             }
