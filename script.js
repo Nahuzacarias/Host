@@ -39,7 +39,7 @@
                                 name: 'Accesos comunes',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA hoteles</a>', '-', '-'],
+                                    ['Web iPPA', '<a href="https://ippa-hoteles.com/" target="_blank">Reservar en iPPA</a>', '-', '-'],
                                     ['Mail Host', '-', 'host@ippa-hoteles.com', 'IPHoteles2025!'],
                                     ['Clover Rudi', '<a href="https://www5.ipg-online.com/vt/login" target="_blank">Clover Rudi</a>', '5930714481424', 'iPPAHoteles2026!'],
                                     ['Cabify Host', '<a href="https://cabify.com/app/auth/login" target="_blank">Cabify Host</a>', 'host@ippa-hoteles.com', 'IPHoteles2026**'],
@@ -850,7 +850,16 @@ checklist: {
             ]
         }
     ]
-}
+},
+        cocheras: {
+            title: 'Cocheras Independencia',
+            sections: [
+                {
+                    name: 'Control y Disponibilidad de Cocheras',
+                    customRender: 'cocherasIndependencia'
+                }
+            ]
+        }
     }
 },
             filiberto: {
@@ -1332,6 +1341,48 @@ function shouldAddCopyButton(headers, cellHtml, colIndex, rowIndex) {
     return hasAnchor || header.includes('usuario') || header.includes('contraseña') || header.includes('link') || header.includes('código') || header.includes('codigo');
 }
 
+
+function renderCocherasIndependenciaSection(section, tableContainer) {
+    const sectionWrapper = document.createElement('div');
+    sectionWrapper.className = 'cocheras-embedded-wrapper';
+
+    const headerBar = document.createElement('div');
+    headerBar.className = 'cocheras-embedded-header';
+    headerBar.innerHTML = `
+        <div class="cocheras-embedded-info">
+            <p>Disponibilidad y registro de cocheras en tiempo real (Cocheras 33, 34, 35 y 36). Sincronizado con Firebase.</p>
+        </div>
+        <div class="cocheras-embedded-actions">
+            <button type="button" class="cocheras-action-btn" onclick="window.cocherasSystem && window.cocherasSystem.openDrawer()">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                </svg>
+                <span>Desplegar abajo</span>
+            </button>
+            <button type="button" class="cocheras-action-btn" onclick="window.cocherasSystem && window.cocherasSystem.saveAllCocheras('emb-')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                    <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                    <polyline points="7 3 7 8 15 8"></polyline>
+                </svg>
+                <span>Guardar Todo</span>
+            </button>
+        </div>
+    `;
+    sectionWrapper.appendChild(headerBar);
+
+    const gridContainer = document.createElement('div');
+    gridContainer.className = 'cocheras-grid';
+    gridContainer.id = 'cocheras-embedded-grid';
+    sectionWrapper.appendChild(gridContainer);
+
+    tableContainer.appendChild(sectionWrapper);
+
+    if (window.cocherasSystem && typeof window.cocherasSystem.renderGrid === 'function') {
+        window.cocherasSystem.renderGrid(gridContainer, 'emb-');
+    }
+}
+
 function renderMasterDoorCodesSection(section, tableContainer) {
     const rows = (section.data || []).slice(1);
     const wrapper = document.createElement('div');
@@ -1765,12 +1816,10 @@ function prevHighlightMatch() {
 }
 
 function showSubsection(hotelId, subsectionId) {
-    /* [LOGIN DESHABILITADO TEMPORALMENTE]
     if (typeof window.isHotelAllowed === 'function' && !window.isHotelAllowed(hotelId)) {
         alert('No tenés permisos para ver esta propiedad. Solicitá acceso al administrador.');
         return;
     }
-    */
     const hotel = hotelsData[hotelId];
     const subsection = hotel.subsections[subsectionId];
     currentHotelId = hotelId;
@@ -1801,6 +1850,11 @@ function showSubsection(hotelId, subsectionId) {
 
         if (isBankDataSubsection) {
             renderBankDataSection(section, tableContainer);
+            return;
+        }
+
+        if (section.customRender === 'cocherasIndependencia') {
+            renderCocherasIndependenciaSection(section, tableContainer);
             return;
         }
 
@@ -1938,3 +1992,215 @@ function showSubsection(hotelId, subsectionId) {
 })();
 
 
+
+// --- COTIZACIÓN USD BNA VENTA EN TIEMPO REAL ---
+(function initBnaDollarRate() {
+    const priceEl = document.getElementById('bna-dollar-price');
+    const badgeEl = document.getElementById('bna-dollar-badge');
+    const indicatorEl = document.getElementById('bna-live-indicator');
+    if (!priceEl) return;
+
+    const CACHE_KEY = 'ippa_usd_bna_rate';
+
+    // Recuperar valor previo de caché si existe
+    try {
+        const cached = localStorage.getItem(CACHE_KEY);
+        if (cached) {
+            const parsed = JSON.parse(cached);
+            if (parsed && parsed.venta) {
+                renderRate(parsed.venta, parsed.updatedAt);
+            }
+        }
+    } catch (e) {}
+
+    function renderRate(sellValue, updatedAt) {
+        if (!sellValue) return;
+        const formatted = new Intl.NumberFormat('es-AR', {
+            style: 'currency',
+            currency: 'ARS',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(sellValue);
+
+        priceEl.textContent = formatted;
+        if (badgeEl) {
+            const timeStr = updatedAt ? new Date(updatedAt).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }) : '';
+            badgeEl.title = `Tipo de cambio Banco Nación (Venta): ${formatted}${timeStr ? ' • Actualizado: ' + timeStr : ''} (Clic para refrescar)`;
+        }
+    }
+
+    async function fetchBnaRate() {
+        if (indicatorEl) indicatorEl.style.opacity = '0.3';
+        let sellPrice = null;
+        let updateTimestamp = null;
+
+        // Fuente 1: DolarApi (Oficial BNA)
+        try {
+            const res = await fetch('https://dolarapi.com/v1/dolares/oficial', { cache: 'no-cache' });
+            if (res.ok) {
+                const data = await res.json();
+                if (data && (data.venta || data.value_sell)) {
+                    sellPrice = data.venta || data.value_sell;
+                    updateTimestamp = data.fechaActualizacion || new Date().toISOString();
+                }
+            }
+        } catch (err) {
+            console.warn('DolarApi no disponible, probando backup:', err);
+        }
+
+        // Fuente 2: Bluelytics (Backup)
+        if (!sellPrice) {
+            try {
+                const resBackup = await fetch('https://api.bluelytics.com.ar/v2/latest', { cache: 'no-cache' });
+                if (resBackup.ok) {
+                    const data = await resBackup.json();
+                    if (data?.oficial?.value_sell) {
+                        sellPrice = data.oficial.value_sell;
+                        updateTimestamp = data.last_update || new Date().toISOString();
+                    }
+                }
+            } catch (err) {
+                console.warn('Bluelytics backup no disponible:', err);
+            }
+        }
+
+        if (sellPrice) {
+            renderRate(sellPrice, updateTimestamp);
+            try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify({
+                    venta: sellPrice,
+                    updatedAt: updateTimestamp
+                }));
+            } catch (e) {}
+        } else if (priceEl.textContent === '$ ---') {
+            priceEl.textContent = 'Consultando...';
+        }
+
+        if (indicatorEl) indicatorEl.style.opacity = '1';
+    }
+
+    // Primera carga inmediata
+    fetchBnaRate();
+
+    // Actualización periódica en tiempo real cada 3 minutos
+    setInterval(fetchBnaRate, 3 * 60 * 1000);
+
+    // Permitir clic manual para actualizar inmediatamente
+    if (badgeEl) {
+        badgeEl.style.cursor = 'pointer';
+        badgeEl.addEventListener('click', () => {
+            fetchBnaRate();
+            if (typeof showCopyToast === 'function') {
+                showCopyToast('Actualizando cotización BNA...');
+            }
+        });
+    }
+})();
+
+
+// --- COTIZACIÓN USD OANDA (ARS) EN TIEMPO REAL ---
+(function initOandaDollarRate() {
+    const priceEl = document.getElementById('oanda-dollar-price');
+    const badgeEl = document.getElementById('oanda-dollar-badge');
+    const indicatorEl = document.getElementById('oanda-live-indicator');
+    if (!priceEl) return;
+
+    const CACHE_KEY = 'ippa_usd_oanda_rate';
+
+    // Recuperar valor previo de caché si existe
+    try {
+        const cached = localStorage.getItem(CACHE_KEY);
+        if (cached) {
+            const parsed = JSON.parse(cached);
+            if (parsed && (parsed.rate || parsed.mid)) {
+                renderRate(parsed.rate || parsed.mid, parsed.updatedAt);
+            }
+        }
+    } catch (e) {}
+
+    function renderRate(rateValue, updatedAt) {
+        if (!rateValue) return;
+        const num = parseFloat(rateValue);
+        if (isNaN(num)) return;
+
+        const formatted = new Intl.NumberFormat('es-AR', {
+            style: 'currency',
+            currency: 'ARS',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(num);
+
+        priceEl.textContent = formatted;
+        if (badgeEl) {
+            const timeStr = updatedAt ? new Date(updatedAt).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }) : '';
+            badgeEl.title = `Tipo de cambio OANDA (USD a ARS): ${formatted}${timeStr ? ' • Actualizado: ' + timeStr : ''} (Clic para refrescar)`;
+        }
+    }
+
+    async function fetchOandaRate() {
+        if (indicatorEl) indicatorEl.style.opacity = '0.3';
+        let oandaPrice = null;
+        let updateTimestamp = null;
+
+        // Fuente 1: API oficial OANDA Corporate FX Services (CORS habilitado)
+        try {
+            const res = await fetch('https://public-api.corporatefxservices.com/v1/daily?base=USD&quote=ARS', { cache: 'no-cache' });
+            if (res.ok) {
+                const data = await res.json();
+                if (data?.rates?.avg_mid || data?.rates?.avg_bid) {
+                    oandaPrice = data.rates.avg_mid || data.rates.avg_bid;
+                    updateTimestamp = data.date ? new Date(data.date).toISOString() : new Date().toISOString();
+                }
+            }
+        } catch (err) {
+            console.warn('OANDA Corporate API no disponible, probando backup:', err);
+        }
+
+        // Fuente 2: Open Exchange Rate API (Backup global interbancario USD a ARS)
+        if (!oandaPrice) {
+            try {
+                const resBackup = await fetch('https://open.er-api.com/v6/latest/USD', { cache: 'no-cache' });
+                if (resBackup.ok) {
+                    const data = await resBackup.json();
+                    if (data?.rates?.ARS) {
+                        oandaPrice = data.rates.ARS;
+                        updateTimestamp = data.time_last_update_utc || new Date().toISOString();
+                    }
+                }
+            } catch (err) {
+                console.warn('Backup de tasa USD/ARS no disponible:', err);
+            }
+        }
+
+        if (oandaPrice) {
+            renderRate(oandaPrice, updateTimestamp);
+            try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify({
+                    rate: oandaPrice,
+                    updatedAt: updateTimestamp
+                }));
+            } catch (e) {}
+        } else if (priceEl.textContent === '$ ---') {
+            priceEl.textContent = 'Consultando...';
+        }
+
+        if (indicatorEl) indicatorEl.style.opacity = '1';
+    }
+
+    // Primera carga inmediata
+    fetchOandaRate();
+
+    // Actualización periódica en tiempo real cada 5 minutos
+    setInterval(fetchOandaRate, 5 * 60 * 1000);
+
+    // Permitir clic manual para actualizar inmediatamente
+    if (badgeEl) {
+        badgeEl.style.cursor = 'pointer';
+        badgeEl.addEventListener('click', () => {
+            fetchOandaRate();
+            if (typeof showCopyToast === 'function') {
+                showCopyToast('Actualizando cotización OANDA...');
+            }
+        });
+    }
+})();

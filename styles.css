@@ -345,6 +345,146 @@ img {
   border-radius: 4px;
 }
 
+/* Badge Tipo de Cambio USD BNA Venta */
+.bna-dollar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(16, 185, 129, 0.09);
+  border: 1px solid rgba(16, 185, 129, 0.32);
+  border-radius: 20px;
+  font-size: 12.5px;
+  color: #e2e8f0;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.bna-dollar-badge:hover {
+  background: rgba(16, 185, 129, 0.16);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.2);
+}
+
+.bna-dollar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #34d399;
+  flex-shrink: 0;
+}
+
+.bna-dollar-icon svg {
+  display: block;
+}
+
+.bna-dollar-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bna-dollar-price {
+  color: #34d399;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.18);
+  padding: 1px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+
+.bna-live-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: bnaPulse 2s infinite ease-in-out;
+}
+
+/* Badge Tipo de Cambio USD OANDA (ARS) */
+.oanda-dollar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(56, 189, 248, 0.09);
+  border: 1px solid rgba(56, 189, 248, 0.32);
+  border-radius: 20px;
+  font-size: 12.5px;
+  color: #e2e8f0;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.oanda-dollar-badge:hover {
+  background: rgba(56, 189, 248, 0.16);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.2);
+}
+
+.oanda-dollar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.oanda-dollar-icon svg {
+  display: block;
+}
+
+.oanda-dollar-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.oanda-dollar-price {
+  color: #38bdf8;
+  font-weight: 700;
+  background: rgba(56, 189, 248, 0.18);
+  padding: 1px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+
+.oanda-live-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+  animation: oandaPulse 2s infinite ease-in-out;
+}
+
+@keyframes oandaPulse {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}
+
+@keyframes bnaPulse {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}
+
 .mobile-menu-btn {
   display: none;
   position: sticky;
@@ -1353,7 +1493,9 @@ a:hover { color: #ffffff; text-decoration: underline; }
     flex: 1 1 calc(50% - 8px);
   }
 
-  .breakfast-badge {
+  .breakfast-badge,
+  .bna-dollar-badge,
+  .oanda-dollar-badge {
     width: 100%;
     justify-content: center;
     padding: 8px 12px;
@@ -1972,6 +2114,28 @@ a:hover { color: #ffffff; text-decoration: underline; }
   flex-direction: column;
   gap: 6px;
   margin-bottom: 16px;
+}
+
+.auth-checkbox-field {
+  margin: -4px 0 16px 0;
+}
+
+.auth-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #cbd5e1;
+  cursor: pointer;
+  user-select: none;
+}
+
+.auth-checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #2563eb;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .auth-field label {
@@ -2685,5 +2849,537 @@ a:hover { color: #ffffff; text-decoration: underline; }
     justify-content: space-between;
   }
 }
+
+/* ========================================================================== */
+/* COCHERAS INDEPENDENCIA - PANEL DESPLEGABLE INFERIOR Y SECCIÓN EMBEBIDA     */
+/* ========================================================================== */
+
+.cocheras-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 29, 0.7);
+  backdrop-filter: blur(3px);
+  z-index: 135;
+  transition: opacity 0.25s ease;
+}
+
+.cocheras-drawer[hidden],
+.cocheras-overlay[hidden] {
+  display: none !important;
+}
+
+/* Botón pestaña inferior fija */
+.cocheras-tab-btn {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 130;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  background: #111827;
+  color: #ffffff;
+  border: 1px solid #3b82f6;
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5), 0 0 12px rgba(59, 130, 246, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cocheras-tab-btn:hover {
+  background: #1e293b;
+  border-color: #60a5fa;
+  padding-bottom: 13px;
+  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.6), 0 0 18px rgba(59, 130, 246, 0.4);
+}
+
+.cocheras-tab-icon {
+  display: flex;
+  align-items: center;
+  color: #60a5fa;
+}
+
+.cocheras-tab-badge {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.cocheras-tab-badge.has-occupied {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fcd34d;
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.cocheras-tab-arrow {
+  font-size: 10px;
+  color: #94a3b8;
+  transition: transform 0.2s;
+}
+
+.cocheras-panel-widget.is-open .cocheras-tab-btn {
+  display: none;
+}
+
+/* Panel Drawer Inferior */
+.cocheras-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1320px, calc(100vw - 20px));
+  max-height: 88vh;
+  z-index: 140;
+  display: flex;
+  flex-direction: column;
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-bottom: none;
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 -15px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(59, 130, 246, 0.15);
+  overflow: hidden;
+  animation: cocherasSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cocherasSlideUp {
+  from {
+    transform: translate(-50%, 100%);
+    opacity: 0.6;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* Header del panel */
+.cocheras-header {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1e293b;
+  background: #111827;
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.cocheras-header-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cocheras-header-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cocheras-header-title h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.cocheras-header-title p {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 2px 0 0 0;
+}
+
+.cocheras-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cocheras-sync-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #94a3b8;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid #1e293b;
+}
+
+.cocheras-sync-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.cocheras-sync-pill.is-offline .cocheras-sync-dot {
+  background: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+}
+
+.cocheras-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cocheras-action-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.cocheras-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cocheras-close-btn:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+/* Cuerpo con scroll */
+.cocheras-body {
+  padding: 20px 24px 28px 24px;
+  overflow-y: auto;
+  max-height: calc(88vh - 75px);
+}
+
+/* Grid de las 4 cocheras */
+.cocheras-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* Tarjeta individual de Cochera */
+.cochera-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.cochera-card:hover {
+  border-color: #475569;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.cochera-card.is-occupied {
+  border-color: rgba(245, 158, 11, 0.4);
+  background: linear-gradient(180deg, rgba(30, 41, 59, 1) 0%, rgba(33, 44, 65, 0.95) 100%);
+}
+
+.cochera-card.is-free {
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+/* Header de la tarjeta */
+.cochera-card-header {
+  padding: 14px 16px;
+  background: rgba(15, 23, 42, 0.6);
+  border-bottom: 1px solid rgba(51, 65, 85, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cochera-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cochera-num-badge {
+  background: #3b82f6;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+}
+
+.cochera-card-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.cochera-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cochera-status-badge.status-occupied {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.cochera-status-badge.status-free {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.status-dot.red {
+  background: #f59e0b;
+}
+
+.status-dot.green {
+  background: #10b981;
+}
+
+/* Formulario en tarjeta */
+.cochera-card-body {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.cochera-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cochera-field-group label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cochera-field-row {
+  display: flex;
+  gap: 10px;
+}
+
+.cochera-input {
+  width: 100%;
+  background: #0b1120;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #f8fafc;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.cochera-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: #0d1527;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.cochera-input::placeholder {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.cochera-input-patente {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.cochera-input-date {
+  color-scheme: dark;
+}
+
+/* Footer de la tarjeta con acciones */
+.cochera-card-footer {
+  padding: 12px 16px;
+  background: rgba(15, 23, 42, 0.4);
+  border-top: 1px solid rgba(51, 65, 85, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cochera-meta-info {
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cochera-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cochera-action-btn-save {
+  flex-grow: 1;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.cochera-action-btn-save:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.cochera-action-btn-save:active {
+  transform: translateY(0);
+}
+
+.cochera-action-btn-clear {
+  background: transparent;
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 7px;
+  padding: 7px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cochera-action-btn-clear:hover {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: #ef4444;
+}
+
+/* Sección embebida en tabla */
+.cocheras-embedded-wrapper {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cocheras-embedded-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+}
+
+.cocheras-embedded-info p {
+  margin: 0;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.cocheras-embedded-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Responsividad */
+@media (max-width: 1200px) {
+  .cocheras-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cocheras-tab-btn {
+    width: calc(100vw - 32px);
+    max-width: 360px;
+    justify-content: center;
+  }
+  .cocheras-grid {
+    grid-template-columns: 1fr;
+  }
+  .cocheras-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cocheras-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
 
 
