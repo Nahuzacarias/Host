@@ -3086,10 +3086,10 @@ a:hover { color: #ffffff; text-decoration: underline; }
   max-height: calc(88vh - 75px);
 }
 
-/* Grid de las 4 cocheras */
+/* Grid de las cocheras */
 .cocheras-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 16px;
 }
 

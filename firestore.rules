@@ -1,0 +1,351 @@
+rules_version = '2';
+
+// ===============================================================
+// Assumed Data Model
+// ===============================================================
+//
+// This security rules file assumes the following data structures:
+//
+// Collection: users
+// Document ID: {userId} (Firebase Auth UID)
+// Fields:
+//   - uid: string (required, immutable, matches userId, 1..128 chars) - Firebase Auth UID
+//   - email: string (required, 3..150 chars) - User email or virtual @ippa.local email
+//   - authEmail: string (optional, 3..150 chars) - Active Firebase Auth slot email
+//   - authPassword: string (optional, 0..128 chars) - Provisioned credential reference
+//   - newPasswordAssigned: string (optional, 0..128 chars) - Assigned password reference
+//   - lastPasswordReset: string (optional, 0..64 chars) - ISO timestamp of last reset
+//   - tempPassNotice: bool (optional) - Temporary password notification flag
+//   - username: string (required, 1..64 chars) - Clean username identifier
+//   - displayName: string (required, 1..100 chars) - Visual display name
+//   - role: string (required, enum: ['admin', 'host']) - User authorization role
+//   - status: string (required, enum: ['active', 'pending', 'blocked']) - Account status
+//   - createdAt: string (required, immutable on update, 1..64 chars) - ISO creation timestamp
+//   - updatedAt: string (optional, 1..64 chars) - ISO update timestamp
+//
+// Collection: admin_logs
+// Document ID: {logId} (Auto-generated)
+// Fields:
+//   - username: string (required, 1..100 chars) - Username performing the action
+//   - displayName: string (required, 1..100 chars) - Display name performing the action
+//   - action: string (required, 1..200 chars) - Action category/title
+//   - details: string (required, 0..1000 chars) - Detailed description of the event
+//   - timestamp: string (required, 1..64 chars) - Client ISO 8601 timestamp string
+//   - createdAt: timestamp (required) - Server timestamp
+//
+// Collection: cocheras_independencia
+// Document ID: {cocheraId} (Allowed values: '33', '34', '35', '36', '38')
+// Fields:
+//   - id: string (required, matches cocheraId) - Cochera identifier string
+//   - numero: int (required, matches numeric cocheraId) - Cochera number
+//   - vehiculo: string (required, 0..150 chars) - Vehicle description/model
+//   - patente: string (required, 0..30 chars) - License plate
+//   - nombreApellido: string (required, 0..150 chars) - Guest full name
+//   - departamento: string (required, 0..30 chars) - Apartment unit identifier
+//   - fechaCheckout: string (required, 0..40 chars) - Checkout date string
+//   - updatedAt: string or null (optional, 0..64 chars) - Last update ISO string
+//   - updatedBy: string (required, 0..100 chars) - User who last updated the record
+//
+// ===============================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+
+    // Check if the user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Check if user owns the resource (for user-owned documents)
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Check if the authenticated user has a bootstrapped superadmin email
+    function isSuperAdminEmail() {
+      return isAuthenticated() &&
+        request.auth.token.email is string &&
+        (
+          request.auth.token.email in [
+            'zacarias.nahu@gmail.com',
+            'nahuel@ippa-hoteles.com',
+            'admin@ippa-hoteles.com',
+            'nahuel@ippa.local',
+            'admin@ippa.local'
+          ] ||
+          request.auth.token.email.matches('^nahuel_[0-9]+@ippa\\.local$') ||
+          request.auth.token.email.matches('^admin_[0-9]+@ippa\\.local$')
+        );
+    }
+
+    // Check if the authenticated user is an active Administrator
+    function isAdmin() {
+      return isAuthenticated() && (
+        isSuperAdminEmail() ||
+        (
+          exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' &&
+          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'active'
+        )
+      );
+    }
+
+    // Check if the authenticated user is an active user (or Admin)
+    function isActiveUser() {
+      return isAuthenticated() && (
+        isAdmin() ||
+        (
+          exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'active'
+        )
+      );
+    }
+
+    // Verify UID hasn't been tampered with on create
+    function uidUnchanged(userId) {
+      return !('uid' in request.resource.data) ||
+        request.resource.data.uid == userId;
+    }
+
+    // Ensure uid field is not modified on update
+    function uidNotModified() {
+      return !('uid' in request.resource.data) ||
+        !('uid' in resource.data) ||
+        request.resource.data.uid == resource.data.uid;
+    }
+
+    // Validate required fields exist
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    // Validate that the document contains only the allowed fields
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    // Validate string length
+    function validStringLength(field, minLen, maxLen) {
+      return request.resource.data[field] is string &&
+        request.resource.data[field].size() >= minLen &&
+        request.resource.data[field].size() <= maxLen;
+    }
+
+    // Validate optional string (if present, must be string and within length)
+    function isValidOptionalString(field, minLen, maxLen) {
+      return !(field in request.resource.data) ||
+        (request.resource.data[field] is string &&
+         request.resource.data[field].size() >= minLen &&
+         request.resource.data[field].size() <= maxLen);
+    }
+
+    // Validate optional nullable string (if present and non-null, must be string within length)
+    function isValidOptionalNullableString(field, minLen, maxLen) {
+      return !(field in request.resource.data) ||
+        request.resource.data[field] == null ||
+        (request.resource.data[field] is string &&
+         request.resource.data[field].size() >= minLen &&
+         request.resource.data[field].size() <= maxLen);
+    }
+
+    // Validate email format (supports standard domains and internal .local domain)
+    function isValidEmail(email) {
+      return email is string &&
+        email.size() >= 3 &&
+        email.size() <= 150 &&
+        email.matches('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$');
+    }
+
+    // Validate that immutable fields have not been modified on update
+    function areImmutableFieldsUnchanged(fields) {
+      return !request.resource.data.diff(resource.data).affectedKeys().hasAny(fields);
+    }
+
+    // ===============================================================
+    // Domain Validators (Used in both create and update)
+    // ===============================================================
+
+    function isValidUser(data, userId) {
+      let allowedFields = [
+        'uid',
+        'email',
+        'authEmail',
+        'authPassword',
+        'newPasswordAssigned',
+        'lastPasswordReset',
+        'tempPassNotice',
+        'username',
+        'displayName',
+        'role',
+        'status',
+        'createdAt',
+        'updatedAt'
+      ];
+      let requiredFields = [
+        'uid',
+        'email',
+        'username',
+        'displayName',
+        'role',
+        'status',
+        'createdAt'
+      ];
+      return hasOnlyAllowedFields(allowedFields) &&
+        hasRequiredFields(requiredFields) &&
+        data.uid is string && data.uid == userId && data.uid.size() >= 1 && data.uid.size() <= 128 &&
+        isValidEmail(data.email) &&
+        (!('authEmail' in data) || isValidEmail(data.authEmail)) &&
+        isValidOptionalString('authPassword', 0, 128) &&
+        isValidOptionalString('newPasswordAssigned', 0, 128) &&
+        isValidOptionalString('lastPasswordReset', 0, 64) &&
+        (!('tempPassNotice' in data) || data.tempPassNotice is bool) &&
+        validStringLength('username', 1, 64) &&
+        validStringLength('displayName', 1, 100) &&
+        data.role in ['admin', 'host'] &&
+        data.status in ['active', 'pending', 'blocked'] &&
+        validStringLength('createdAt', 1, 64) &&
+        isValidOptionalString('updatedAt', 1, 64);
+    }
+
+    function isValidAdminLog(data) {
+      let allowedFields = [
+        'username',
+        'displayName',
+        'action',
+        'details',
+        'timestamp',
+        'createdAt'
+      ];
+      return hasOnlyAllowedFields(allowedFields) &&
+        hasRequiredFields(allowedFields) &&
+        validStringLength('username', 1, 100) &&
+        validStringLength('displayName', 1, 100) &&
+        validStringLength('action', 1, 200) &&
+        validStringLength('details', 0, 1000) &&
+        validStringLength('timestamp', 1, 64) &&
+        data.createdAt is timestamp;
+    }
+
+    function isValidCochera(data, cocheraId) {
+      let allowedFields = [
+        'id',
+        'numero',
+        'vehiculo',
+        'patente',
+        'nombreApellido',
+        'departamento',
+        'fechaCheckout',
+        'updatedAt',
+        'updatedBy'
+      ];
+      let requiredFields = [
+        'id',
+        'numero',
+        'vehiculo',
+        'patente',
+        'nombreApellido',
+        'departamento',
+        'fechaCheckout',
+        'updatedBy'
+      ];
+      return cocheraId in ['33', '34', '35', '36', '38'] &&
+        hasOnlyAllowedFields(allowedFields) &&
+        hasRequiredFields(requiredFields) &&
+        data.id is string && data.id == cocheraId &&
+        data.numero is int && data.numero in [33, 34, 35, 36, 38] &&
+        validStringLength('vehiculo', 0, 150) &&
+        validStringLength('patente', 0, 30) &&
+        validStringLength('nombreApellido', 0, 150) &&
+        validStringLength('departamento', 0, 30) &&
+        validStringLength('fechaCheckout', 0, 40) &&
+        isValidOptionalNullableString('updatedAt', 0, 64) &&
+        validStringLength('updatedBy', 0, 100);
+    }
+
+    // ===============================================================
+    // Collection Rules
+    // ===============================================================
+
+    // 1. Users Collection
+    match /users/{userId} {
+      // Users can read their own profile; only admins can read any user or list all users
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+
+      // Admins can create any valid user document (including secondary-app provisioning).
+      // Self-registering users can create their own profile (or secondary-app provisioning with matching uid),
+      // but non-superadmins are strictly restricted to role == 'host'.
+      allow create: if isValidUser(request.resource.data, userId) &&
+        uidUnchanged(userId) &&
+        (
+          isAdmin() ||
+          (
+            isOwner(userId) &&
+            (
+              isSuperAdminEmail() ||
+              (
+                request.resource.data.role == 'host' &&
+                request.resource.data.status in ['pending', 'active']
+              )
+            )
+          )
+        );
+
+      // Admins can update any user document.
+      // Regular users can update their own document ONLY if they do not escalate role or status,
+      // and immutable fields (uid, createdAt) remain unchanged.
+      allow update: if isValidUser(request.resource.data, userId) &&
+        uidNotModified() &&
+        areImmutableFieldsUnchanged(['uid', 'createdAt']) &&
+        (
+          isAdmin() ||
+          (
+            isOwner(userId) &&
+            (
+              isSuperAdminEmail() ||
+              (
+                request.resource.data.role == resource.data.role &&
+                request.resource.data.status == resource.data.status
+              )
+            )
+          )
+        );
+
+      // Only admins can delete user documents, and an admin cannot delete their own document
+      allow delete: if isAdmin() && request.auth.uid != userId;
+    }
+
+    // 2. Admin Audit Logs Collection
+    match /admin_logs/{logId} {
+      // Only administrators can read or list audit logs
+      allow get, list: if isAdmin();
+
+      // Any authenticated user can append a strictly validated audit log entry
+      allow create: if isAuthenticated() && isValidAdminLog(request.resource.data);
+
+      // Audit logs are strictly immutable from the client
+      allow update, delete: if false;
+    }
+
+    // 3. Cocheras Independencia Collection
+    match /cocheras_independencia/{cocheraId} {
+      // Authenticated users can read cochera status
+      allow get, list: if isAuthenticated();
+
+      // Only active users (or admins) can create or update allowed cochera slots
+      allow create, update: if isActiveUser() && isValidCochera(request.resource.data, cocheraId);
+
+      // Only admins can delete cochera documents
+      allow delete: if isAdmin();
+    }
+
+    // 4. Default Deny for all other paths
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

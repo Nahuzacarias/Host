@@ -1350,7 +1350,7 @@ function renderCocherasIndependenciaSection(section, tableContainer) {
     headerBar.className = 'cocheras-embedded-header';
     headerBar.innerHTML = `
         <div class="cocheras-embedded-info">
-            <p>Disponibilidad y registro de cocheras en tiempo real (Cocheras 33, 34, 35 y 36). Sincronizado con Firebase.</p>
+            <p>Disponibilidad y registro de cocheras en tiempo real (Cocheras 33, 34, 35, 36 y 38). Sincronizado con Firebase.</p>
         </div>
         <div class="cocheras-embedded-actions">
             <button type="button" class="cocheras-action-btn" onclick="window.cocherasSystem && window.cocherasSystem.openDrawer()">
@@ -1672,7 +1672,38 @@ function renderMileniaMappingSection(section, tableContainer) {
     tableContainer.appendChild(wrapper);
 }
 
+function escapeHtmlText(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+function sanitizeHtmlCell(rawHtml) {
+    if (rawHtml === null || rawHtml === undefined) return '';
+    let safe = String(rawHtml);
+    // Bloquear etiquetas ejecutables y atributos on* (Anti-XSS)
+    safe = safe.replace(/<\s*(script|iframe|object|embed|form|meta|link)[^>]*>[\s\S]*?<\s*\/\s*\1\s*>/gi, '');
+    safe = safe.replace(/<\s*(script|iframe|object|embed|form|meta|link)[^>]*\/?>/gi, '');
+    safe = safe.replace(/\bon\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '');
+    safe = safe.replace(/href\s*=\s*["']?\s*(?:javascript|data|vbscript):[^"'\s>]*/gi, 'href="#"');
+    // Forzar rel="noopener noreferrer" y referrerpolicy="no-referrer" (Anti-Tabnabbing / Anti-Phishing)
+    safe = safe.replace(/<a\b([^>]*)>/gi, (match, attrs) => {
+        let cleanAttrs = attrs
+            .replace(/\brel\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '')
+            .replace(/\breferrerpolicy\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '');
+        return `<a${cleanAttrs} rel="noopener noreferrer" referrerpolicy="no-referrer">`;
+    });
+    return safe;
+}
+
 function runGlobalSearch() {
+    if (typeof window.isHotelAllowed === 'function' && !window.isHotelAllowed('generalLinks')) {
+        return;
+    }
     const query = (document.getElementById('global-search')?.value || '').trim().toLowerCase();
     if (!query) return;
     const matches = [];
@@ -1707,6 +1738,9 @@ function clearGlobalSearch() {
 }
 
 function renderSearchResults(results, query) {
+    if (typeof window.isHotelAllowed === 'function' && !window.isHotelAllowed('generalLinks')) {
+        return;
+    }
     const tableContainer = document.getElementById('table-container');
     tableContainer.innerHTML = '';
     document.getElementById('hotel-title').textContent = 'Busqueda global';
@@ -1719,10 +1753,10 @@ function renderSearchResults(results, query) {
       <tbody>
       ${results.map((item, idx) => `
         <tr>
-          <td data-label="Hotel">${item.hotelName}</td>
-          <td data-label="Seccion">${item.subsectionTitle}</td>
-          <td data-label="Detalle">${item.sectionName}</td>
-          <td data-label="Accion"><button class="copy-btn" onclick="openSearchResult(${idx})">Abrir</button></td>
+          <td data-label="Hotel">${escapeHtmlText(item.hotelName)}</td>
+          <td data-label="Seccion">${escapeHtmlText(item.subsectionTitle)}</td>
+          <td data-label="Detalle">${escapeHtmlText(item.sectionName)}</td>
+          <td data-label="Accion"><button class="copy-btn" onclick="openSearchResult(${Number(idx)})">Abrir</button></td>
         </tr>
       `).join('') || '<tr><td colspan="4">Sin resultados</td></tr>'}
       </tbody>`;
@@ -1808,11 +1842,14 @@ function prevHighlightMatch() {
     setActiveHighlight();
 }
 
-                    function toggleHotel(hotelId) {
+function toggleHotel(hotelId) {
+    if (typeof window.isHotelAllowed === 'function' && !window.isHotelAllowed(hotelId)) {
+        return;
+    }
     const subsections = document.getElementById(`subsections-${hotelId}`);
     const arrow = document.getElementById(`arrow-${hotelId}`);
-    subsections.classList.toggle('show');
-    arrow.classList.toggle('expanded');
+    if (subsections) subsections.classList.toggle('show');
+    if (arrow) arrow.classList.toggle('expanded');
 }
 
 function showSubsection(hotelId, subsectionId) {
@@ -1895,7 +1932,7 @@ function showSubsection(hotelId, subsectionId) {
                     const wrapper = document.createElement('div');
                     wrapper.className = 'cell-with-copy';
                     const contentSpan = document.createElement('span');
-                    contentSpan.innerHTML = String(cell);
+                    contentSpan.innerHTML = sanitizeHtmlCell(cell);
                     const copyButton = document.createElement('button');
                     copyButton.className = 'copy-btn';
                     copyButton.type = 'button';
@@ -1905,7 +1942,7 @@ function showSubsection(hotelId, subsectionId) {
                     wrapper.appendChild(copyButton);
                     element.appendChild(wrapper);
                 } else {
-                    element.innerHTML = cell;
+                    element.innerHTML = sanitizeHtmlCell(cell);
                 }
                 tr.appendChild(element);
             });
@@ -1939,7 +1976,7 @@ function showSubsection(hotelId, subsectionId) {
         const footerDiv = document.createElement('div');
         footerDiv.style.marginTop = "20px";
         footerDiv.style.textAlign = "center";
-        footerDiv.innerHTML = subsection.footer;
+        footerDiv.innerHTML = sanitizeHtmlCell(subsection.footer);
         tableContainer.appendChild(footerDiv);
     }
 
@@ -2204,3 +2241,19 @@ function showSubsection(hotelId, subsectionId) {
         });
     }
 })();
+
+
+// --- PROTECCIÓN GLOBAL ANTI-PHISHING Y ANTI-TABNABBING EN ENLACES ---
+document.addEventListener('click', (e) => {
+    const link = e.target.closest && e.target.closest('a');
+    if (!link) return;
+    const href = (link.getAttribute('href') || '').trim();
+    if (/^(javascript|data|vbscript):/i.test(href)) {
+        e.preventDefault();
+        return;
+    }
+    if (link.target === '_blank') {
+        link.setAttribute('rel', 'noopener noreferrer');
+        link.setAttribute('referrerpolicy', 'no-referrer');
+    }
+}, true);

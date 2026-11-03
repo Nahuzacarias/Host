@@ -3,10 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firebaseapp.com wss://*.firebaseio.com https://dolarapi.com https://api.bluelytics.com.ar https://public-api.corporatefxservices.com https://open.er-api.com; frame-src 'self' https://docs.google.com https://*.google.com https://*.firebaseapp.com; object-src 'none'; base-uri 'self'; form-action 'self';">
   <title>iPPA</title>
   <link rel="icon" href="Media/ippa.ico">
   <link rel="stylesheet" href="styles.css">
-  
+  <script>
+    // Protección Anti-Clickjacking (Frame Busting) y redirección HTTPS
+    (function() {
+      if (window.top !== window.self) {
+        try { window.top.location = window.self.location; } catch (e) { document.documentElement.style.display = 'none'; }
+      }
+      if (location.protocol === 'http:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1' && !location.hostname.startsWith('192.168.')) {
+        location.replace('https:' + location.href.substring(location.protocol.length));
+      }
+    })();
+  </script>
 </head>
 
 <body>
@@ -536,7 +549,7 @@
                     </svg>
                 </span>
                 <span class="cocheras-tab-text">Cocheras Independencia</span>
-                <span class="cocheras-tab-badge" id="cocheras-tab-badge">4 Cocheras</span>
+                <span class="cocheras-tab-badge" id="cocheras-tab-badge">5 Cocheras</span>
                 <span class="cocheras-tab-arrow" id="cocheras-tab-arrow">▲</span>
             </button>
             <div class="cocheras-drawer" id="cocheras-drawer" role="dialog" aria-labelledby="cocheras-title" hidden>
@@ -550,7 +563,7 @@
                         </div>
                         <div>
                             <h2 id="cocheras-title">Cocheras Independencia</h2>
-                            <p>Gestión y disponibilidad de cocheras 33, 34, 35 y 36 • Firebase</p>
+                            <p>Gestión y disponibilidad de cocheras (33, 34, 35, 36 y 38) • Firebase</p>
                         </div>
                     </div>
                     <div class="cocheras-header-actions">
