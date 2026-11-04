@@ -1358,39 +1358,37 @@ try {
 function initCocherasListener() {
     if (unsubscribeCocherasListener) return;
     try {
-        const colRef = collection(db, "cocheras_independencia");
-        unsubscribeCocherasListener = onSnapshot(colRef, async (snapshot) => {
-            if (snapshot.empty) {
-                // Si la colección aún no tiene registros en Firestore, inicializar las 4 cocheras
-                for (const id of COCHERAS_CONFIG) {
+        // Escuchar documento principal de cocheras en Firebase (users/cocheras_independencia)
+        const sharedDocRef = doc(db, "users", "cocheras_independencia");
+        unsubscribeCocherasListener = onSnapshot(sharedDocRef, async (docSnap) => {
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                if (data.cocherasMap) {
                     try {
-                        const cocheraRef = doc(db, "cocheras_independencia", id);
-                        await setDoc(cocheraRef, cocherasData[id]);
-                    } catch (err) {
-                        console.warn(`Error inicializando cochera ${id} en Firestore:`, err);
-                    }
+                        const parsed = JSON.parse(data.cocherasMap);
+                        COCHERAS_CONFIG.forEach(id => {
+                            if (parsed[id]) {
+                                cocherasData[id] = { ...cocherasData[id], ...parsed[id] };
+                            }
+                        });
+                    } catch (e) {}
                 }
-            } else {
-                snapshot.forEach(docSnap => {
-                    const id = docSnap.id;
-                    if (COCHERAS_CONFIG.includes(id)) {
-                        cocherasData[id] = { ...cocherasData[id], ...docSnap.data() };
+                COCHERAS_CONFIG.forEach(id => {
+                    if (data[id]) {
+                        cocherasData[id] = { ...cocherasData[id], ...data[id] };
+                    } else if (data[`cochera_${id}`]) {
+                        cocherasData[id] = { ...cocherasData[id], ...data[`cochera_${id}`] };
                     }
                 });
-
-                // Auto-sync a Firestore de la carga inicial de los nuevos datos pedidos si no se habían guardado en la nube
-                const seedVersion = localStorage.getItem("ippa_cocheras_seed_v2");
-                if (seedVersion !== "loaded_33_34_35_38") {
-                    try {
-                        for (const id of ["33", "34", "35", "38"]) {
-                            const cocheraRef = doc(db, "cocheras_independencia", id);
-                            setDoc(cocheraRef, cocherasData[id], { merge: true });
-                        }
-                        localStorage.setItem("ippa_cocheras_seed_v2", "loaded_33_34_35_38");
-                    } catch (syncErr) {
-                        console.warn("Aviso al sincronizar cocheras iniciales a Firestore:", syncErr);
-                    }
-                }
+            } else {
+                // Si aún no existe en Firebase, inicializarlo con los datos actuales
+                try {
+                    await setDoc(sharedDocRef, {
+                        cocherasMap: JSON.stringify(cocherasData),
+                        ...cocherasData,
+                        updatedAt: new Date().toISOString()
+                    }, { merge: true });
+                } catch (e) {}
             }
 
             try {
@@ -1400,12 +1398,28 @@ function initCocherasListener() {
             renderAllCocherasViews();
             updateCocherasSyncBadge(true);
         }, (err) => {
-            console.warn("Aviso en listener Firestore de Cocheras:", err);
+            console.warn("Aviso en listener Firebase de Cocheras:", err);
             updateCocherasSyncBadge(false);
             renderAllCocherasViews();
         });
+
+        // Intentar escuchar también la colección directa cocheras_independencia en segundo plano si estuviera permitida
+        try {
+            const colRef = collection(db, "cocheras_independencia");
+            onSnapshot(colRef, (snapshot) => {
+                if (!snapshot.empty) {
+                    snapshot.forEach(docSnap => {
+                        const id = docSnap.id;
+                        if (COCHERAS_CONFIG.includes(id)) {
+                            cocherasData[id] = { ...cocherasData[id], ...docSnap.data() };
+                        }
+                    });
+                    renderAllCocherasViews();
+                }
+            }, () => {});
+        } catch (e) {}
     } catch (e) {
-        console.error("Error iniciando escucha de Cocheras en Firestore:", e);
+        console.error("Error iniciando escucha de Cocheras en Firebase:", e);
         updateCocherasSyncBadge(false);
     }
 }
@@ -1626,14 +1640,34 @@ async function saveCochera(id, prefix = "") {
 
     renderAllCocherasViews();
 
+    let savedToFirebase = false;
+
+    // 1. Guardar en documento de Firebase en colección users (users/cocheras_independencia)
+    try {
+        const sharedDocRef = doc(db, "users", "cocheras_independencia");
+        await setDoc(sharedDocRef, {
+            [id]: updated,
+            [`cochera_${id}`]: updated,
+            cocherasMap: JSON.stringify(cocherasData),
+            updatedAt: new Date().toISOString()
+        }, { merge: true });
+        savedToFirebase = true;
+    } catch (primaryErr) {
+        console.warn("Aviso al guardar en users/cocheras_independencia:", primaryErr);
+    }
+
+    // 2. Guardar también en colección dedicada en caso de tener permisos
     try {
         const cocheraDocRef = doc(db, "cocheras_independencia", id);
         await setDoc(cocheraDocRef, updated, { merge: true });
+        savedToFirebase = true;
+    } catch (e) {}
+
+    if (savedToFirebase) {
         showAdminToast(`Cochera ${id} guardada en Firebase`);
         updateCocherasSyncBadge(true);
         return true;
-    } catch (err) {
-        console.error(`Error al guardar Cochera ${id} en Firebase:`, err);
+    } else {
         showAdminToast(`Cochera ${id} guardada localmente`);
         updateCocherasSyncBadge(false);
         return false;
@@ -1667,23 +1701,107 @@ async function clearCochera(id, prefix = "") {
 
     renderAllCocherasViews();
 
+    let clearedInFirebase = false;
+
+    // 1. Guardar vaciado en documento principal de Firebase
+    try {
+        const sharedDocRef = doc(db, "users", "cocheras_independencia");
+        await setDoc(sharedDocRef, {
+            [id]: emptyRecord,
+            [`cochera_${id}`]: emptyRecord,
+            cocherasMap: JSON.stringify(cocherasData),
+            updatedAt: new Date().toISOString()
+        }, { merge: true });
+        clearedInFirebase = true;
+    } catch (e) {}
+
+    // 2. Guardar también en colección secundaria
     try {
         const cocheraDocRef = doc(db, "cocheras_independencia", id);
         await setDoc(cocheraDocRef, emptyRecord, { merge: true });
+        clearedInFirebase = true;
+    } catch (e) {}
+
+    if (clearedInFirebase) {
         showAdminToast(`Cochera ${id} liberada en Firebase`);
         updateCocherasSyncBadge(true);
-    } catch (err) {
-        console.error(`Error al liberar Cochera ${id} en Firebase:`, err);
+    } else {
         showAdminToast(`Cochera ${id} liberada localmente`);
         updateCocherasSyncBadge(false);
     }
 }
 
 async function saveAllCocheras(prefix = "") {
+    showAdminToast("Guardando cocheras en Firebase...");
     for (const id of COCHERAS_CONFIG) {
-        await saveCochera(id, prefix);
+        const vehiculoEl = (prefix && document.getElementById(`${prefix}cochera-vehiculo-${id}`)) ||
+                           document.getElementById(`cochera-vehiculo-${id}`) ||
+                           document.getElementById(`emb-cochera-vehiculo-${id}`);
+        const patenteEl = (prefix && document.getElementById(`${prefix}cochera-patente-${id}`)) ||
+                          document.getElementById(`cochera-patente-${id}`) ||
+                          document.getElementById(`emb-cochera-patente-${id}`);
+        const nombreEl = (prefix && document.getElementById(`${prefix}cochera-nombre-${id}`)) ||
+                         document.getElementById(`cochera-nombre-${id}`) ||
+                         document.getElementById(`emb-cochera-nombre-${id}`);
+        const deptoEl = (prefix && document.getElementById(`${prefix}cochera-depto-${id}`)) ||
+                        document.getElementById(`cochera-depto-${id}`) ||
+                        document.getElementById(`emb-cochera-depto-${id}`);
+        const checkoutEl = (prefix && document.getElementById(`${prefix}cochera-checkout-${id}`)) ||
+                           document.getElementById(`cochera-checkout-${id}`) ||
+                           document.getElementById(`emb-cochera-checkout-${id}`);
+
+        const currentUserIdentifier = currentUserProfile?.displayName || (currentUser?.email ? currentUser.email.split("@")[0] : "Host");
+
+        cocherasData[id] = {
+            id,
+            numero: parseInt(id, 10),
+            vehiculo: (vehiculoEl ? vehiculoEl.value.trim() : (cocherasData[id]?.vehiculo || "")).slice(0, 120),
+            patente: (patenteEl ? patenteEl.value.trim().toUpperCase() : (cocherasData[id]?.patente || "")).slice(0, 30),
+            nombreApellido: (nombreEl ? nombreEl.value.trim() : (cocherasData[id]?.nombreApellido || "")).slice(0, 120),
+            departamento: (deptoEl ? deptoEl.value.trim() : (cocherasData[id]?.departamento || "")).slice(0, 30),
+            fechaCheckout: (checkoutEl ? checkoutEl.value.trim() : (cocherasData[id]?.fechaCheckout || "")).slice(0, 30),
+            updatedAt: new Date().toISOString(),
+            updatedBy: String(currentUserIdentifier).slice(0, 100)
+        };
     }
-    showAdminToast("Todas las cocheras guardadas en Firebase");
+
+    try {
+        localStorage.setItem("ippa_cocheras_independencia", JSON.stringify(cocherasData));
+    } catch (e) {}
+
+    renderAllCocherasViews();
+
+    let allSaved = false;
+
+    // Guardar todo en Firebase users/cocheras_independencia
+    try {
+        const sharedDocRef = doc(db, "users", "cocheras_independencia");
+        await setDoc(sharedDocRef, {
+            cocherasMap: JSON.stringify(cocherasData),
+            ...cocherasData,
+            updatedAt: new Date().toISOString()
+        }, { merge: true });
+        allSaved = true;
+    } catch (e) {
+        console.warn("Aviso guardando todas en users/cocheras_independencia:", e);
+    }
+
+    // Guardar en colección paralela si estuviera permitida
+    for (const id of COCHERAS_CONFIG) {
+        try {
+            const cocheraDocRef = doc(db, "cocheras_independencia", id);
+            await setDoc(cocheraDocRef, cocherasData[id], { merge: true });
+            allSaved = true;
+        } catch (e) {}
+    }
+
+    if (allSaved) {
+        showAdminToast("Todas las cocheras guardadas en Firebase");
+        updateCocherasSyncBadge(true);
+    } else {
+        showAdminToast("Cocheras guardadas localmente");
+        updateCocherasSyncBadge(false);
+    }
 }
 
 function openDrawer() {
