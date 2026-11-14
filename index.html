@@ -477,30 +477,59 @@
 
 
 
-        <!-- Menú desplegable lateral Horarios HSK -->
+        <!-- Menú desplegable lateral Horarios (Host, Mucama y Mantenimiento) -->
         <div id="hsk-schedules" class="hsk-panel-widget">
             <div class="hsk-overlay" id="hsk-overlay" hidden></div>
-            <button type="button" class="hsk-tab-btn" id="hsk-tab-btn" aria-expanded="false" aria-controls="hsk-drawer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                <span>Horarios HSK</span>
-            </button>
+            <div class="schedules-tabs-group" id="schedules-tabs-group">
+                <button type="button" class="hsk-tab-btn tab-btn-host" id="schedule-tab-host-btn" aria-expanded="false" aria-controls="hsk-drawer" title="Ver Horarios Host">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Horario Host</span>
+                </button>
+                <button type="button" class="hsk-tab-btn tab-btn-mucama" id="schedule-tab-mucama-btn" aria-expanded="false" aria-controls="hsk-drawer" title="Ver Horarios Mucamas">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>Horario Mucama</span>
+                </button>
+                <button type="button" class="hsk-tab-btn tab-btn-mantenimiento" id="schedule-tab-mantenimiento-btn" aria-expanded="false" aria-controls="hsk-drawer" title="Ver Horarios Mantenimiento">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                    </svg>
+                    <span>Mantenimiento</span>
+                </button>
+            </div>
             <div class="hsk-drawer" id="hsk-drawer" role="dialog" aria-labelledby="hsk-title" hidden>
                 <div class="hsk-header">
                     <div class="hsk-header-title">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                        <div>
-                            <h2 id="hsk-title">Horarios HSK</h2>
-                            <p>Planilla en tiempo real</p>
+                        <div class="schedules-nav-tabs">
+                            <button type="button" class="schedule-nav-tab is-active" id="nav-tab-host" data-schedule="host">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <span>Host</span>
+                            </button>
+                            <button type="button" class="schedule-nav-tab" id="nav-tab-mucama" data-schedule="mucama">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <span>Mucama</span>
+                            </button>
+                            <button type="button" class="schedule-nav-tab" id="nav-tab-mantenimiento" data-schedule="mantenimiento">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                                </svg>
+                                <span>Mantenimiento</span>
+                            </button>
                         </div>
                     </div>
                     <div class="hsk-header-actions">
@@ -511,7 +540,7 @@
                                 <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
                             </svg>
                         </button>
-                        <a href="https://docs.google.com/spreadsheets/d/1Naz_e6pRDPbjF7iq6O09ClBI-LaLbZDr/edit?gid=544861313#gid=544861313" target="_blank" rel="noopener noreferrer" class="hsk-action-btn" title="Abrir en Google Sheets">
+                        <a id="hsk-external-link" href="https://docs.google.com/spreadsheets/d/1QCDz5184W8TaFTITb0bCv-aSSa357PQv/edit?gid=1765475441#gid=1765475441" target="_blank" rel="noopener noreferrer" class="hsk-action-btn" title="Abrir en Google Sheets">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                 <polyline points="15 3 21 3 21 9"></polyline>
@@ -528,10 +557,29 @@
                 </div>
                 <div class="hsk-iframe-container">
                     <iframe
-                        id="hsk-iframe"
+                        id="hsk-iframe-host"
+                        class="schedule-iframe"
+                        src="about:blank"
+                        data-src="https://docs.google.com/spreadsheets/d/1QCDz5184W8TaFTITb0bCv-aSSa357PQv/preview?gid=1765475441&rm=minimal"
+                        title="Horarios Host Planilla"
+                        loading="lazy">
+                    </iframe>
+                    <iframe
+                        id="hsk-iframe-mucama"
+                        class="schedule-iframe"
                         src="about:blank"
                         data-src="https://docs.google.com/spreadsheets/d/1Naz_e6pRDPbjF7iq6O09ClBI-LaLbZDr/preview?gid=544861313&rm=minimal"
-                        title="Horarios HSK Planilla"
+                        title="Horarios Mucama Planilla"
+                        style="display: none;"
+                        loading="lazy">
+                    </iframe>
+                    <iframe
+                        id="hsk-iframe-mantenimiento"
+                        class="schedule-iframe"
+                        src="about:blank"
+                        data-src="https://docs.google.com/spreadsheets/d/1_7xYw6VC32nWxUNE5LlbX7I9V7bZ62Lk/preview?gid=689127682&rm=minimal"
+                        title="Horarios Mantenimiento Planilla"
+                        style="display: none;"
                         loading="lazy">
                     </iframe>
                 </div>

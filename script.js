@@ -45,7 +45,7 @@
                                     ['Cabify Host', '<a href="https://cabify.com/app/auth/login" target="_blank">Cabify Host</a>', 'host@ippa-hoteles.com', 'IPHoteles2026**'],
                                     ['TTlock', '<a href="https://lock2.ttlock.com/" target="_blank">TTlock Web</a>', 'asistente.operaciones@ippa-hoteles.com', 'IPHoteles2030!!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'ippahost', 'UC6-mWAdpiQxSb5'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'ippahost', 'Holasoyedy2026!'],
                                     ['BookiP', '<a href="https://prd-iph.opti-hospitalitysuite.com/auth/login/login.php" target="_blank">Login BookiP</a>', 'hostippa', 'Noviembre2026!'],
                                     ['Booking', '<a href="https://account.booking.com/sign-in?op_token=EgVvYXV0aCJHChQ2Wjcyb0hPZDM2Tm43emszcGlyaBIJYXV0aG9yaXplGhpodHRwczovL2FkbWluLmJvb2tpbmcuY29tLyoCe31CBGNvZGUqEjCb87nq2-8mOgBCAFjOvJevBg" target="_blank">Login Booking</a>', 'ippahost', 'IPHoteles2025!!'],
                                     ['Expedia', '<a href="https://www.expediapartnercentral.com/Account/Logon?signedOff=true" target="_blank">Login Expedia</a>', 'host@ippa-hoteles.com', 'Argentina2026!'],
@@ -97,7 +97,7 @@
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
                                     ['Mail Baires ','-', 'host.baires@ippa-hoteles.com', 'IPHoteles2025!'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'ippahost', 'UC6-mWAdpiQxSb5'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'ippahost', 'Holasoyedy2026!'],
                                 ]
                             },
                             {
@@ -845,7 +845,7 @@ checklist: {
                 ['8', '14H', '5283'],
                 ['9', '13F', '1786'],
                 ['10', '14G', '6481'],
-                ['11', '14I', '5287'],
+                ['11', '14I', '0000'],
                 ['12', 'Extra', '3623'],
             ]
         }
@@ -881,7 +881,7 @@ checklist: {
                                 name: 'Tecnología',
                                 data: [
                                     ['Nombre', 'Link', 'Usuario', 'Contraseña'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'ippahost', 'UC6-mWAdpiQxSb5']
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'ippahost', 'Holasoyedy2026!']
                                 ]
                             },
                             {
@@ -980,7 +980,7 @@ checklist: {
                                     ['Mail','-', 'host.mileniasoho@ippa-hoteles.com', 'IPHoteles2024'],
 ['Tecnolav', '<a href="https://clientes.tecnolav.com.ar" target="_blank">Login Tecnolav</a>', 'host.milenia@ippa-hoteles.com', 'Milenia2025'],
                                     ['Trello', '<a href="https://id.atlassian.com/login?application=trello&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback%3Fdisplay%3DeyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%253D%253D&display=eyJ2ZXJpZmljYXRpb25TdHJhdGVneSI6InNvZnQifQ%3D%3D" target="_blank">Login Trello</a>', 'host.filiberto@ippa-hoteles.com', 'IPHoteles2024'],
-                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'ippahost', 'UC6-mWAdpiQxSb5'],
+                                    ['Roomcloud Host', '<a href="https://secure.roomcloud.net/be/owners_area/index.jsp" target="_blank">Login RoomCloud</a>', 'ippahost', 'Holasoyedy2026!'],
                                    
                                     ['We Travel', '<a href="https://www.wetravel.com/?utm_source=google&utm_medium=cpc&utm_campaign=23102652127-186858068379&utm_content=778068413481-wetravel&utm_term=wetravel&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8913619154&hsa_cam=23102652127&hsa_grp=186858068379&hsa_ad=778068413481&hsa_src=g&hsa_tgt=kwd-372105183025&hsa_kw=wetravel&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=23102652127&gbraid=0AAAAAoi4PsPT9gN2QA3hdDwk-6ARGZmL_&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xPRLZ8haCw3CPua-emVmxcJbu2ewn1j3fy6lnq2v7pk8IhUAnZyXzQaAihwEALw_wcB" target="_blank">Login We travel</a>', 'host.insoho@ippa-hoteles.com', 'InSoho2025'],
 
@@ -1988,36 +1988,119 @@ function showSubsection(hotelId, subsectionId) {
 
 (function initHskSchedulesWidget() {
     const root = document.getElementById('hsk-schedules');
-    const toggle = document.getElementById('hsk-tab-btn');
+    const tabHostBtn = document.getElementById('schedule-tab-host-btn');
+    const tabMucamaBtn = document.getElementById('schedule-tab-mucama-btn');
+    const tabMantenimientoBtn = document.getElementById('schedule-tab-mantenimiento-btn');
     const closeBtn = document.getElementById('hsk-close-btn');
     const overlay = document.getElementById('hsk-overlay');
     const drawer = document.getElementById('hsk-drawer');
-    const iframe = document.getElementById('hsk-iframe');
     const refreshBtn = document.getElementById('hsk-refresh-btn');
+    const externalLink = document.getElementById('hsk-external-link');
+    const navTabHost = document.getElementById('nav-tab-host');
+    const navTabMucama = document.getElementById('nav-tab-mucama');
+    const navTabMantenimiento = document.getElementById('nav-tab-mantenimiento');
+    const iframeHost = document.getElementById('hsk-iframe-host');
+    const iframeMucama = document.getElementById('hsk-iframe-mucama');
+    const iframeMantenimiento = document.getElementById('hsk-iframe-mantenimiento');
 
-    if (!root || !toggle || !drawer || !iframe) return;
+    if (!root || !drawer) return;
 
-    function setOpen(open) {
-        root.classList.toggle('is-open', open);
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        drawer.hidden = !open;
-        if (overlay) overlay.hidden = !open;
+    const urls = {
+        host: {
+            title: 'Horarios Host',
+            edit: "https://docs.google.com/spreadsheets/d/1QCDz5184W8TaFTITb0bCv-aSSa357PQv/edit?gid=1765475441#gid=1765475441",
+            preview: "https://docs.google.com/spreadsheets/d/1QCDz5184W8TaFTITb0bCv-aSSa357PQv/preview?gid=1765475441&rm=minimal"
+        },
+        mucama: {
+            title: 'Horarios Mucama',
+            edit: "https://docs.google.com/spreadsheets/d/1Naz_e6pRDPbjF7iq6O09ClBI-LaLbZDr/edit?gid=544861313#gid=544861313",
+            preview: "https://docs.google.com/spreadsheets/d/1Naz_e6pRDPbjF7iq6O09ClBI-LaLbZDr/preview?gid=544861313&rm=minimal"
+        },
+        mantenimiento: {
+            title: 'Horarios Mantenimiento',
+            edit: "https://docs.google.com/spreadsheets/d/1_7xYw6VC32nWxUNE5LlbX7I9V7bZ62Lk/edit?gid=689127682#gid=689127682",
+            preview: "https://docs.google.com/spreadsheets/d/1_7xYw6VC32nWxUNE5LlbX7I9V7bZ62Lk/preview?gid=689127682&rm=minimal"
+        }
+    };
 
-        // Lazy load iframe al abrir por primera vez
-        if (open && iframe.getAttribute('src') === 'about:blank') {
-            const src = iframe.getAttribute('data-src');
-            if (src) iframe.src = src;
+    const iframes = {
+        host: iframeHost,
+        mucama: iframeMucama,
+        mantenimiento: iframeMantenimiento
+    };
+
+    const navTabs = {
+        host: navTabHost,
+        mucama: navTabMucama,
+        mantenimiento: navTabMantenimiento
+    };
+
+    let currentSchedule = 'host';
+
+    function switchSchedule(type) {
+        currentSchedule = type;
+
+        // Alternar estados activos de pestañas
+        Object.keys(navTabs).forEach((key) => {
+            if (navTabs[key]) {
+                navTabs[key].classList.toggle('is-active', key === type);
+            }
+        });
+
+        // Alternar visualización y lazy loading de iframes
+        Object.keys(iframes).forEach((key) => {
+            const ifr = iframes[key];
+            if (ifr) {
+                if (key === type) {
+                    ifr.style.display = 'block';
+                    if (ifr.getAttribute('src') === 'about:blank') {
+                        const src = ifr.getAttribute('data-src');
+                        if (src) ifr.src = src;
+                    }
+                } else {
+                    ifr.style.display = 'none';
+                }
+            }
+        });
+
+        if (externalLink && urls[type]) {
+            externalLink.href = urls[type].edit;
+            externalLink.title = `Abrir ${urls[type].title} en Google Sheets`;
         }
     }
 
-    toggle.addEventListener('click', () => setOpen(true));
+    function setOpen(open, type) {
+        root.classList.toggle('is-open', open);
+        if (tabHostBtn) tabHostBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (tabMucamaBtn) tabMucamaBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (tabMantenimientoBtn) tabMantenimientoBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        drawer.hidden = !open;
+        if (overlay) overlay.hidden = !open;
+
+        if (open) {
+            if (type) switchSchedule(type);
+            else switchSchedule(currentSchedule);
+        }
+    }
+
+    if (tabHostBtn) tabHostBtn.addEventListener('click', () => setOpen(true, 'host'));
+    if (tabMucamaBtn) tabMucamaBtn.addEventListener('click', () => setOpen(true, 'mucama'));
+    if (tabMantenimientoBtn) tabMantenimientoBtn.addEventListener('click', () => setOpen(true, 'mantenimiento'));
+
+    if (navTabHost) navTabHost.addEventListener('click', () => switchSchedule('host'));
+    if (navTabMucama) navTabMucama.addEventListener('click', () => switchSchedule('mucama'));
+    if (navTabMantenimiento) navTabMantenimiento.addEventListener('click', () => switchSchedule('mantenimiento'));
+
     if (closeBtn) closeBtn.addEventListener('click', () => setOpen(false));
     if (overlay) overlay.addEventListener('click', () => setOpen(false));
 
     if (refreshBtn) {
         refreshBtn.addEventListener('click', () => {
-            const baseSrc = iframe.getAttribute('data-src') || iframe.src;
-            iframe.src = baseSrc;
+            const activeIframe = iframes[currentSchedule];
+            if (activeIframe) {
+                const baseSrc = activeIframe.getAttribute('data-src') || activeIframe.src;
+                activeIframe.src = baseSrc;
+            }
         });
     }
 

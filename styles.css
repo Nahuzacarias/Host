@@ -1765,7 +1765,7 @@ a:hover { color: #ffffff; text-decoration: underline; }
   .overlay { display: none !important; }
 }
 
-/* --- HORARIOS HSK (Panel desplegable derecho) --- */
+/* --- HORARIOS HOST Y MUCAMA (Panel desplegable derecho) --- */
 .hsk-overlay {
   position: fixed;
   inset: 0;
@@ -1779,15 +1779,28 @@ a:hover { color: #ffffff; text-decoration: underline; }
   display: none !important;
 }
 
-.hsk-tab-btn {
+.schedules-tabs-group {
   position: fixed;
   top: 50%;
   right: 0;
+  transform: translateY(-50%);
   z-index: 130;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.hsk-panel-widget.is-open .schedules-tabs-group,
+.hsk-panel-widget.is-open .hsk-tab-btn {
+  display: none !important;
+}
+
+.hsk-tab-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 10px;
+  padding: 13px 10px;
   border: 1px solid #3b82f6;
   border-right: 0;
   border-radius: 12px 0 0 12px;
@@ -1796,14 +1809,14 @@ a:hover { color: #ffffff; text-decoration: underline; }
   cursor: pointer;
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  transform: translateY(-50%) rotate(180deg);
+  transform: rotate(180deg);
   letter-spacing: 0.08em;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   font-family: inherit;
   text-transform: uppercase;
   box-shadow: -4px 0 16px rgba(29, 78, 216, 0.35);
-  transition: background 0.2s, padding-right 0.2s, transform 0.2s;
+  transition: background 0.2s, padding-right 0.2s, box-shadow 0.2s;
 }
 
 .hsk-tab-btn:hover {
@@ -1811,13 +1824,71 @@ a:hover { color: #ffffff; text-decoration: underline; }
   padding-right: 14px;
 }
 
+.hsk-tab-btn.tab-btn-mucama {
+  background: #0f766e;
+  border-color: #14b8a6;
+  box-shadow: -4px 0 16px rgba(15, 118, 110, 0.35);
+}
+
+.hsk-tab-btn.tab-btn-mucama:hover {
+  background: #0d9488;
+}
+
+.hsk-tab-btn.tab-btn-mantenimiento {
+  background: #b45309;
+  border-color: #f59e0b;
+  box-shadow: -4px 0 16px rgba(180, 83, 9, 0.35);
+}
+
+.hsk-tab-btn.tab-btn-mantenimiento:hover {
+  background: #d97706;
+}
+
 .hsk-tab-btn svg {
   transform: rotate(180deg);
   flex-shrink: 0;
 }
 
-.hsk-panel-widget.is-open .hsk-tab-btn {
-  display: none;
+/* Tabs switcher inside the drawer header */
+.schedules-nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #0b1120;
+  padding: 4px;
+  border-radius: 10px;
+  border: 1px solid #1e293b;
+}
+
+.schedule-nav-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.schedule-nav-tab:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.schedule-nav-tab.is-active {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+}
+
+.schedule-nav-tab svg {
+  flex-shrink: 0;
 }
 
 .hsk-drawer {
